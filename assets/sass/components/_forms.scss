@@ -1,0 +1,12 @@
+@use '../palette' as palette;
+
+.form-select {
+  // From select-background.svg
+  // https://yoksel.github.io/url-encoder/
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' style='enable-background:new 0 0 64 64' xml:space='preserve'%3E%3Cpath style='fill:%2314e2a8' d='M0 0h64v64H0z'/%3E%3Cpath d='M32.5 40 23 28h19l-9.5 12z' style='fill:%2303303e'/%3E%3Cpath style='fill:%230a6e74' d='M0 0h1v64H0z'/%3E%3C/svg%3E");
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 4rem;
+  color: palette.$color-5;
+  padding-right: 4rem;
+}

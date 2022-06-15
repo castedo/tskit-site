@@ -1,0 +1,202 @@
+@use '../palette' as palette;
+
+.card {
+  align-items: flex-start;
+  background-color: palette.$brand-color-8;
+  border-radius: 5px;
+  box-shadow: $box-shadow-1;
+  color: palette.$color-1;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - #{$card-margin-bottom-mobile});
+  margin-bottom: $card-margin-bottom-mobile;
+  padding: 2rem 2.5rem;
+  position: relative;
+  @include media-breakpoint-up(xl) {
+    height: calc(100% - #{$card-margin-bottom-desktop});
+    margin-bottom: $card-margin-bottom-desktop;
+    padding: 3.75rem;
+  }
+
+  &:hover,
+  &:focus {
+    color: palette.$color-1;
+  }
+}
+
+.card--type-2 {
+  border: 1px solid palette.$brand-color-9;
+  @include media-breakpoint-up(xl) {
+    padding: 3rem 3.75rem 2rem;
+  }
+
+  .card__heading {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin-bottom: 1.25em;
+  }
+
+  .card__text {
+    color: palette.$color-1;
+    margin-bottom: 2.5em;
+  }
+
+  &:hover,
+  &:focus {
+    .link--type-1 {
+      @include hover-style-link--type-1();
+    }
+  }
+}
+
+.card--type-3 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  @include media-breakpoint-up(xl) {
+    padding: 4rem 2rem 2rem;
+  }
+
+  .card__image {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin: -2rem -2rem 3rem;
+    max-width: none;
+    width: calc(100% + 2rem + 2rem);
+    @include media-breakpoint-up(xl) {
+      margin: -4rem -2rem 3rem;
+      width: calc(100% + 2rem + 2rem);
+    }
+  }
+
+  .wysiwyg {
+    p {
+      font-size: 1rem;
+    }
+
+    a {
+      color: palette.$brand-color-2;
+    }
+  }
+
+  .video-trigger {
+    margin: 0.25rem 0 1.75rem;
+    max-width: 286px;
+  }
+}
+
+.card--is-link {
+  &:hover,
+  &:focus {
+    .link--type-1 {
+      @include hover-style-link--type-1();
+    }
+  }
+}
+
+.card__heading {
+  color: palette.$color-1;
+  margin-bottom: 0.5em;
+  @include media-breakpoint-up(xl) {
+    margin-bottom: 1em;
+  }
+}
+
+// Heading that's bottom-aligned because it could be a logo or just text, e.g. ms prime logo
+.card__heading--type-2 {
+  align-items: flex-end;
+  display: flex;
+  min-height: $card-type-2-min-height;
+  @include media-breakpoint-up(md) {
+    margin-top: -0.5rem;
+  }
+}
+
+// Avatar heading (e.g. heading has details from Github profile)
+.card__heading--type-3 {
+  font-size: 1.25rem;
+
+  .card__heading__link {
+    display: inline-block;
+    padding: 0.4em 0 0.4em 3rem;
+    position: relative;
+
+    &:hover,
+    &:focus {
+      .card__heading__subtext {
+        color: palette.$color-1;
+        text-decoration-color: transparent;
+      }
+    }
+  }
+}
+
+.card__heading__logo {
+  height: $card-type-2-min-height;
+  max-width: 110px;
+}
+
+.card__heading__avatar {
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card__heading__text {
+  color: palette.$color-1;
+  display: block;
+}
+
+.card__heading__subtext {
+  color: palette.$color-9;
+  font-family: $font-family-sans-serif-2;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+.card__metadata {
+  color: palette.$brand-color-2;
+  margin-bottom: 2rem;
+
+  &:last-of-type {
+    margin: 0.5rem 0 0;
+  }
+}
+
+.card__metadata__heading,
+.card__metadate__timestamp {
+  color: palette.$color-11;
+}
+
+.card__category {
+  border-bottom: 2px solid palette.$brand-color-2;
+  color: palette.$color-1;
+  display: inline-block;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-right: 0.1rem;
+  padding-bottom: 0.2rem;
+
+  &::after {
+    content: ',';
+  }
+
+  &:last-of-type {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.card__tag {
+  background-color: palette.$brand-color-6;
+  border-radius: 5px;
+  color: palette.$color-1;
+  display: inline-block;
+  font-size: 0.875rem;
+  margin: 0 0.2rem 0.4rem 0;
+  padding: 0.35em 0.75em 0.55em;
+}

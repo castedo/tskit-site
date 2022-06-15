@@ -1,0 +1,1 @@
+./node_modules/tilde-sass/dist/cli.js --file assets/sass/style.scss --outFile assets/css

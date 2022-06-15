@@ -1,0 +1,145 @@
+//
+// Speak to your designer to get the initial typography settings for the project!!!
+//
+// Use a tool like https://type-scale.com/ to generate the required CSS and then modify or override it.
+// Also, see how ~bootstrap/scss/reboot and ~bootstrap/scss/type set up initial typography.
+// Style the common typographical elements here, targeting by HTML tag. Elsewhere, please add and target classes.
+
+// Rothwood
+// font-family: rothwood, serif;
+// Book
+// font-weight: 400;
+// Bold
+// font-weight: 700;
+
+// Sofia Pro
+// font-family: sofia-pro, sans-serif;
+// Light
+// font-weight: 300;
+// Regular
+// font-weight: 400;
+// Medium
+// font-weight: 500;
+// Bold
+// font-weight: 700;
+
+@use 'palette' as palette;
+
+$font-family-sans-serif: rothwood, serif;
+$font-family-sans-serif-2: sofia-pro, sans-serif;
+
+::-moz-selection {
+  background-color: palette.$brand-color-1;
+  color: palette.$color-1;
+}
+
+::selection {
+  background-color: palette.$brand-color-1;
+  color: palette.$color-1;
+}
+
+html {
+  font-size: 100%; // 16px
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: palette.$brand-color-7;
+  color: palette.$color-1;
+  font-family: $font-family-sans-serif-2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: palette.$brand-color-2;
+  font-family: $font-family-sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  word-break: break-word;
+}
+
+h1 {
+  // 48/52
+  font-size: 3rem;
+  line-height: 1.083;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    // 60/72
+    font-size: 3.75rem;
+    line-height: 1.2;
+  }
+}
+
+h2 {
+  // 40/48
+  font-size: 2.5rem;
+  line-height: 1.2;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    // 48/52
+    font-size: 3rem;
+    line-height: 1.083;
+  }
+}
+
+h3 {
+  // 32/44
+  font-size: 2rem;
+  line-height: 1.375;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    // 40/56
+    font-size: 2.5rem;
+    line-height: 1.4;
+  }
+}
+
+h4 {
+  // 28/39
+  font-size: 1.75rem;
+  line-height: 1.392;
+}
+
+h5 {
+  // 22/28
+  font-size: 1.375rem;
+  line-height: 1.272;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    // 24/28
+    font-size: 1.5rem;
+    line-height: 1.166;
+  }
+}
+
+h6 {
+  // 20/28
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+p {
+  display: block;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.25rem;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    font-size: 1.25rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.2s ease-out;
+}
+
+small, .small {
+  font-size: 0.75rem;
+}
+
+b,
+strong {
+  font-weight: 700;
+}

@@ -1,0 +1,9 @@
+@mixin hover-style-link--type-1 {
+  .link__text {
+    transform: translateX($link-type-1-x-anim-amount);
+  }
+
+  &::before {
+    transform: scaleX(2);
+  }
+}

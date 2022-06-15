@@ -1,0 +1,290 @@
+@use '../palette' as palette;
+
+.section {
+  position: relative;
+  padding-bottom: $section-gap-bottom-mobile;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    padding-bottom: $section-gap-bottom-desktop;
+  }
+}
+
+.section--cards {
+  padding-bottom: $section-gap-bottom-mobile - $card-margin-bottom-mobile;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    padding-bottom: $section-gap-bottom-desktop - $card-margin-bottom-desktop;
+  }
+}
+
+.section--cards--type-2 {
+  background-color: palette.$brand-color-8;
+  @include media-breakpoint-up(sm) {
+    background-image: url('../../icons/hero-background-2.svg');
+    background-position: 100% bottom;
+    background-repeat: no-repeat;
+    background-size: 560px 1830px;
+  }
+
+  .section__heading {
+    color: palette.$color-1;
+  }
+}
+
+.section--filters,
+.section--code-and-text {
+  padding: calc(#{$section-gap-bottom-mobile} - 1rem) 0;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    padding: calc(#{$section-gap-bottom-desktop} - 2rem) 0;
+  }
+}
+
+.section--code-and-text {
+  .section__heading {
+    margin-bottom: 0.5em;
+  }
+
+  .highlight,
+  pre,
+  code {
+    @include media-breakpoint-up(md) {
+      height: calc(100% - 1rem);
+    }
+  }
+}
+
+.section--list {
+  .section__heading {
+    color: palette.$color-1;
+    margin-bottom: 0.75em;
+  }
+
+  .section__content {
+    padding: 1.75rem;
+    @include media-breakpoint-up(lg) {
+      padding: 2.5rem 2.75rem;
+    }
+  }
+
+  .list {
+    @include media-breakpoint-up(md) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .list__item {
+    @include media-breakpoint-up(md) {
+      width: 50%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      width: 33%;
+      &:nth-of-type(2) {
+        width: 34%;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: 25%;
+      &:nth-of-type(2) {
+        width: 25%;
+      }
+    }
+  }
+}
+
+.section--icon-links-list {
+  .list {
+    &:hover,
+    &:focus {
+      .link + .icon {
+        opacity: 0;
+      }
+    }
+  }
+
+  .list__item {
+    &:first-of-type {
+      .icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  .icon {
+    display: none;
+    @include media-breakpoint-up(md) {
+      display: block;
+      overflow: visible;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      // Centre inside col-md-6 offset-md-5
+      left: calc((41.66666667% / 2) + (#{$grid-gutter-width} / 2));
+      transform: translateX(-50%);
+      // Max-width to fit inside the narrowest that offset-md-5 can get
+      max-width: 260px;
+      transition: opacity 0.3s ease-out;
+      @include media-breakpoint-up(md) {
+        max-width: 320px;
+      }
+    }
+  }
+
+  // Magic numbers here are to try to align all four SVGs as closely as possible to work around their own
+  // sizing discrepancies. At least, we can keep the DNA spirals aligned as the user hovers over the links.
+  .icon--population-genetics-research {
+    @include media-breakpoint-up(md) {
+      transform: translate(-50%, 8%);
+    }
+  }
+
+  .icon--statistical-genetics-research {
+    @include media-breakpoint-up(md) {
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .icon--phylogenetics {
+    @include media-breakpoint-up(md) {
+      transform: translate(-50%, 7.5%);
+    }
+  }
+
+  .icon--use-tskit-in-your-app {
+    @include media-breakpoint-up(md) {
+      transform: translate(-50%, 40%);
+    }
+  }
+
+  .list__item .link {
+    &:hover,
+    &:focus {
+      & + .icon {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.section--panels {
+  padding-top: 2rem;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    padding-top: 3rem;
+  }
+
+  .section__heading {
+    margin-bottom: 0.6em;
+  }
+
+  .section__content {
+    margin-top: 2rem;
+    padding: 2rem 0;
+    @include media-breakpoint-up($nav-collapse-breakpoint) {
+      margin-top: 3.75rem;
+      padding: 6rem 0;
+    }
+
+    .icon {
+      display: block;
+      overflow: visible;
+      margin: 2rem auto;
+      max-width: 60%;
+      @include media-breakpoint-up(sm) {
+        margin: 2rem 0;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    .icon--population-genetics-research {
+      @include media-breakpoint-up(sm) {
+        max-width: 240px;
+        max-height: 240px;
+      }
+    }
+
+    .icon--statistical-genetics-research {
+      @include media-breakpoint-up(sm) {
+        max-width: 240px;
+        max-height: 258px;
+      }
+    }
+
+    .icon--phylogenetics {
+      @include media-breakpoint-up(sm) {
+        max-width: 240px;
+        max-height: 240px;
+      }
+    }
+
+    .icon--use-tskit-in-your-app {
+      @include media-breakpoint-up(sm) {
+        max-width: 368px;
+        max-height: 218px;
+      }
+    }
+
+    .icon--questions,
+    .icon--standards {
+      filter: drop-shadow(0 20px 36px palette.$color-10);
+      @include media-breakpoint-up(sm) {
+        max-width: 254px;
+        max-height: 204px;
+      }
+    }
+
+    .icon--discussion {
+      @include media-breakpoint-up(sm) {
+        max-width: 216px;
+        max-height: 204px;
+      }
+    }
+  }
+
+  .wysiwyg + .link {
+    margin-top: 1.75rem;
+  }
+
+  .link:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+// Main body of any general page or News article
+.section--general-content {
+  .section__heading {
+    margin-bottom: 0.75em;
+  }
+}
+
+.section__heading {
+  margin-bottom: 1em;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    margin-bottom: 1.5em;
+  }
+}
+
+.section__content {
+  background-color: palette.$brand-color-8;
+  box-shadow: $box-shadow-1;
+}
+
+.section__position-anchor {
+  position: relative;
+}
+
+.section__image {
+  border-radius: 5px;
+  margin: 1rem auto 2.5rem;
+}
+
+// Any styling overrides the are required based on a section's position in the page
+.page-content {
+  & > .section:not(.section--filters) {
+    padding: calc(#{$section-gap-bottom-mobile} - 1rem) 0;
+    @include media-breakpoint-up($nav-collapse-breakpoint) {
+      padding: calc(#{$section-gap-bottom-desktop} - 2rem) 0;
+    }
+  }
+}

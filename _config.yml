@@ -29,6 +29,9 @@ plugins:
   - jekyll-feed
   - jekyll-font-awesome-sass
 
+sass:
+  sass_dir: _sass
+
 # TODO turn on stricter
 # liquid:
 #   error_mode: warn

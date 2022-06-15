@@ -1,0 +1,46 @@
+@use '../palette' as palette;
+
+.page-heading {
+  box-shadow: $box-shadow-2;
+  padding: 1rem 0 2rem;
+  position: relative;
+  z-index: 1;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    padding: 3rem 0;
+  }
+}
+
+.page-heading--type-2 {
+  background-color: palette.$brand-color-2;
+  background-image: url('../../icons/page-header-type-2-background.svg');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 1366px auto;
+  box-shadow: $box-shadow-2;
+  padding: 1rem 0 1.25rem;
+  z-index: 1;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    padding: 2rem 0 2.1rem;
+  }
+
+  .page-heading__text {
+    margin-bottom: 0;
+  }
+}
+
+.page-heading__text {
+  color: palette.$brand-color-6;
+  // Enough line height that each line isn't cut off by any background colour
+  line-height: 1.40;
+}
+
+.page-heading__text__highlight {
+  background-color: palette.$brand-color-2;
+  border-right: 8px solid palette.$brand-color-8;
+  color: palette.$color-1;
+  margin-right: 8px;
+  padding: 0 0.1em 0;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    padding: 0.1em 0.25em 0.15em;
+  }
+}

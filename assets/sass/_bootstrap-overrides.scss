@@ -1,0 +1,29 @@
+@use 'palette' as palette;
+
+// Check ~bootstrap/scss/_variables.scss to see what you can override in this file.
+
+$grid-gutter-width: 2.5rem;
+
+// Add an xs container max width.
+//
+// IMPORTANT: See src/Images.php, DO NOT change the values here without changing them there!
+//
+// Stop container getting wider at xs than it can at sm (which it would at 540px to 575px screen width).
+// Use 538px for xs not 540px, otherwise the _assert-ascending mixin would error.
+$container-max-widths: (
+    xs: 538px,
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
+);
+
+$enable-smooth-scroll: false;
+
+$btn-border-radius: 0;
+
+$input-border-color: palette.$brand-color-5;
+$input-focus-border-color: palette.$brand-color-5;
+
+$input-padding-y-lg: 0.88rem;

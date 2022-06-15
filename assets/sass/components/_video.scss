@@ -1,0 +1,68 @@
+@use '../palette' as palette;
+
+.video-trigger {
+  // See also: .card--type-3
+  display: block;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.3s ease-out, border-color 0.3s ease-out;
+  }
+
+  &::before {
+    height: 0;
+    width: 0;
+    border-top: 1rem solid transparent;
+    border-left: 1.75rem solid palette.$color-1;
+    border-bottom: 1rem solid transparent;
+    margin-left: 0.25rem;
+    z-index: 2;
+  }
+
+  &::after {
+    background-color: palette.$brand-color-2;
+    border-radius: 100%;
+    height: 5.25rem;
+    opacity: 0.8;
+    width: 5.25rem;
+    z-index: 1;
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      border-left-color: palette.$brand-color-9;
+    }
+
+    .video-trigger__image-wrapper {
+      &::after {
+        transform: translate(-50%, -50%) scaleX(1);
+        transform-origin: left top;
+      }
+    }
+  }
+}
+
+.video-trigger__image-wrapper {
+  display: block;
+  position: relative;
+
+  .img-fluid {
+    border-radius: 5px;
+  }
+
+  &::after {
+    height: 6.25rem;
+    width: 6.25rem;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(0);
+    z-index: 0;
+  }
+}

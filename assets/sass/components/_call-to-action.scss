@@ -1,0 +1,89 @@
+@use '../palette' as palette;
+
+.call-to-action {
+  position: relative;
+}
+
+.call-to-action--type-1 {
+  &::before {
+    background-color: palette.$brand-color-2;
+    background-image: url('../../icons/hero-background-1.svg');
+    background-position: calc(100% - 412px) 0;
+    background-repeat: no-repeat;
+    background-size: 560px 1187px;
+    content: '';
+    height: calc((100% - #{$section-gap-bottom-mobile}) / 2);
+    position: absolute;
+    inset: 0 0 auto 0;
+    @include media-breakpoint-up($nav-collapse-breakpoint) {
+      height: calc((100% - #{$section-gap-bottom-desktop}) / 2);
+    }
+  }
+}
+
+// See also: _section.scss
+.call-to-action--type-2 {
+  background-color: palette.$brand-color-2;
+  background-image: url('../../icons/cta-type-2-background.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  padding: calc(#{$section-gap-bottom-mobile} - 1rem) 0 calc(#{$section-gap-bottom-mobile} + 1rem);
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    padding: calc(#{$section-gap-bottom-desktop} - 1rem) 0 calc(#{$section-gap-bottom-desktop} + 2rem);
+  }
+  @include media-breakpoint-up(xl) {
+    background-size: 1366px auto;
+  }
+
+  .call-to-action__content {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .call-to-action__heading,
+  .call-to-action__text {
+    color: palette.$brand-color-8;
+  }
+
+  .call-to-action__heading {
+    @include media-breakpoint-up($nav-collapse-breakpoint) {
+      line-height: 1.5;
+    }
+  }
+}
+
+.call-to-action__content {
+  background-color: palette.$brand-color-8;
+  border-radius: 5px;
+  box-shadow: $box-shadow-1;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    padding: 4rem 6rem;
+  }
+}
+
+.call-to-action__heading {
+  color: palette.$color-1;
+
+  & + .btn {
+    margin-top: 2.5rem;
+  }
+}
+
+.call-to-action__text {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 1.5em;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    font-size: 1.75rem;
+    line-height: 1.428;
+  }
+
+  &:only-of-type {
+    margin-bottom: 2em;
+  }
+}

@@ -1,0 +1,50 @@
+@use '../palette' as palette;
+
+.footer {
+  background-color: palette.$brand-color-6;
+  margin-top: auto;
+  padding: 2.5rem 0 5rem;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    padding: 7rem 0 8rem;
+  }
+
+  .list {
+    @include media-breakpoint-up($nav-collapse-breakpoint) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .list__item {
+    @include media-breakpoint-up($nav-collapse-breakpoint) {
+      width: 50%;
+    }
+  }
+}
+
+.footer__logo {
+  display: inline-block;
+
+  .icon--logo {
+    max-width: 100%;
+    width: 162px;
+    height: auto;
+
+    @include media-breakpoint-up($nav-collapse-breakpoint) {
+      width: 274px;
+    }
+
+    // Logo's lettering
+    .logo-st0 {
+      fill: palette.$color-1;
+    }
+  }
+}
+
+.footer__heading {
+  color: palette.$color-1;
+  margin: 4rem 0 2.5rem;
+  @include media-breakpoint-up(md) {
+    margin: 1.75rem 0 2.5rem;
+  }
+}

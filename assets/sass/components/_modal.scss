@@ -1,0 +1,38 @@
+@use '../palette' as palette;
+
+.modal {
+  // This is also styled with .navbar-toggler, hence higher specificity here
+  .modal-close {
+    appearance: none;
+    background-color: transparent;
+    position: absolute;
+    top: -3.5rem;
+    right: 0;
+    left: auto;
+    @include media-breakpoint-up($nav-collapse-breakpoint) {
+      top: 0;
+      right: auto;
+      left: calc(100% + 1rem);
+    }
+
+    .navbar-toggler-icon {
+      background-color: palette.$color-1;
+    }
+
+    &:hover,
+    &:focus {
+      .navbar-toggler-icon {
+        background-color: palette.$brand-color-1;
+      }
+    }
+  }
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-content {
+  background-color: palette.$color-2;
+  border-radius: 0;
+}

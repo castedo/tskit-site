@@ -1,0 +1,15 @@
+@use 'palette' as palette;
+
+$nav-collapse-breakpoint: lg;
+
+$section-gap-bottom-mobile: 5rem;
+$section-gap-bottom-desktop: 7.5rem;
+
+$card-margin-bottom-mobile: 2.5rem;
+$card-margin-bottom-desktop: 3rem;
+$card-type-2-min-height: 52px;
+
+$box-shadow-1: 0 1.25rem 2.25rem palette.$color-3;
+$box-shadow-2: 0 6px 6px palette.$color-4;
+
+$link-type-1-x-anim-amount: 1.5rem;

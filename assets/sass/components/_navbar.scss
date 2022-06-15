@@ -1,0 +1,159 @@
+@use 'sass:math';
+@use '../palette' as palette;
+
+.navbar {
+  box-shadow: $box-shadow-2;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+
+  .home & {
+    box-shadow: none;
+  }
+
+  & > .container {
+    @include media-breakpoint-up($nav-collapse-breakpoint) {
+      align-items: flex-end;
+    }
+  }
+}
+
+.navbar-brand {
+  margin: 1.25rem 0 1.75rem;
+  padding: 0;
+
+  .icon--logo {
+    height: 50px;
+    width: 63px;
+
+    @include media-breakpoint-up($nav-collapse-breakpoint) {
+      height: 68px;
+      width: 85px;
+    }
+  }
+}
+
+.navbar-nav {
+  margin-left: auto;
+  margin-bottom: 1rem;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    margin-bottom: 0;
+  }
+}
+
+.nav__item__link {
+  border-bottom: 5px solid transparent;
+  color: palette.$brand-color-6;
+  display: inline-block;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  transition: border-color 0.2s ease-out, color 0.2s ease-out;
+  will-change: transform;
+
+  &::after {
+    background-color: palette.$brand-color-1;
+    content: '';
+    display: block;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left top;
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+  }
+
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    border-bottom-width: 10px;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    padding: 0 0.4rem 1rem;
+    &::after {
+      bottom: -10px;
+      height: 10px;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    margin-left: 2rem;
+  }
+
+  &:hover,
+  &:focus {
+    color: palette.$brand-color-6;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  .nav__item--current & {
+    border-bottom-color: palette.$brand-color-6;
+  }
+}
+
+.navbar-toggler {
+  border: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: background-color 0.15s ease-in;
+  z-index: 1;
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+
+      .navbar-toggler-icon {
+        background-color: palette.$brand-color-1;
+      }
+    }
+  }
+
+  &:not(.collapsed) {
+
+    .navbar-toggler-icon {
+
+      &:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        transform: scaleX(0);
+      }
+
+      &:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+        // Slightly different positioning needed for retina screens
+        @media only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min--moz-device-pixel-ratio: 2),
+        only screen and (-o-min-device-pixel-ratio: 2/1),
+        only screen and (min-device-pixel-ratio: 2),
+        only screen and (min-resolution: 192dpi),
+        only screen and (min-resolution: 2dppx) {
+          transform: translateY(-10px) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.navbar-toggler-icon {
+  background-color: palette.$brand-color-8;
+  height: 4px;
+  transition: all 0.15s ease-in;
+  width: 2rem;
+
+  & + .navbar-toggler-icon {
+    margin-top: 0.4rem;
+  }
+}

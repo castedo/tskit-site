@@ -1,0 +1,28 @@
+//
+// Speak to your designer to get the initial colour palette for the project!!!
+//
+// Please do not name your colour variables with the colour they contain. If you do, you will end up with:
+// $red: blue;
+
+$brand-color-1: #1EEBB1;
+$brand-color-2: #14E2A8;
+$brand-color-3: #0FA88E;
+$brand-color-4: #0D8B81;
+$brand-color-5: #0A6E74;
+$brand-color-6: #085167;
+$brand-color-7: #053E4E;
+$brand-color-8: #03303E;
+$brand-color-9: #022834;
+
+// Colour variants and any other colours we need that weren't included in the original palette
+$color-1: #fff;
+$color-2: #000;
+$color-3: transparentize(#021D26, 0.62);
+$color-4: transparentize($color-2, 0.84);
+$color-5: transparentize($brand-color-6, 0.5);
+$color-6: #698B94;
+$color-7: #01232E;
+$color-8: #1C687E;
+$color-9: #80979E;
+$color-10: rgba(29, 29, 27, 0.4);
+$color-11: rgba(255, 255, 255, 0.7);

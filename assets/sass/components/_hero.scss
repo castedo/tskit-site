@@ -1,0 +1,68 @@
+@use 'sass:math';
+@use '../palette' as palette;
+
+.hero {
+  padding: 3.75rem 0;
+  position: relative;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    padding: 5.5rem 0 6rem;
+  }
+}
+
+.hero--type-1 {
+  background-color: palette.$brand-color-2;
+  background-image: url('../../icons/hero-background-1.svg');
+  background-position: 100% -20rem;
+  background-repeat: no-repeat;
+  background-size: 560px 1187px;
+
+  .hero__heading {
+    color: palette.$brand-color-6;
+  }
+
+  .wysiwyg {
+    p {
+      color: palette.$brand-color-6;
+    }
+  }
+}
+
+.hero--type-2 {
+  background-color: palette.$brand-color-8;
+  @include media-breakpoint-up(sm) {
+    background-image: url('../../icons/hero-background-2.svg');
+    background-position: 100% top;
+    background-repeat: no-repeat;
+    background-size: 560px 1830px;
+  }
+}
+
+.hero--type-3 {
+  background-color: palette.$brand-color-8;
+}
+
+.hero__logo {
+  margin-bottom: 2rem;
+  max-width: 372px;
+  max-height: 178px;
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
+  }
+}
+
+.hero__heading + .hero__metadata {
+  display: inline-block;
+  margin-top: 1.5em;
+}
+
+.hero__metadata {
+  color: palette.$brand-color-2;
+  @include media-breakpoint-up(md) {
+    font-size: 1.25rem;
+  }
+}
+
+.hero__metadata__heading,
+.hero__metadate__timestamp {
+  color: palette.$color-11;
+}

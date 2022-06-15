@@ -1,0 +1,13 @@
+.list--unstyled {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list--horizontal {
+  display: flex;
+  flex-wrap: wrap;
+
+  .list__item {
+    margin-right: 1rem;
+  }
+}

@@ -1,0 +1,5 @@
+@use '../palette' as palette;
+
+.header {
+  background-color: palette.$color-1;
+}

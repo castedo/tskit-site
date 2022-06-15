@@ -1,0 +1,110 @@
+@use '../palette' as palette;
+
+.btn {
+  border: 10px solid palette.$brand-color-2;
+  color: palette.$color-1;
+  display: inline-block;
+  font-size: 1.75rem;
+  line-height: 1.4;
+  padding: 0.5rem 2rem 0.8rem;
+  position: relative;
+  transition: color 0.2s ease-out;
+  word-break: break-word;
+
+  &::before {
+    background-color: palette.$brand-color-2;
+    content: '';
+    height: 20px;
+    width: 10px;
+    position: absolute;
+    top: -30px;
+    left: 80px;
+  }
+
+  &::after {
+    background-color: palette.$brand-color-2;
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: scaleY(0);
+    transform-origin: left bottom;
+    transition: transform 0.2s ease-out;
+  }
+
+  &:hover,
+  &:focus {
+    color: palette.$brand-color-8;
+
+    &::after {
+      transform-origin: left top;
+      transform: scaleY(1);
+    }
+  }
+}
+
+.btn--type-2 {
+  border-color: palette.$brand-color-8;
+  color: palette.$brand-color-8;
+
+  &::before,
+  &::after {
+    background-color: palette.$brand-color-8;
+  }
+
+  &:hover,
+  &:focus {
+    color: palette.$color-1;
+  }
+}
+
+// Using Bootstrap's mark-up for this but not their styles, as our default buttons are so different
+.btn-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    margin-bottom: 4rem;
+  }
+
+  .btn {
+    border-color: palette.$brand-color-5;
+    border-width: 1px;
+    font-size: 1.3125rem;
+    margin: 0 -1px 10px 0;
+    padding: 0.6rem 1.25rem 0.9rem;
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      background-color: palette.$brand-color-5;
+    }
+
+    &:first-of-type {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    &:last-of-type {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    &:hover,
+    &:focus {
+      color: palette.$color-1;
+    }
+
+    &.active {
+      background-color: palette.$brand-color-2;
+      color: palette.$brand-color-8;
+
+      &:hover,
+      &:focus {
+        color: palette.$color-1;
+      }
+    }
+  }
+}
