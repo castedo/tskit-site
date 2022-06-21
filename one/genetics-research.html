@@ -1,0 +1,623 @@
+<!doctype html>
+<html class="no-js" lang="en-GB">
+
+<!-- START: html-header -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        tskit
+    </title>
+    <script>
+      document.documentElement.className = 'js'
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicons/site.webmanifest" crossorigin="use-credentials">
+    <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color="#085167">
+    <meta name="msapplication-TileColor" content="#085167">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.typekit.net/uhf4ono.css">
+    <link rel="stylesheet" href="./assets/dist/css/style.min.css">
+</head>
+<!-- END: html-header -->
+
+<body>
+<div class="page-wrapper">
+
+    <!-- START: header -->
+    <header class="header">
+        <!-- START: navbar -->
+        <nav class="nav navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="./">
+                    <!-- START: icon-logo -->
+                    <svg class="icon icon--logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 84.8 68">
+                        <style>
+                            .logo-st0 {
+                                fill: #085167
+                            }
+
+                            .logo-st1 {
+                                fill: #14e2a8
+                            }
+                        </style>
+                        <path class="logo-st0"
+                              d="M2 61.4v-8.2H0v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                        <path class="logo-st0"
+                              d="M62.7 67.5v-3.4h1.9V53.2h-1.9v-3.4h6.8v14.3h1.9v3.4h-8.7zm1.1-23.3c-.1-1.6 1.2-2.9 2.7-3 1.6-.1 2.9 1.2 3 2.7.1 1.6-1.2 2.9-2.7 3h-.1c-1.5.1-2.8-1-2.9-2.5v-.2"></path>
+                        <path class="logo-st0"
+                              d="M39.6 67.5v-3.4h1.9V45.4h-1.9V42h6.8v14.4h4l1.7-3.2h-2.5v-3.4h9.6v3.4h-2.6L53.7 58l4.2 6h2.8v3.4h-9.9V64h1.7l-2.8-4.6h-3.4V64h1.9v3.4l-8.6.1z"></path>
+                        <path class="logo-st0"
+                              d="M23.4 57c4.5 1.3 6.4 2.7 6.4 5.9 0 3.3-2.5 5.1-6.4 5.1-2.6 0-4.3-.7-5.4-1.9l-.1 1.3h-3.4v-6.1h3.7c.7 1.9 2.5 3.2 4.5 3.1 1.3 0 2.3-.5 2.3-1.6s-1-1.5-1.7-1.7l-2.6-.7c-2.8-.7-6.2-1.7-6.2-6 0-3.4 2.4-5.2 6-5.2 1.8 0 3.6.6 5 1.8l.1-1.3H29v5.9h-3.7c-.4-1.7-1.9-2.9-3.6-2.9-1.3 0-2.3.5-2.3 1.7 0 1 .6 1.4 1.8 1.7l2.2.9z"></path>
+                        <path class="logo-st0"
+                              d="M75 61.4v-8.2h-2v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                        <path class="logo-st1" d="M75 28.8h4.8v12.5H75z"></path>
+                        <path class="logo-st1" d="M41.5 28.8h4.8v9.6h-4.8z"></path>
+                        <path class="logo-st1" d="M41.5 24h38.3v4.8H41.5z"></path>
+                        <path class="logo-st1" d="M58.3 14.4h4.8V24h-4.8z"></path>
+                        <path class="logo-st1" d="M2 14.4h4.8v26.9H2z"></path>
+                        <path class="logo-st1" d="M2 9.6h61.1v4.8H2z"></path>
+                        <path class="logo-st1" d="M34.6 0h4.8v9.6h-4.8z"></path>
+                    </svg>
+                    <!-- END: icon-logo -->
+                    <span class="visually-hidden">
+                        tskit
+                    </span>
+                </a>
+                <button class="navbar-toggler collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent"
+                        aria-controls="navbarContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- START: menu -->
+                    <ul class="navbar-nav">
+                        <li class="nav__item nav__item--current">
+                            <a href="genetics-research.html" class=" nav__item__link">Genetics research</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="learn.html" class=" nav__item__link">Learn</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="software.html" class=" nav__item__link">Software</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="news.html" class=" nav__item__link">News</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="community.html" class=" nav__item__link">Community</a>
+                        </li>
+                    </ul>
+                    <!-- END: menu -->
+                </div>
+            </div>
+        </nav>
+        <!-- END: navbar -->
+
+    </header>
+    <!-- END: header -->
+
+    <!-- START: content -->
+    <main class="page-content" id="content">
+
+        <!-- START: hero-type-2 -->
+        <div class="hero hero--type-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-lg-6">
+                        <!-- NOTE: H1 here not H2 -->
+                        <h1 class="hero__heading">
+                            Genetics research
+                        </h1>
+                        <div class="hero__content wysiwyg">
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                                sanctus est Lorem ipsum dolor sit amet.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: hero-type-2 -->
+
+        <!-- START: panels-section -->
+        <section class="section section--panels">
+            <div class="container">
+                <!-- START: panel -->
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="section__content">
+                            <div class="row">
+                                <!-- NOTE: Order is swapped on these two cols below lg breakpoint -->
+                                <div class="col-10 col-lg-6 offset-1 order-1 order-lg-0">
+                                    <h2 class="section__heading">
+                                        Population genetics research
+                                    </h2>
+                                    <div class="wysiwyg">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                                            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                                            no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+                                            amet.
+                                        </p>
+                                    </div>
+                                    <a href="#" class="link link--type-1 link--type-1--size-1">
+                                        <span class="link__text">
+                                            View tutorials
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-10 offset-1 col-lg-4 offset-lg-0 d-lg-flex align-items-lg-center justify-content-lg-center">
+                                    <!-- START: icon-population-genetics-research -->
+                                    <svg class="icon icon--population-genetics-research"
+                                         xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+                                         viewBox="0 0 240 240">
+                                        <style>
+                                            .gr-st0 {
+                                                fill: #0d8b81
+                                            }
+
+                                            .gr-st1 {
+                                                fill: #0a6e74
+                                            }
+
+                                            .gr-st2 {
+                                                fill: #0fa88e
+                                            }
+
+                                            .gr-st3 {
+                                                fill: #14e2a8;
+                                                filter: drop-shadow(0 20px 36px rgba(29, 29, 27, 0.4));
+                                            }
+                                        </style>
+                                        <path class="gr-st0"
+                                              d="M152.7 58h-22.3c2 3.7 3 7.8 3 12v79.4c0 7.3-5.9 13.2-13.2 13.2h-6.5v52.2c0 2 1.6 3.7 3.7 3.7h28.2c2 0 3.7-1.6 3.7-3.7V145h14c2 0 3.7-1.6 3.7-3.7V72.1c-.1-7.8-6.4-14.1-14.3-14.1"></path>
+                                        <path class="gr-st0"
+                                              d="M131.5 49.6c10.1 0 18.3-8.2 18.3-18.3S141.6 13 131.5 13c-10.1 0-18.3 8.2-18.3 18.3 0 10.1 8.2 18.3 18.3 18.3"></path>
+                                        <path class="gr-st1"
+                                              d="M47.3 162.5c-7.3 0-13.2-5.9-13.2-13.2V69.9c0-4.3 1.1-8.5 3.2-12.3H14.8C7 57.7.6 64 .6 71.9V141c0 2 1.6 3.7 3.7 3.7h14v69.8c0 2 1.6 3.7 3.7 3.7h28.2c2 0 3.7-1.6 3.7-3.7v-51.9h-6.6z"></path>
+                                        <path class="gr-st1"
+                                              d="M54.4 31c0-10.1-8.2-18.3-18.3-18.3S17.8 20.9 17.8 31c0 10.1 8.2 18.3 18.3 18.3 10.1 0 18.3-8.2 18.3-18.3"></path>
+                                        <path class="gr-st2"
+                                              d="M120.3 154.2c2.7 0 4.8-2.2 4.8-4.8V69.9c0-9.3-7.6-16.9-16.9-16.9H59.3c-9.3 0-16.9 7.6-16.9 16.9v79.4c0 2.7 2.2 4.8 4.8 4.8h15.5v79.6c0 2.7 2.2 4.8 4.8 4.8h32.3c2.7 0 4.8-2.2 4.8-4.8v-79.6h15.7z"></path>
+                                        <path class="gr-st2"
+                                              d="M62.1 23c0 12 9.7 21.7 21.7 21.7S105.4 35 105.4 23 95.7 1.4 83.8 1.4c-12 0-21.7 9.7-21.7 21.6"></path>
+                                        <path class="gr-st3"
+                                              d="M222.7 238.6h16.7c0-25.8-14.7-41.8-31.8-54.6-4.3 3-8.6 5.9-12.7 8.6-.7.4-1.3.9-2 1.3 8.1 5.7 15.3 11.4 20.6 18.2 3.9 4.9 6.7 10.6 8.1 16.7.7 3.2 1.1 6.5 1.1 9.8"></path>
+                                        <path class="gr-st3"
+                                              d="M192.9 46.2c-2.2 1.5-4.5 3.1-6.8 4.6-1.5 1-3 2-4.6 3-3.4 2.3-6.9 4.6-10.4 7-2.2 1.5-4.4 3.1-6.5 4.7-17 12.8-31.8 28.8-31.8 54.6s14.7 41.8 31.8 54.6c4.3-3 8.6-5.9 12.7-8.6.7-.4 1.3-.9 2-1.3-16.9-11.8-29.8-24-29.8-44.7 0-2.1.1-4.1.4-6.2.8-5.9 2.9-11.6 6.2-16.7 5.4-8.4 13.7-15.2 23.2-21.8 2.2-1.5 4.5-3.1 6.8-4.6 1.5-1 3-2 4.6-3 3.4-2.3 6.9-4.6 10.4-7 2.2-1.5 4.4-3.1 6.5-4.7 17-12.8 31.8-28.8 31.8-54.6h-16.7c0 3.3-.4 6.6-1.1 9.9-1.4 6.1-4.2 11.8-8.1 16.7-5.3 6.7-12.5 12.4-20.6 18.1"></path>
+                                        <path class="gr-st3"
+                                              d="M149.6 1.5h-16.7c0 25.8 14.7 41.8 31.8 54.6 4.3-3 8.6-5.9 12.7-8.6.7-.5 1.3-.9 2-1.3-8.1-5.7-15.3-11.4-20.6-18.2-3.9-4.9-6.7-10.6-8.1-16.7-.8-3.2-1.1-6.5-1.1-9.8"></path>
+                                        <path class="gr-st3"
+                                              d="M179.4 193.9c2.2-1.5 4.5-3.1 6.8-4.6 1.5-1 3-2 4.6-3 3.4-2.3 6.9-4.6 10.4-7 2.2-1.5 4.4-3.1 6.5-4.7 17-12.8 31.8-28.8 31.8-54.6s-14.7-41.8-31.8-54.6c-4.3 3-8.6 5.9-12.7 8.6-.7.5-1.3.9-2 1.3 16.9 11.8 29.8 24 29.8 44.7 0 2.5-.2 5-.6 7.5-1 6-3.3 11.7-6.8 16.7-5.4 7.8-13.3 14.2-22.3 20.5-2.2 1.5-4.5 3.1-6.8 4.6-1.5 1-3 2-4.6 3-3.4 2.3-6.9 4.6-10.4 7-2.2 1.5-4.4 3.1-6.5 4.7-17 12.8-31.8 28.8-31.8 54.6h16.7c0-3.3.4-6.6 1.1-9.9 1.4-6.1 4.2-11.8 8.1-16.7 5.2-6.7 12.4-12.4 20.5-18.1"></path>
+                                        <path class="gr-st1"
+                                              d="M158.5 228.8h63.1c-1.4-6.1-4.2-11.8-8.1-16.7h-54.7c-3.9 4.9-6.7 10.6-8.1 16.7h7.8z"></path>
+                                        <path class="gr-st1"
+                                              d="M157.7 113.9h28.5V97.2h-30c-3.3 5-5.4 10.7-6.2 16.7h7.7z"></path>
+                                        <path class="gr-st1"
+                                              d="M214.4 127.5h-28.2v16.7h29.1c3.5-5 5.8-10.7 6.9-16.7h-7.8z"></path>
+                                        <path class="gr-st1"
+                                              d="M213.8 11.4h-63.1c1.4 6.1 4.2 11.8 8.1 16.7h54.7c3.9-4.9 6.7-10.6 8.1-16.7h-7.8z"></path>
+                                    </svg>
+                                    <!-- END: icon-population-genetics-research -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: panel -->
+
+                <!-- START: panel -->
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="section__content">
+                            <div class="row">
+                                <!-- NOTE: Order is swapped on these two cols below lg breakpoint -->
+                                <div class="col-10 col-lg-6 offset-1 order-1 order-lg-0">
+                                    <h2 class="section__heading">
+                                        Statistical genetics research
+                                    </h2>
+                                    <div class="wysiwyg">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                                            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                                            no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+                                            amet.
+                                        </p>
+                                    </div>
+                                    <a href="#" class="link link--type-1 link--type-1--size-1">
+                                        <span class="link__text">
+                                            View tutorials
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-10 offset-1 col-lg-4 offset-lg-0 d-lg-flex align-items-lg-center justify-content-lg-center">
+                                    <!-- START: icon-statistical-genetics-research -->
+                                    <svg class="icon icon--statistical-genetics-research"
+                                         xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+                                         viewBox="0 0 240 258">
+                                        <style>
+                                            .st-st0 {
+                                                fill: #0d8b81
+                                            }
+
+                                            .st-st1 {
+                                                fill: #0fa88e
+                                            }
+
+                                            .st-st2 {
+                                                fill: #0a6e74
+                                            }
+
+                                            .st-st3 {
+                                                fill: #14e2a8;
+                                                filter: drop-shadow(0 20px 36px rgba(29, 29, 27, 0.4));
+                                            }
+                                        </style>
+                                        <path class="st-st0" d="M105.8 91.5h44.6V258h-44.6z"></path>
+                                        <path class="st-st0" d="M139.3 80.2h11.1v11.3h-11.1z"></path>
+                                        <path class="st-st0" d="M117 80.2h11.2v11.3H117z"></path>
+                                        <path class="st-st0" d="M105.8 80.2H117v11.3h-11.2z"></path>
+                                        <path class="st-st0" d="M139.3 68.9h11.1v11.3h-11.1z"></path>
+                                        <path class="st-st0" d="M128.1 68.9h11.1v11.3h-11.1z"></path>
+                                        <path class="st-st0" d="M117 68.9h11.2v11.3H117z"></path>
+                                        <path class="st-st0" d="M128.1 57.6h11.1v11.3h-11.1z"></path>
+                                        <path class="st-st0" d="M105.8 57.6H117v11.3h-11.2z"></path>
+                                        <path class="st-st0" d="M139.3 46.4h11.1v11.3h-11.1z"></path>
+                                        <path class="st-st0" d="M128.1 46.4h11.1v11.3h-11.1z"></path>
+                                        <path class="st-st0" d="M117 46.4h11.2v11.3H117z"></path>
+                                        <path class="st-st0" d="M128.1 35.1h11.1v11.3h-11.1z"></path>
+                                        <path class="st-st0" d="M105.8 35.1H117v11.3h-11.2z"></path>
+                                        <path class="st-st0" d="M139.3 23.8h11.1v11.3h-11.1z"></path>
+                                        <path class="st-st0" d="M117 23.8h11.2v11.3H117z"></path>
+                                        <path class="st-st0" d="M139.3 12.5h11.1v11.3h-11.1z"></path>
+                                        <path class="st-st0" d="M105.8 12.5H117v11.3h-11.2z"></path>
+                                        <path class="st-st0" d="M128.1 1.3h11.1v11.3h-11.1z"></path>
+                                        <path class="st-st1" d="M53.5 147.8h44.6V258H53.5z"></path>
+                                        <path class="st-st1" d="M87 136.6h11.2v11.3H87z"></path>
+                                        <path class="st-st1" d="M75.8 136.6H87v11.3H75.8z"></path>
+                                        <path class="st-st1" d="M64.7 136.6h11.1v11.3H64.7z"></path>
+                                        <path class="st-st1" d="M53.5 136.6h11.2v11.3H53.5z"></path>
+                                        <path class="st-st1" d="M87 125.3h11.2v11.3H87z"></path>
+                                        <path class="st-st1" d="M75.8 125.3H87v11.3H75.8z"></path>
+                                        <path class="st-st1" d="M64.7 125.3h11.1v11.3H64.7z"></path>
+                                        <path class="st-st1" d="M75.8 114H87v11.3H75.8z"></path>
+                                        <path class="st-st1" d="M87 102.7h11.2V114H87z"></path>
+                                        <path class="st-st1" d="M64.7 102.7h11.1V114H64.7z"></path>
+                                        <path class="st-st1" d="M53.5 102.7h11.2V114H53.5z"></path>
+                                        <path class="st-st1" d="M87 91.5h11.2v11.3H87z"></path>
+                                        <path class="st-st1" d="M75.8 91.5H87v11.3H75.8z"></path>
+                                        <path class="st-st1" d="M53.5 91.5h11.2v11.3H53.5z"></path>
+                                        <path class="st-st1" d="M75.8 80.2H87v11.3H75.8z"></path>
+                                        <path class="st-st1" d="M64.7 80.2h11.1v11.3H64.7z"></path>
+                                        <path class="st-st1" d="M87 68.9h11.2v11.3H87z"></path>
+                                        <path class="st-st1" d="M75.8 68.9H87v11.3H75.8z"></path>
+                                        <path class="st-st1" d="M87 57.6h11.2v11.3H87z"></path>
+                                        <path class="st-st1" d="M64.7 57.6h11.1v11.3H64.7z"></path>
+                                        <path class="st-st2" d="M1.2 113.7h44.6V258H1.2z"></path>
+                                        <path class="st-st2" d="M16.9 102.7h11.2V114H16.9z"></path>
+                                        <path class="st-st2" d="M5.7 102.7h11.1V114H5.7z"></path>
+                                        <path class="st-st2" d="M34.7 91.5h11.2v11.3H34.7z"></path>
+                                        <path class="st-st2" d="M16.9 91.5h11.2v11.3H16.9z"></path>
+                                        <path class="st-st2" d="M34.7 80.2h11.2v11.3H34.7z"></path>
+                                        <path class="st-st2" d="M16.9 80.2h11.2v11.3H16.9z"></path>
+                                        <path class="st-st2" d="M5.7 80.2h11.1v11.3H5.7z"></path>
+                                        <path class="st-st2" d="M34.7 68.9h11.2v11.3H34.7z"></path>
+                                        <path class="st-st2" d="M5.7 68.9h11.1v11.3H5.7z"></path>
+                                        <path class="st-st2" d="M16.9 57.6h11.2v11.3H16.9z"></path>
+                                        <path class="st-st2" d="M5.7 57.6h11.1v11.3H5.7z"></path>
+                                        <path class="st-st2" d="M34.7 46.4h11.2v11.3H34.7z"></path>
+                                        <path class="st-st2" d="M5.7 46.4h11.1v11.3H5.7z"></path>
+                                        <path class="st-st2" d="M16.9 35.1h11.2v11.3H16.9z"></path>
+                                        <path class="st-st2" d="M16.9 23.8h11.2v11.3H16.9z"></path>
+                                        <path class="st-st2"
+                                              d="M159.1 248.1h63.1c-1.4-6.1-4.2-11.8-8.1-16.7h-54.7c-3.9 4.9-6.7 10.6-8.1 16.7h7.8z"></path>
+                                        <path class="st-st2"
+                                              d="M158.3 133.3h28.5v-16.7h-30c-3.3 5-5.4 10.7-6.2 16.7h7.7z"></path>
+                                        <path class="st-st2"
+                                              d="M215 146.9h-28.2v16.7h29.1c3.5-5 5.8-10.7 6.9-16.7H215z"></path>
+                                        <path class="st-st2"
+                                              d="M214.4 30.7h-63.1c1.4 6.1 4.2 11.8 8.1 16.7h54.7c3.9-4.9 6.7-10.6 8.1-16.7h-7.8z"></path>
+                                        <path class="st-st3"
+                                              d="M223.3 258H240c0-25.8-14.7-41.8-31.8-54.6-4.3 3-8.6 5.9-12.7 8.6-.7.4-1.3.9-2 1.3 8.1 5.7 15.3 11.4 20.6 18.1 3.9 4.9 6.7 10.6 8.1 16.7.8 3.3 1.1 6.6 1.1 9.9"></path>
+                                        <path class="st-st3"
+                                              d="M193.5 65.6c-2.2 1.5-4.5 3.1-6.8 4.6-1.5 1-3 2-4.6 3-3.4 2.3-6.9 4.6-10.4 7-2.2 1.5-4.4 3.1-6.5 4.7-17 12.8-31.8 28.8-31.8 54.6s14.7 41.8 31.8 54.6c4.3-3 8.6-5.9 12.7-8.6.7-.4 1.3-.9 2-1.3-16.9-11.8-29.8-24-29.8-44.7 0-2.1.1-4.1.4-6.2.8-5.9 2.9-11.6 6.2-16.7 5.4-8.4 13.6-15.2 23.2-21.8 2.2-1.5 4.5-3.1 6.8-4.6 1.5-1 3.1-2 4.6-3 3.4-2.2 6.9-4.6 10.4-7 2.2-1.5 4.4-3.1 6.5-4.7 17-12.8 31.8-28.8 31.8-54.6h-16.7c0 3.3-.4 6.6-1.1 9.9-1.4 6.1-4.2 11.8-8.1 16.7-5.3 6.6-12.5 12.4-20.6 18.1"></path>
+                                        <path class="st-st3"
+                                              d="M150.2 20.9h-16.7c0 25.8 14.7 41.8 31.8 54.6 4.3-3 8.6-5.9 12.7-8.6.7-.4 1.3-.9 2-1.3-8.1-5.7-15.3-11.4-20.6-18.2-3.9-4.9-6.7-10.6-8.1-16.7-.8-3.2-1.1-6.5-1.1-9.8"></path>
+                                        <path class="st-st3"
+                                              d="M180 213.3c2.2-1.5 4.5-3.1 6.8-4.6 1.5-1 3-2 4.6-3 3.4-2.3 6.9-4.6 10.4-7 2.2-1.5 4.4-3.1 6.5-4.7 17-12.8 31.8-28.8 31.8-54.6s-14.7-41.8-31.8-54.6c-4.3 3-8.6 5.9-12.7 8.6-.7.4-1.3.9-2 1.3 16.9 11.8 29.8 24 29.8 44.7 0 2.5-.2 5-.6 7.5-1 6-3.4 11.7-6.9 16.7-5.4 7.8-13.3 14.2-22.3 20.5-2.2 1.5-4.5 3.1-6.8 4.6-1.5 1-3 2-4.6 3-3.4 2.2-6.9 4.6-10.4 7-2.2 1.5-4.4 3.1-6.5 4.7-17 12.8-31.8 28.8-31.8 54.6h16.7c0-3.3.4-6.6 1.1-9.9 1.4-6.1 4.2-11.8 8.1-16.7 5.3-6.7 12.5-12.4 20.6-18.1"></path>
+                                    </svg>
+                                    <!-- END: icon-statistical-genetics-research -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: panel -->
+
+                <!-- START: panel -->
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="section__content">
+                            <div class="row">
+                                <!-- NOTE: Order is swapped on these two cols below lg breakpoint -->
+                                <div class="col-10 col-lg-6 offset-1 order-1 order-lg-0">
+                                    <h2 class="section__heading">
+                                        Phylogenetics
+                                    </h2>
+                                    <div class="wysiwyg">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                                            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                                            no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+                                            amet.
+                                        </p>
+                                    </div>
+                                    <a href="#" class="link link--type-1 link--type-1--size-1">
+                                        <span class="link__text">
+                                            View tutorials
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-10 offset-1 col-lg-4 offset-lg-0 d-lg-flex align-items-lg-center justify-content-lg-center">
+                                    <!-- START: icon-phylogenetics -->
+                                    <svg class="icon icon--phylogenetics"
+                                         xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+                                         viewBox="0 0 240 240">
+                                        <style>
+                                            .phy-st0 {
+                                                fill: #0d8b81
+                                            }
+
+                                            .phy-st1 {
+                                                fill: #0a6e74
+                                            }
+
+                                            .phy-st2 {
+                                                fill: #14e2a8;
+                                                filter: drop-shadow(0 20px 36px rgba(29, 29, 27, 0.4));
+                                            }
+                                        </style>
+                                        <path class="phy-st0" d="M128.6 213.8H145v16.4h-16.4z"></path>
+                                        <path class="phy-st0" d="M119 123.4h25.9v16.4H119z"></path>
+                                        <path class="phy-st0" d="M37.2 68.1h49.1v16.4H37.2z"></path>
+                                        <path class="phy-st0" d="M37.2 213.8H145v16.4H37.2z"></path>
+                                        <path class="phy-st0" d="M20.8 141.8h16.4v16.4H20.8z"></path>
+                                        <path class="phy-st0" d="M4.4 141.8h16.4v16.4H4.4z"></path>
+                                        <path class="phy-st0" d="M37.2 69.8h16.4v160.4H37.2z"></path>
+                                        <path class="phy-st0" d="M102.6 123.4H119v16.4h-16.4z"></path>
+                                        <path class="phy-st0" d="M102.6 12.9h42.3v16.4h-42.3z"></path>
+                                        <path class="phy-st0" d="M86.3 12.9h16.4v126.8H86.3z"></path>
+                                        <g>
+                                            <path class="phy-st1"
+                                                  d="M159.1 230.2h63.1c-1.4-6.1-4.2-11.8-8.1-16.7h-54.7c-3.9 4.9-6.7 10.6-8.1 16.7h7.8z"></path>
+                                            <path class="phy-st1"
+                                                  d="M158.3 115.3h28.5V98.6h-30c-3.3 5-5.4 10.7-6.2 16.7h7.7z"></path>
+                                            <path class="phy-st1"
+                                                  d="M215 128.9h-28.2v16.7h29.1c3.5-5 5.8-10.7 6.9-16.7H215z"></path>
+                                            <path class="phy-st1"
+                                                  d="M214.4 12.7h-63.1c1.4 6.1 4.2 11.8 8.1 16.7h54.7c3.9-4.9 6.7-10.6 8.1-16.7h-7.8z"></path>
+                                            <path class="phy-st2"
+                                                  d="M223.3 240H240c0-25.8-14.7-41.8-31.8-54.6-4.3 3-8.6 5.9-12.7 8.6-.7.4-1.3.9-2 1.3 8.1 5.7 15.3 11.4 20.6 18.1 3.9 4.9 6.7 10.6 8.1 16.7.8 3.3 1.1 6.6 1.1 9.9"></path>
+                                            <path class="phy-st2"
+                                                  d="M193.5 47.6c-2.2 1.5-4.5 3.1-6.8 4.6-1.5 1-3 2-4.6 3-3.4 2.3-6.9 4.6-10.4 7-2.2 1.5-4.4 3.1-6.5 4.7-17 12.8-31.8 28.8-31.8 54.6s14.7 41.8 31.8 54.6c4.3-3 8.6-5.9 12.7-8.6.7-.4 1.3-.9 2-1.3-16.9-11.8-29.8-24-29.8-44.7 0-2.1.1-4.1.4-6.2.8-5.9 2.9-11.6 6.2-16.7 5.4-8.4 13.6-15.2 23.2-21.8 2.2-1.5 4.5-3.1 6.8-4.6 1.5-1 3.1-2 4.6-3 3.4-2.2 6.9-4.6 10.4-7 2.2-1.5 4.4-3.1 6.5-4.7 17-12.8 31.8-28.8 31.8-54.6h-16.7c0 3.3-.4 6.6-1.1 9.9-1.4 6.1-4.2 11.8-8.1 16.7-5.3 6.6-12.5 12.4-20.6 18.1"></path>
+                                            <path class="phy-st2"
+                                                  d="M150.2 2.9h-16.7c0 25.8 14.7 41.8 31.8 54.6 4.3-3 8.6-5.9 12.7-8.6.7-.5 1.3-.9 2-1.3-8.1-5.7-15.3-11.4-20.6-18.1-3.9-4.9-6.7-10.6-8.1-16.7-.8-3.3-1.1-6.6-1.1-9.9"></path>
+                                            <path class="phy-st2"
+                                                  d="M180 195.3c2.2-1.5 4.5-3.1 6.8-4.6 1.5-1 3-2 4.6-3 3.4-2.3 6.9-4.6 10.4-7 2.2-1.5 4.4-3.1 6.5-4.7 17-12.8 31.8-28.8 31.8-54.6s-14.7-41.8-31.8-54.6c-4.3 3-8.6 5.9-12.7 8.6-.7.4-1.3.9-2 1.3 16.9 11.8 29.8 24 29.8 44.7 0 2.5-.2 5-.6 7.5-1 6-3.4 11.7-6.9 16.7-5.4 7.8-13.3 14.2-22.3 20.5-2.2 1.5-4.5 3.1-6.8 4.6-1.5 1-3 2-4.6 3-3.4 2.2-6.9 4.6-10.4 7-2.2 1.5-4.4 3.1-6.5 4.7-17 12.8-31.8 28.8-31.8 54.6h16.7c0-3.3.4-6.6 1.1-9.9 1.4-6.1 4.2-11.8 8.1-16.7 5.3-6.7 12.5-12.4 20.6-18.1"></path>
+                                        </g>
+                                    </svg>
+                                    <!-- END: icon-phylogenetics -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: panel -->
+
+                <!-- START: panel -->
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="section__content">
+                            <div class="row">
+                                <!-- NOTE: Order is swapped on these two cols below lg breakpoint -->
+                                <div class="col-10 col-lg-6 offset-1 order-1 order-lg-0">
+                                    <h2 class="section__heading">
+                                        Use tskit in your application
+                                    </h2>
+                                    <div class="wysiwyg">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                                            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                                            no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+                                            amet.
+                                        </p>
+                                    </div>
+                                    <a href="#" class="link link--type-1 link--type-1--size-1">
+                                        <span class="link__text">
+                                            View tutorials
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-10 offset-1 col-lg-4 offset-lg-0 d-lg-flex align-items-lg-center justify-content-lg-center">
+                                    <!-- START: icon-use-tskit-in-your-app -->
+                                    <svg class="icon icon--use-tskit-in-your-app"
+                                         xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+                                         viewBox="0 0 368 218">
+                                        <style>
+                                            .st0 {
+                                                fill: #0d8b81
+                                            }
+
+                                            .st2 {
+                                                fill: #14e2a8
+                                            }
+                                        </style>
+                                        <path class="st0" d="M124.4 201.3h16.4v16.4h-16.4z"></path>
+                                        <path class="st0" d="M114.8 110.8h25.9v16.4h-25.9z"></path>
+                                        <path class="st0" d="M32.9 55.6H82V72H32.9z"></path>
+                                        <path class="st0" d="M32.9 201.3h107.8v16.4H32.9z"></path>
+                                        <path class="st0" d="M16.6 129.3H33v16.4H16.6z"></path>
+                                        <path class="st0" d="M.2 129.3h16.4v16.4H.2z"></path>
+                                        <path class="st0" d="M32.9 57.2h16.4v160.4H32.9z"></path>
+                                        <path class="st0" d="M98.4 110.8h16.4v16.4H98.4z"></path>
+                                        <path class="st0" d="M98.4.4h42.3v16.4H98.4z"></path>
+                                        <path class="st0" d="M82 .4h16.4v126.8H82z"></path>
+                                        <path d="M355.1 195.6H127.6c-7 0-12.8-5.7-12.8-12.8v-144c0-7 5.7-12.8 12.8-12.8H355c7 0 12.8 5.7 12.8 12.8v144c0 7.1-5.7 12.8-12.7 12.8"
+                                              style="fill:#0a6e74; filter: drop-shadow(0 20px 36px rgba(29, 29, 27, 0.4));"></path>
+                                        <path class="st2"
+                                              d="M367.8 51.6H114.9V39c0-7.1 5.8-12.9 12.9-12.9h227.1c7.1 0 12.9 5.8 12.9 12.9v12.6z"></path>
+                                        <path class="st2" d="M259.2 151.9v8.6h24.5v-8.6h-24.5z"></path>
+                                        <path class="st2" d="M328.4 79.6h24.5v8.6h-24.5z"></path>
+                                        <path class="st2" d="M278.1 65.4h24.5V74h-24.5z"></path>
+                                        <path class="st2" d="M152.8 65.4h24.5V74h-24.5z"></path>
+                                        <path class="st2" d="M152.8 79.6h24.5v8.6h-24.5z"></path>
+                                        <path class="st2" d="M183.3 65.4h88.9V74h-88.9z"></path>
+                                        <path class="st2" d="M183.3 79.6h139.2v8.6H183.3z"></path>
+                                        <path class="st2" d="M152.8 94h24.5v8.6h-24.5z"></path>
+                                        <path class="st2" d="M152.8 122.9h24.5v8.6h-24.5z"></path>
+                                        <path class="st2" d="M296 94h24.5v8.6H296z"></path>
+                                        <path class="st2" d="M183.3 94h107v8.6h-107z"></path>
+                                        <path class="st2" d="M152.8 108.5h195v8.6h-195z"></path>
+                                        <path class="st2" d="M183.3 122.9h164.5v8.6H183.3z"></path>
+                                        <path class="st2" d="M152.8 137.4h119.4v8.6H152.8z"></path>
+                                        <path class="st2" d="M152.8 151.9h100.1v8.6H152.8z"></path>
+                                        <path class="st2" d="M152.8 166.3v8.6h50.1v-8.6h-50.1z"></path>
+                                        <path class="st0" d="M131.8 65.1v8.6H147v-8.6h-15.2z"></path>
+                                        <path class="st0" d="M131.8 79.6v8.6H147v-8.6h-15.2z"></path>
+                                        <path class="st0" d="M131.8 94v8.6H147V94h-15.2z"></path>
+                                        <path class="st0" d="M131.8 108.5v8.6H147v-8.6h-15.2z"></path>
+                                        <path class="st0" d="M131.8 122.9v8.6H147v-8.6h-15.2z"></path>
+                                        <path class="st0" d="M131.8 137.4v8.6H147v-8.6h-15.2z"></path>
+                                        <path class="st0" d="M131.8 151.9v8.6H147v-8.6h-15.2z"></path>
+                                        <path class="st0" d="M131.8 166.3v8.6H147v-8.6h-15.2z"></path>
+                                    </svg>
+                                    <!-- END: icon-use-tskit-in-your-app -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: panel -->
+
+            </div>
+        </section>
+        <!-- END: panels-section -->
+
+    </main>
+    <!-- END: content -->
+
+    <!-- START: footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 offset-md-1">
+                    <a class="footer__logo" href="./">
+                        <!-- START: icon-logo -->
+                        <svg class="icon icon--logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+                             viewBox="0 0 84.8 68">
+                            <style>
+                                .logo-st0 {
+                                    fill: #085167
+                                }
+
+                                .logo-st1 {
+                                    fill: #14e2a8
+                                }
+                            </style>
+                            <path class="logo-st0"
+                                  d="M2 61.4v-8.2H0v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                            <path class="logo-st0"
+                                  d="M62.7 67.5v-3.4h1.9V53.2h-1.9v-3.4h6.8v14.3h1.9v3.4h-8.7zm1.1-23.3c-.1-1.6 1.2-2.9 2.7-3 1.6-.1 2.9 1.2 3 2.7.1 1.6-1.2 2.9-2.7 3h-.1c-1.5.1-2.8-1-2.9-2.5v-.2"></path>
+                            <path class="logo-st0"
+                                  d="M39.6 67.5v-3.4h1.9V45.4h-1.9V42h6.8v14.4h4l1.7-3.2h-2.5v-3.4h9.6v3.4h-2.6L53.7 58l4.2 6h2.8v3.4h-9.9V64h1.7l-2.8-4.6h-3.4V64h1.9v3.4l-8.6.1z"></path>
+                            <path class="logo-st0"
+                                  d="M23.4 57c4.5 1.3 6.4 2.7 6.4 5.9 0 3.3-2.5 5.1-6.4 5.1-2.6 0-4.3-.7-5.4-1.9l-.1 1.3h-3.4v-6.1h3.7c.7 1.9 2.5 3.2 4.5 3.1 1.3 0 2.3-.5 2.3-1.6s-1-1.5-1.7-1.7l-2.6-.7c-2.8-.7-6.2-1.7-6.2-6 0-3.4 2.4-5.2 6-5.2 1.8 0 3.6.6 5 1.8l.1-1.3H29v5.9h-3.7c-.4-1.7-1.9-2.9-3.6-2.9-1.3 0-2.3.5-2.3 1.7 0 1 .6 1.4 1.8 1.7l2.2.9z"></path>
+                            <path class="logo-st0"
+                                  d="M75 61.4v-8.2h-2v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                            <path class="logo-st1" d="M75 28.8h4.8v12.5H75z"></path>
+                            <path class="logo-st1" d="M41.5 28.8h4.8v9.6h-4.8z"></path>
+                            <path class="logo-st1" d="M41.5 24h38.3v4.8H41.5z"></path>
+                            <path class="logo-st1" d="M58.3 14.4h4.8V24h-4.8z"></path>
+                            <path class="logo-st1" d="M2 14.4h4.8v26.9H2z"></path>
+                            <path class="logo-st1" d="M2 9.6h61.1v4.8H2z"></path>
+                            <path class="logo-st1" d="M34.6 0h4.8v9.6h-4.8z"></path>
+                        </svg>
+                        <!-- END: icon-logo -->
+                        <span class="visually-hidden">
+                        tskit
+                    </span>
+                    </a>
+                </div>
+                <div class="col">
+                    <h4 class="footer__heading">
+                        Useful links if needed
+                    </h4>
+                    <ul class="list list--unstyled">
+                        <li class="list__item">
+                            <a href="#" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Github
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a href="#" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Report a website issue
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a href="#" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Code of conduct
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a href="#" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Licence
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: footer -->
+
+</div>
+
+<script src="./assets/dist/js/main.min.js"></script>
+
+</body>
+</html>

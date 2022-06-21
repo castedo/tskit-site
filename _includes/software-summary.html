@@ -22,27 +22,28 @@
         </span>
     </a>
     <a href="{{app.docs_url}}" class="list__item__link link link--type-2">
-        {% include assets/icons/icon-python.svg %}
+        {% include assets/icons/icon-documentation.svg %}
         <span class="link__text">
             Documentation
         </span>
     </a>
-    {% if app.python_package %}
-    <a href="https://pypi.org/project/{{app.python_package}}/" class="list__item__link link link--type-2">
-        {% include assets/icons/icon-python.svg %}
-        <span class="link__text">
-            Python Package
-        </span>
-    </a>
-    {% endif %}
-    {% if app.github.releases[0] %}
-    <a href="{{app.github.releases[0].html_url}}" class="list__item__link link link--type-2">
-        {% include assets/icons/icon-release.svg %}
-        <span class="link__text">
-            {{app.github.releases[0].tag_name}} ({{app.github.releases[0].published_at | timeago}})
-        </span>
-    </a>
-    {% endif %}
+<!--    {% if app.github.releases[0] %}-->
+<!--    <a href="{{app.github.releases[0].html_url}}" class="list__item__link link link&#45;&#45;type-2">-->
+<!--        {% include assets/icons/icon-release.svg %}-->
+<!--        <span class="link__text">-->
+<!--            Version {{app.github.releases[0].tag_name}}-->
+<!--            &lt;!&ndash;            ({{app.github.releases[0].published_at | timeago}})&ndash;&gt;-->
+<!--        </span>-->
+<!--    </a>-->
+<!--    {% endif %}-->
+<!--    {% if app.python_package %}-->
+<!--    <a href="https://pypi.org/project/{{app.python_package}}/" class="list__item__link link link&#45;&#45;type-2">-->
+<!--        {% include assets/icons/icon-python.svg %}-->
+<!--        <span class="link__text">-->
+<!--            Python Package-->
+<!--        </span>-->
+<!--    </a>-->
+<!--    {% endif %}-->
     <a href="{{ app.url }}" class="list__item__link link link--type-1">
         <span class="link__text">
             See more

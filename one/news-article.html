@@ -1,0 +1,357 @@
+<!doctype html>
+<html class="no-js" lang="en-GB">
+
+<!-- START: html-header -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        tskit
+    </title>
+    <script>
+      document.documentElement.className = 'js'
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicons/site.webmanifest" crossorigin="use-credentials">
+    <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color="#085167">
+    <meta name="msapplication-TileColor" content="#085167">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.typekit.net/uhf4ono.css">
+    <link rel="stylesheet" href="./assets/dist/css/style.min.css">
+</head>
+<!-- END: html-header -->
+
+<body>
+<div class="page-wrapper">
+
+    <!-- START: header -->
+    <header class="header">
+        <!-- START: navbar -->
+        <nav class="nav navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="./">
+                    <!-- START: icon-logo -->
+                    <svg class="icon icon--logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 84.8 68">
+                        <style>
+                            .logo-st0 {
+                                fill: #085167
+                            }
+
+                            .logo-st1 {
+                                fill: #14e2a8
+                            }
+                        </style>
+                        <path class="logo-st0"
+                              d="M2 61.4v-8.2H0v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                        <path class="logo-st0"
+                              d="M62.7 67.5v-3.4h1.9V53.2h-1.9v-3.4h6.8v14.3h1.9v3.4h-8.7zm1.1-23.3c-.1-1.6 1.2-2.9 2.7-3 1.6-.1 2.9 1.2 3 2.7.1 1.6-1.2 2.9-2.7 3h-.1c-1.5.1-2.8-1-2.9-2.5v-.2"></path>
+                        <path class="logo-st0"
+                              d="M39.6 67.5v-3.4h1.9V45.4h-1.9V42h6.8v14.4h4l1.7-3.2h-2.5v-3.4h9.6v3.4h-2.6L53.7 58l4.2 6h2.8v3.4h-9.9V64h1.7l-2.8-4.6h-3.4V64h1.9v3.4l-8.6.1z"></path>
+                        <path class="logo-st0"
+                              d="M23.4 57c4.5 1.3 6.4 2.7 6.4 5.9 0 3.3-2.5 5.1-6.4 5.1-2.6 0-4.3-.7-5.4-1.9l-.1 1.3h-3.4v-6.1h3.7c.7 1.9 2.5 3.2 4.5 3.1 1.3 0 2.3-.5 2.3-1.6s-1-1.5-1.7-1.7l-2.6-.7c-2.8-.7-6.2-1.7-6.2-6 0-3.4 2.4-5.2 6-5.2 1.8 0 3.6.6 5 1.8l.1-1.3H29v5.9h-3.7c-.4-1.7-1.9-2.9-3.6-2.9-1.3 0-2.3.5-2.3 1.7 0 1 .6 1.4 1.8 1.7l2.2.9z"></path>
+                        <path class="logo-st0"
+                              d="M75 61.4v-8.2h-2v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                        <path class="logo-st1" d="M75 28.8h4.8v12.5H75z"></path>
+                        <path class="logo-st1" d="M41.5 28.8h4.8v9.6h-4.8z"></path>
+                        <path class="logo-st1" d="M41.5 24h38.3v4.8H41.5z"></path>
+                        <path class="logo-st1" d="M58.3 14.4h4.8V24h-4.8z"></path>
+                        <path class="logo-st1" d="M2 14.4h4.8v26.9H2z"></path>
+                        <path class="logo-st1" d="M2 9.6h61.1v4.8H2z"></path>
+                        <path class="logo-st1" d="M34.6 0h4.8v9.6h-4.8z"></path>
+                    </svg>
+                    <!-- END: icon-logo -->
+                    <span class="visually-hidden">
+                        tskit
+                    </span>
+                </a>
+                <button class="navbar-toggler collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent"
+                        aria-controls="navbarContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- START: menu -->
+                    <ul class="navbar-nav">
+                        <li class="nav__item">
+                            <a href="genetics-research.html" class=" nav__item__link">Genetics research</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="learn.html" class=" nav__item__link">Learn</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="software.html" class=" nav__item__link">Software</a>
+                        </li>
+                        <li class="nav__item nav__item--current">
+                            <a href="news.html" class=" nav__item__link">News</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="community.html" class=" nav__item__link">Community</a>
+                        </li>
+                    </ul>
+                    <!-- END: menu -->
+                </div>
+            </div>
+        </nav>
+        <!-- END: navbar -->
+
+    </header>
+    <!-- END: header -->
+
+    <!-- START: content -->
+    <main class="page-content" id="content">
+
+        <!-- START: hero-type-2 -->
+        <div class="hero hero--type-2">
+            <div class="container">
+                <div class="row">
+                    <!-- NOTE: Different column values here than other instances of Type 2 Hero -->
+                    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                        <!-- NOTE: H1 here not H2 -->
+                        <h1 class="hero__heading">
+                            News article title here lorem ipsum dolor sit amet adipiscing
+                        </h1>
+                        <span class="hero__metadata">
+                            <span class="hero__metadata__heading">By author name here</span>
+                            &nbsp;|&nbsp;
+                            <time class="hero__metadate__timestamp" datetime="2022-05-01">01 May 2022</time>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: hero-type-2 -->
+
+        <!-- START: news-content -->
+        <section class="section section--general-content">
+            <div class="container">
+                <div class="row">
+                    <!-- NOTE: Same column values here as in the hero above -->
+                    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                        <h2 class="section__heading">
+                            H2 heading
+                        </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                        <div class="wysiwyg">
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                                sanctus est Lorem ipsum dolor sit amet. <a href="#">A hyperlink will look like this</a>
+                                consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                                magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+                                ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                                amet.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.
+                            </p>
+                            <img alt="News Article Image 02"
+                                 class="section__image img-fluid"
+                                 src="./assets/images/news-02-full@1x.jpg"
+                                 srcset="./assets/images/news-02-full@1x.jpg, ./assets/images/news-02-full@2x.jpg 2x"
+                                 sizes="(min-width: 1400px) 840px,
+                                        (min-width: 1200px) 720px,
+                                        (min-width: 992px) 600px,
+                                        (min-width: 768px) 560px,
+                                        (min-width: 576px) 500px,
+                                        280px">
+                            <h3>
+                                H3 heading
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.
+                            </p>
+                            <h4>
+                                H4 heading
+                            </h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.
+                            </p>
+                            <h5>
+                                H5 heading
+                            </h5>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.
+                            </p>
+                            <h6>
+                                H6 subheading
+                            </h6>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                                accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                                sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                                sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                                amet.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.
+                            </p>
+                            <a href="https://www.youtube.com/watch?v=YrZTKjLzZY0" class="video-trigger"
+                               data-bs-toggle="modal" data-bs-target="#globalModal" data-video-id="YrZTKjLzZY0"
+                               data-video-aspect-ratio="16x9">
+                                <span class="visually-hidden">
+                                    Play video
+                                </span>
+                                <div class="video-trigger__image-wrapper">
+                                    <img alt="News Article Image 03"
+                                         class="section__image img-fluid"
+                                         src="./assets/images/news-03-full@1x.jpg"
+                                         srcset="./assets/images/news-03-full@1x.jpg, ./assets/images/news-03-full@2x.jpg 2x"
+                                         sizes="(min-width: 1400px) 840px,
+                                                (min-width: 1200px) 720px,
+                                                (min-width: 992px) 600px,
+                                                (min-width: 768px) 560px,
+                                                (min-width: 576px) 500px,
+                                                280px">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: news-content -->
+
+    </main>
+    <!-- END: content -->
+
+    <!-- START: footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 offset-md-1">
+                    <a class="footer__logo" href="./">
+                        <!-- START: icon-logo -->
+                        <svg class="icon icon--logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+                             viewBox="0 0 84.8 68">
+                            <style>
+                                .logo-st0 {
+                                    fill: #085167
+                                }
+
+                                .logo-st1 {
+                                    fill: #14e2a8
+                                }
+                            </style>
+                            <path class="logo-st0"
+                                  d="M2 61.4v-8.2H0v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                            <path class="logo-st0"
+                                  d="M62.7 67.5v-3.4h1.9V53.2h-1.9v-3.4h6.8v14.3h1.9v3.4h-8.7zm1.1-23.3c-.1-1.6 1.2-2.9 2.7-3 1.6-.1 2.9 1.2 3 2.7.1 1.6-1.2 2.9-2.7 3h-.1c-1.5.1-2.8-1-2.9-2.5v-.2"></path>
+                            <path class="logo-st0"
+                                  d="M39.6 67.5v-3.4h1.9V45.4h-1.9V42h6.8v14.4h4l1.7-3.2h-2.5v-3.4h9.6v3.4h-2.6L53.7 58l4.2 6h2.8v3.4h-9.9V64h1.7l-2.8-4.6h-3.4V64h1.9v3.4l-8.6.1z"></path>
+                            <path class="logo-st0"
+                                  d="M23.4 57c4.5 1.3 6.4 2.7 6.4 5.9 0 3.3-2.5 5.1-6.4 5.1-2.6 0-4.3-.7-5.4-1.9l-.1 1.3h-3.4v-6.1h3.7c.7 1.9 2.5 3.2 4.5 3.1 1.3 0 2.3-.5 2.3-1.6s-1-1.5-1.7-1.7l-2.6-.7c-2.8-.7-6.2-1.7-6.2-6 0-3.4 2.4-5.2 6-5.2 1.8 0 3.6.6 5 1.8l.1-1.3H29v5.9h-3.7c-.4-1.7-1.9-2.9-3.6-2.9-1.3 0-2.3.5-2.3 1.7 0 1 .6 1.4 1.8 1.7l2.2.9z"></path>
+                            <path class="logo-st0"
+                                  d="M75 61.4v-8.2h-2v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                            <path class="logo-st1" d="M75 28.8h4.8v12.5H75z"></path>
+                            <path class="logo-st1" d="M41.5 28.8h4.8v9.6h-4.8z"></path>
+                            <path class="logo-st1" d="M41.5 24h38.3v4.8H41.5z"></path>
+                            <path class="logo-st1" d="M58.3 14.4h4.8V24h-4.8z"></path>
+                            <path class="logo-st1" d="M2 14.4h4.8v26.9H2z"></path>
+                            <path class="logo-st1" d="M2 9.6h61.1v4.8H2z"></path>
+                            <path class="logo-st1" d="M34.6 0h4.8v9.6h-4.8z"></path>
+                        </svg>
+                        <!-- END: icon-logo -->
+                        <span class="visually-hidden">
+                        tskit
+                    </span>
+                    </a>
+                </div>
+                <div class="col">
+                    <h4 class="footer__heading">
+                        Useful links if needed
+                    </h4>
+                    <ul class="list list--unstyled">
+                        <li class="list__item">
+                            <a href="#" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Github
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a href="#" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Report a website issue
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a href="#" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Code of conduct
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a href="#" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Licence
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: footer -->
+
+    <!-- START: global modal -->
+    <div class="modal fade"
+         id="globalModal"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="globalModalLabel"
+         aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <button class="navbar-toggler modal-close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="modal-header visually-hidden">
+                    <h5 class="modal-title" id="globalModalLabel">
+                        Modal content
+                    </h5>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END: global modal -->
+
+</div>
+
+<script src="./assets/dist/js/main.min.js"></script>
+
+</body>
+</html>

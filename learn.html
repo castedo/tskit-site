@@ -2,89 +2,432 @@
 layout: page
 title: Learn
 permalink: /learn.html
-
 ---
-
-<h1><a id="what"></a>What is a tree sequence?</h1>
-<div>
-    <p>A <em>succinct tree sequence</em>, or tree sequence for short, represents the
-    relationships between a set of DNA sequences. Tree sequences can be used to store
-    genetic data efficiently, and enable powerful analysis of millions of
-    whole genomes at a time. They can be created by
-    <a href="software/#simulate">simulation</a> or by <a href="software/#infer">inferring
-    relationships from genetic variation</a>.</p>
-    
-    Tree sequences provide:
-    <dl>
-        <dt>A record of full genetic ancestry</dt>
-        <dd>A tree sequence concisely captures the full history of a set of genomes by sharing
-        common branches between adjacent genetic trees. <br/>
-        <a href="tutorials/what_is.html#sec-what-is-ancestry">Read more ...</a>
-        </dd>
-        <dt>An encoding of DNA data</dt>
-        <dd>Placing mutations on a tree sequence allows lossless representation 
-        and compression of DNA datasets. <br/>
-        <a href="tutorials/what_is.html#sec-what-is-dna-data">Read more ...</a></dd>
-        <dt>An efficient analysis framework</dt>
-        <dd>Many of the analyses we perform on DNA data can be 
-        expressed naturally as operations on the ancestral trees, leading 
-        to highly efficient algorithms. <br/>
-        <a href="tutorials/what_is.html#sec-what-is-analysis">Read more ...</a></dd>
-    </dl>
-</div>
-
-<h1><a id="tutorials"></a>Tutorials</h1>
-<div>
-    <p>If you like learning by example, then head over to the
-    <a href="tutorials/">tutorials</a> section of this site, which provides some
-    general introductory material, followed by a number of more focussed tutorials
-    demonstrating how to generate and process tree sequences.</p>
-    
-    <p>Tutorials include examples of statistical analysis of simulated genomic data using
-    <a href="https://tskit.dev/tskit">tskit</a> as well as advanced usage of genome
-    simulation software such as <a href="https://tskit.dev/tskit">msprime</a>.</p>
-</div>
-
-<h1><a id="talks"></a>Videos</h1>
-<div>
-    <p>If you want to learn about tree sequences by following a talk,
-    then you might like to watch one or more of the videos listed below:</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Who</th><th>Year</th><th>Where</th><th>Video</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for video in site.videos %}
-        <tr>
-          <td>{{ video.who }}</td>
-          <td>{{ video.year }}</td>
-          <td>{{ video.where }}</td>
-          <td><a href="https://www.youtube.com/watch?v={{ video.youtube-id }}">
-              {{ video.title }}</a></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-</div>
-<!-- <p> -->
-
-<h1><a id="publications"></a>Key publications</h1>
-
-{% for cat in site.pubs.categories %}
-
-<div>
-    {% assign pubs = site.pubs.pubs | where: "category",cat.key %}
-    {% for pub in pubs %}
-    <div class="publication">
-        <span class="publication-title">{{ pub.title }}, </span>
-        <span class="publication-pub">{{ pub.journal }} </span>
-        <span class="publication-year">({{ pub.year }}). </span>
-        <span class="publication-author">{{ pub.author }}.</span>
-        doi:<a href="https://doi.org/{{ pub.doi }}">{{ pub.doi }}</a>
-        <div class="publication-abstract">{{ pub.notes }}</div>
+<!-- START: hero-type-2 -->
+<div class="hero hero--type-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-6">
+                <h2 class="hero__heading">
+                    What is a tree sequence?
+                </h2>
+                <div class="hero__content wysiwyg">
+                    <p>
+                        A <em>succinct tree sequence</em>, or tree sequence for short, represents the relationships
+                        between a set of DNA sequences. Tree sequences can be used to store genetic data
+                        efficiently, and enable powerful analysis of millions of whole genomes at a time. They
+                        can be created by simulation or by inferring relationships from genetic variation.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    {% endfor %}
-    {% endfor %}
 </div>
+<!-- END: hero-type-2 -->
+
+<!-- START: cards-type-2 -->
+<section class="section section--cards section--cards--type-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="section__heading">
+                    Tree sequences provide:
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <a href="tutorials/what_is.html#sec-what-is-ancestry" class="card card--type-2">
+                    <h4 class="card__heading">
+                        A record full of genetic ancestry
+                    </h4>
+                    <p class="card__text">
+                        A tree sequence concisely captures the full history of a set of genomes by sharing
+                        common branches between adjacent genetic trees
+                    </p>
+                    <span class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Read the article
+                                </span>
+                            </span>
+                </a>
+                <!-- END: card -->
+            </div>
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <a href="tutorials/what_is.html#sec-what-is-dna-data" class="card card--type-2">
+                    <h4 class="card__heading">
+                        An encoding of DNA data
+                    </h4>
+                    <p class="card__text">
+                        Placing mutations on a tree sequence allows lossless representation and compression of
+                        DNA datasets
+                    </p>
+                    <span class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Read the article
+                                </span>
+                            </span>
+                </a>
+                <!-- END: card -->
+            </div>
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <a href="tutorials/what_is.html#sec-what-is-analysis" class="card card--type-2">
+                    <h4 class="card__heading">
+                        An efficient analysis framework
+                    </h4>
+                    <p class="card__text">
+                        Many of the analyses we perform on DNA data can be expressed naturally as operations on
+                        the ancestral trees, leading to highly efficient algorithms
+                    </p>
+                    <span class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Read the article
+                                </span>
+                            </span>
+                </a>
+                <!-- END: card -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: cards-type-2 -->
+
+<!-- START: filters -->
+<section class="section section--filters">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="section__heading">
+                    Browse tutorials, publications and videos by type of research:
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="btn-group" role="group" aria-label="Filters">
+                    <a href="#" class="btn btn-outline-primary active" aria-current="page">All</a>
+                    <a href="#" class="btn btn-outline-primary">Population genetics</a>
+                    <a href="#" class="btn btn-outline-primary">Statistical genetics</a>
+                    <a href="#" class="btn btn-outline-primary">Phylogenetics</a>
+                    <a href="#" class="btn btn-outline-primary">Applications</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-lg-5">
+                <select class="form-select form-select-lg">
+                    <option>Choose resource type</option>
+                    <option value="publication">publication</option>
+                    <option value="tutorial">tutorial</option>
+                    <option value="video">video</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: filters -->
+
+<!-- START: cards-type-3 -->
+<section class="section section--cards section--cards--type-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Publication</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Inferring whole-genome histories in large population datasets
+                    </h5>
+                    <div class="wysiwyg">
+                        <p>
+                            Nature Genetics (2019) Kelleher, Wong, Wohns, Fadil.
+                        </p>
+                        <p>
+                            doi: <a href="#">10.1038/s41588-019-0483-y</a>
+                        </p>
+                        <p>Start here if you’re new to tree sequences. This paper introduces tsinfer, the method
+                            to infer tree sequence topologies from genetic variation data. Please see the
+                            preprint if you cannot access the Nature Genetics paper.
+                        </p>
+                    </div>
+                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                                <span class="link__text">
+                                    Read the article
+                                </span>
+                    </a>
+                    <div class="card__metadata">
+                        <span class="card__tag">Population genetics</span>
+                    </div>
+                </div>
+                <!-- END: card -->
+            </div>
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Getting started with tskit
+                    </h5>
+                    <div class="wysiwyg">
+                        <p>
+                            You’ve run some simulations on inference methods, and now you have a TreeSequence
+                            object; what now? This tutorial is aimed at users who are new to tskit and would
+                            like to get some basic tasks completed.
+                        </p>
+                    </div>
+                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                                <span class="link__text">
+                                    See the tutorial
+                                </span>
+                    </a>
+                    <div class="card__metadata">
+                        <span class="card__tag">Population genetics</span>
+                    </div>
+                </div>
+                <!-- END: card -->
+            </div>
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Video</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Tree sequence fundamentals
+                    </h5>
+                    <div class="wysiwyg">
+                        <p>
+                            Who: Wilder Wohns
+                        </p>
+                        <p>
+                            Year: 2020
+                        </p>
+                        <p>
+                            Where: Phyloseminar
+                        </p>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=YrZTKjLzZY0" class="video-trigger"
+                       data-bs-toggle="modal" data-bs-target="#globalModal" data-video-id="YrZTKjLzZY0"
+                       data-video-aspect-ratio="16x9">
+                                <span class="visually-hidden">
+                                    Play video
+                                </span>
+                        <div class="video-trigger__image-wrapper">
+                            <img alt="Wilder Wohns" class="img-fluid"
+                                 src="./assets/images/wilder-wohns@1x.jpg"
+                                 srcset="./assets/images/wilder-wohns@1x.jpg, ./assets/images/wilder-wohns@2x.jpg 2x">
+                        </div>
+                    </a>
+                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                                <span class="link__text">
+                                    Read the article
+                                </span>
+                    </a>
+                    <div class="card__metadata">
+                        <span class="card__tag">Population genetics</span>
+                    </div>
+                </div>
+                <!-- END: card -->
+            </div>
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Publication</span>
+                        <span class="card__category">Tutorial</span>
+                        <span class="card__category">Video</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Inferring whole-genome histories in large population datasets
+                    </h5>
+                    <div class="wysiwyg">
+                        <p>
+                            Nature Genetics (2019) Kelleher, Wong, Wohns, Fadil.
+                        </p>
+                        <p>
+                            doi: <a href="#">10.1038/s41588-019-0483-y</a>
+                        </p>
+                        <p>
+                            Start here if you’re new to tree sequences. This paper introduces tsinfer, the method
+                            to infer tree sequence topologies from genetic variation data. Please see the
+                            preprint if you cannot access the Nature Genetics paper.
+                        </p>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=YrZTKjLzZY0" class="video-trigger"
+                       data-bs-toggle="modal" data-bs-target="#globalModal" data-video-id="YrZTKjLzZY0"
+                       data-video-aspect-ratio="16x9">
+                                <span class="visually-hidden">
+                                    Play video
+                                </span>
+                        <div class="video-trigger__image-wrapper">
+                            <img alt="Wilder Wohns" class="img-fluid"
+                                 src="./assets/images/wilder-wohns@1x.jpg"
+                                 srcset="./assets/images/wilder-wohns@1x.jpg, ./assets/images/wilder-wohns@2x.jpg 2x">
+                        </div>
+                    </a>
+                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                                <span class="link__text">
+                                    Read the article
+                                </span>
+                    </a>
+                    <div class="card__metadata">
+                        <span class="card__tag">Population genetics</span>
+                        <span class="card__tag">Statistical genetics</span>
+                        <span class="card__tag">Phylogenetics</span>
+                        <span class="card__tag">Applications</span>
+                    </div>
+                </div>
+                <!-- END: card -->
+            </div>
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Video</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Tree sequence fundamentals
+                    </h5>
+                    <div class="wysiwyg">
+                        <p>
+                            Who: Wilder Wohns
+                        </p>
+                        <p>
+                            Year: 2020
+                        </p>
+                        <p>
+                            Where: Phyloseminar
+                        </p>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=YrZTKjLzZY0" class="video-trigger"
+                       data-bs-toggle="modal" data-bs-target="#globalModal" data-video-id="YrZTKjLzZY0"
+                       data-video-aspect-ratio="16x9">
+                                <span class="visually-hidden">
+                                    Play video
+                                </span>
+                        <div class="video-trigger__image-wrapper">
+                            <img alt="Wilder Wohns" class="img-fluid"
+                                 src="./assets/images/wilder-wohns@1x.jpg"
+                                 srcset="./assets/images/wilder-wohns@1x.jpg, ./assets/images/wilder-wohns@2x.jpg 2x">
+                        </div>
+                    </a>
+                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                                <span class="link__text">
+                                    Read the article
+                                </span>
+                    </a>
+                    <div class="card__metadata">
+                        <span class="card__tag">Population genetics</span>
+                    </div>
+                </div>
+                <!-- END: card -->
+            </div>
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Publication</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Inferring whole-genome histories in large population datasets
+                    </h5>
+                    <div class="wysiwyg">
+                        <p>
+                            Nature Genetics (2019) Kelleher, Wong, Wohns, Fadil.
+                        </p>
+                        <p>
+                            doi: <a href="#">10.1038/s41588-019-0483-y</a>
+                        </p>
+                        <p>Start here if you’re new to tree sequences. This paper introduces tsinfer, the method
+                            to infer tree sequence topologies from genetic variation data. Please see the
+                            preprint if you cannot access the Nature Genetics paper.
+                        </p>
+                    </div>
+                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                                <span class="link__text">
+                                    Read the article
+                                </span>
+                    </a>
+                    <div class="card__metadata">
+                        <span class="card__tag">Population genetics</span>
+                    </div>
+                </div>
+                <!-- END: card -->
+            </div>
+        </div>
+    </div>
+
+    <!-- START: pagination -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav class="pagination-wrapper">
+                    <ul class="pagination list list--unstyled list--horizontal">
+                        <li class="list__item">
+                                    <span class="pagination__number pagination__number--prev disabled">
+                                        Prev
+                                    </span>
+                        </li>
+                        <li class="list__item">
+                                    <span class="pagination__number pagination__number--current">
+                                        1
+                                    </span>
+                        </li>
+                        <li class="list__item">
+                            <a class="pagination__number" href="#">
+                                2
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a class="pagination__number" href="#">
+                                3
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a class="pagination__number" href="#">
+                                4
+                            </a>
+                        </li>
+                        <li class="list__item">
+                                    <span class="pagination__dots">
+                                        &hellip;
+                                    </span>
+                        </li>
+                        <li class="list__item">
+                            <a class="pagination__number" href="#">
+                                12
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a class="pagination__number pagination__number--next" href="#">
+                                Next
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- END: pagination -->
+
+</section>
+<!-- END: cards-type-3 -->

@@ -1,71 +1,125 @@
 ---
-layout: content-page
+layout: page
 ---
-<img class="software-logo" src="{{ page.logo }}"/>
-<h1 class="mono"> {{ page.name }} </h1>
-<h3> {{ page.description | default: page.github.repo.description | markdownify }} </h3>
-<div class="software-page-content">
-    <div>
-        <i class="fab fa-github fa-fw"></i>
-        <a href="{{ page.repo_url | default: page.github.repo.html_url }}">{{page.repo_url | default:
-            page.github.repo.html_url }}</a>
-    </div>
-    <div>
-        <i class="fas fa-book fa-fw"></i>
-        <a href="{{page.docs_url}}">Documentation</a>
-    </div>
-    {% if page.github.releases[0] %}
-    <div>
-        <i class="fas fa-box-open fa-fw"></i>
-        Latest release: <a href="{{page.github.releases[0].html_url}}">{{page.github.releases[0].tag_name}}</a>
-        {{page.github.releases[0].published_at | timeago}}
-    </div>
-    {% endif %}
-    {% if page.python_package %}
-    <div>
-        <i class="fab fa-python fa-fw"></i>
-        <a href="https://pypi.org/project/{{page.python_package}}/">Python Package</a>
-    </div>
-    {% endif %}
-    <h3>Overview:</h3>
-    <div class="software-page-content">
-        {{ content }}
-    </div>
-    {% assign tutorials = site.tutorials | where_exp:"item", "item.software contains page.name" %}
-    {% if tutorials %}
-    <h3>Tutorials:</h3>
-    {% for tutorial in site.tutorials %}
-    <div class="tutorial">
-        <a href="{{ tutorial.url }}">
-            <h4>
-                {{ tutorial.title }}
-            </h4>
-        </a>
-        <div class="tutorial-description">{{ tutorial.description }}</div>
-        <div class="tutorial-software mono">
-            Featured Software:
-            {% for software in tutorial.software %}
-            <a href="software/{{ software }}">{{ software }}</a>
-            {% endfor %}
+<!-- START: hero-type-3 -->
+<div class="hero hero--type-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="hero__logo" src="{{ page.logo }}"/>
+            </div>
+            <div class="col-md-6">
+                <ul class="list list--unstyled">
+                    <li class="list__item">
+                        <a href="{{ page.repo_url | default: page.github.repo.html_url }}"
+                           class="list__item__link link link--type-2 link--type-2--size-1">
+                            <!-- START: icon-github -->
+                            {% include assets/icons/icon-github.svg %}
+                            <!-- END: icon-github -->
+                            <span class="link__text">
+                               {{page.gh_org}}/{{page.name}}
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list__item">
+                        <a href="{{page.docs_url}}" class="list__item__link link link--type-2 link--type-2--size-1">
+                            <!-- START: icon-documentation -->
+                            {% include assets/icons/icon-documentation.svg %}
+                            <!-- END: icon-documentation -->
+                            <span class="link__text">
+                                Documentation
+                            </span>
+                        </a>
+                    </li>
+                    {% if page.github.releases[0] %}
+                    <li class="list__item">
+                        <a href="{{page.github.releases[0].html_url}}"
+                           class="list__item__link link link--type-2 link--type-2--size-1 link--has-subtext">
+                            <!-- START: icon-release -->
+                            {% include assets/icons/icon-release.svg %}
+                            <!-- END: icon-release -->
+                            <span class="link__text">
+                                Latest release: {{page.github.releases[0].tag_name}}
+                            </span>
+                            <span class="link__subtext">
+                                {{page.github.releases[0].published_at | timeago}}
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if page.python_package %}
+                    <li class="list__item">
+                        <a href="#" class="list__item__link link link--type-2 link--type-2--size-1">
+                            <!-- START: icon-python -->
+                            {% include assets/icons/icon-python.svg %}
+                            <!-- END: icon-python -->
+                            <span class="link__text">
+                            Python Package
+                        </span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     </div>
-    {% endfor %}
-    {% endif %}
-    <h3>Contributors:</h3>
-    <div class="contributors">
-        {% for contributor in page.github.contributors %}
-        {% if contributor.login contains "[bot]" %}
-        {% else %}
-        <div class="contributor">
-            <a href="{{ contributor.html_url}}">
-                <img class="avatar" src="{{ contributor.avatar_url}}"/>
-                <span>@{{ contributor.login }}</span>
-            </a>
-        </div>
-        {% endif %}
-        {% endfor %}
-    </div>
-
-
-
 </div>
+<!-- END: hero-type-3 -->
+
+<!-- START: section-code-and-text -->
+<section class="section section--code-and-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+<!--                <h2 class="section__heading">-->
+<!--                    {{ page.title }}-->
+<!--                </h2>-->
+                <p class="section__text">
+                    {{ content }}
+                </p>
+            </div>
+            <div class="col-md-6">
+                {% highlight python %}{{ page.code_snippet }}{% endhighlight %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: section-code-and-text -->
+
+<!-- START: contributors-section -->
+<section class="section section--list">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section__content">
+                    <h3 class="section__heading">
+                        Contributors
+                    </h3>
+                    <!-- START: contributors-list -->
+                    <ul class="list list--unstyled">
+                        {% for contributor in page.github.contributors %}
+                        {% if contributor.login contains "[bot]" %}
+                        {% else %}
+                        <li class="list__item">
+                            <a href="{{ contributor.html_url }}" class="link link--type-3">
+                                <img src="{{ contributor.avatar_url }}&s=40"
+                                     srcset="{{ contributor.avatar_url }}&s=40, {{ contributor.avatar_url }}&s=80 2x"
+                                     alt="{{ contributor.name }}"
+                                     class="img-fluid link__avatar"
+                                >
+                                <span class="link__text">
+                                    @{{ contributor.login }}
+                                </span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <!-- END: contributors-list -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: contributors-section -->
+
