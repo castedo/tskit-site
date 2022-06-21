@@ -8,7 +8,9 @@ category: infer
 permalink: /tsinfer
 python_package: tsinfer
 code_snippet: |2
-  sample_data = tsinfer.load("phased_sequence_data.samples")
+  sample_data = tsinfer.load(
+      "phased_sequence_data.samples"
+  )
   ts = tsinfer.infer(sample_data)
 
 ---

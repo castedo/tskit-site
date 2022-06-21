@@ -7635,7 +7635,7 @@ strong {
 
 .call-to-action--type-1::before {
   background-color: #14E2A8;
-  background-image: url("../../icons/hero-background-1.svg");
+  background-image: url("../../assets/icons/hero-background-1.svg");
   background-position: calc(100% - 412px) 0;
   background-repeat: no-repeat;
   background-size: 560px 1187px;
@@ -7652,7 +7652,7 @@ strong {
 
 .call-to-action--type-2 {
   background-color: #14E2A8;
-  background-image: url("../../icons/cta-type-2-background.svg");
+  background-image: url("../../assets/icons/cta-type-2-background.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -8009,7 +8009,7 @@ strong {
 
 .hero--type-1 {
   background-color: #14E2A8;
-  background-image: url("../../icons/hero-background-1.svg");
+  background-image: url("../../assets/icons/hero-background-1.svg");
   background-position: 100% -20rem;
   background-repeat: no-repeat;
   background-size: 560px 1187px;
@@ -8026,7 +8026,7 @@ strong {
 }
 @media (min-width: 576px) {
   .hero--type-2 {
-    background-image: url("../../icons/hero-background-2.svg");
+    background-image: url("../../assets/icons/hero-background-2.svg");
     background-position: 100% top;
     background-repeat: no-repeat;
     background-size: 560px 1830px;
@@ -8126,7 +8126,7 @@ strong {
   position: relative;
 }
 .link--type-1--external .link__text::after {
-  background-image: url("../../icons/external-link.svg");
+  background-image: url("../../assets/icons/external-link.svg");
   background-position: right bottom;
   background-repeat: no-repeat;
   background-size: 23px 22px;
@@ -8327,6 +8327,11 @@ strong {
     align-items: flex-end;
   }
 }
+@media (max-width: 991.98px) {
+  .no-js .navbar .collapse {
+    display: block;
+  }
+}
 
 .navbar-brand {
   margin: 1.25rem 0 1.75rem;
@@ -8437,6 +8442,9 @@ strong {
 .navbar-toggler:focus {
   box-shadow: none;
 }
+.no-js .navbar-toggler {
+  display: none;
+}
 
 .navbar-toggler-icon {
   background-color: #03303E;
@@ -8462,7 +8470,7 @@ strong {
 
 .page-heading--type-2 {
   background-color: #14E2A8;
-  background-image: url("../../icons/page-header-type-2-background.svg");
+  background-image: url("../../assets/icons/page-header-type-2-background.svg");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 1366px auto;
@@ -8618,7 +8626,7 @@ strong {
 }
 @media (min-width: 576px) {
   .section--cards--type-2 {
-    background-image: url("../../icons/hero-background-2.svg");
+    background-image: url("../../assets/icons/hero-background-2.svg");
     background-position: 100% bottom;
     background-repeat: no-repeat;
     background-size: 560px 1830px;

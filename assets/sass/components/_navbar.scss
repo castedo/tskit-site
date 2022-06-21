@@ -16,6 +16,14 @@
       align-items: flex-end;
     }
   }
+
+  @include media-breakpoint-down($nav-collapse-breakpoint) {
+    .no-js & {
+      .collapse {
+        display: block;
+      }
+    }
+  }
 }
 
 .navbar-brand {
@@ -144,6 +152,10 @@
 
   &:focus {
     box-shadow: none;
+  }
+
+  .no-js & {
+    display: none;
   }
 }
 
