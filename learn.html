@@ -101,7 +101,7 @@ permalink: /learn.html
         <div class="row">
             <div class="col-md-8">
                 <h3 class="section__heading">
-                    Browse tutorials, publications and videos by type of research:
+                    Browse tutorials, publications and videos:
                 </h3>
             </div>
         </div>
@@ -134,40 +134,68 @@ permalink: /learn.html
 <section class="section section--cards section--cards--type-3">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4">
+            {% assign resources = site.resources %}
+            {% for r in resources %}
+            <div class="col-lg-4" data-r-type="{{r.type}}">
                 <!-- START: card -->
                 <div class="card card--type-3">
                     <div class="card__metadata">
-                        <span class="card__category">Publication</span>
+                        <span class="card__category">{{r.type | capitalize}}</span>
                     </div>
                     <h5 class="card__heading">
-                        Inferring whole-genome histories in large population datasets
+                        {{r.title}}
                     </h5>
-                    <div class="wysiwyg">
-                        <p>
-                            Nature Genetics (2019) Kelleher, Wong, Wohns, Fadil.
-                        </p>
-                        <p>
-                            doi: <a href="#">10.1038/s41588-019-0483-y</a>
-                        </p>
-                        <p>Start here if you’re new to tree sequences. This paper introduces tsinfer, the method
-                            to infer tree sequence topologies from genetic variation data. Please see the
-                            preprint if you cannot access the Nature Genetics paper.
-                        </p>
-                    </div>
-                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                                <span class="link__text">
-                                    Read the article
-                                </span>
-                    </a>
+                    {% if r.type == "paper" %}
+                        <div class="wysiwyg">
+                            <p>
+                                {{r.journal}} ({{r.year}}) {{r.authors}}
+                            </p>
+                            <p>
+                                doi: <a href="https://doi.org/{{ r.doi }}">{{ r.doi }}</a>
+                            </p>
+                            <p>
+                                {{r.content}}
+                            </p>
+                        </div>
+                        <a href="{{r.url}}" class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        Read the article
+                                    </span>
+                        </a>
+                    {% endif %}
+                    {% if r.type == "video" %}
+                        <div class="wysiwyg">
+                            <p>
+                                Who: {{r.who}}
+                            </p>
+                            <p>
+                                Year: {{r.year}}
+                            </p>
+                            <p>
+                                Where: {{r.where}}
+                            </p>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v={{r.youtube-id}}" class="video-trigger"
+                           data-bs-toggle="modal" data-bs-target="#globalModal" data-video-id="{{r.youtube-id}}"
+                           data-video-aspect-ratio="16x9">
+                                    <span class="visually-hidden">
+                                        Play video
+                                    </span>
+                            <div class="video-trigger__image-wrapper">
+                                <img alt="video thumbnail" class="img-fluid"
+                                     src="https://img.youtube.com/vi/{{r.youtube-id}}/maxresdefault.jpg">
+                            </div>
+                        </a>
+                    {% endif %}
                     <div class="card__metadata">
                         <span class="card__tag">Population genetics</span>
                     </div>
                 </div>
                 <!-- END: card -->
             </div>
+            {% endfor %}
             <div class="col-lg-4">
                 <!-- START: card -->
                 <div class="card card--type-3">

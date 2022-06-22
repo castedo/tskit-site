@@ -43,6 +43,8 @@ collections:
     output: true
   news:
     output: true
+  resources:
+    output: false
 
 pubs:
   # TODO update the categories. We may want to remove this entirely.
@@ -103,7 +105,6 @@ pubs:
         as the models were generalised.
 
 videos:
-
   - youtube-id: YrZTKjLzZY0
     who: Wilder Wohns
     year: 2020
