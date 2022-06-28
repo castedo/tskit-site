@@ -6,7 +6,7 @@ on:
     - cron: '29 11 * * *'
   pull_request:
   push:
-    branches: [main]
+    branches: [main, revamp]
 
 jobs:
   cancel-superseded:
@@ -48,8 +48,16 @@ jobs:
           gem install bundler jekyll
           bundle install
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
       - name: Build site
-        run: bundle exec jekyll build -d dist
+        run: grunt build
 
       - name: Debug
         run: |
@@ -464,10 +472,10 @@ jobs:
           path: .
 
       - name: Deploy
-        if: github.ref == 'refs/heads/main'
+#        if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
-          GITHUB_TOKEN: ${{ secrets.ADMINBOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
           BRANCH: gh-pages
           FOLDER: site
           SINGLE_COMMIT: true

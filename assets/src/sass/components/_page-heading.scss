@@ -12,7 +12,7 @@
 
 .page-heading--type-2 {
   background-color: palette.$brand-color-2;
-  background-image: url('../../assets/icons/page-header-type-2-background.svg');
+  background-image: url('../../icons/page-header-type-2-background.svg');
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 1366px auto;
@@ -31,7 +31,20 @@
 .page-heading__text {
   color: palette.$brand-color-6;
   // Enough line height that each line isn't cut off by any background colour
-  line-height: 1.40;
+  line-height: 1.415;
+  @include media-breakpoint-up($nav-collapse-breakpoint) {
+    line-height: 1.66;
+  }
+
+  .js & {
+    min-height: 4.25em;
+    @include media-breakpoint-up(sm) {
+      min-height: 2.9em;
+    }
+    @include media-breakpoint-up(lg) {
+      min-height: 0;
+    }
+  }
 }
 
 .page-heading__text__highlight {
@@ -42,5 +55,18 @@
   padding: 0 0.1em 0;
   @include media-breakpoint-up($nav-collapse-breakpoint) {
     padding: 0.1em 0.25em 0.15em;
+  }
+
+  .js & {
+    animation: blink-caret 0.75s step-end infinite;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-right-color: palette.$color-1;
+  }
+  50% {
+    border-right-color: palette.$brand-color-8;
   }
 }

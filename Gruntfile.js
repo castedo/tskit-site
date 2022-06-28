@@ -8,7 +8,7 @@ module.exports = function (grunt) {
       },
       dist: {                             // Target
         options: {                        // Target options
-          dest: '_site',
+          dest: 'dist',
           config: '_config.yml'
         }
       },
@@ -98,11 +98,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-jekyll');
 
   // Default task - runs when you type 'grunt' in the terminal.
-  // grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['watch']);
 
   // Dev task (leaves the compiled CSS and JS unminified for easier debugging, until sourcemaps are working)
-  grunt.registerTask('dev', ['sass', 'postcss:autoprefixer', 'browserify:dist']);
+  grunt.registerTask('dev', ['sass', 'postcss:autoprefixer', 'browserify:dist', 'jekyll:dist']);
 
   // Build task
-  grunt.registerTask('build', ['sass', 'postcss', 'browserify:dist', 'uglify', 'jekyll']);
+  grunt.registerTask('build', ['sass', 'postcss', 'browserify:dist', 'uglify', 'jekyll:dist']);
 }

@@ -3,6 +3,7 @@
 // Specific styles here in one file to cover figure, pre, and code, adapted from the original https://tskit.dev/
 .highlight {
   display: block;
+  max-width: 100%;
   word-wrap: break-word;
 
   pre {
