@@ -8,7 +8,6 @@ name: msprime
 gh_org: tskit-dev
 docs_url: https://tskit.dev/msprime/docs/
 category: simulate
-permalink: /msprime
 python_package: msprime
 logo: https://raw.githubusercontent.com/tskit-dev/msprime/main/msprime_logo.svg
 code_snippet: |2

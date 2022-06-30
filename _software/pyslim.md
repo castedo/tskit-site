@@ -8,7 +8,6 @@ name: pyslim
 gh_org: tskit-dev
 docs_url: https://tskit.dev/pyslim/docs/stable
 category: analyse
-permalink: /pyslim
 python_package: pyslim
 code_snippet: |2
     rts = pyslim.recapitate(ts, ancestral_Ne=10000)

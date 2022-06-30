@@ -9,6 +9,7 @@ layout: default
         <!-- END: navbar -->
 
         <!-- START: heading -->
+        {% if page.layout != "software-page" and page.title %}
         <div class="page-heading page-heading--type-2">
             <div class="container">
                 <div class="row">
@@ -20,6 +21,7 @@ layout: default
                 </div>
             </div>
         </div>
+        {% endif %}
         <!-- END: heading -->
     </header>
     <!-- END: header -->

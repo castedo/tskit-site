@@ -5,7 +5,6 @@ name: tskit
 gh_org: tskit-dev
 docs_url: https://tskit.dev/tskit/docs/
 category: analyse
-permalink: /tskit
 python_package: tskit
 logo: https://raw.githubusercontent.com/tskit-dev/administrative/main/tskit_logo.svg
 code_snippet: |2

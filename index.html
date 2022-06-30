@@ -66,9 +66,9 @@ layout: default
                                 New to tskit?
                             </h3>
                             <p class="call-to-action__text">
-                                Find out what tksit is and how it can help you in your research
+                                Find out how tskit can help you in your research
                             </p>
-                            <a href="#" class="btn btn--type-1">
+                            <a href="{{ '/genetics-research' | relative_url }}" class="btn btn--type-1">
                                 Discover
                             </a>
                         </div>
@@ -95,21 +95,14 @@ layout: default
                             <h3 class="card__heading">
                                 Simulate
                             </h3>
-                            <a href="#" class="list__item__link link link--type-1 link--type-1--size-1">
+                            {% assign sims = site.software | where: "category","simulate" %}
+                            {% for app in sims %}
+                            <a href="{{ app.url }}" class="list__item__link link link--type-1 link--type-1--size-1">
                                 <span class="link__text">
-                                    ms prime
+                                    {{ app.name }}
                                 </span>
                             </a>
-                            <a href="#" class="list__item__link link link--type-1 link--type-1--size-1">
-                                <span class="link__text">
-                                    SLiM
-                                </span>
-                            </a>
-                            <a href="#" class="list__item__link link link--type-1 link--type-1--size-1">
-                                <span class="link__text">
-                                    fwdpy11
-                                </span>
-                            </a>
+                            {% endfor %}
                         </div>
                         <!-- END: card -->
                     </div>
@@ -119,16 +112,14 @@ layout: default
                             <h3 class="card__heading">
                                 Analyse
                             </h3>
-                            <a href="#" class="list__item__link link link--type-1 link--type-1--size-1">
+                            {% assign sims = site.software | where: "category","analyse" %}
+                            {% for app in sims %}
+                            <a href="{{ app.url }}" class="list__item__link link link--type-1 link--type-1--size-1">
                                 <span class="link__text">
-                                    tsinfer
+                                    {{ app.name }}
                                 </span>
                             </a>
-                            <a href="#" class="list__item__link link link--type-1 link--type-1--size-1">
-                                <span class="link__text">
-                                    tsdate
-                                </span>
-                            </a>
+                            {% endfor %}
                         </div>
                         <!-- END: card -->
                     </div>
@@ -138,21 +129,14 @@ layout: default
                             <h3 class="card__heading">
                                 Infer
                             </h3>
-                            <a href="#" class="list__item__link link link--type-1 link--type-1--size-1">
+                            {% assign sims = site.software | where: "category","infer" %}
+                            {% for app in sims %}
+                            <a href="{{ app.url }}" class="list__item__link link link--type-1 link--type-1--size-1">
                                 <span class="link__text">
-                                    tskit
+                                    {{ app.name }}
                                 </span>
                             </a>
-                            <a href="#" class="list__item__link link link--type-1 link--type-1--size-1">
-                                <span class="link__text">
-                                    psylim
-                                </span>
-                            </a>
-                            <a href="#" class="list__item__link link link--type-1 link--type-1--size-1">
-                                <span class="link__text">
-                                    tskit-rust
-                                </span>
-                            </a>
+                            {% endfor %}
                         </div>
                         <!-- END: card -->
                     </div>
