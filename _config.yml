@@ -17,7 +17,7 @@ title: tskit.dev
 email: 	admin@tskit.dev
 description: The open source tree sequence community
 
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "tskit-site" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll

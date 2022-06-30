@@ -37,13 +37,13 @@
     <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="https://use.typekit.net/uhf4ono.css">
-    <link rel="stylesheet" href="assets/dist/css/style.min.css">
+    <link rel="stylesheet" href="{{ '/assets/dist/css/style.min.css' | relative_url }}">
 </head>
 <!-- END: html-header -->
 
 <body>
 {{ content }}
-<script src="./assets/dist/js/main.min.js"></script>
+<script src="{{ '/assets/dist/js/main.min.js' | relative_url }}"></script>
 
 </body>
 </html>
