@@ -63,6 +63,10 @@ module.exports = function (grunt) {
       js: {
         files: ['assets/src/js/**/*.*'],
         tasks: ['browserify:dist', 'uglify']
+      },
+      jekyll: {
+        files: ['_includes', '_layouts', '_news', "_plugins", "_resources", "_site", "_software"],
+        tasks: ['jekyll:dist']
       }
     },
     postcss: {

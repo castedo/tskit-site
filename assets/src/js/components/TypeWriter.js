@@ -11,19 +11,24 @@ export default class TypeWriter {
     this.words = [
       'Population-scale',
       'Efficient',
+      'Open-source',
       // 'Low-carbon',
       'Developer-friendly',
       'Rock-solid',
       'Reproducible',
-      'Open-source',
+      'Reusable',
+      'Community-built',
     ];
-    this.currentWord = 0
+    this.currentWord = 1
     this.startingDelay = 1.5
     this.endingDelay = 3.5
   }
 
   init() {
-    this.animateWord(this.words[this.currentWord].length)
+    this.textContainer.innerHTML = this.words[0]
+    gsap.delayedCall(this.endingDelay, () => {
+      this.animateWord(this.words[this.currentWord].length)
+    })
   }
 
   animateWord(target_value) {

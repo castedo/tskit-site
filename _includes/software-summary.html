@@ -9,24 +9,24 @@
             {{ app.title }}
         {% endif %}
     </h5>
-    <div class="wysiwyg">
-        <p>
-            {{ app.description | default: app.github.repo.description | markdownify }}
-        </p>
-    </div>
-    {% highlight python %}{{ app.code_snippet }}{% endhighlight %}
-    <a href="{{ app.repo_url | default: app.github.repo.html_url }}" class="list__item__link link link--type-2">
-        {% include assets/icons/icon-github.svg %}
-        <span class="link__text">
-            {{app.gh_org}}/{{app.name}}
-        </span>
-    </a>
     <a href="{{app.docs_url}}" class="list__item__link link link--type-2">
         {% include assets/icons/icon-documentation.svg %}
         <span class="link__text">
             Documentation
         </span>
     </a>
+    <a href="{{ app.repo_url | default: app.github.repo.html_url }}" class="list__item__link link link--type-2">
+        {% include assets/icons/icon-github.svg %}
+        <span class="link__text">
+            {{app.gh_org}}/{{app.name}}
+        </span>
+    </a>
+    <div class="wysiwyg">
+        <p>
+            {{ app.description | default: app.github.repo.description | markdownify }}
+        </p>
+    </div>
+    {% highlight python %}{{ app.code_snippet }}{% endhighlight %}
 <!--    {% if app.github.releases[0] %}-->
 <!--    <a href="{{app.github.releases[0].html_url}}" class="list__item__link link link&#45;&#45;type-2">-->
 <!--        {% include assets/icons/icon-release.svg %}-->
