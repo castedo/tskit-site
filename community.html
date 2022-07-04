@@ -226,252 +226,72 @@ permalink: /community/
             </div>
         </div>
         <div class="row">
+            {% for contributor in site.data['contributors'] %}
             <div class="col-lg-4">
                 <!-- START: card -->
                 <div class="card card--type-3">
                     <h5 class="card__heading card__heading--type-3">
-                        <a href="https://github.com/jeromekelleher" class="card__heading__link">
+                        <a href="{{ contributor.html_url }}" class="card__heading__link">
                             <img src="https://avatars.githubusercontent.com/u/2664569?v=4&s=40"
-                                 srcset="https://avatars.githubusercontent.com/u/2664569?v=4&s=40, https://avatars.githubusercontent.com/u/2664569?v=4&s=80 2x"
-                                 alt="Jerome Kelleher"
-                                 class="img-fluid card__heading__avatar"
+                                 srcset="{{ contributor.avatar_url }}&s=40, {{ contributor.avatar_url }}&s=80 2x"
+                                 alt="{{contributor.name}}"
+                                 class="img-fluid card__heading__avatar link__avatar"
                             >
                             <span class="card__heading__text">
-                                Jerome Kelleher
+                                {{contributor.name}}
                             </span>
                             <span class="card__heading__subtext">
-                                @jeromekelleher
+                                @{{ contributor.login }}
                             </span>
                         </a>
                     </h5>
                     <div class="wysiwyg">
                         <p>
-                            Institution name
+                            {{ contributor.company }} {{ contributor.location }}
                         </p>
                         <p>
-                            Short bio here Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                            {{ contributor.bio }}
                         </p>
                         <p>
-                            Contributed to: <a href="software-ms-prime.html">tskit</a>, <a
-                                href="software-ms-prime.html">msprime</a>, <a
-                                href="software-ms-prime.html">tsinfer</a>
+                            Contributed to:
+                            {% assign repos = contributor.repos | natural_sort %}
+                            {% for repo in repos %}
+                                <a href="/software/{{repo}}.html">{{ repo }}</a>{% if forloop.last != true %},{% endif %}
+                            {% endfor %}
                         </p>
+                        <ul class="list list--unstyled">
+                            {% if contributor.twitter_username %}
+                                <li class="list__item">
+                                    <a href="https://twitter.com/{{ contributor.twitter_username }}"
+                                       class="list__item__link link link--type-2 link--type-2--size-1">
+                                        <!-- START: icon-github -->
+                                        {% include assets/icons/icon-release.svg %}
+                                        <!-- END: icon-github -->
+                                        <span class="link__text">
+                                           @{{ contributor.twitter_username }}
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+
+                            <!--                        <p>-->
+<!--                            Contributed to: <a href="software-ms-prime.html">tskit</a>, <a-->
+<!--                                href="software-ms-prime.html">msprime</a>, <a-->
+<!--                                href="software-ms-prime.html">tsinfer</a>-->
+<!--                        </p>-->
                     </div>
-                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <span class="link__text">
-                            See more
-                        </span>
-                    </a>
+<!--                    <a href="#" class="list__item__link link link&#45;&#45;type-1 link&#45;&#45;type-1&#45;&#45;external"-->
+<!--                       target="_blank"-->
+<!--                       rel="noopener noreferrer">-->
+<!--                        <span class="link__text">-->
+<!--                            See more-->
+<!--                        </span>-->
+<!--                    </a>-->
                 </div>
                 <!-- END: card -->
             </div>
-            <div class="col-lg-4">
-                <!-- START: card -->
-                <div class="card card--type-3">
-                    <h5 class="card__heading card__heading--type-3">
-                        <a href="https://github.com/agladstein" class="card__heading__link">
-                            <img src="https://avatars.githubusercontent.com/u/26617086?v=4&s=40"
-                                 srcset="https://avatars.githubusercontent.com/u/26617086?v=4&s=40, https://avatars.githubusercontent.com/u/26617086?v=4&s=80 2x"
-                                 alt="Ariella Gladstein"
-                                 class="img-fluid card__heading__avatar"
-                            >
-                            <span class="card__heading__text">
-                                Ariella Gladstein
-                            </span>
-                            <span class="card__heading__subtext">
-                                @agladstein
-                            </span>
-                        </a>
-                    </h5>
-                    <div class="wysiwyg">
-                        <p>
-                            Institution name
-                        </p>
-                        <p>
-                            Short bio here Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                        </p>
-                        <p>
-                            Contributed to: <a href="software-ms-prime.html">tskit</a>, <a
-                                href="software-ms-prime.html">msprime</a>, <a
-                                href="software-ms-prime.html">tsinfer</a>
-                        </p>
-                    </div>
-                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <span class="link__text">
-                            See more
-                        </span>
-                    </a>
-                </div>
-                <!-- END: card -->
-            </div>
-            <div class="col-lg-4">
-                <!-- START: card -->
-                <div class="card card--type-3">
-                    <h5 class="card__heading card__heading--type-3">
-                        <a href="https://github.com/DomNelson" class="card__heading__link">
-                            <img src="https://avatars.githubusercontent.com/u/8810687?v=4&s=40"
-                                 srcset="https://avatars.githubusercontent.com/u/8810687?v=4&s=40, https://avatars.githubusercontent.com/u/8810687?v=4&s=80 2x"
-                                 alt="Dominic Nelson"
-                                 class="img-fluid card__heading__avatar"
-                            >
-                            <span class="card__heading__text">
-                                Dominic Nelson
-                            </span>
-                            <span class="card__heading__subtext">
-                                @DomNelson
-                            </span>
-                        </a>
-                    </h5>
-                    <div class="wysiwyg">
-                        <p>
-                            Institution name
-                        </p>
-                        <p>
-                            Short bio here Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                        </p>
-                        <p>
-                            Contributed to: <a href="software-ms-prime.html">tskit</a>, <a
-                                href="software-ms-prime.html">msprime</a>, <a
-                                href="software-ms-prime.html">tsinfer</a>
-                        </p>
-                    </div>
-                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <span class="link__text">
-                            See more
-                        </span>
-                    </a>
-                </div>
-                <!-- END: card -->
-            </div>
-            <div class="col-lg-4">
-                <!-- START: card -->
-                <div class="card card--type-3">
-                    <h5 class="card__heading card__heading--type-3">
-                        <a href="https://github.com/hyanwong" class="card__heading__link">
-                            <img src="https://avatars.githubusercontent.com/u/4699014?v=4&s=40"
-                                 srcset="https://avatars.githubusercontent.com/u/4699014?v=4&s=40, https://avatars.githubusercontent.com/u/4699014?v=4&s=80 2x"
-                                 alt="Yan Wong"
-                                 class="img-fluid card__heading__avatar"
-                            >
-                            <span class="card__heading__text">
-                                Yan Wong
-                            </span>
-                            <span class="card__heading__subtext">
-                                @hyanwong
-                            </span>
-                        </a>
-                    </h5>
-                    <div class="wysiwyg">
-                        <p>
-                            Institution name
-                        </p>
-                        <p>
-                            Short bio here Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                        </p>
-                        <p>
-                            Contributed to: <a href="software-ms-prime.html">tskit</a>, <a
-                                href="software-ms-prime.html">msprime</a>, <a
-                                href="software-ms-prime.html">tsinfer</a>
-                        </p>
-                    </div>
-                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <span class="link__text">
-                            See more
-                        </span>
-                    </a>
-                </div>
-                <!-- END: card -->
-            </div>
-            <div class="col-lg-4">
-                <!-- START: card -->
-                <div class="card card--type-3">
-                    <h5 class="card__heading card__heading--type-3">
-                        <a href="https://github.com/awohns" class="card__heading__link">
-                            <img src="https://avatars.githubusercontent.com/u/10664424?v=4&s=40"
-                                 srcset="https://avatars.githubusercontent.com/u/10664424?v=4&s=40, https://avatars.githubusercontent.com/u/10664424?v=4&s=80 2x"
-                                 alt="Anthony Wilder Wohns"
-                                 class="img-fluid card__heading__avatar"
-                            >
-                            <span class="card__heading__text">
-                                Anthony Wilder Wohns
-                            </span>
-                            <span class="card__heading__subtext">
-                                @awohns
-                            </span>
-                        </a>
-                    </h5>
-                    <div class="wysiwyg">
-                        <p>
-                            Institution name
-                        </p>
-                        <p>
-                            Short bio here Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                        </p>
-                        <p>
-                            Contributed to: <a href="software-ms-prime.html">tskit</a>, <a
-                                href="software-ms-prime.html">msprime</a>, <a
-                                href="software-ms-prime.html">tsinfer</a>
-                        </p>
-                    </div>
-                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <span class="link__text">
-                            See more
-                        </span>
-                    </a>
-                </div>
-                <!-- END: card -->
-            </div>
-            <div class="col-lg-4">
-                <!-- START: card -->
-                <div class="card card--type-3">
-                    <h5 class="card__heading card__heading--type-3">
-                        <a href="https://github.com/agladstein" class="card__heading__link">
-                            <img src="https://avatars.githubusercontent.com/u/26617086?v=4&s=40"
-                                 srcset="https://avatars.githubusercontent.com/u/26617086?v=4&s=40, https://avatars.githubusercontent.com/u/26617086?v=4&s=80 2x"
-                                 alt="Ariella Gladstein"
-                                 class="img-fluid card__heading__avatar"
-                            >
-                            <span class="card__heading__text">
-                                Ariella Gladstein
-                            </span>
-                            <span class="card__heading__subtext">
-                                @agladstein
-                            </span>
-                        </a>
-                    </h5>
-                    <div class="wysiwyg">
-                        <p>
-                            Institution name
-                        </p>
-                        <p>
-                            Short bio here Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                        </p>
-                        <p>
-                            Contributed to: <a href="software-ms-prime.html">tskit</a>, <a
-                                href="software-ms-prime.html">msprime</a>, <a
-                                href="software-ms-prime.html">tsinfer</a>
-                        </p>
-                    </div>
-                    <a href="#" class="list__item__link link link--type-1 link--type-1--external"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <span class="link__text">
-                            See more
-                        </span>
-                    </a>
-                </div>
-                <!-- END: card -->
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
