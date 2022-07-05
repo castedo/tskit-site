@@ -40,7 +40,7 @@ module Jekyll_Get_Github
       puts site.data['contributors'][0].inspect
       site.data['contributors'].each do |c|
         c.merge!(JSON.load(URI("https://api.github.com/users/#{c['login']}").open()))
-        sleep(0.1)
+        sleep(0.2)
       end
       puts site.data['contributors'][0].inspect
     end
