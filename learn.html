@@ -38,7 +38,7 @@ permalink: /learn/
         <div class="row">
             <div class="col-lg-4">
                 <!-- START: card -->
-                <a href="tutorials/what_is.html#sec-what-is-ancestry" class="card card--type-2">
+                <a href="{{ 'tutorials/what_is.html#sec-what-is-ancestry' | relative_url }}" class="card card--type-2">
                     <h4 class="card__heading">
                         A record full of genetic ancestry
                     </h4>
@@ -56,7 +56,7 @@ permalink: /learn/
             </div>
             <div class="col-lg-4">
                 <!-- START: card -->
-                <a href="tutorials/what_is.html#sec-what-is-dna-data" class="card card--type-2">
+                <a href="{{ 'tutorials/what_is.html#sec-what-is-dna-data' | relative_url }}" class="card card--type-2">
                     <h4 class="card__heading">
                         An encoding of DNA data
                     </h4>
@@ -74,7 +74,7 @@ permalink: /learn/
             </div>
             <div class="col-lg-4">
                 <!-- START: card -->
-                <a href="tutorials/what_is.html#sec-what-is-analysis" class="card card--type-2">
+                <a href="{{ 'tutorials/what_is.html#sec-what-is-analysis' | relative_url }}" class="card card--type-2">
                     <h4 class="card__heading">
                         An efficient analysis framework
                     </h4>
@@ -185,7 +185,7 @@ permalink: /learn/
                                     </span>
                             <div class="video-trigger__image-wrapper">
                                 <img alt="video thumbnail" class="img-fluid"
-                                     src="https://img.youtube.com/vi/{{r.youtube-id}}/maxresdefault.jpg">
+                                     src="https://img.youtube.com/vi/{{r.youtube-id | split: "&" | first }}/maxresdefault.jpg">
                             </div>
                         </a>
                     {% endif %}
@@ -202,9 +202,9 @@ permalink: /learn/
                         </a>
                     {% endif %}
 
-                    <div class="card__metadata">
-                        <span class="card__tag">Population genetics</span>
-                    </div>
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
                 </div>
                 <!-- END: card -->
             </div>

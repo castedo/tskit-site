@@ -42,13 +42,38 @@ permalink: /software/
 <section class="section section--cards section--cards--type-3">
     <div class="container">
         <div class="row">
+            <div class="col-md-8">
+                <h2 class="section__heading">
+                    tskit-dev projects
+                </h2>
+            </div>
+        </div>
+        <div class="row">
             {% assign sims = site.software %}
             {% for app in sims %}
+                {% if app.gh_org == "tskit-dev" %}
+                    <div class="col-lg-4">
+                        {% include software-summary.html app=app %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="section__heading">
+                    Ecosystem projects
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            {% assign sims = site.software %}
+            {% for app in sims %}
+            {% if app.gh_org != "tskit-dev" %}
             <div class="col-lg-4">
                 {% include software-summary.html app=app %}
             </div>
+            {% endif %}
             {% endfor %}
-
         </div>
     </div>
 </div>

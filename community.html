@@ -256,7 +256,7 @@ permalink: /community/
                             Contributed to:
                             {% assign repos = contributor.repos | natural_sort %}
                             {% for repo in repos %}
-                                <a href="/software/{{repo}}.html">{{ repo }}</a>{% if forloop.last != true %},{% endif %}
+                                <a href="{{ '/software/' | append: repo  | append: '.html' | relative_url }}">{{ repo }}</a>{% if forloop.last != true %},{% endif %}
                             {% endfor %}
                         </p>
                         <ul class="list list--unstyled">
@@ -275,11 +275,6 @@ permalink: /community/
                             {% endif %}
                         </ul>
 
-                            <!--                        <p>-->
-<!--                            Contributed to: <a href="software-ms-prime.html">tskit</a>, <a-->
-<!--                                href="software-ms-prime.html">msprime</a>, <a-->
-<!--                                href="software-ms-prime.html">tsinfer</a>-->
-<!--                        </p>-->
                     </div>
 <!--                    <a href="#" class="list__item__link link link&#45;&#45;type-1 link&#45;&#45;type-1&#45;&#45;external"-->
 <!--                       target="_blank"-->

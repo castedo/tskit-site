@@ -43,9 +43,9 @@ layout: default
                                 forming an interoperating ecosystem of tools.
                             </p>
                             <p>
-                                This site is a collection of resources to help you <a href="#">learn about tree
+                                This site is a collection of resources to help you <a href="{{ '/learn' | relative_url }}">learn about tree
                                 sequences</a> and
-                                <a href="#">associated software</a>, and help you join the <a href="#">online
+                                <a href="{{ '/software' | relative_url }}">associated software</a>, and help you join the <a href="{{ '/community' | relative_url }}">online
                                 community</a> of open source developers
                                 that makes it all possible.
                             </p>
@@ -151,7 +151,7 @@ layout: default
                 <div class="row">
                     <div class="col-md-8">
                         <h2 class="section__heading">
-                            Choose a type of research that you’re interested in
+                            See how tskit applies to your research
                         </h2>
                     </div>
                 </div>
@@ -455,7 +455,7 @@ layout: default
                             <p class="call-to-action__text">
                                 You can find links to tutorials, videos and publications in our Learn section
                             </p>
-                            <a href="#" class="btn btn--type-1">
+                            <a href="{{ '/learn' | relative_url }}" class="btn btn--type-1">
                                 Explore our learn section
                             </a>
                         </div>
@@ -474,7 +474,7 @@ layout: default
                             <h2 class="call-to-action__heading">
                                 Become a part of the growing tskit community
                             </h2>
-                            <a href="#" class="btn btn--type-2">
+                            <a href="{{ '/community' | relative_url }}" class="btn btn--type-2">
                                 Get support or contribute here
                             </a>
                         </div>
