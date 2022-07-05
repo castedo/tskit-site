@@ -39,8 +39,19 @@ module Jekyll_Get_Github
       site.data['contributors'] = site.data['contributors'].filter {|x| !x['login'].include?("[bot]") and x['login'] != "pyup-bot"}
       puts site.data['contributors'][0].inspect
       site.data['contributors'].each do |c|
-        c.merge!(JSON.load(URI("https://api.github.com/users/#{c['login']}").open()))
-        sleep(0.2)
+        fetched = false
+        while not fetched do
+            begin
+              fetched = JSON.load(URI("https://api.github.com/users/#{c['login']}").open())
+            rescue HTTPError => e
+              if e.message.contains?("rate limit exceeded")
+                sleep(1)
+              else
+                raise # re-raise the last exception
+              end
+            end
+        end
+        c.merge!(fetched)
       end
       puts site.data['contributors'][0].inspect
     end
