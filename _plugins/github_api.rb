@@ -40,13 +40,16 @@ module Jekyll_Get_Github
       puts site.data['contributors'][0].inspect
       site.data['contributors'].each do |c|
         fetched = false
+        sleep_time = 1
         while not fetched do
             begin
               fetched = JSON.load(URI("https://api.github.com/users/#{c['login']}").open())
+              sleep_time = 1
             rescue => e
-              puts e.message
+              puts e.message, sleep_time
               if e.message.include?("rate limit exceeded")
-                sleep(1)
+                sleep(sleep_time)
+                sleep_time = sleep_time * 2
               else
                 raise # re-raise the last exception
               end
