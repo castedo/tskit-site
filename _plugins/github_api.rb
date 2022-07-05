@@ -43,7 +43,8 @@ module Jekyll_Get_Github
         while not fetched do
             begin
               fetched = JSON.load(URI("https://api.github.com/users/#{c['login']}").open())
-            rescue HTTPError => e
+            rescue => e
+              puts e.message
               if e.message.contains?("rate limit exceeded")
                 sleep(1)
               else
