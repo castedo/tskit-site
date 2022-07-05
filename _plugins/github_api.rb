@@ -45,7 +45,7 @@ module Jekyll_Get_Github
               fetched = JSON.load(URI("https://api.github.com/users/#{c['login']}").open())
             rescue => e
               puts e.message
-              if e.message.contains?("rate limit exceeded")
+              if e.message.include?("rate limit exceeded")
                 sleep(1)
               else
                 raise # re-raise the last exception
