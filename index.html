@@ -97,7 +97,7 @@ layout: default
                             </h3>
                             {% assign sims = site.software | where: "category","simulate" %}
                             {% for app in sims %}
-                            <a href="{{ app.url }}" class="list__item__link link link--type-1 link--type-1--size-1">
+                            <a href="{{ app.url | relative_url}}" class="list__item__link link link--type-1 link--type-1--size-1">
                                 <span class="link__text">
                                     {{ app.name }}
                                 </span>
@@ -114,7 +114,7 @@ layout: default
                             </h3>
                             {% assign sims = site.software | where: "category","analyse" %}
                             {% for app in sims %}
-                            <a href="{{ app.url }}" class="list__item__link link link--type-1 link--type-1--size-1">
+                            <a href="{{ app.url | relative_url}}" class="list__item__link link link--type-1 link--type-1--size-1">
                                 <span class="link__text">
                                     {{ app.name }}
                                 </span>
@@ -131,7 +131,7 @@ layout: default
                             </h3>
                             {% assign sims = site.software | where: "category","infer" %}
                             {% for app in sims %}
-                            <a href="{{ app.url }}" class="list__item__link link link--type-1 link--type-1--size-1">
+                            <a href="{{ app.url | relative_url}}" class="list__item__link link link--type-1 link--type-1--size-1">
                                 <span class="link__text">
                                     {{ app.name }}
                                 </span>
@@ -160,7 +160,7 @@ layout: default
                     <div class="col-md-6 offset-md-5">
                         <ul class="list list--unstyled">
                             <li class="list__item">
-                                <a href="#" class="link link--type-1 link--type-1--size-1 link--type-1--bg-1">
+                                <a href="{{ '/genetics-research/#popgen' | relative_url}}" class="link link--type-1 link--type-1--size-1 link--type-1--bg-1">
                                     <span class="link__text">
                                         Population genetics research
                                     </span>
@@ -219,7 +219,7 @@ layout: default
                                 <!-- END: icon-population-genetics-research -->
                             </li>
                             <li class="list__item">
-                                <a href="#" class="link link--type-1 link--type-1--size-1 link--type-1--bg-1">
+                                <a href="{{ '/genetics-research/#statgen' | relative_url}}" class="link link--type-1 link--type-1--size-1 link--type-1--bg-1">
                                     <span class="link__text">
                                         Statistical genetics research
                                     </span>
@@ -322,7 +322,7 @@ layout: default
                                 <!-- END: icon-statistical-genetics-research -->
                             </li>
                             <li class="list__item">
-                                <a href="#" class="link link--type-1 link--type-1--size-1 link--type-1--bg-1">
+                                <a href="{{ '/genetics-research/#phylogen' | relative_url}}" class="link link--type-1 link--type-1--size-1 link--type-1--bg-1">
                                     <span class="link__text">
                                         Phylogenetics
                                     </span>
@@ -377,7 +377,7 @@ layout: default
                                 <!-- END: icon-phylogenetics -->
                             </li>
                             <li class="list__item">
-                                <a href="#" class="link link--type-1 link--type-1--size-1 link--type-1--bg-1">
+                                <a href="{{ '/genetics-research/#developers' | relative_url}}" class="link link--type-1 link--type-1--size-1 link--type-1--bg-1">
                                     <span class="link__text">
                                         Use tskit in your application
                                     </span>

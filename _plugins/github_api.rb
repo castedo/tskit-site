@@ -37,7 +37,6 @@ module Jekyll_Get_Github
       end
       site.data['contributors'] = site.data['contributors'].values.sort_by {|x| -x['contributions']}
       site.data['contributors'] = site.data['contributors'].filter {|x| !x['login'].include?("[bot]") and x['login'] != "pyup-bot"}
-      puts site.data['contributors'][0].inspect
       site.data['contributors'].each do |c|
         fetched = false
         sleep_time = 1
@@ -57,7 +56,6 @@ module Jekyll_Get_Github
         end
         c.merge!(fetched)
       end
-      puts site.data['contributors'][0].inspect
     end
   end
 end
