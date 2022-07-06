@@ -41,3 +41,4 @@ gem 'font-awesome-sass', '~> 5.15.1'
 gem 'jekyll-font-awesome-sass'
 gem "hash-joiner"
 gem "open-uri-cached"
+gem "httparty"
