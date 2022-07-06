@@ -1,17 +1,33 @@
 ---
-layout: default
+layout: page
 ---
-<div class="topnav clearfix">
-    <a href="/" class="logo mono">tskit.dev</a>
-    <input class="menu-btn" type="checkbox" id="menu-btn"/>
-    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-    <ul class="menu mono">
-        <li><a href="{% link news.html %}">News</a></li>
-        <li><a href="{% link learn.html %}">Learn</a></li>
-        <li><a href="{% link software.html %}">Software</a></li>
-        <li><a href="{% link community.html %}">Community</a></li>
-    </ul>
+<!-- START: hero-type-2 -->
+<div class="hero hero--type-2">
+    <div class="container">
+        <div class="row">
+            <!-- NOTE: Different column values here than other instances of Type 2 Hero -->
+            <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                <!-- NOTE: H1 here not H2 -->
+                <h1 class="hero__heading">
+                    {{ b.title }}
+                </h1>
+                <span class="hero__metadata">
+                    {% if b.author %}
+                        <span class="hero__metadata__heading">{{ b.author }}</span>
+                        &nbsp;|&nbsp;
+                    {% endif %}
+                            <time class="hero__metadate__timestamp" datetime="{{ b.datetime }}">{{b.timestamp | date: "%B %d %Y" }}</time>
+                        </span>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="main-content blog">
-    {{ content }}
-</div>
+<!-- END: hero-type-2 -->
+
+<!-- START: news-content -->
+<section class="section section--general-content">
+    <div class="container">
+        {{ content }}
+    </div>
+</section>
+<!-- END: news-content -->
