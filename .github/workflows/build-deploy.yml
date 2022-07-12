@@ -186,7 +186,8 @@ jobs:
         name: Checkout tskit
         with:
           ref: main
-          repository: tskit-dev/tskit
+          repository: benjeffery/tskit
+          branch: doc-redesign
           submodules: true
           fetch-depth: 0 # Needed for setuptools_scm to work correctly
 
