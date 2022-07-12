@@ -50,6 +50,7 @@ module Jekyll_Get_Github
             rescue => e
               puts e.message, sleep_time
               if e.message.include?("rate limit exceeded")
+                puts("Sleeping for #{sleep_time} seconds")
                 sleep(sleep_time)
                 sleep_time = sleep_time * 2
               else
