@@ -8,6 +8,9 @@
         {% else %}
             {{ app.title }}
         {% endif %}
+        {% if app.force_show_title %}
+            {{ app.title }}
+        {% endif %}
     </h5>
     <a href="{{app.docs_url}}" class="list__item__link link link--type-2">
         {% include assets/icons/icon-documentation.svg %}

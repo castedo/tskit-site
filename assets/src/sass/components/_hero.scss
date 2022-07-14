@@ -11,7 +11,7 @@
 
 .hero--type-1 {
   background-color: palette.$brand-color-2;
-  background-image: url('../../assets/icons/hero-background-1.svg');
+  background-image: url('../../../assets/icons/hero-background-1.svg');
   background-position: 100% -20rem;
   background-repeat: no-repeat;
   background-size: 560px 1187px;
@@ -30,7 +30,7 @@
 .hero--type-2 {
   background-color: palette.$brand-color-8;
   @include media-breakpoint-up(sm) {
-    background-image: url('../../assets/icons/hero-background-2.svg');
+    background-image: url('../../../assets/icons/hero-background-2.svg');
     background-position: 100% top;
     background-repeat: no-repeat;
     background-size: 560px 1830px;

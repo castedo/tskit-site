@@ -6,6 +6,7 @@ gh_org: molpopgen
 docs_url: https://fwdpy11.readthedocs.io
 category: simulate
 python_package: fwdpy11
+priority: 11
 code_snippet: |2
   ##TODO##
 

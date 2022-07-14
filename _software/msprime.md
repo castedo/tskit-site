@@ -9,7 +9,8 @@ gh_org: tskit-dev
 docs_url: https://tskit.dev/msprime/docs/
 category: simulate
 python_package: msprime
-logo: https://raw.githubusercontent.com/tskit-dev/msprime/main/msprime_logo.svg
+logo: https://raw.githubusercontent.com/tskit-dev/administrative/main/logos/svg/msprime/Tskit_msprime_logo_on_black_no_background.eps.svg
+priority: 2
 code_snippet: |2
   ts = msprime.sim_ancestry(
       samples=10, 

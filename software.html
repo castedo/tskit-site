@@ -49,7 +49,7 @@ permalink: /software/
             </div>
         </div>
         <div class="row">
-            {% assign sims = site.software %}
+            {% assign sims = site.software | sort: "priority" %}
             {% for app in sims %}
                 {% if app.gh_org == "tskit-dev" %}
                     <div class="col-lg-4">

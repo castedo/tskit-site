@@ -6,7 +6,8 @@ gh_org: tskit-dev
 docs_url: https://tskit.dev/tskit/docs/
 category: analyse
 python_package: tskit
-logo: https://raw.githubusercontent.com/tskit-dev/administrative/main/tskit_logo.svg
+logo: https://raw.githubusercontent.com/tskit-dev/administrative/main/logos/svg/tskit/Tskit_logo_on_black_no_background.eps.svg
+priority: 1
 code_snippet: |2
   ts = tskit.load("example.trees")
   afs = ts.allele_frequency_spectrum()

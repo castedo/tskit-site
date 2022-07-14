@@ -4,6 +4,9 @@ title: SLiM
 name: SLiM
 gh_org: MesserLab
 docs_url: https://messerlab.org/slim/
+logo: http://benhaller.com/slim/icon/SLiM_256.jpg
+priority: 10
+force_show_title: true
 category: simulate
 code_snippet: |2
   initialize() {
