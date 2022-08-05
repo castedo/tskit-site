@@ -10,10 +10,10 @@ docs_url: https://tskit.dev/pyslim/docs/stable
 category: analyse
 python_package: pyslim
 code_snippet: |2
-    rts = pyslim.recapitate(
-        ts, 
-        ancestral_Ne=10000
-    )
+  rts = pyslim.recapitate(
+      ts, 
+      ancestral_Ne=10000
+  )
 ---
 
 pyslim is a small python package to help analyse and manipulate tree sequences

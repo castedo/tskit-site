@@ -12,13 +12,15 @@ code_snippet: |2
   initialize() {
       initializeTreeSeq();
       initializeMutationRate(1e-8);
-      initializeMutationType("m1", 0.5, "e", 0.001);
-      initializeGenomicElementType("g1", m1, 1.0);
-      initializeGenomicElement(g1, 0, 999999);
+      initializeMutationType(
+          "m1", 0.5, "e", 0.001
+      );
       initializeRecombinationRate(1e-8);
   }
-  1 early() { sim sim.addSubpop("p1", 500); }
-  2000 late() { sim.treeSeqOutput("out.trees"); }
+  1 early() { sim.addSubpop("p1", 500); }
+  2000 late() { 
+      sim.treeSeqOutput("out.trees");
+  }
 ---
 SLiM is a forwards-time population genetics simulator capable of simulating arbitrarily
 complex evolutionary scenarios. The underlying individual-based simulation
