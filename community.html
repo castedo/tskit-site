@@ -238,7 +238,11 @@ permalink: /community/
                                  class="img-fluid card__heading__avatar link__avatar"
                             >
                             <span class="card__heading__text">
-                                {{contributor.name || contributor.login}}
+                                {% if contributor.name %}
+                                    {{ contributor.name }}
+                                {% else %}
+                                    {{ contributor.login }}
+                                {% endif %}
                             </span>
 <!--                            <div class="card__heading__subtext">-->
 <!--                                &lt;!&ndash; Place an SVG icon in-line here, with the same height as the text &ndash;&gt;-->

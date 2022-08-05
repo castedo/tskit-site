@@ -17,7 +17,7 @@ code_snippet: |2
       initializeGenomicElement(g1, 0, 999999);
       initializeRecombinationRate(1e-8);
   }
-  1 { sim.addSubpop("p1", 500); }
+  1 early() { sim sim.addSubpop("p1", 500); }
   2000 late() { sim.treeSeqOutput("out.trees"); }
 ---
 SLiM is a forwards-time population genetics simulator capable of simulating arbitrarily
