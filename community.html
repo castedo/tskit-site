@@ -238,11 +238,20 @@ permalink: /community/
                                  class="img-fluid card__heading__avatar link__avatar"
                             >
                             <span class="card__heading__text">
-                                {{contributor.name}}
+                                {{contributor.name || contributor.login}}
                             </span>
-                            <span class="card__heading__subtext">
-                                @{{ contributor.login }}
-                            </span>
+<!--                            <div class="card__heading__subtext">-->
+<!--                                &lt;!&ndash; Place an SVG icon in-line here, with the same height as the text &ndash;&gt;-->
+<!--                                {% include assets/icons/icon-github.svg %}-->
+<!--                                <span>@{{ contributor.login }}</span>-->
+<!--                            </div>-->
+<!--                            {% if contributor.twitter_username %}-->
+<!--                            <span class="card__heading__subtext">-->
+<!--                                {% include assets/icons/icon-twitter.svg %}-->
+<!--                                @{{ contributor.twitter_username }}-->
+<!--                            </span>-->
+<!--                            {% endif %}-->
+
                         </a>
                     </h5>
                     <div class="wysiwyg">
@@ -260,12 +269,23 @@ permalink: /community/
                             {% endfor %}
                         </p>
                         <ul class="list list--unstyled">
+                            <li class="list__item">
+                                <a href="https://twitter.com/{{ contributor.twitter_username }}"
+                                   class="list__item__link link link--type-2 link--type-2--size-1">
+                                    <!-- START: icon-github -->
+                                    {% include assets/icons/icon-github.svg %}
+                                    <!-- END: icon-github -->
+                                    <span class="link__text">
+                                           @{{ contributor.login}}
+                                        </span>
+                                </a>
+                            </li>
                             {% if contributor.twitter_username %}
                                 <li class="list__item">
                                     <a href="https://twitter.com/{{ contributor.twitter_username }}"
                                        class="list__item__link link link--type-2 link--type-2--size-1">
                                         <!-- START: icon-github -->
-                                        {% include assets/icons/icon-release.svg %}
+                                        {% include assets/icons/icon-twitter.svg %}
                                         <!-- END: icon-github -->
                                         <span class="link__text">
                                            @{{ contributor.twitter_username }}
