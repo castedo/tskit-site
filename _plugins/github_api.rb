@@ -26,6 +26,14 @@ module Jekyll_Get_Github
         d.data['github']['contributors'] = JSON.load(
           HTTParty.get("https://api.github.com/repos/#{d['gh_org']}/#{d['name']}/contributors", headers: headers).body
         )
+        site.config['extra_contributors'].each do |login, repo|
+            if repo == d['name']
+                d.data['github']['contributors'] << {
+                    "login" => login,
+                    "contributions" => 0
+                }
+            end
+        end
         d.data['github']['contributors'].each do |c|
             if d.data['github']['repo']['owner']['login'] == "tskit-dev"
                 if site.data['contributors'].key?(c['login'])
