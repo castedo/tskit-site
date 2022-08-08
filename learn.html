@@ -108,30 +108,25 @@ permalink: /learn/
         <div class="row">
             <div class="col">
                 <div class="btn-group" role="group" aria-label="Filters">
-                    <a href="#" class="btn btn-outline-primary active" aria-current="page">All</a>
-                    <a href="#" class="btn btn-outline-primary">Population genetics</a>
-                    <a href="#" class="btn btn-outline-primary">Statistical genetics</a>
-                    <a href="#" class="btn btn-outline-primary">Phylogenetics</a>
-                    <a href="#" class="btn btn-outline-primary">Applications</a>
+                    <a data-r-selector="all" onclick="switch_filter('all')" class="btn btn-outline-primary active" aria-current="page">All</a>
+                    <a data-r-selector="paper" onclick="switch_filter('paper')" class="btn btn-outline-primary">Publications</a>
+                    <a data-r-selector="tutorial" onclick="switch_filter('tutorial')" class="btn btn-outline-primary">Tutorials</a>
+                    <a data-r-selector="video" onclick="switch_filter('video')" class="btn btn-outline-primary">Video</a>
+<!--                    <a onclick="switch_filter" class="btn btn-outline-primary">Applications</a>-->
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-8 col-lg-5">
-                <select class="form-select form-select-lg">
-                    <option>Choose resource type</option>
-                    <option value="publication">publication</option>
-                    <option value="tutorial">tutorial</option>
-                    <option value="video">video</option>
-                </select>
-            </div>
-        </div>
+<!--        <div class="row">-->
+<!--            <div class="col-md-8 col-lg-5">-->
+<!--                <select class="form-select form-select-lg">-->
+<!--                    <option>Choose resource type</option>-->
+<!--                    <option value="publication">publication</option>-->
+<!--                    <option value="tutorial">tutorial</option>-->
+<!--                    <option value="video">video</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
-</section>
-<!-- END: filters -->
-
-<!-- START: cards-type-3 -->
-<section class="section section--cards section--cards--type-3">
     <div class="container">
         <div class="row">
             {% assign resources = site.resources %}
@@ -213,7 +208,7 @@ permalink: /learn/
     </div>
 
     <!-- START: pagination -->
-    <div class="container">
+    <div class="container" style="display: none">
         <div class="row">
             <div class="col">
                 <nav class="pagination-wrapper">
