@@ -1,16 +1,18 @@
 <div class="card card--type-3">
     <h5 class="card__heading card__heading--type-2">
-        {% if app.logo %}
-            <img class="card__heading__logo" src="{{ app.logo }}"/>
-            <span class="visually-hidden">
+        <a href="{{ app.url | relative_url}}" style="color: white">
+            {% if app.logo %}
+                <img class="card__heading__logo" src="{{ app.logo }}"/>
+                <span class="visually-hidden">
+                    {{ app.title }}
+                </span>
+            {% else %}
                 {{ app.title }}
-            </span>
-        {% else %}
-            {{ app.title }}
-        {% endif %}
-        {% if app.force_show_title %}
-            {{ app.title }}
-        {% endif %}
+            {% endif %}
+            {% if app.force_show_title %}
+                {{ app.title }}
+            {% endif %}
+        </a>
     </h5>
     <a href="{{app.docs_url}}" class="list__item__link link link--type-2">
         {% include assets/icons/icon-documentation.svg %}

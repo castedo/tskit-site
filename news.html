@@ -32,7 +32,7 @@ permalink: /news/
 <!--                                >-->
                                 <span class="card__metadata">
                                     {% if b.author %}
-                                    <span class="card__metadata__heading">By author name here</span>
+                                    <span class="card__metadata__heading">By {{ b.author }}</span>
                                     &nbsp;|&nbsp;
                                     {% endif %}
                                     <time class="card__metadate__timestamp" datetime="{{b.timestamp}}">{{b.timestamp | date: "%B %d %Y" }}</time>

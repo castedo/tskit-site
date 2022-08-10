@@ -6,17 +6,17 @@ layout: page
     <div class="container">
         <div class="row">
             <!-- NOTE: Different column values here than other instances of Type 2 Hero -->
-            <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <div class="col-md-8 col-lg-8">
                 <!-- NOTE: H1 here not H2 -->
                 <h1 class="hero__heading">
-                    {{ b.title }}
+                    {{ page.title }}
                 </h1>
                 <span class="hero__metadata">
-                    {% if b.author %}
-                        <span class="hero__metadata__heading">{{ b.author }}</span>
+                    {% if page.author %}
+                        <span class="hero__metadata__heading">{{ page.author }}</span>
                         &nbsp;|&nbsp;
                     {% endif %}
-                            <time class="hero__metadate__timestamp" datetime="{{ b.datetime }}">{{b.timestamp | date: "%B %d %Y" }}</time>
+                            <time class="hero__metadate__timestamp" datetime="{{ page.datetime }}">{{page.timestamp | date: "%B %d %Y" }}</time>
                         </span>
             </div>
         </div>

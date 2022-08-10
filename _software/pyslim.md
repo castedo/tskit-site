@@ -9,6 +9,7 @@ gh_org: tskit-dev
 docs_url: https://tskit.dev/pyslim/docs/stable
 category: analyse
 python_package: pyslim
+priority: 12
 code_snippet: |2
   rts = pyslim.recapitate(
       ts, 
