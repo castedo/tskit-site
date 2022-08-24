@@ -35,5 +35,30 @@ layout: default
     <!-- START: footer -->
         {% include footer.html %}
     <!-- END: footer -->
+    <!-- START: global modal -->
+    <div class="modal fade"
+         id="globalModal"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="globalModalLabel"
+         aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <button class="navbar-toggler modal-close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="modal-header visually-hidden">
+                    <h5 class="modal-title" id="globalModalLabel">
+                        Modal content
+                    </h5>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END: global modal -->
 
 </div>
