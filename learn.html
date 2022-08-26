@@ -129,7 +129,7 @@ permalink: /learn/
     </div>
     <div class="container">
         <div class="row">
-            {% assign resources = site.resources %}
+            {% assign resources = site.resources | sort: "timestamp" %}
             {% for r in resources %}
             <div class="col-lg-4" data-r-type="{{r.type}}">
                 <!-- START: card -->
