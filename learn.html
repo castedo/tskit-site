@@ -111,7 +111,7 @@ permalink: /learn/
                     <a data-r-selector="all" onclick="switch_filter('all')" class="btn btn-outline-primary active" aria-current="page">All</a>
                     <a data-r-selector="paper" onclick="switch_filter('paper')" class="btn btn-outline-primary">Publications</a>
                     <a data-r-selector="tutorial" onclick="switch_filter('tutorial')" class="btn btn-outline-primary">Tutorials</a>
-                    <a data-r-selector="video" onclick="switch_filter('video')" class="btn btn-outline-primary">Video</a>
+                    <a data-r-selector="video" onclick="switch_filter('video')" class="btn btn-outline-primary">Videos</a>
 <!--                    <a onclick="switch_filter" class="btn btn-outline-primary">Applications</a>-->
                 </div>
             </div>
@@ -149,6 +149,9 @@ permalink: /learn/
                                 doi: <a href="https://doi.org/{{ r.doi }}">{{ r.doi }}</a>
                             </p>
                             <p>
+                                {{ r.timestamp | date: "%d %B, %Y" }}
+                            </p>
+                            <p>
                                 {{r.content}}
                             </p>
                         </div>
@@ -163,13 +166,10 @@ permalink: /learn/
                     {% if r.type == "video" %}
                         <div class="wysiwyg">
                             <p>
-                                Who: {{r.who}}
+                                {{ r.timestamp | date: "%d %B, %Y" }}
                             </p>
                             <p>
-                                Year: {{r.year}}
-                            </p>
-                            <p>
-                                Where: {{r.where}}
+                                {{ r.who }} at {{ r.where }}
                             </p>
                         </div>
                         <a href="https://www.youtube.com/watch?v={{r.youtube-id}}" class="video-trigger"
@@ -186,6 +186,9 @@ permalink: /learn/
                     {% endif %}
                     {% if r.type == "tutorial" %}
                         <div class="wysiwyg">
+                            <p>
+                                {{ r.timestamp | date: "%d %B, %Y" }}
+                            </p>
                             <p> {{ r.content }} </p>
                         </div>
                         <a href="/tutorials/{{r.id}}.html" class="list__item__link link link--type-1 link--type-1--external"
