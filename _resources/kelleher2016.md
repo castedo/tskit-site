@@ -1,6 +1,7 @@
 ---
 type: paper
 doi: 10.1371/journal.pcbi.1004842
+timestamp: 2016-04-04
 ---
 This is where it all started. Here we introduce the
 [msprime](/software/msprime.html) coalescent simulator and

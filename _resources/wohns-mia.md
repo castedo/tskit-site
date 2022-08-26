@@ -5,4 +5,5 @@ who: Wilder Wohns
 where: MIA Primer
 title: Introduction to the tree sequence toolchain
 year: 2019
+timestamp: 2019-04-25
 ---

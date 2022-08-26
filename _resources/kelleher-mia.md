@@ -5,4 +5,5 @@ who: Jerome Kelleher
 where: MIA
 title: Succinct tree sequences for megasample genomics
 year: 2019
+timestamp: 2019-04-26
 ---

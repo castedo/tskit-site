@@ -1,6 +1,7 @@
 ---
 type: paper
 doi: 10.1534/genetics.120.303253
+timestamp: 2020-07-01
 ---
 This paper shows that we can think about any statistic that works on
 sequence data in an equivalent (and more powerful) way in terms of the

@@ -1,6 +1,7 @@
 ---
 type: paper
 doi: 10.1111/1755-0998.12968
+timestamp: 2018-11-22
 ---
 Continuing on from the 2018 PLOS Computational Biology paper,
 we discuss here how the tree
