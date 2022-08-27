@@ -10,11 +10,16 @@ module Jekyll_Get_DOI
     def generate(site)
       site.collections['resources'].docs.each do |p|
         if p.data['doi'] then
+            puts "http://api.crossref.org/works/#{p.data['doi']}"
             doc = JSON.load(URI("http://api.crossref.org/works/#{p.data['doi']}").open())
             source = doc["message"]
             p.data["title"] = source["title"]
             p.data["journal"] = source["container-title"]
-            p.data["year"] = source["published-online"]["date-parts"][0][0]
+            begin
+                p.data["year"] = source["published-online"]["date-parts"][0][0]
+            rescue
+                p.data["year"] = source["published-print"]["date-parts"][0][0]
+            end
             authors = source["author"].map {|x| x["family"]}
             p.data["author"] = authors[0..-2].join(", ") + " and " + authors[-1]
             p.data["url"] = "https://doi.org/#{p.data['doi']}"
