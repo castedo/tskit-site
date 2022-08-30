@@ -14,7 +14,8 @@ permalink: /news/
                          </div>
                     </div>
                     <div class="row">
-                        {% for b in site.news %}
+                        {% assign news = site.news | sort: "timestamp" | reverse %}
+                        {% for b in news %}
                         <div class="col-lg-4">
                             <!-- START: card -->
                             <a href="{{b.url | relative_url}}" class="card card--type-3 card--is-link">
