@@ -2,7 +2,7 @@
 
 This repo is the source code for http://tskit.dev
 
-The site is made with [jekyll](https://jekyllrb.com/)
+The site is made with [jekyll](https://jekyllrb.com/) and built with grunt.
 
 ## Dependencies
 
@@ -11,11 +11,20 @@ gem install --user-install bundler jekyll
 bundle install 
 ```
 
-## Previewing the site
-`bundle exec jekyll serve`
+## Building the site
+To build the site you will need a github auth token (for API requests, no permissions are
+needed on the token)
+`GITHUB_TOKEN=YOUR_TOKEN_HERE grunt dev`
 
 ## Data sources
-Publications, tutorials and videos are listed in `_config.yml`. Publication data is scraped, but can be overriden with
-values in `_config.yml`. Software info is in the front matter yaml of each file in `_software/` extra info is fetched
-from github, but again can be overridden. To not hit rate limiters these requests are cached, to
-clear the cache `rm /tmp/open-uri-*`.
+News, software and resources are the jekyll collections driving the site.
+The front matter of each file in their respective directories provides the metadata for each
+entry, which is supplemented with information from API requests by plugins. Any information
+in front matter overrides that from API requests - useful for fixing bad publication info
+for instance. To not hit rate limiters API requests are cached, to clear the cache `rm /tmp/open-uri-*`.
+
+To add a new item create an additional file in either the `_software`, `_news` or `_resources` directory.
+Refer to the existing files for the required YAML keys in the front matter. Any images needed
+should be places in the `assets/images` folder and referred to with this template:
+`{{ '/assets/images/PATH/TO/file.svg' |  relative_url}}` this will cause the file to be added to
+the build.
