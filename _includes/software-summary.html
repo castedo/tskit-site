@@ -20,6 +20,15 @@
             Documentation
         </span>
     </a>
+    {% if app.publication %}
+    <a href="{{app.publication}}" class="list__item__link link link--type-2">
+        {% include assets/icons/icon-paper.svg %}
+        <span class="link__text">
+            Publication
+        </span>
+    </a>
+
+    {% endif %}
     <a href="{{ app.repo_url | default: app.github.repo.html_url }}" class="list__item__link link link--type-2">
         {% include assets/icons/icon-github.svg %}
         <span class="link__text">

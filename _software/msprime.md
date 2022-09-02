@@ -9,6 +9,7 @@ gh_org: tskit-dev
 docs_url: https://tskit.dev/msprime/docs/
 category: simulate
 python_package: msprime
+publication: https://doi.org/10.1093/genetics/iyab229
 logo: https://raw.githubusercontent.com/tskit-dev/administrative/main/logos/svg/msprime/Tskit_msprime_logo_on_black_no_background.eps.svg
 priority: 2
 code_snippet: |2

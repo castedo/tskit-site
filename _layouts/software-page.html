@@ -31,6 +31,16 @@ layout: page
                             </span>
                         </a>
                     </li>
+                    {% if page.publication %}
+                    <li class="list__item">
+                        <a href="{{page.publication}}" class="list__item__link link link--type-2 link--type-2--size-1">
+                            {% include assets/icons/icon-paper.svg %}
+                            <span class="link__text">
+                                Publication
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
                     {% if page.github.releases[0] %}
                     <li class="list__item">
                         <a href="{{page.github.releases[0].html_url}}"
