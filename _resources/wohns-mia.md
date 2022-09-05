@@ -1,6 +1,6 @@
 ---
 type: video
-youtube-id: X1GEuQrF1jQ&t=6
+youtube-id: X1GEuQrF1jQ
 who: Wilder Wohns
 where: MIA Primer
 title: Introduction to the tree sequence toolchain
