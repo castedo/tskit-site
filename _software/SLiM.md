@@ -4,7 +4,7 @@ title: SLiM
 name: SLiM
 gh_org: MesserLab
 docs_url: https://messerlab.org/slim/
-publication: https://doi.org/10.1093/molbev/msw211
+publication: https://doi.org/10.1093/molbev/msy228
 logo: https://i.imgur.com/x54xJoK.jpg
 priority: 10
 force_show_title: true

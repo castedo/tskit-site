@@ -260,7 +260,7 @@ permalink: /community/
                     </h5>
                     <div class="wysiwyg">
                         <p>
-                            {{ contributor.company }} {{ contributor.location }}
+                            {{ contributor.company }}, {{ contributor.location }}
                         </p>
                         <p>
                             {{ contributor.bio }}
@@ -274,7 +274,7 @@ permalink: /community/
                         </p>
                         <ul class="list list--unstyled">
                             <li class="list__item">
-                                <a href="https://twitter.com/{{ contributor.twitter_username }}"
+                                <a href="https://github.com/{{ contributor.login }}"
                                    class="list__item__link link link--type-2 link--type-2--size-1">
                                     <!-- START: icon-github -->
                                     {% include assets/icons/icon-github.svg %}
@@ -286,7 +286,7 @@ permalink: /community/
                             </li>
                             {% if contributor.twitter_username %}
                                 <li class="list__item">
-                                    <a href="https://twitter.com/{{ contributor.twitter_username }}"
+                                    <a href="https://twitter.com/{{contributor.twitter_username}}"
                                        class="list__item__link link link--type-2 link--type-2--size-1">
                                         <!-- START: icon-github -->
                                         {% include assets/icons/icon-twitter.svg %}
