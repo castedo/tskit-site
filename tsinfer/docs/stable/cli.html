@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command line interface &mdash; tsinfer 0.2.3 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="File formats" href="file_formats.html" />
+    <link rel="prev" title="API Documentation" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> tsinfer
+          </a>
+              <div class="version">
+                0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inference.html">Inference overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command line interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#argument-details">Argument details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Positional Arguments">Positional Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Named Arguments">Named Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Sub-commands:">Sub-commands:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generate-ancestors (ga)">generate-ancestors (ga)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#match-ancestors (ma)">match-ancestors (ma)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#augment-ancestors (aa)">augment-ancestors (aa)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#match-samples (ms)">match-samples (ms)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#infer">infer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list (ls)">list (ls)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verify">verify</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="file_formats.html">File formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Developer documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tsinfer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Command line interface</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cli.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="command-line-interface">
+<span id="sec-cli"></span><h1>Command line interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline"></a></h1>
+<p>The command line interface in <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> is intended to provide a convenient
+interface to the high-level <a class="reference internal" href="api.html#sec-api"><span class="std std-ref">API functionality</span></a>. There are two
+equivalent ways to invoke this program:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tsinfer
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m tsinfer
+</pre></div>
+</div>
+<p>The first form is more intuitive and works well most of the time. The second
+form is useful when multiple versions of Python are installed or if the
+<strong class="command">tsinfer</strong> executable is not installed on your path.</p>
+<p>The <strong class="command">tsinfer</strong> program has five subcommands: <strong class="command">list</strong> prints a
+summary of the data held in one of tsinfer’s <a class="reference internal" href="file_formats.html#sec-file-formats"><span class="std std-ref">file formats</span></a>;
+<strong class="command">infer</strong> runs the complete <a class="reference internal" href="inference.html#sec-inference"><span class="std std-ref">inference process</span></a> for a given
+input <a class="reference internal" href="file_formats.html#sec-file-formats-samples"><span class="std std-ref">samples file</span></a>; and
+<strong class="command">generate-ancestors</strong>, <strong class="command">match-ancestors</strong> and
+<strong class="command">match-samples</strong> run the three parts of this inference
+process as separate steps. Running the inference as separate steps like this
+is recommended for large inferences as it allows for greater control over
+the inference process.</p>
+<section id="argument-details">
+<h2>Argument details<a class="headerlink" href="#argument-details" title="Permalink to this headline"></a></h2>
+<p><p>Command line interface for tsinfer.</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">tsinfer</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">V</span><span class="p">]</span>
+               <span class="p">{</span><span class="n">generate</span><span class="o">-</span><span class="n">ancestors</span><span class="p">,</span><span class="n">ga</span><span class="p">,</span><span class="n">match</span><span class="o">-</span><span class="n">ancestors</span><span class="p">,</span><span class="n">ma</span><span class="p">,</span><span class="n">augment</span><span class="o">-</span><span class="n">ancestors</span><span class="p">,</span><span class="n">aa</span><span class="p">,</span><span class="n">match</span><span class="o">-</span><span class="n">samples</span><span class="p">,</span><span class="n">ms</span><span class="p">,</span><span class="n">infer</span><span class="p">,</span><span class="nb">list</span><span class="p">,</span><span class="n">ls</span><span class="p">,</span><span class="n">verify</span><span class="p">}</span>
+               <span class="o">...</span>
+</pre></div>
+</div>
+<section id="Positional Arguments">
+<h3>Positional Arguments<a class="headerlink" href="#Positional Arguments" title="Permalink to this headline"></a></h3>
+<dl class="option-list">
+<dt><kbd>subcommand</kbd></dt>
+<dd><p>Possible choices: generate-ancestors, ga, match-ancestors, ma, augment-ancestors, aa, match-samples, ms, infer, list, ls, verify</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments">
+<h3>Named Arguments<a class="headerlink" href="#Named Arguments" title="Permalink to this headline"></a></h3>
+<dl class="option-list">
+<dt><kbd>-V, --version</kbd></dt>
+<dd><p>show program’s version number and exit</p>
+</dd>
+</dl>
+</section>
+<section id="Sub-commands:">
+<h3>Sub-commands:<a class="headerlink" href="#Sub-commands:" title="Permalink to this headline"></a></h3>
+<section id="generate-ancestors (ga)">
+<h4>generate-ancestors (ga)<a class="headerlink" href="#generate-ancestors (ga)" title="Permalink to this headline"></a></h4>
+<p>Generates a set of ancestors from the input sample data and stores the results in a tsinfer ancestors file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">generate</span><span class="o">-</span><span class="n">ancestors</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">a</span> <span class="n">ANCESTORS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_THREADS</span><span class="p">]</span>
+                           <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">flush</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_FLUSH_THREADS</span><span class="p">]</span>
+                           <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+                           <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+                           <span class="n">samples</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat1">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat1" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat1">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat1" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>-a, --ancestors</kbd></dt>
+<dd><p>The path to the ancestor data file in tsinfer ‘ancestors’ format. If not specified, this defaults to the input samples file stem with the extension ‘.ancestors’. For example, if ‘1kg-chr1.samples’ is the input file then the default ancestors file would be ‘1kg-chr1.ancestors’</p>
+</dd>
+<dt><kbd>--num-threads, -t</kbd></dt>
+<dd><p>The number of worker threads to use. If &lt; 1, use a simpler unthreaded algorithm (default).</p>
+</dd>
+<dt><kbd>--num-flush-threads, -F</kbd></dt>
+<dd><p>The number of data flush threads to use. If &lt; 1, all data is flushed synchronously in the main thread (default=2)</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="match-ancestors (ma)">
+<h4>match-ancestors (ma)<a class="headerlink" href="#match-ancestors (ma)" title="Permalink to this headline"></a></h4>
+<p>Matches the ancestors built by the ‘generate-ancestors’ command against each other using the model information specified in the input file and writes the output to a tskit .trees file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">match</span><span class="o">-</span><span class="n">ancestors</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+                        <span class="p">[</span><span class="o">-</span><span class="n">a</span> <span class="n">ANCESTORS</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">A</span> <span class="n">ANCESTORS_TREES</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_THREADS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">path</span><span class="o">-</span><span class="n">compression</span><span class="p">]</span>
+                        <span class="n">samples</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat2">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat2" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat2">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat2" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>-a, --ancestors</kbd></dt>
+<dd><p>The path to the ancestor data file in tsinfer ‘ancestors’ format. If not specified, this defaults to the input samples file stem with the extension ‘.ancestors’. For example, if ‘1kg-chr1.samples’ is the input file then the default ancestors file would be ‘1kg-chr1.ancestors’</p>
+</dd>
+<dt><kbd>-A, --ancestors-trees</kbd></dt>
+<dd><p>The path to the ancestor trees file in tskit ‘.trees’ format. If not specified, this defaults to the input samples file stem with the extension ‘.ancestors.trees’. For example, if ‘1kg-chr1.samples’ is the input file then the default ancestors file would be ‘1kg-chr1.ancestors.trees’</p>
+</dd>
+<dt><kbd>--num-threads, -t</kbd></dt>
+<dd><p>The number of worker threads to use. If &lt; 1, use a simpler unthreaded algorithm (default).</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+<dt><kbd>--no-path-compression</kbd></dt>
+<dd><p>Disable path compression</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="augment-ancestors (aa)">
+<h4>augment-ancestors (aa)<a class="headerlink" href="#augment-ancestors (aa)" title="Permalink to this headline"></a></h4>
+<p>Augments the ancestors tree sequence by adding a subset of the samples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">augment</span><span class="o">-</span><span class="n">ancestors</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">n</span> <span class="n">NUM_SAMPLES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">A</span> <span class="n">ANCESTORS_TREES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+                          <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+                          <span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">path</span><span class="o">-</span><span class="n">compression</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_THREADS</span><span class="p">]</span>
+                          <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span>
+                          <span class="n">samples</span> <span class="n">augmented_ancestors</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat3">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat3" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+<dt><kbd>augmented_ancestors</kbd></dt>
+<dd><p>The path to write the augmented ancestors tree sequence to</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat3">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat3" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>-n, --num-samples</kbd></dt>
+<dd><p>The number of samples to use. Defaults to 10% of the total.</p>
+</dd>
+<dt><kbd>-A, --ancestors-trees</kbd></dt>
+<dd><p>The path to the ancestor trees file in tskit ‘.trees’ format. If not specified, this defaults to the input samples file stem with the extension ‘.ancestors.trees’. For example, if ‘1kg-chr1.samples’ is the input file then the default ancestors file would be ‘1kg-chr1.ancestors.trees’</p>
+</dd>
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>--no-path-compression</kbd></dt>
+<dd><p>Disable path compression</p>
+</dd>
+<dt><kbd>--num-threads, -t</kbd></dt>
+<dd><p>The number of worker threads to use. If &lt; 1, use a simpler unthreaded algorithm (default).</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="match-samples (ms)">
+<h4>match-samples (ms)<a class="headerlink" href="#match-samples (ms)" title="Permalink to this headline"></a></h4>
+<p>Matches the samples against the tree sequence structure built by the match-ancestors command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">match</span><span class="o">-</span><span class="n">samples</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+                      <span class="p">[</span><span class="o">-</span><span class="n">A</span> <span class="n">ANCESTORS_TREES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">path</span><span class="o">-</span><span class="n">compression</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">simplify</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">O</span> <span class="n">OUTPUT_TREES</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_THREADS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span>
+                      <span class="n">samples</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat4">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat4" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat4">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat4" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>-A, --ancestors-trees</kbd></dt>
+<dd><p>The path to the ancestor trees file in tskit ‘.trees’ format. If not specified, this defaults to the input samples file stem with the extension ‘.ancestors.trees’. For example, if ‘1kg-chr1.samples’ is the input file then the default ancestors file would be ‘1kg-chr1.ancestors.trees’</p>
+</dd>
+<dt><kbd>--no-path-compression</kbd></dt>
+<dd><p>Disable path compression</p>
+</dd>
+<dt><kbd>--no-simplify</kbd></dt>
+<dd><p>Do not simplify the output tree sequence</p>
+</dd>
+<dt><kbd>-O, --output-trees</kbd></dt>
+<dd><p>The path to the output trees file in tskit ‘.trees’ format. If not specified, this defaults to the input samples file stem with the extension ‘.trees’. For example, if ‘1kg-chr1.samples’ is the input file then the default output file would be ‘1kg-chr1.trees’</p>
+</dd>
+<dt><kbd>--num-threads, -t</kbd></dt>
+<dd><p>The number of worker threads to use. If &lt; 1, use a simpler unthreaded algorithm (default).</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="infer">
+<h4>infer<a class="headerlink" href="#infer" title="Permalink to this headline"></a></h4>
+<p>Runs the generate-ancestors, match-ancestors and match-samples commands without writing the intermediate files to disk. Not recommended for large inferences.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">infer</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+              <span class="p">[</span><span class="o">-</span><span class="n">O</span> <span class="n">OUTPUT_TREES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_THREADS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span>
+              <span class="n">samples</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat5">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat5" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat5">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat5" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>-O, --output-trees</kbd></dt>
+<dd><p>The path to the output trees file in tskit ‘.trees’ format. If not specified, this defaults to the input samples file stem with the extension ‘.trees’. For example, if ‘1kg-chr1.samples’ is the input file then the default output file would be ‘1kg-chr1.trees’</p>
+</dd>
+<dt><kbd>--num-threads, -t</kbd></dt>
+<dd><p>The number of worker threads to use. If &lt; 1, use a simpler unthreaded algorithm (default).</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="list (ls)">
+<h4>list (ls)<a class="headerlink" href="#list (ls)" title="Permalink to this headline"></a></h4>
+<p>Show a summary of the specified tsinfer related file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="nb">list</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="p">]</span>
+             <span class="n">path</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat6">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat6" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>path</kbd></dt>
+<dd><p>The tsinfer file to show information about.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat6">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat6" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>--storage, -s</kbd></dt>
+<dd><p>Show detailed information about data storage.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="verify">
+<h4>verify<a class="headerlink" href="#verify" title="Permalink to this headline"></a></h4>
+<p>Verify that the specified tree sequence and samples files represent the same data</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">verify</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span>
+               <span class="n">samples</span> <span class="n">tree_sequence</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat7">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat7" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+<dt><kbd>tree_sequence</kbd></dt>
+<dd><p>The tree sequence to compare with in .trees format.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat7">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat7" title="Permalink to this headline"></a></h5>
+<dl class="option-list">
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="file_formats.html" class="btn btn-neutral float-right" title="File formats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2018, Jerome Kelleher.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

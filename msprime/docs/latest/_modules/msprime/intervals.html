@@ -1,0 +1,1164 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>msprime.intervals &#8212; Msprime manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/msprime_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Msprime manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../quickstart.html">
+   Quickstart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Running simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ancestry.html">
+   Ancestry simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../mutations.html">
+   Mutation simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../demography.html">
+   Demographic models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../replication.html">
+   Randomness and replication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../api.html">
+   API Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Utilities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../rate_maps.html">
+   Rate Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../pedigrees.html">
+   Pedigrees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../likelihoods.html">
+   Computing likelihoods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../logging.html">
+   Logging
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../legacy.html">
+   Legacy (version 0.x) APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../switch_from_other_simulators.html">
+   Switching from other simulators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../CITATION.html">
+   Citing msprime
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            msprime 1.2.1.dev16
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/msprime"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/msprime/issues/new?title=Issue%20on%20page%20%2F_modules/msprime/intervals.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for msprime.intervals</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (C) 2020-2021 University of Oxford</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of msprime.</span>
+<span class="c1">#</span>
+<span class="c1"># msprime is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU General Public License as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># msprime is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with msprime.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c1">#</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utilities for working with intervals and interval maps.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">collections.abc</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">numbers</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">msprime</span> <span class="kn">import</span> <span class="n">core</span>
+
+
+<div class="viewcode-block" id="RateMap"><a class="viewcode-back" href="../../api.html#msprime.RateMap">[docs]</a><span class="k">class</span> <span class="nc">RateMap</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Mapping</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class mapping a non-negative rate value to a set of non-overlapping intervals</span>
+<span class="sd">    along the genome. Intervals for which the rate is unknown (i.e., missing data)</span>
+<span class="sd">    are encoded by NaN values in the ``rate`` array.</span>
+
+<span class="sd">    :param list position: A list of :math:`n+1` positions, starting at 0, and ending</span>
+<span class="sd">        in the sequence length over which the RateMap will apply.</span>
+<span class="sd">    :param list rate: A list of :math:`n` positive rates that apply between each</span>
+<span class="sd">        position. Intervals with missing data are encoded by NaN values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># The args are marked keyword only to give us some flexibility in how we</span>
+    <span class="c1"># create class this in the future.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">position</span><span class="p">,</span>
+        <span class="n">rate</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># Making the arrays read-only guarantees rate and cumulative mass stay in sync</span>
+        <span class="c1"># We prevent the arrays themselves being overwritten by making self.position,</span>
+        <span class="c1"># etc properties.</span>
+
+        <span class="c1"># TODO we always coerce the position type to float here, but we may not</span>
+        <span class="c1"># want to do this. int32 is a perfectly good choice a lot of the time.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_position</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_position</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must have at least two positions&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">)</span> <span class="o">!=</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Rate array must have one less entry than the position array&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;First position must be zero&quot;</span><span class="p">)</span>
+
+        <span class="n">span</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">span</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">span</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">bad_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">span</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Position values not strictly increasing at indexes </span><span class="si">{</span><span class="n">bad_pos</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">bad_rates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rate values negative at indexes </span><span class="si">{</span><span class="n">bad_rates</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_missing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_missing_intervals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_missing</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_missing_intervals</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All intervals are missing data&quot;</span><span class="p">)</span>
+        <span class="c1"># We don&#39;t expose the cumulative mass array as a part of the array</span>
+        <span class="c1"># API is it&#39;s not quite as obvious how it lines up for each interval.</span>
+        <span class="c1"># It&#39;s really the sum of the mass up to but not including the current</span>
+        <span class="c1"># interval, which is a bit confusing. Probably best to just leave</span>
+        <span class="c1"># it as a function, so that people can sample at regular positions</span>
+        <span class="c1"># along the genome anyway, emphasising that it&#39;s a continuous function,</span>
+        <span class="c1"># not a step function like the other interval attributes.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cumulative_mass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nancumsum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mass</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cumulative_mass</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cumulative_mass</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">left</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The left position of each interval (inclusive).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_position</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">right</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The right position of each interval (exclusive).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_position</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the midpoint of each interval.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">span</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">mid</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="n">mid</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">span</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the span (i.e., ``right - left``) of each of the intervals.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">span</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span>
+        <span class="n">span</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="n">span</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The breakpoint positions between intervals. This is equal to the</span>
+<span class="sd">        :attr:`~.RateMap.left` array with the :attr:`sequence_length`</span>
+<span class="sd">        appended.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_position</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The rate associated with each interval. Missing data is encoded</span>
+<span class="sd">        by NaN values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The &quot;mass&quot; of each interval, defined as the :attr:`~.RateMap.rate`</span>
+<span class="sd">        :math:`\times` :attr:`~.RateMap.span`. This is NaN for intervals</span>
+<span class="sd">        containing missing data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">span</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">missing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A boolean array encoding whether each interval contains missing data.</span>
+<span class="sd">        Equivalent to ``np.isnan(rate_map.rate)``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_missing</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">non_missing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A boolean array encoding whether each interval contains non-missing data.</span>
+<span class="sd">        Equivalent to ``np.logical_not(np.isnan(rate_map.rate))``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">_missing</span>
+
+    <span class="c1">#</span>
+    <span class="c1"># Interval counts</span>
+    <span class="c1">#</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The total number of intervals in this map. Equal to</span>
+<span class="sd">        :attr:`~.RateMap.num_missing_intervals` +</span>
+<span class="sd">        :attr:`~.RateMap.num_non_missing_intervals`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_missing_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the number of missing intervals, i.e., those in which the</span>
+<span class="sd">        :attr:`~.RateMap.rate` value is a NaN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_missing_intervals</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_non_missing_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The number of non missing intervals, i.e., those in which the</span>
+<span class="sd">        :attr:`~.RateMap.rate` value is not a NaN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_intervals</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_missing_intervals</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sequence_length</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The sequence length covered by this map</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">total_mass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The cumulative total mass over the entire map.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cumulative_mass</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mean_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The mean rate over this map weighted by the span covered by each rate.</span>
+<span class="sd">        Unknown intervals are excluded.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">total_span</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">span</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">non_missing</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_mass</span> <span class="o">/</span> <span class="n">total_span</span>
+
+<div class="viewcode-block" id="RateMap.get_rate"><a class="viewcode-back" href="../../api.html#msprime.RateMap.get_rate">[docs]</a>    <span class="k">def</span> <span class="nf">get_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the rate at the specified list of positions.</span>
+
+<span class="sd">        .. note:: This function will return a NaN value for any positions</span>
+<span class="sd">            that contain missing data.</span>
+
+<span class="sd">        :param numpy.ndarray x: The positions for which to return values.</span>
+<span class="sd">        :return: An array of rates, the same length as ``x``.</span>
+<span class="sd">        :rtype: numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">loc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">loc</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;position out of bounds&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="RateMap.get_cumulative_mass"><a class="viewcode-back" href="../../api.html#msprime.RateMap.get_cumulative_mass">[docs]</a>    <span class="k">def</span> <span class="nf">get_cumulative_mass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the cumulative mass of the map up to (but not including) a</span>
+<span class="sd">        given point for a list of positions along the map. This is equal to</span>
+<span class="sd">        the integral of the rate from 0 to the point.</span>
+
+<span class="sd">        :param numpy.ndarray x: The positions for which to return values.</span>
+
+<span class="sd">        :return: An array of cumulative mass values, the same length as ``x``</span>
+<span class="sd">        :rtype: numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot have positions &lt; 0 or &gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cumulative_mass</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RateMap.find_index"><a class="viewcode-back" href="../../api.html#msprime.RateMap.find_index">[docs]</a>    <span class="k">def</span> <span class="nf">find_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the index of the interval that the specified position falls within,</span>
+<span class="sd">        such that ``rate_map.left[index] &lt;= x &lt; self.rate_map.right[index]``.</span>
+
+<span class="sd">        :param float x: The position to search.</span>
+<span class="sd">        :return: The index of the interval containing this point.</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        :raises: KeyError if the position is not contained in any of the intervals.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Position </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> out of bounds&quot;</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span>
+            <span class="n">index</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">index</span></div>
+
+<div class="viewcode-block" id="RateMap.missing_intervals"><a class="viewcode-back" href="../../api.html#msprime.RateMap.missing_intervals">[docs]</a>    <span class="k">def</span> <span class="nf">missing_intervals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the left and right coordinates of the intervals containing</span>
+<span class="sd">        missing data in this map as a 2D numpy array</span>
+<span class="sd">        with shape (:attr:`~.RateMap.num_missing_intervals`, 2). Each row</span>
+<span class="sd">        of this returned array is therefore a ``left``, ``right`` tuple</span>
+<span class="sd">        corresponding to the coordinates of the missing intervals.</span>
+
+<span class="sd">        :return: A numpy array of the coordinates of intervals containing</span>
+<span class="sd">            missing data.</span>
+<span class="sd">        :rtype: numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">num_missing_intervals</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">out</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">missing</span><span class="p">]</span>
+        <span class="n">out</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">missing</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+    <span class="k">def</span> <span class="nf">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="s2">&quot;rate&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">}</span>
+
+    <span class="c1">#</span>
+    <span class="c1"># Dunder methods. We implement the Mapping protocol via __iter__, __len__</span>
+    <span class="c1"># and __getitem__. We have some extra semantics for __getitem__, providing</span>
+    <span class="c1"># slice notation.</span>
+    <span class="c1">#</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># The clinching argument for using mid here is that if we used</span>
+        <span class="c1"># left instead we would have</span>
+        <span class="c1">#   RateMap([0, 1], [0.1]) == RateMap([0, 100], [0.1])</span>
+        <span class="c1"># by the inherited definition of equality since the dictionary items</span>
+        <span class="c1"># would be equal.</span>
+        <span class="c1"># Similarly, we only return the midpoints of known intervals</span>
+        <span class="c1"># because NaN values are not equal, and we would need to do</span>
+        <span class="c1"># something to work around this. It seems reasonable that</span>
+        <span class="c1"># this high-level operation returns the *known* values only</span>
+        <span class="c1"># anyway.</span>
+        <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">mid</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">non_missing</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">non_missing</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">step</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Only interval slicing is supported&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">key</span><span class="o">.</span><span class="n">stop</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">):</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_index</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">[</span><span class="n">index</span><span class="p">]):</span>
+                <span class="c1"># To be consistent with the __iter__ definition above we</span>
+                <span class="c1"># don&#39;t consider these missing positions to be &quot;in&quot; the map.</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Position </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is within a missing interval&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="c1"># TODO we could implement numpy array indexing here and call</span>
+        <span class="c1"># to get_rate. Note we&#39;d need to take care that we return a keyerror</span>
+        <span class="c1"># if the returned array contains any nans though.</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Key </span><span class="si">{key}</span><span class="s2"> not in map&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_display_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">format_row</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">span</span><span class="p">,</span> <span class="n">rate</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">left</span><span class="si">:</span><span class="s2">.10g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">right</span><span class="si">:</span><span class="s2">.10g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mid</span><span class="si">:</span><span class="s2">.10g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">span</span><span class="si">:</span><span class="s2">.10g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rate</span><span class="si">:</span><span class="s2">.2g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+
+        <span class="k">def</span> <span class="nf">format_slice</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span>
+                <span class="n">itertools</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span>
+                    <span class="n">format_row</span><span class="p">,</span>
+                    <span class="nb">zip</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">],</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">],</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">mid</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">],</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">span</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">],</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">],</span>
+                    <span class="p">),</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_intervals</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">format_slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">format_slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;⋯&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">+=</span> <span class="n">format_slice</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="s2">&quot;mid&quot;</span><span class="p">,</span> <span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="s2">&quot;rate&quot;</span><span class="p">],</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">titles</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_display_table</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">item</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">text_table</span><span class="p">(</span>
+            <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">column_titles</span><span class="o">=</span><span class="p">[[</span><span class="n">title</span><span class="p">]</span> <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">titles</span><span class="p">],</span>
+            <span class="n">column_alignments</span><span class="o">=</span><span class="s2">&quot;&lt;&lt;&gt;&gt;&gt;&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">table</span>
+
+    <span class="k">def</span> <span class="nf">_repr_html_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">col_titles</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_display_table</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">core</span><span class="o">.</span><span class="n">html_table</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">col_titles</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;RateMap(position=</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">)</span><span class="si">}</span><span class="s2">, rate=</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="c1">#</span>
+    <span class="c1"># Methods for building rate maps.</span>
+    <span class="c1">#</span>
+
+<div class="viewcode-block" id="RateMap.copy"><a class="viewcode-back" href="../../api.html#msprime.RateMap.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RateMap</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a deep copy of this RateMap.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># We take read-only copies of the arrays in the constructor anyway, so</span>
+        <span class="c1"># no need for copying.</span>
+        <span class="k">return</span> <span class="n">RateMap</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RateMap.slice"><a class="viewcode-back" href="../../api.html#msprime.RateMap.slice">[docs]</a>    <span class="k">def</span> <span class="nf">slice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RateMap</span><span class="p">:</span>  <span class="c1"># noqa: A003</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a subset of this rate map in the specified interval.</span>
+
+<span class="sd">        :param float left: The left coordinate (inclusive) of the region to keep.</span>
+<span class="sd">            If ``None``, defaults to 0.</span>
+<span class="sd">        :param float right: The right coordinate (exclusive) of the region to keep.</span>
+<span class="sd">            If ``None``, defaults to the sequence length.</span>
+<span class="sd">        :param bool trim: If True, remove the flanking regions such that the</span>
+<span class="sd">            sequence length of the new rate map is ``right`` - ``left``. If ``False``</span>
+<span class="sd">            (default), do not change the coordinate system and mark the flanking</span>
+<span class="sd">            regions as &quot;unknown&quot;.</span>
+<span class="sd">        :return: A new RateMap instance</span>
+<span class="sd">        :rtype: RateMap</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">left</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">left</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span> <span class="k">if</span> <span class="n">right</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">right</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid slice: left=</span><span class="si">{</span><span class="n">left</span><span class="si">}</span><span class="s2">, right=</span><span class="si">{</span><span class="n">right</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_index</span><span class="p">(</span><span class="n">left</span><span class="p">)</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="n">i</span><span class="p">:],</span> <span class="n">right</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">right</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">left</span>
+        <span class="n">position</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">right</span>
+
+        <span class="k">if</span> <span class="n">trim</span><span class="p">:</span>
+            <span class="c1"># Return trimmed map with changed coords</span>
+            <span class="k">return</span> <span class="n">RateMap</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">position</span> <span class="o">-</span> <span class="n">left</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">)</span>
+
+        <span class="c1"># Need to check regions before &amp; after sliced region are filled out:</span>
+        <span class="k">if</span> <span class="n">left</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">rate</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                <span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Extend</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>  <span class="c1"># Prepend</span>
+                <span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">right</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">rate</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="n">position</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sequence_length</span>  <span class="c1"># Extend</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>  <span class="c1"># Append</span>
+                <span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">RateMap</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RateMap.uniform"><a class="viewcode-back" href="../../api.html#msprime.RateMap.uniform">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">uniform</span><span class="p">(</span><span class="n">sequence_length</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RateMap</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a uniform rate map</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">RateMap</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">sequence_length</span><span class="p">],</span> <span class="n">rate</span><span class="o">=</span><span class="p">[</span><span class="n">rate</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="RateMap.read_hapmap"><a class="viewcode-back" href="../../api.html#msprime.RateMap.read_hapmap">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">read_hapmap</span><span class="p">(</span>
+        <span class="n">fileobj</span><span class="p">,</span>
+        <span class="n">sequence_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">has_header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">position_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">rate_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">map_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># Black barfs with an INTERNAL_ERROR trying to reformat this docstring,</span>
+        <span class="c1"># so we explicitly disable reformatting here.</span>
+        <span class="c1"># fmt: off</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parses the specified file in HapMap format and returns a :class:`.RateMap`.</span>
+<span class="sd">        HapMap files must white-space-delimited, and by default are assumed to</span>
+<span class="sd">        contain a single header line (which is ignored). Each subsequent line</span>
+<span class="sd">        then contains a physical position (in base pairs) and either a genetic</span>
+<span class="sd">        map position (in centiMorgans) or a recombination rate (in centiMorgans</span>
+<span class="sd">        per megabase). The value in the rate column in a given line gives the</span>
+<span class="sd">        constant rate between the physical position in that line (inclusive) and the</span>
+<span class="sd">        physical position on the next line (exclusive).</span>
+<span class="sd">        By default, the second column of the file is taken</span>
+<span class="sd">        as the physical position and the fourth column is taken as the genetic</span>
+<span class="sd">        position, as seen in the following sample of the format::</span>
+
+<span class="sd">            Chromosome	Position(bp)  Rate(cM/Mb)  Map(cM)</span>
+<span class="sd">            chr10       48232         0.1614       0.002664</span>
+<span class="sd">            chr10       48486         0.1589       0.002705</span>
+<span class="sd">            chr10       50009         0.159        0.002947</span>
+<span class="sd">            chr10       52147         0.1574       0.003287</span>
+<span class="sd">            ...</span>
+<span class="sd">            chr10	133762002     3.358        181.129345</span>
+<span class="sd">            chr10	133766368     0.000        181.144008</span>
+
+<span class="sd">        In the example above, the first row has a nonzero genetic map position</span>
+<span class="sd">        (last column, cM), implying a nonzero recombination rate before that</span>
+<span class="sd">        position, that is assumed to extend to the start of the chromosome</span>
+<span class="sd">        (at position 0 bp). However, if the first line has a nonzero bp position</span>
+<span class="sd">        (second column) and a zero genetic map position (last column, cM),</span>
+<span class="sd">        then the recombination rate before that position is *unknown*, producing</span>
+<span class="sd">        :ref:`missing data &lt;sec_rate_maps_missing&gt;`.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            The rows are all assumed to come from the same contig, and the</span>
+<span class="sd">            first column is currently ignored. Therefore if you have a single</span>
+<span class="sd">            file containing several contigs or chromosomes, you must must split</span>
+<span class="sd">            it up into multiple files, and pass each one separately to this</span>
+<span class="sd">            function.</span>
+
+<span class="sd">        :param str fileobj: Filename or file to read. This is passed directly</span>
+<span class="sd">            to :func:`numpy.loadtxt`, so if the filename extension is .gz or .bz2,</span>
+<span class="sd">            the file is decompressed first</span>
+<span class="sd">        :param float sequence_length: The total length of the map. If ``None``,</span>
+<span class="sd">            then assume it is the last physical position listed in the file.</span>
+<span class="sd">            Otherwise it must be greater then or equal to the last physical</span>
+<span class="sd">            position in the file, and the region between the last physical position</span>
+<span class="sd">            and the sequence_length is padded with a rate of zero.</span>
+<span class="sd">        :param bool has_header: If True (default), assume the file has a header row</span>
+<span class="sd">            and ignore the first line of the file.</span>
+<span class="sd">        :param int position_col: The zero-based index of the column in the file</span>
+<span class="sd">            specifying the physical position in base pairs. If ``None`` (default)</span>
+<span class="sd">            assume an index of 1 (i.e. the second column).</span>
+<span class="sd">        :param int rate_col: The zero-based index of the column in the file</span>
+<span class="sd">            specifying the rate in cM/Mb. If ``None`` (default) do not use the rate</span>
+<span class="sd">            column, but calculate rates using the genetic map positions, as</span>
+<span class="sd">            specified in ``map_col``. If the rate column is used, the</span>
+<span class="sd">            interval from 0 to first physical position in the file is marked as</span>
+<span class="sd">            unknown, and the last value in the rate column must be zero.</span>
+<span class="sd">        :param int map_col: The zero-based index of the column in the file</span>
+<span class="sd">            specifying the genetic map position in centiMorgans. If ``None``</span>
+<span class="sd">            (default), assume an index of 3 (i.e. the fourth column). If the first</span>
+<span class="sd">            genetic position is 0 the interval from position 0 to the first</span>
+<span class="sd">            physical position in the file is marked as unknown. Otherwise, act</span>
+<span class="sd">            as if an additional row, specifying physical position 0 and genetic</span>
+<span class="sd">            position 0, exists at the start of the file.</span>
+<span class="sd">        :return: A RateMap object.</span>
+<span class="sd">        :rtype: RateMap</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># fmt: on</span>
+        <span class="n">column_defs</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># column definitions passed to np.loadtxt</span>
+        <span class="k">if</span> <span class="n">rate_col</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">map_col</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Default to map_col</span>
+            <span class="n">map_col</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="k">elif</span> <span class="n">rate_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">map_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot specify both rate_col and map_col&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">map_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">column_defs</span><span class="p">[</span><span class="n">map_col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;map&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">column_defs</span><span class="p">[</span><span class="n">rate_col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;rate&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="n">position_col</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">position_col</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">position_col</span>
+        <span class="k">if</span> <span class="n">position_col</span> <span class="ow">in</span> <span class="n">column_defs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot specify the same columns for position_col and &quot;</span>
+                <span class="s2">&quot;rate_col or map_col&quot;</span>
+            <span class="p">)</span>
+        <span class="n">column_defs</span><span class="p">[</span><span class="n">position_col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;pos&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+        <span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">column_defs</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="n">column_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+            <span class="n">fileobj</span><span class="p">,</span>
+            <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span> <span class="k">if</span> <span class="n">has_header</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">column_defs</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span>
+            <span class="n">usecols</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">column_defs</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
+            <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">column_names</span><span class="p">,</span> <span class="n">column_data</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="s2">&quot;map&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="s2">&quot;rate&quot;</span> <span class="ow">in</span> <span class="n">data</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;rate&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The last entry in the &#39;rate&#39; column must be zero&quot;</span><span class="p">)</span>
+            <span class="n">pos_Mb</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;pos&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">1e6</span>
+            <span class="n">map_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;rate&quot;</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">pos_Mb</span><span class="p">))</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;map&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">map_pos</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;map&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="mi">100</span>  <span class="c1"># Convert centiMorgans to Morgans</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;map&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty hapmap file&quot;</span><span class="p">)</span>
+
+        <span class="c1"># TO DO: read in chrom name from col 0 and poss set as .name</span>
+        <span class="c1"># attribute on the RateMap</span>
+
+        <span class="n">physical_positions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;pos&quot;</span><span class="p">]</span>
+        <span class="n">genetic_positions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;map&quot;</span><span class="p">]</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">physical_positions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">physical_positions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">genetic_positions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;The map distance at the start of the chromosome must be zero&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">physical_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">physical_positions</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">genetic_positions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># Exception for a map that starts &gt; 0cM: include the start rate</span>
+                <span class="c1"># in the mean</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">genetic_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">genetic_positions</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">sequence_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sequence_length</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;The sequence_length cannot be less than the last physical position &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="n">physical_positions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="n">sequence_length</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
+                <span class="n">physical_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">physical_positions</span><span class="p">,</span> <span class="n">sequence_length</span><span class="p">)</span>
+                <span class="n">genetic_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">genetic_positions</span><span class="p">,</span> <span class="n">genetic_positions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">assert</span> <span class="n">genetic_positions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="n">rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">genetic_positions</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">physical_positions</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">rate</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="k">if</span> <span class="n">end</span> <span class="o">!=</span> <span class="n">physical_positions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">rate</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="k">return</span> <span class="n">RateMap</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">physical_positions</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="RecombinationMap"><a class="viewcode-back" href="../../legacy.html#msprime.RecombinationMap">[docs]</a><span class="k">class</span> <span class="nc">RecombinationMap</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A RecombinationMap represents the changing rates of recombination</span>
+<span class="sd">    along a chromosome. This is defined via two lists of numbers:</span>
+<span class="sd">    ``positions`` and ``rates``, which must be of the same length.</span>
+<span class="sd">    Given an index j in these lists, the rate of recombination</span>
+<span class="sd">    per base per generation is ``rates[j]`` over the interval</span>
+<span class="sd">    ``positions[j]`` to ``positions[j + 1]``. Consequently, the first</span>
+<span class="sd">    position must be zero, and by convention the last rate value</span>
+<span class="sd">    is also required to be zero (although it is not used).</span>
+
+<span class="sd">    .. important::</span>
+<span class="sd">        This class is deprecated (but supported indefinitely);</span>
+<span class="sd">        please use the :class:`.RateMap` class in new code.</span>
+<span class="sd">        In particular, note that when specifying ``rates`` in the</span>
+<span class="sd">        the :class:`.RateMap` class we now require an array</span>
+<span class="sd">        of length :math:`n - 1` (this class requires an array</span>
+<span class="sd">        of length :math:`n` in which the last entry is zero).</span>
+
+<span class="sd">    :param list positions: The positions (in bases) denoting the</span>
+<span class="sd">        distinct intervals where recombination rates change. These can</span>
+<span class="sd">        be floating point values.</span>
+<span class="sd">    :param list rates: The list of rates corresponding to the supplied</span>
+<span class="sd">        ``positions``. Recombination rates are specified per base,</span>
+<span class="sd">        per generation.</span>
+<span class="sd">    :param int num_loci: **This parameter is no longer supported.**</span>
+<span class="sd">        Must be either None (meaning a continuous genome of the</span>
+<span class="sd">        finest possible resolution) or be equal to ``positions[-1]``</span>
+<span class="sd">        (meaning a discrete genome). Any other value will result in</span>
+<span class="sd">        an error. Please see the :ref:`sec_legacy_0x_genome_discretisation`</span>
+<span class="sd">        section for more information.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">positions</span><span class="p">,</span> <span class="n">rates</span><span class="p">,</span> <span class="n">num_loci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">map_start</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="c1"># Used as an internal flag for the 0.x simulate() function. This allows</span>
+        <span class="c1"># us to emulate the discrete-sites behaviour of 0.x code.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_discrete</span> <span class="o">=</span> <span class="n">num_loci</span> <span class="o">==</span> <span class="n">positions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">num_loci</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">num_loci</span> <span class="o">!=</span> <span class="n">positions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;The RecombinationMap interface is deprecated and only &quot;</span>
+                <span class="s2">&quot;partially supported. If you wish to simulate a number of &quot;</span>
+                <span class="s2">&quot;discrete loci, you must set num_loci == the sequence length. &quot;</span>
+                <span class="s2">&quot;If you wish to simulate recombination process on as fine &quot;</span>
+                <span class="s2">&quot;a map as possible, please omit the num_loci parameter (or set &quot;</span>
+                <span class="s2">&quot;to None). Otherwise, num_loci is no longer supported and &quot;</span>
+                <span class="s2">&quot;the behaviour of msprime 0.x cannot be emulated. Please &quot;</span>
+                <span class="s2">&quot;consider upgrading your code to the version 1.x APIs.&quot;</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">RateMap</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">positions</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">rates</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<div class="viewcode-block" id="RecombinationMap.uniform_map"><a class="viewcode-back" href="../../legacy.html#msprime.RecombinationMap.uniform_map">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">uniform_map</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">num_loci</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a :class:`.RecombinationMap` instance in which the recombination</span>
+<span class="sd">        rate is constant over a chromosome of the specified length.</span>
+<span class="sd">        The legacy ``num_loci`` option is no longer supported and should not be used.</span>
+
+<span class="sd">        :param float length: The length of the chromosome.</span>
+<span class="sd">        :param float rate: The rate of recombination per unit of sequence length</span>
+<span class="sd">            along this chromosome.</span>
+<span class="sd">        :param int num_loci: This parameter is no longer supported.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">length</span><span class="p">],</span> <span class="p">[</span><span class="n">rate</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">num_loci</span><span class="o">=</span><span class="n">num_loci</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RecombinationMap.read_hapmap"><a class="viewcode-back" href="../../legacy.html#msprime.RecombinationMap.read_hapmap">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">read_hapmap</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parses the specified file in HapMap format.</span>
+
+<span class="sd">        .. warning::</span>
+<span class="sd">            This method is deprecated, use the :meth:`.RateMap.read_hapmap`</span>
+<span class="sd">            method instead.</span>
+
+<span class="sd">        :param str filename: The name of the file to be parsed. This may be</span>
+<span class="sd">            in plain text or gzipped plain text.</span>
+<span class="sd">        :return: A RecombinationMap object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;RecombinationMap.read_hapmap() is deprecated. &quot;</span>
+            <span class="s2">&quot;Use RateMap.read_hapmap() instead.&quot;</span><span class="p">,</span>
+            <span class="ne">FutureWarning</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">rate_map</span> <span class="o">=</span> <span class="n">RateMap</span><span class="o">.</span><span class="n">read_hapmap</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">position_col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rate_col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># Mark anything missing as 0 for backwards compatibility. This will</span>
+        <span class="c1"># ensure that simulate() never trims parts of the tree sequence.</span>
+        <span class="n">rate</span> <span class="o">=</span> <span class="n">rate_map</span><span class="o">.</span><span class="n">rate</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">rate</span><span class="p">[</span><span class="n">rate_map</span><span class="o">.</span><span class="n">missing</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">rate_map</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mean_recombination_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the weighted mean recombination rate</span>
+<span class="sd">        across all windows of the entire recombination map.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">mean_rate</span>
+
+<div class="viewcode-block" id="RecombinationMap.get_total_recombination_rate"><a class="viewcode-back" href="../../legacy.html#msprime.RecombinationMap.get_total_recombination_rate">[docs]</a>    <span class="k">def</span> <span class="nf">get_total_recombination_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the effective recombination rate for this genetic map.</span>
+<span class="sd">        This is the weighted mean of the rates across all intervals.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">total_mass</span></div>
+
+    <span class="k">def</span> <span class="nf">physical_to_genetic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">get_cumulative_mass</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">genetic_to_physical</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">genetic_x</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">total_mass</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># If we have a zero recombination rate throughout then everything</span>
+            <span class="c1"># except L maps to 0.</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sequence_length</span><span class="p">()</span> <span class="k">if</span> <span class="n">genetic_x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">genetic_x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># TODO refactor this to this to use get_cumulative_mass() function / add the</span>
+        <span class="c1"># corresponding high-level function to the rate map.</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">_cumulative_mass</span><span class="p">,</span> <span class="n">genetic_x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="o">+</span> <span class="p">(</span><span class="n">genetic_x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">_cumulative_mass</span><span class="p">[</span><span class="n">index</span><span class="p">])</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">rate</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">physical_to_discrete_genetic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">physical_x</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Discrete genetic space is no longer supported&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_per_locus_recombination_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Genetic loci are no longer supported&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_num_loci</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;num_loci is no longer supported&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">position</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_positions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">position</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_rates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_sequence_length</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">sequence_length</span>
+
+    <span class="k">def</span> <span class="nf">get_length</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Deprecated: use get_sequence_length() instead</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sequence_length</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">asdict</span><span class="p">()</span></div>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      msprime 1.2.1.dev16
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,1609 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Statistics &#8212; Tskit manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bespoke.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Topological analysis" href="topological-analysis.html" />
+    <link rel="prev" title="Provenance" href="provenance.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tskit manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Quickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-model.html">
+   Data model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="provenance.html">
+   Provenance
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Analysis
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="topological-analysis.html">
+   Topological analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ibd.html">
+   Identity by descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="export.html">
+   Data export
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python-api.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="c-api.html">
+   C API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="file-formats.html">
+   File formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  For developers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelogs.html">
+   Changelogs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            0.5.3
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/tskit"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tskit/issues/new?title=Issue%20on%20page%20%2Fstats.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tskit/edit/main/docs/stats.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/stats.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/stats.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#available-statistics">
+   Available statistics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-examples">
+     Quick examples
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#basic-calling-convention">
+       Basic calling convention
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#restrict-to-sample-sets">
+       Restrict to
+       <span class="xref std std-ref">
+        sample sets
+       </span>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#summarise-in-genomic-windows">
+       Summarise in genomic
+       <span class="xref std std-ref">
+        windows
+       </span>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-between-sample-sets">
+       Compare
+       <span class="xref std std-ref">
+        between
+       </span>
+       sample sets
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#change-the-mode">
+       Change the
+       <span class="xref std std-ref">
+        mode
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#single-site-statistics">
+   Single site statistics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interface">
+     Interface
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mode">
+       Mode
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sample-sets-and-indexes">
+       Sample sets and indexes
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#one-way-methods">
+         One-way methods
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#multi-way-methods">
+         Multi-way methods
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#windows">
+       Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-normalise">
+       Span normalise
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#output-format">
+       Output format
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#output-dimensions">
+       Output dimensions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-api">
+     General API
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#polarisation">
+       Polarisation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#summary-functions">
+       Summary functions
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multi-site-statistics">
+   Multi site statistics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notes">
+   Notes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#allele-frequency-spectrum">
+     Allele frequency spectrum
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trait-correlations">
+     Trait correlations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#patterson-s-f-statistics">
+     Patterson’s f statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#y-statistics">
+     Y statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derived-statistics">
+     Derived statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#genealogical-nearest-neighbours">
+     Genealogical nearest neighbours
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Statistics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#available-statistics">
+   Available statistics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-examples">
+     Quick examples
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#basic-calling-convention">
+       Basic calling convention
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#restrict-to-sample-sets">
+       Restrict to
+       <span class="xref std std-ref">
+        sample sets
+       </span>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#summarise-in-genomic-windows">
+       Summarise in genomic
+       <span class="xref std std-ref">
+        windows
+       </span>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-between-sample-sets">
+       Compare
+       <span class="xref std std-ref">
+        between
+       </span>
+       sample sets
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#change-the-mode">
+       Change the
+       <span class="xref std std-ref">
+        mode
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#single-site-statistics">
+   Single site statistics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interface">
+     Interface
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mode">
+       Mode
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sample-sets-and-indexes">
+       Sample sets and indexes
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#one-way-methods">
+         One-way methods
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#multi-way-methods">
+         Multi-way methods
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#windows">
+       Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#span-normalise">
+       Span normalise
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#output-format">
+       Output format
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#output-dimensions">
+       Output dimensions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-api">
+     General API
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#polarisation">
+       Polarisation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#summary-functions">
+       Summary functions
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multi-site-statistics">
+   Multi site statistics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notes">
+   Notes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#allele-frequency-spectrum">
+     Allele frequency spectrum
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trait-correlations">
+     Trait correlations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#patterson-s-f-statistics">
+     Patterson’s f statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#y-statistics">
+     Y statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derived-statistics">
+     Derived statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#genealogical-nearest-neighbours">
+     Genealogical nearest neighbours
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="statistics">
+<span id="sec-stats"></span><h1>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">tskit</span></code> library provides a large number of functions for calculating population
+genetic statistics from tree sequences. Statistics can reflect either the distribution
+of genetic variation or the underlying trees that generate it; the
+<a class="reference external" href="https://doi.org/10.1534/genetics.120.303253">duality</a> between
+mutations and branch lengths on trees means that statistics based on genetic variation
+often have an corresponding version based on branch lengths in trees in a tree sequence.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">tskit</span></code> provides a unified interface for computing so-called
+“single site statistics” that are summaries across sites in windows of the genome, as
+well as a standard method for specifying “multi-way” statistics that are calculated
+over many combinations of sets of samples simultaneously.</p>
+<p>Please see the <a class="reference external" href="https://tskit.dev/tutorials/analysing_tree_sequences.html#sec-tutorial-stats" title="(in Python)"><span class="xref std std-ref">tutorial</span></a> for examples of the
+statistics API in use.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><a class="reference internal" href="data-model.html#sec-data-model-missing-data"><span class="std std-ref">Missing data</span></a> is not currently
+handled correctly by site statistics defined here, as we always
+assign missing data to be equal to the ancestral state. Later
+versions will add this behaviour as an option and will account
+for the presence of missing data by default.</p>
+</div>
+<section id="available-statistics">
+<span id="sec-stats-available"></span><h2>Available statistics<a class="headerlink" href="#available-statistics" title="Permalink to this headline">#</a></h2>
+<p>Here are the statistics that can be computed using <code class="docutils literal notranslate"><span class="pre">tskit</span></code>,
+grouped by basic classification and type. Single-site statistics are ones that are
+averages across sites in windows of the genome, returning numpy arrays whose
+dimensions are determined by the parameters (see <a class="reference internal" href="#sec-stats-output-dimensions"><span class="std std-ref">Output dimensions</span></a>).</p>
+<p><a class="reference internal" href="#sec-stats-sample-sets-one-way"><span class="std std-ref">One-way methods</span></a> are defined over a single sample set,
+whereas <a class="reference internal" href="#sec-stats-sample-sets-multi-way"><span class="std std-ref">Multi-way methods</span></a> compare 2 or more sets of samples.</p>
+<p>Some of the methods below benefit from a little extra discussion, provided in the
+<a class="reference internal" href="#sec-stats-notes"><span class="std std-ref">Notes</span></a> section at the end of this chapter: if so, a link to the note
+appears beside the listed method.</p>
+<ul class="simple">
+<li><p>Single site</p>
+<ul>
+<li><p>One-way</p>
+<ul>
+<li><p><a class="reference internal" href="python-api.html#tskit.TreeSequence.allele_frequency_spectrum" title="tskit.TreeSequence.allele_frequency_spectrum"><code class="xref py py-meth docutils literal notranslate"><span class="pre">allele_frequency_spectrum()</span></code></a> (see <a class="reference internal" href="#sec-stats-notes-afs"><span class="std std-ref">notes</span></a>)</p></li>
+<li><p><a class="reference internal" href="python-api.html#tskit.TreeSequence.diversity" title="tskit.TreeSequence.diversity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">diversity()</span></code></a></p></li>
+<li><p><a class="reference internal" href="python-api.html#tskit.TreeSequence.segregating_sites" title="tskit.TreeSequence.segregating_sites"><code class="xref py py-meth docutils literal notranslate"><span class="pre">segregating_sites()</span></code></a></p></li>
+<li><p><a class="reference internal" href="python-api.html#tskit.TreeSequence.trait_covariance" title="tskit.TreeSequence.trait_covariance"><code class="xref py py-meth docutils literal notranslate"><span class="pre">trait_covariance()</span></code></a>
+<a class="reference internal" href="python-api.html#tskit.TreeSequence.trait_correlation" title="tskit.TreeSequence.trait_correlation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">trait_correlation()</span></code></a>
+<a class="reference internal" href="python-api.html#tskit.TreeSequence.trait_linear_model" title="tskit.TreeSequence.trait_linear_model"><code class="xref py py-meth docutils literal notranslate"><span class="pre">trait_linear_model()</span></code></a>
+(see <a class="reference internal" href="#sec-stats-notes-trait"><span class="std std-ref">Trait correlations</span></a>)</p></li>
+<li><p><a class="reference internal" href="python-api.html#tskit.TreeSequence.Tajimas_D" title="tskit.TreeSequence.Tajimas_D"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tajimas_D()</span></code></a> (see <a class="reference internal" href="#sec-stats-notes-derived"><span class="std std-ref">notes</span></a>)</p></li>
+</ul>
+</li>
+<li><p>Multi-way</p>
+<ul>
+<li><p><a class="reference internal" href="python-api.html#tskit.TreeSequence.divergence" title="tskit.TreeSequence.divergence"><code class="xref py py-meth docutils literal notranslate"><span class="pre">divergence()</span></code></a></p></li>
+<li><p><a class="reference internal" href="python-api.html#tskit.TreeSequence.genetic_relatedness" title="tskit.TreeSequence.genetic_relatedness"><code class="xref py py-meth docutils literal notranslate"><span class="pre">genetic_relatedness()</span></code></a></p></li>
+<li><p><a class="reference internal" href="python-api.html#tskit.TreeSequence.f4" title="tskit.TreeSequence.f4"><code class="xref py py-meth docutils literal notranslate"><span class="pre">f4()</span></code></a>
+<a class="reference internal" href="python-api.html#tskit.TreeSequence.f3" title="tskit.TreeSequence.f3"><code class="xref py py-meth docutils literal notranslate"><span class="pre">f3()</span></code></a>
+<a class="reference internal" href="python-api.html#tskit.TreeSequence.f2" title="tskit.TreeSequence.f2"><code class="xref py py-meth docutils literal notranslate"><span class="pre">f2()</span></code></a>
+(see <a class="reference internal" href="#sec-stats-notes-f"><span class="std std-ref">Patterson’s f statistics</span></a>)</p></li>
+<li><p><a class="reference internal" href="python-api.html#tskit.TreeSequence.Y3" title="tskit.TreeSequence.Y3"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Y3()</span></code></a>
+<a class="reference internal" href="python-api.html#tskit.TreeSequence.Y2" title="tskit.TreeSequence.Y2"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Y2()</span></code></a>
+(see <a class="reference internal" href="#sec-stats-notes-y"><span class="std std-ref">Y statistics</span></a>)</p></li>
+<li><p><a class="reference internal" href="python-api.html#tskit.TreeSequence.genealogical_nearest_neighbours" title="tskit.TreeSequence.genealogical_nearest_neighbours"><code class="xref py py-meth docutils literal notranslate"><span class="pre">genealogical_nearest_neighbours()</span></code></a> (see <a class="reference internal" href="#sec-stats-notes-gnn"><span class="std std-ref">Genealogical nearest neighbours</span></a>)</p></li>
+<li><p><a class="reference internal" href="python-api.html#tskit.TreeSequence.Fst" title="tskit.TreeSequence.Fst"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Fst()</span></code></a> (see <a class="reference internal" href="#sec-stats-notes-derived"><span class="std std-ref">Derived statistics</span></a>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Multi site</p>
+<ul>
+<li><p><a class="reference internal" href="python-api.html#tskit.LdCalculator" title="tskit.LdCalculator"><code class="xref py py-meth docutils literal notranslate"><span class="pre">LdCalculator()</span></code></a> (note this is soon to be deprecated)</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a general framework provided for calculating additional single site
+statistics (see the <a class="reference internal" href="#sec-stats-general-api"><span class="std std-ref">General API</span></a> section). However, the
+pre-implemented statistics in the table above will be faster than rederiving
+them using the general framework directly, so the versions above should be preferred.</p>
+</div>
+<section id="quick-examples">
+<span id="sec-stats-examples"></span><h3>Quick examples<a class="headerlink" href="#quick-examples" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span>
+<span class="kn">import</span> <span class="nn">msprime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">demography</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">Demography</span><span class="p">()</span>
+<span class="n">demography</span><span class="o">.</span><span class="n">add_population</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">initial_size</span><span class="o">=</span><span class="mi">10_000</span><span class="p">)</span>
+<span class="n">demography</span><span class="o">.</span><span class="n">add_population</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">initial_size</span><span class="o">=</span><span class="mi">10_000</span><span class="p">)</span>
+<span class="n">demography</span><span class="o">.</span><span class="n">set_symmetric_migration_rate</span><span class="p">([</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="mf">0.001</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span>
+    <span class="n">samples</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="n">sequence_length</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">demography</span><span class="o">=</span><span class="n">demography</span><span class="p">,</span>
+    <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">2e-8</span><span class="p">,</span>
+    <span class="n">random_seed</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">2e-8</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">Markdown</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;These examples use a tree sequence of </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_samples</span><span class="si">}</span><span class="s2"> samples &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;in </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_populations</span><span class="si">}</span><span class="s2"> populations, &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;with a sequence length of </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">)</span><span class="si">}</span><span class="s2">. &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_trees</span><span class="si">}</span><span class="s2"> trees and &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_sites</span><span class="si">}</span><span class="s2"> variable sites in the tree sequence.&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>These examples use a tree sequence of 8 samples in 2 populations, with a sequence length of 1000. There are 7 trees and 6 variable sites in the tree sequence.</p>
+</div>
+</div>
+<section id="basic-calling-convention">
+<h4>Basic calling convention<a class="headerlink" href="#basic-calling-convention" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">diversity</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span> <span class="c1"># Genetic diversity within the sample set</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.001964285714285714
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="restrict-to-sample-sets">
+<h4>Restrict to <a class="reference internal" href="#sec-stats-sample-sets"><span class="std std-ref">sample sets</span></a><a class="headerlink" href="#restrict-to-sample-sets" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi_0</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">diversity</span><span class="p">(</span><span class="n">sample_sets</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pi_0</span><span class="p">)</span>  <span class="c1"># Genetic diversity within population 0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0013333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summarise-in-genomic-windows">
+<h4>Summarise in genomic <a class="reference internal" href="#sec-stats-windows"><span class="std std-ref">windows</span></a><a class="headerlink" href="#summarise-in-genomic-windows" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi_window</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">diversity</span><span class="p">(</span><span class="n">sample_sets</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">windows</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span>  <span class="mi">600</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pi_window</span><span class="p">)</span>  <span class="c1"># Genetic diversity within population 1 in three windows along the genome</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.00125 0.0025  0.00375]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compare-between-sample-sets">
+<h4>Compare <a class="reference internal" href="#sec-stats-sample-sets-multi-way"><span class="std std-ref">between</span></a> sample sets<a class="headerlink" href="#compare-between-sample-sets" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dxy</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">divergence</span><span class="p">(</span><span class="n">sample_sets</span><span class="o">=</span><span class="p">[</span><span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="mi">1</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dxy</span><span class="p">)</span>  <span class="c1"># Av number of differences per bp between samples in population 0 and 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.002
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="change-the-mode">
+<h4>Change the <a class="reference internal" href="#sec-stats-mode"><span class="std std-ref">mode</span></a><a class="headerlink" href="#change-the-mode" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bl</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">divergence</span><span class="p">(</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;branch&quot;</span><span class="p">,</span>  <span class="c1"># Use branch lengths rather than genetic differences</span>
+    <span class="n">sample_sets</span><span class="o">=</span><span class="p">[</span><span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="mi">1</span><span class="p">)],</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bl</span><span class="p">)</span>  <span class="c1"># Av branch length separating samples in population 0 and 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>75549.0842356655
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="single-site-statistics">
+<span id="sec-stats-single-site"></span><h2>Single site statistics<a class="headerlink" href="#single-site-statistics" title="Permalink to this headline">#</a></h2>
+<section id="interface">
+<span id="sec-stats-interface"></span><h3>Interface<a class="headerlink" href="#interface" title="Permalink to this headline">#</a></h3>
+<p>Tskit offers a powerful and flexible interface for computing population genetic
+statistics. Consequently, the interface is a little complicated and there are a
+lot of options. However, we provide sensible defaults for these options and
+<code class="docutils literal notranslate"><span class="pre">tskit</span></code> should do what you want in most cases. There are several major options
+shared by many statistics, which we describe in detail in the following subsections:</p>
+<dl class="simple myst">
+<dt><a class="reference internal" href="#sec-stats-mode"><span class="std std-ref">Mode</span></a></dt><dd><p>What are we summarising information about?</p>
+</dd>
+<dt><a class="reference internal" href="#sec-stats-windows"><span class="std std-ref">Windows</span></a></dt><dd><p>What section(s) of the genome are we interested in?</p>
+</dd>
+<dt><a class="reference internal" href="#sec-stats-span-normalise"><span class="std std-ref">Span normalise</span></a></dt><dd><p>Should the statistic calculated for each window be normalised by the span
+(i.e. the sequence length) of that window?</p>
+</dd>
+</dl>
+<p>The statistics functions are highly efficient and are based where possible
+on numpy arrays. Each of these statistics will return the results as a numpy
+array, and the format of this array will depend on the statistic being
+computed (see the <a class="reference internal" href="#sec-stats-output-format"><span class="std std-ref">Output format</span></a> section for details).
+A convenient feature of the statistics API is that the dimensions of the
+output array is defined in a simple and intuitive manner by the
+parameters provided. The <a class="reference internal" href="#sec-stats-output-dimensions"><span class="std std-ref">Output dimensions</span></a> section
+defines the rules that are used.</p>
+<p>Please see the <a class="reference external" href="https://tskit.dev/tutorials/analysing_tree_sequences.html#sec-tutorial-stats" title="(in Python)"><span class="xref std std-ref">tutorial</span></a> for examples of the
+statistics API in use.</p>
+<section id="mode">
+<span id="sec-stats-mode"></span><h4>Mode<a class="headerlink" href="#mode" title="Permalink to this headline">#</a></h4>
+<p>There are three <strong>modes</strong> of statistic: <code class="docutils literal notranslate"><span class="pre">site</span></code>, <code class="docutils literal notranslate"><span class="pre">branch</span></code>, and <code class="docutils literal notranslate"><span class="pre">node</span></code>,
+that each summarize aspects of the tree sequence in different but related ways.
+Roughly speaking, these answer the following sorts of question:</p>
+<dl class="simple myst">
+<dt>site</dt><dd><p>How many mutations differentiate these two genomes?</p>
+</dd>
+<dt>branch</dt><dd><p>How long since these genomes’ common ancestor?</p>
+</dd>
+<dt>node</dt><dd><p>On how much of the genome is each node an ancestor of only one of these genomes, but not both?</p>
+</dd>
+</dl>
+<p>These three examples can all be answered in the same way with the tree sequence:
+first, draw all the paths from one genome to the other through the tree sequence
+(back up to their common ancestor and back down in each marginal tree).
+Then,
+(<code class="docutils literal notranslate"><span class="pre">site</span></code>) count the number of mutations falling on the paths,
+(<code class="docutils literal notranslate"><span class="pre">branch</span></code>) measure the length of the paths, or
+(<code class="docutils literal notranslate"><span class="pre">node</span></code>) count how often the path goes through each node.
+There is more discussion of this correspondence in the paper describing these statistics,
+and precise definitions are given in each statistic.</p>
+<p>Here’s an example of using the <a class="reference internal" href="python-api.html#tskit.TreeSequence.diversity" title="tskit.TreeSequence.diversity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">diversity()</span></code></a> statistic to return the
+average branch length between all pairs of samples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">diversity</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;branch&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74860.28301677053
+</pre></div>
+</div>
+</div>
+</div>
+<p>One important thing to know is that <code class="docutils literal notranslate"><span class="pre">node</span></code> statistics have somewhat different output.
+While <code class="docutils literal notranslate"><span class="pre">site</span></code> and <code class="docutils literal notranslate"><span class="pre">branch</span></code> statistics naturally return one number
+for each portion of the genome (and thus incorporates information about many nodes: see below),
+the <code class="docutils literal notranslate"><span class="pre">node</span></code> statistics return one number <strong>for each node</strong> in the tree sequence (and for each window).
+There can be a lot of nodes in the tree sequence, so beware.</p>
+<p>Also remember that in a tree sequence the “sites” are usually just the <strong>variant</strong> sites,
+e.g., the sites of the SNPs. Although the tree sequence may in principle have monomorphic
+sites, those produced by simulation usually don’t.</p>
+</section>
+<section id="sample-sets-and-indexes">
+<span id="sec-stats-sample-sets"></span><h4>Sample sets and indexes<a class="headerlink" href="#sample-sets-and-indexes" title="Permalink to this headline">#</a></h4>
+<p>Many standard population genetics statistics
+are defined with respect to some number of groups of genomes,
+usually called “populations”.
+(However, it’s clear from the correspondence to descriptors of tree shape
+that the definitions can usefully describe <em>something</em>
+even if the groups of samples don’t come from “separate populations” in some sense.)
+Basically, statistics defined in terms of sample sets can use the frequency of any allele
+in each of the sample sets when computing the statistic.
+For instance, nucleotide divergence is defined for a <em>pair</em> of groups of samples,
+so if you wanted to compute pairwise divergences between some groups of samples,
+you’d specify these as your <code class="docutils literal notranslate"><span class="pre">sample_sets</span></code>.
+Then, if <code class="docutils literal notranslate"><span class="pre">p[i]</span></code> is the derived allele frequency in sample set <code class="docutils literal notranslate"><span class="pre">i</span></code>,
+under the hood we (essentially) compute the divergence between sample sets <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>
+by averaging <code class="docutils literal notranslate"><span class="pre">p[i]</span> <span class="pre">*</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">p[j])</span> <span class="pre">+</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">p[i])</span> <span class="pre">*</span> <span class="pre">p[j]</span></code> across the genome.</p>
+<p>Concretely, <code class="docutils literal notranslate"><span class="pre">sample_sets</span></code> specifies the IDs of the nodes to compute statistics of.
+Importantly, these nodes must be <a class="reference internal" href="glossary.html#sec-data-model-definitions-sample"><span class="std std-ref">samples</span></a>.</p>
+<p>Here’s an example of calculating the average
+<a class="reference internal" href="python-api.html#tskit.TreeSequence.diversity" title="tskit.TreeSequence.diversity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">genetic</span> <span class="pre">diversity</span></code></a> within a specific population:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">diversity</span><span class="p">(</span><span class="n">sample_sets</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0013333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, what if you
+have samples from each of 10 populations,
+and want to compute <strong>all</strong> fourty-five pairwise divergences?
+You could call <code class="docutils literal notranslate"><span class="pre">divergence</span></code> fourty-five times, but this would be tedious
+and also inefficient, because the allele frequencies for one population
+gets used in computing many of those values.
+So, statistics that take a <code class="docutils literal notranslate"><span class="pre">sample_sets</span></code> argument also take an <code class="docutils literal notranslate"><span class="pre">indexes</span></code> argument,
+which for a statistic that operates on <code class="docutils literal notranslate"><span class="pre">k</span></code> sample sets will be a list of <code class="docutils literal notranslate"><span class="pre">k</span></code>-tuples.
+If <code class="docutils literal notranslate"><span class="pre">indexes</span></code> is a length <code class="docutils literal notranslate"><span class="pre">n</span></code> list of <code class="docutils literal notranslate"><span class="pre">k</span></code>-tuples,
+then the output will have <code class="docutils literal notranslate"><span class="pre">n</span></code> columns,
+and if <code class="docutils literal notranslate"><span class="pre">indexes[j]</span></code> is a tuple <code class="docutils literal notranslate"><span class="pre">(i0,</span> <span class="pre">...,</span> <span class="pre">ik)</span></code>,
+then the <code class="docutils literal notranslate"><span class="pre">j</span></code>-th column will contain values of the statistic computed on
+<code class="docutils literal notranslate"><span class="pre">(sample_sets[i0],</span> <span class="pre">sample_sets[i1],</span> <span class="pre">...,</span> <span class="pre">sample_sets[ik])</span></code>.</p>
+<p>How multiple statistics are handled differs slightly between statistics
+that operate on single sample sets and multiple sample sets.</p>
+<section id="one-way-methods">
+<span id="sec-stats-sample-sets-one-way"></span><h5>One-way methods<a class="headerlink" href="#one-way-methods" title="Permalink to this headline">#</a></h5>
+<p>One-way statistics such as <a class="reference internal" href="python-api.html#tskit.TreeSequence.diversity" title="tskit.TreeSequence.diversity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TreeSequence.diversity()</span></code></a> are defined over a single
+sample set. For these methods, <code class="docutils literal notranslate"><span class="pre">sample_sets</span></code> is interpreted in the following way:</p>
+<ul class="simple">
+<li><p>If it is a single list of node IDs (e.g., <code class="docutils literal notranslate"><span class="pre">sample_sets=[0,</span> <span class="pre">1</span> <span class="pre">,2]</span></code>), this is
+interpreted as running the calculation over one sample set and we remove
+the last dimension in the result array as described in the
+<a class="reference internal" href="#sec-stats-output-dimensions"><span class="std std-ref">Output dimensions</span></a> section.</p></li>
+<li><p>If it is <code class="docutils literal notranslate"><span class="pre">None</span></code> (the default), this is equivalent to <code class="docutils literal notranslate"><span class="pre">sample_sets=ts.samples()</span></code>,
+and we therefore compute the statistic over all samples in the tree sequence. <strong>Note
+that we also drop the outer dimension of the result array in this case</strong>.</p></li>
+<li><p>If it is a list of lists of samples we return an array for each window in the output,
+which contains the value of the statistic separately for each of <code class="docutils literal notranslate"><span class="pre">sample_sets</span></code>
+in the order they are given.</p></li>
+</ul>
+</section>
+<section id="multi-way-methods">
+<span id="sec-stats-sample-sets-multi-way"></span><h5>Multi-way methods<a class="headerlink" href="#multi-way-methods" title="Permalink to this headline">#</a></h5>
+<p>Multi-way statistics such as <a class="reference internal" href="python-api.html#tskit.TreeSequence.divergence" title="tskit.TreeSequence.divergence"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TreeSequence.divergence()</span></code></a> are defined over a
+<code class="docutils literal notranslate"><span class="pre">k</span></code> sample sets. In this case, <code class="docutils literal notranslate"><span class="pre">sample_sets</span></code> must be a list of lists of sample IDs,
+and there is no default. For example, this finds the average
+<a class="reference internal" href="python-api.html#tskit.TreeSequence.divergence" title="tskit.TreeSequence.divergence"><code class="xref py py-meth docutils literal notranslate"><span class="pre">genetic</span> <span class="pre">divergence</span></code></a> between samples in populations
+0 and 1</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">divergence</span><span class="p">(</span>
+    <span class="n">sample_sets</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.002
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">indexes</span></code> parameter is interpreted in the following way:</p>
+<ul class="simple">
+<li><p>If it is a single <code class="docutils literal notranslate"><span class="pre">k</span></code>-tuple, this is interpreted as computing a single
+statistic selecting the specified sample sets and we remove the last dimension
+in the result array as described in the <a class="reference internal" href="#sec-stats-output-dimensions"><span class="std std-ref">Output dimensions</span></a> section.</p></li>
+<li><p>If if is <code class="docutils literal notranslate"><span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_sets</span></code> contains exactly <code class="docutils literal notranslate"><span class="pre">k</span></code> sample sets,
+this is equivalent to <code class="docutils literal notranslate"><span class="pre">indexes=range(k)</span></code>. <strong>Note
+that we also drop the outer dimension of the result array in this case</strong>.</p></li>
+<li><p>If is is a list of <code class="docutils literal notranslate"><span class="pre">k</span></code>-tuples (each consisting of integers
+of integers between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">len(sample_sets)</span> <span class="pre">-</span> <span class="pre">1</span></code>) of length <code class="docutils literal notranslate"><span class="pre">n</span></code> we
+compute <code class="docutils literal notranslate"><span class="pre">n</span></code> statistics based on these selections of sample sets.</p></li>
+</ul>
+</section>
+</section>
+<section id="windows">
+<span id="sec-stats-windows"></span><h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">#</a></h4>
+<p>Each statistic has an argument, <code class="docutils literal notranslate"><span class="pre">windows</span></code>,
+which defines a collection of contiguous windows spanning the genome.
+<code class="docutils literal notranslate"><span class="pre">windows</span></code> should be a list of <code class="docutils literal notranslate"><span class="pre">n+1</span></code> increasing numbers beginning with 0
+and ending with the <code class="docutils literal notranslate"><span class="pre">sequence_length</span></code>.
+The statistic will be computed separately in each of the <code class="docutils literal notranslate"><span class="pre">n</span></code> windows,
+and the <code class="docutils literal notranslate"><span class="pre">k</span></code>-th row of the output will report the values of the statistic
+in the <code class="docutils literal notranslate"><span class="pre">k</span></code>-th window, i.e., from (and including) <code class="docutils literal notranslate"><span class="pre">windows[k]</span></code> to
+(but not including) <code class="docutils literal notranslate"><span class="pre">windows[k+1]</span></code>. For example, this calculates
+<a class="reference internal" href="python-api.html#tskit.TreeSequence.Tajimas_D" title="tskit.TreeSequence.Tajimas_D"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tajima's</span> <span class="pre">D</span></code></a> in four evenly spaced windows along the
+genome:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_windows</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">Tajimas_D</span><span class="p">(</span><span class="n">windows</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">,</span> <span class="n">num_windows</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([        nan, -1.31009224,  1.16649684, -0.81245539])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Most windowed statistics by default return <strong>averages</strong> within each of the windows,
+so the values are comparable between windows, even of different spans.
+(However, shorter windows may be noisier.)
+Suppose for instance  that you compute some statistic with <code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">a,</span> <span class="pre">b]</span></code>
+for some valid positions <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code>,
+and get an output array <code class="docutils literal notranslate"><span class="pre">S</span></code> with two rows.
+Then, computing the same statistic with <code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">b]</span></code>
+would be equivalent to averaging the rows of <code class="docutils literal notranslate"><span class="pre">S</span></code>,
+obtaining <code class="docutils literal notranslate"><span class="pre">((a</span> <span class="pre">-</span> <span class="pre">0)</span> <span class="pre">*</span> <span class="pre">S[0]</span> <span class="pre">+</span> <span class="pre">(b</span> <span class="pre">-</span> <span class="pre">a)</span> <span class="pre">*</span> <span class="pre">S[1])</span> <span class="pre">/</span> <span class="pre">(b</span> <span class="pre">-</span> <span class="pre">0)</span></code>.</p>
+<p>There are some shortcuts to other useful options:</p>
+<p><code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">=</span> <span class="pre">None</span></code>
+This is the default and computes statistics in single window over the whole
+sequence. As the first returned array contains only a single
+value, we drop this dimension as described in the
+<a class="reference internal" href="#sec-stats-output-dimensions"><span class="std std-ref">output dimensions</span></a> section. <strong>Note:</strong> if you
+really do want to have an array with a single value as the result, please use
+<code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">=</span> <span class="pre">[0.0,</span> <span class="pre">ts.sequence_length]</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">=</span> <span class="pre">&quot;trees&quot;</span></code>
+This says that you want statistics computed separately on the portion of the genome
+spanned by each tree, so is equivalent to passing <code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">=</span> <span class="pre">ts.breakpoints()</span></code>.
+(Beware: there can be a lot of trees!)</p>
+<p><code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">=</span> <span class="pre">&quot;sites&quot;</span></code>
+This says to output one set of values for <strong>each site</strong>,
+and is equivalent to passing <code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">=</span> <span class="pre">[s.position</span> <span class="pre">for</span> <span class="pre">s</span> <span class="pre">in</span> <span class="pre">ts.sites()]</span> <span class="pre">+</span> <span class="pre">[ts.sequence_length]</span></code>.
+This will return one statistic for each site (beware!);
+since the windows are all different sizes you probably want to also pass
+<code class="docutils literal notranslate"><span class="pre">span_normalise=False</span></code> (see below).</p>
+</section>
+<section id="span-normalise">
+<span id="sec-stats-span-normalise"></span><h4>Span normalise<a class="headerlink" href="#span-normalise" title="Permalink to this headline">#</a></h4>
+<p>In addition to windowing there is an option, <code class="docutils literal notranslate"><span class="pre">span_normalise</span></code> (which defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>),
+All the primary statistics defined here are <em>sums</em> across locations in the genome:
+something is computed for each position, and these values are added up across all positions in each window.
+Whether the total span of the window is then taken into account is determined by the option <code class="docutils literal notranslate"><span class="pre">span_normalise</span></code>:
+if it is <code class="docutils literal notranslate"><span class="pre">True</span></code> (the default), the sum for each window is converted into an <em>average</em>,
+by dividing by the window’s <em>span</em> (i.e. the length of genome that it covers).
+Otherwise, the sum itself is returned.
+The default is <code class="docutils literal notranslate"><span class="pre">span_normalise=True</span></code>,
+because this makes the values comparable across windows of different sizes.
+To make this more concrete: <a class="reference internal" href="python-api.html#tskit.TreeSequence.divergence" title="tskit.TreeSequence.divergence"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pairwise</span> <span class="pre">sequence</span> <span class="pre">divergence</span></code></a>
+between two samples with <code class="docutils literal notranslate"><span class="pre">mode=&quot;site&quot;</span></code> is the density of sites that differ between the samples;
+this is computed for each window by counting up the number of sites
+at which the two differ, and dividing by the total span of the window.
+If we wanted the number of sites at which the two differed in each window,
+we’d calculate divergence with <code class="docutils literal notranslate"><span class="pre">span_normalise=False</span></code>.</p>
+<p>Following on from above, suppose we computed the statistic <code class="docutils literal notranslate"><span class="pre">S</span></code> with
+<code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">a,</span> <span class="pre">b]</span></code> and <code class="docutils literal notranslate"><span class="pre">span_normalise=True</span></code>,
+and then computed <code class="docutils literal notranslate"><span class="pre">T</span></code> in just the same way except with <code class="docutils literal notranslate"><span class="pre">span_normalize=False</span></code>.
+Then <code class="docutils literal notranslate"><span class="pre">S[0]</span></code> would be equal to <code class="docutils literal notranslate"><span class="pre">T[0]</span> <span class="pre">/</span> <span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">S[1]</span> <span class="pre">=</span> <span class="pre">T[1]</span> <span class="pre">/</span> <span class="pre">(b</span> <span class="pre">-</span> <span class="pre">a)</span></code>.
+Furthermore, the value obtained with <code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">b]</span></code> would be equal to <code class="docutils literal notranslate"><span class="pre">T[0]</span> <span class="pre">+</span> <span class="pre">T[1]</span></code>.
+However, you probably usually want the (default) normalized version:
+don’t get unnormalised values unless you’re sure that’s what you want.
+The exception is when computing a site statistic with <code class="docutils literal notranslate"><span class="pre">windows</span> <span class="pre">=</span> <span class="pre">&quot;sites&quot;</span></code>:
+this case, computes a statistic with the pattern of genotypes at each site,
+and normalising would divide these statistics by the distance to the previous variant site
+(probably not what you want to do).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The resulting values are scaled “per unit of sequence length” - for instance, pairwise
+sequence divergence is measured in “differences per unit of sequence length”. Functions
+such as <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.sim_mutations" title="(in Python)"><code class="docutils literal notranslate"><span class="pre">msprime.sim_mutations()</span></code></a> will by default add mutations in discrete
+coordinates, usually interpreted as base pairs, in which
+case span normalised statistics are in units of “per base pair”.</p>
+</div>
+</section>
+<section id="output-format">
+<span id="sec-stats-output-format"></span><h4>Output format<a class="headerlink" href="#output-format" title="Permalink to this headline">#</a></h4>
+<p>Each of the statistics methods returns a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> ndarray.
+Suppose that the output is named <code class="docutils literal notranslate"><span class="pre">out</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">windows</span></code> has been specified, the number of rows of the output is equal to the
+number of windows, so that <code class="docutils literal notranslate"><span class="pre">out.shape[0]</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">len(windows)</span> <span class="pre">-</span> <span class="pre">1</span></code>
+and <code class="docutils literal notranslate"><span class="pre">out[i]</span></code> is an array of statistics describing the portion of the tree sequence
+from <code class="docutils literal notranslate"><span class="pre">windows[i]</span></code> to <code class="docutils literal notranslate"><span class="pre">windows[i</span> <span class="pre">+</span> <span class="pre">1]</span></code> (including the left but not the right endpoint).
+What is returned within each window depends on the <a class="reference internal" href="#sec-stats-mode"><span class="std std-ref">mode</span></a>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">mode=&quot;site&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">mode=&quot;branch&quot;</span></code>
+The output is a two-dimensional array,
+with columns corresponding to the different statistics computed: <code class="docutils literal notranslate"><span class="pre">out[i,</span> <span class="pre">j]</span></code> is the <code class="docutils literal notranslate"><span class="pre">j</span></code>-th statistic
+in the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th window.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mode=&quot;node&quot;</span></code>
+The output is a three-dimensional array,
+with the second dimension corresponding to node id.
+In other words, <code class="docutils literal notranslate"><span class="pre">out.shape[1]</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">ts.num_nodes</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">out[i,j]</span></code> is an array of statistics computed for node <code class="docutils literal notranslate"><span class="pre">j</span></code> on the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th window.</p>
+<p>The final dimension of the arrays in other cases is specified by the method.</p>
+<p>Note, however, that empty dimensions can optionally be dropped,
+as described in the <a class="reference internal" href="#sec-stats-output-dimensions"><span class="std std-ref">Output dimensions</span></a> section.</p>
+<p>A note about <strong>default values</strong> and <strong>division by zero</strong>:
+Under the hood, statistics computation fills in zeros everywhere, then updates these
+(since statistics are all <strong>additive</strong>, this makes sense).
+But now suppose that you’ve got a statistic that returns <code class="docutils literal notranslate"><span class="pre">nan</span></code>
+(“not a number”) sometimes, like if you’re taking the diversity of a sample set with only <code class="docutils literal notranslate"><span class="pre">n=1</span></code> sample,
+which involves dividing by <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">*</span> <span class="pre">(n</span> <span class="pre">-</span> <span class="pre">1)</span></code>.
+Usually, you’ll just get <code class="docutils literal notranslate"><span class="pre">nan</span></code> everywhere that the division by zero happens.
+But there’s a couple of caveats.
+For <code class="docutils literal notranslate"><span class="pre">site</span></code> statistics, any windows without any sites in them never get touched,
+so they will have a value of 0.
+For <code class="docutils literal notranslate"><span class="pre">branch</span></code> statistics, any windows with <strong>no branches</strong> will similarly remain 0.
+That said, you should <strong>not</strong> rely on the specific behavior of whether <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">nan</span></code> is returned
+for “empty” cases like these: it is subject to change.</p>
+</section>
+<section id="output-dimensions">
+<span id="sec-stats-output-dimensions"></span><h4>Output dimensions<a class="headerlink" href="#output-dimensions" title="Permalink to this headline">#</a></h4>
+<p>In the general case, tskit outputs two dimensional (or three dimensional, in the case of node
+stats) numpy arrays, as described in the <a class="reference internal" href="#sec-stats-output-format"><span class="std std-ref">Output format</span></a> section.
+The first dimension corresponds to the window along the genome
+such that for some result array <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">x[j]</span></code> contains information about the jth window.
+The last dimension corresponds to the statistics being computed, so that <code class="docutils literal notranslate"><span class="pre">x[j,</span> <span class="pre">k]</span></code> is the
+value of the kth statistic in the jth window (in the two dimensional case). This is
+a powerful and general interface, but in many cases we will not use this full generality
+and the extra dimensions in the numpy arrays are inconvenient.</p>
+<p>Tskit optionally removes empty dimensions from the output arrays following a few
+simple rules.</p>
+<ol class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">windows</span></code> is None we are computing over the single window covering the
+full sequence. We therefore drop the first dimension of the array.</p></li>
+<li><p>In one-way stats, if the <code class="docutils literal notranslate"><span class="pre">sample_sets</span></code> argument is a 1D array we interpret
+this as specifying a single sample set (and therefore a single statistic), and
+drop the last dimension of the output array. If <code class="docutils literal notranslate"><span class="pre">sample_sets</span></code> is None
+(the default), we use the sample set <code class="docutils literal notranslate"><span class="pre">ts.samples()</span></code>, invoking
+this rule (we therefore drop the last dimension by default).</p></li>
+<li><p>In k-way stats, if the <code class="docutils literal notranslate"><span class="pre">indexes</span></code> argument is a 1D array of length k
+we intepret this as specifying a single statistic and drop the last
+dimension of the array. If <code class="docutils literal notranslate"><span class="pre">indexes</span></code> is None (the default) and
+there are k sample sets, we compute the statistic from these sample sets
+and drop the last dimension.</p></li>
+<li><p>If, after dropping these dimensions, the dimension is 0, we return a numpy
+scalar (instead of an array of dimension 0).</p></li>
+</ol>
+<p>Rules 2 and 3 can be summarised by “the dimensions of the input determines
+the dimensions of the output”. Note that dropping these dimensions is
+<strong>optional</strong>: it is always possible to keep the full dimensions of the
+output arrays.</p>
+<p>Please see the <a class="reference external" href="https://tskit.dev/tutorials/analysing_tree_sequences.html#sec-tutorial-stats" title="(in Python)"><span class="xref std std-ref">tutorial</span></a> for examples of the
+various output dimension options.</p>
+</section>
+</section>
+<section id="general-api">
+<span id="sec-stats-general-api"></span><h3>General API<a class="headerlink" href="#general-api" title="Permalink to this headline">#</a></h3>
+<p>The methods <a class="reference internal" href="python-api.html#tskit.TreeSequence.general_stat" title="tskit.TreeSequence.general_stat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TreeSequence.general_stat()</span></code></a> and <a class="reference internal" href="python-api.html#tskit.TreeSequence.sample_count_stat" title="tskit.TreeSequence.sample_count_stat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TreeSequence.sample_count_stat()</span></code></a>
+provide access to the general-purpose algorithm for computing statistics.
+Here is a bit more discussion of how to use these.</p>
+<section id="polarisation">
+<span id="sec-stats-polarisation"></span><h4>Polarisation<a class="headerlink" href="#polarisation" title="Permalink to this headline">#</a></h4>
+<p>Many statistics calculated from genome sequence treat all alleles on equal footing,
+as one must without knowledge of the ancestral state and sequence of mutations that produced the data.
+Separating out the <em>ancestral</em> allele (e.g., as inferred using an outgroup)
+is known as <em>polarisiation</em>.
+For instance, in the allele frequency spectrum, a site with alleles at 20% and 80% frequency
+is no different than another whose alleles are at 80% and 20%,
+unless we know in each case which allele is ancestral,
+and so while the unpolarised allele frequency spectrum gives the distribution of frequencies of <em>all</em> alleles,
+the <em>polarised</em> allele frequency spectrum gives the distribution of frequencies of only <em>derived</em> alleles.</p>
+<p>This concept is extended to more general statistics as follows.
+For site statistics, summary functions are applied to the total weight or number of samples
+associated with each allele; but if polarised, then the ancestral allele is left out of this sum.
+For branch or node statistics, summary functions are applied to the total weight or number of samples
+below, and above each branch or node; if polarised, then only the weight below is used.</p>
+</section>
+<section id="summary-functions">
+<span id="sec-stats-summary-functions"></span><h4>Summary functions<a class="headerlink" href="#summary-functions" title="Permalink to this headline">#</a></h4>
+<p>For convenience, here are the summary functions used for many of the statistics.
+Below, <span class="math notranslate nohighlight">\(x\)</span> denotes the number of samples in a sample set below a node,
+<code class="docutils literal notranslate"><span class="pre">n</span></code> denotes the total size of a sample set, <span class="math notranslate nohighlight">\(p = x / n\)</span>,
+and boolean expressions (e.g., <span class="math notranslate nohighlight">\((x &gt; 0)\)</span>) are interpreted as 0/1.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">diversity</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(x) = \frac{x (n - x)}{n (n-1)}\)</span></p>
+<p>For an unpolarized statistic with biallelic loci, this calculates
+<span class="math notranslate nohighlight">\(2 p (1-p)\)</span>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">segregating_sites</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(x) =  (x &gt; 0) (1 - x / n)\)</span></p>
+<p>(Note: this works because if <span class="math notranslate nohighlight">\(\sum_i p_1 = 1\)</span> then <span class="math notranslate nohighlight">\(\sum_{i=1}^k (1-p_i) = k-1\)</span>.)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Y1</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(x) = \frac{x (n - x) (n - x - 1)}{n (n-1) (n-2)}\)</span></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">divergence</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(x_1, x_2) = \frac{x_1 (n_2 - x_2)}{n_1 n_2}\)</span>,</p>
+<p>unless the two indices are the same, when the diversity function is used.</p>
+<p>For an unpolarized statistic with biallelic loci, this calculates
+<span class="math notranslate nohighlight">\(p_1 (1-p_2) + (1 - p_1) p_2\)</span>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">genetic_relatedness</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(x_i, x_j) = \frac{1}{2}(x_i - m)(x_j - m)\)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(m = \frac{1}{n}\sum_{k=1}^n x_k\)</span> with <span class="math notranslate nohighlight">\(n\)</span> the total number
+of samples.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Y2</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(x_1, x_2) = \frac{x_1 (n_2 - x_2) (n_2 - x_2 - 1)}{n_1 n_2 (n_2 - 1)}\)</span></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">f2</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(x_1, x_2) = \frac{x_1 (x_1 - 1) (n_2 - x_2) (n_2 - x_2 - 1)}{n_1 (n_1 - 1) n_2 (n_2 - 1)} - \frac{x_1 (n_1 - x_1) (n_2 - x_2) x_2}{n_1 (n_1 - 1) n_2 (n_2 - 1)}\)</span></p>
+<p>For an unpolarized statistic with biallelic loci, this calculates
+<span class="math notranslate nohighlight">\(((p_1 - p_2)^2 - (p_1 (1-p_2)^2 + (1-p_1) p_2^2)/n_1 - (p_1^2 (1-p_2) + (1-p_1)^2 p_2)/n_2\)</span>
+<span class="math notranslate nohighlight">\(+ (p_1 p_2 + (1-p_1)(1-p_2))/ n_1 n_2)(1 + \frac{1}{n_1 - 1})(1 + \frac{1}{n_2 - 1})\)</span>,
+which is the unbiased estimator for <span class="math notranslate nohighlight">\((p_1 - p_2)^2\)</span> from a finite sample.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Y3</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(x_1, x_2, x_3) = \frac{x_1 (n_2 - x_2) (n_3 - x_3)}{n_1 n_2 n_3}\)</span></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">f3</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(x_1, x_2, x_3) = \frac{x_1 (x_1 - 1) (n_2 - x_2) (n_3 - x_3)}{n_1 (n_1 - 1) n_2 n_3} - \frac{x_1 (n_1 - x_1) (n_2 - x_2) x_3}{n_1 (n_1 - 1) n_2 n_3}\)</span></p>
+<p>For an unpolarized statistic with biallelic loci, this calculates
+<span class="math notranslate nohighlight">\(((p_1 - p_2)(p_1 - p_3) - p_1 (1-p_2)(1-p_3)/n_1 - (1-p_1) p_2 p_3/n_1)(1 + \frac{1}{n_1 - 1})\)</span>,
+which is the unbiased estimator for <span class="math notranslate nohighlight">\((p_1 - p_2)(p_1 - p_3)\)</span> from a finite sample.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">f4</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(x_1, x_2, x_3, x_4) = \frac{x_1 x_3 (n_2 - x_2) (n_4 - x_4)}{n_1 n_2 n_3 n_4} - \frac{x_1 x_4 (n_2 - x_2) (n_3 - x_3)}{n_1 n_2 n_3 n_4}\)</span></p>
+<p>For an unpolarized statistic with biallelic loci, this calculates
+<span class="math notranslate nohighlight">\((p_1 - p_2)(p_3 - p_4)\)</span>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">trait_covariance</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(w) = \frac{w^2}{2 (n-1)^2}\)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(w\)</span> is the sum of all trait values of the samples below the node.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">trait_correlation</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(w, x) = \frac{w^2}{2 x (1 - x/n) (n - 1)}\)</span>,</p>
+<p>where as before <span class="math notranslate nohighlight">\(x\)</span> is the total number of samples below the node,
+and <span class="math notranslate nohighlight">\(n\)</span> is the total number of samples.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">trait_linear_model</span></code></dt><dd><p><span class="math notranslate nohighlight">\(f(w, z, x) = \frac{1}{2}\left( \frac{w - \sum_{j=1}^k z_j v_j}{x - \sum_{j=1}^k z_j^2} \right)^2\)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(x\)</span> are as before,
+<span class="math notranslate nohighlight">\(z_j\)</span> is the sum of the j-th normalised covariate values below the node,
+and <span class="math notranslate nohighlight">\(v_j\)</span> is the covariance of the trait with the j-th covariate.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+<section id="multi-site-statistics">
+<h2>Multi site statistics<a class="headerlink" href="#multi-site-statistics" title="Permalink to this headline">#</a></h2>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Document statistics that use information about correlation between sites, such as
+LdCalculator (and perhaps reference <a class="reference internal" href="ibd.html#sec-identity"><span class="std std-ref">Identity by descent</span></a>). Note that if we have a general
+framework which has the same calling conventions as the single site stats,
+we can rework the sections above.</p>
+</div>
+</section>
+<section id="notes">
+<span id="sec-stats-notes"></span><h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h2>
+<section id="allele-frequency-spectrum">
+<span id="sec-stats-notes-afs"></span><h3>Allele frequency spectrum<a class="headerlink" href="#allele-frequency-spectrum" title="Permalink to this headline">#</a></h3>
+<p>Most single site statistics are based on the summaries of the allele frequency spectra
+(AFS). The <code class="docutils literal notranslate"><span class="pre">tskit</span></code> AFS interface includes windowed and joint spectra,
+using the same general pattern as other statistics,
+but some of the details about how it is defined,
+especially in the presence of multiple alleles per site, need to be explained.
+If all sites are biallelic, then the result is just as you’d expect:
+see the method documentation at <a class="reference internal" href="python-api.html#tskit.TreeSequence.allele_frequency_spectrum" title="tskit.TreeSequence.allele_frequency_spectrum"><code class="xref py py-meth docutils literal notranslate"><span class="pre">allele_frequency_spectrum()</span></code></a>
+for the description.
+Note that with <code class="docutils literal notranslate"><span class="pre">mode=&quot;site&quot;</span></code>, we really do tabulate <em>allele</em> counts:
+if more than one mutation on different parts of the tree produce the same allele,
+it is the total number with this allele (i.e., inheriting <em>either</em> mutation)
+that goes into the AFS.
+The AFS with <code class="docutils literal notranslate"><span class="pre">mode=&quot;branch&quot;</span></code> is the expected value for the Site AFS
+with infinite-sites, biallelic mutation, so there is nothing surprising there,
+either.</p>
+<p>But, how do we deal with sites at which there are more than two alleles?
+At each site, we iterate over the distinct alleles at that site,
+and for each allele, count how many samples in each sample set
+have inherited that allele.
+For a concrete example, suppose that we are computing the AFS of a single
+sample set with 10 samples, and are considering a site with three alleles:
+<em>a</em>, <em>b</em>, and <em>c</em>,
+which have been inherited by 6, 3, and 1 samples, respectively,
+and that allele <em>a</em> is ancestral.
+What we do at this site depends on if the AFS is polarised or not.</p>
+<p>If we are computing the <em>polarised</em> AFS,
+we add 1 to each entry of the output corresponding to each allele count
+<em>except</em> the ancestral allele.
+In our example, we’d add 1 to both <code class="docutils literal notranslate"><span class="pre">AFS[3]</span></code> and <code class="docutils literal notranslate"><span class="pre">AFS[1]</span></code>.
+This means that the sum of all entries of a polarised, site AFS
+should equal the total number of non-ancestral alleles in the tree sequence
+that are ancestral to at least one of the samples in the tree sequence
+but not ancestral to all of them.
+The reason for this last caveat is that like with most statistics,
+mutations that are not ancestral to <em>any</em> samples (not just those in the sample sets)
+are not counted (and so don’t even enter into <code class="docutils literal notranslate"><span class="pre">AFS[0]</span></code>),
+and similarly for those alleles inherited by <em>all</em> samples.</p>
+<p>Now, if we are computing the <em>unpolarised</em> AFS,
+we add <em>one half</em> to each entry of the <em>folded</em> output
+corresponding to each allele count <em>including</em> the ancestral allele.
+What does this mean?
+Well, <code class="docutils literal notranslate"><span class="pre">polarised=False</span></code> means that we cannot distinguish between an
+allele count of 6 and an allele count of 4.
+So, <em>folding</em> means that we would add our allele that is seen in 6 samples
+to <code class="docutils literal notranslate"><span class="pre">AFS[4]</span></code> instead of <code class="docutils literal notranslate"><span class="pre">AFS[6]</span></code>.
+So, in total, we will add 0.5 to each of <code class="docutils literal notranslate"><span class="pre">AFS[4]</span></code>, <code class="docutils literal notranslate"><span class="pre">AFS[3]</span></code>, and <code class="docutils literal notranslate"><span class="pre">AFS[1]</span></code>.
+This means that the sum of an unpolarised AFS
+will be equal to the total number of alleles that are inherited
+by any of the samples in the tree sequence, divided by two.
+Why one-half? Well, notice that if in fact the mutation that produced the <em>b</em>
+allele had instead produced an <em>a</em> allele,
+so that the site had only two alleles, with frequencies 7 and 3.
+Then, we would have added 0.5 to <code class="docutils literal notranslate"><span class="pre">AFS[3]</span></code> <em>twice</em>.</p>
+</section>
+<section id="trait-correlations">
+<span id="sec-stats-notes-trait"></span><h3>Trait correlations<a class="headerlink" href="#trait-correlations" title="Permalink to this headline">#</a></h3>
+<p><a class="reference internal" href="python-api.html#tskit.TreeSequence.trait_covariance" title="tskit.TreeSequence.trait_covariance"><code class="xref py py-meth docutils literal notranslate"><span class="pre">trait_covariance()</span></code></a>, <a class="reference internal" href="python-api.html#tskit.TreeSequence.trait_correlation" title="tskit.TreeSequence.trait_correlation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">trait_correlation()</span></code></a>, and
+<a class="reference internal" href="python-api.html#tskit.TreeSequence.trait_linear_model" title="tskit.TreeSequence.trait_linear_model"><code class="xref py py-meth docutils literal notranslate"><span class="pre">trait_linear_model()</span></code></a> compute correlations and covariances of traits
+(i.e., an arbitrary vector) with allelic state, possibly in the context of a multivariate
+linear model with other covariates (as in GWAS).</p>
+</section>
+<section id="patterson-s-f-statistics">
+<span id="sec-stats-notes-f"></span><h3>Patterson’s f statistics<a class="headerlink" href="#patterson-s-f-statistics" title="Permalink to this headline">#</a></h3>
+<p><a class="reference internal" href="python-api.html#tskit.TreeSequence.f4" title="tskit.TreeSequence.f4"><code class="xref py py-meth docutils literal notranslate"><span class="pre">f4()</span></code></a>, <a class="reference internal" href="python-api.html#tskit.TreeSequence.f3" title="tskit.TreeSequence.f3"><code class="xref py py-meth docutils literal notranslate"><span class="pre">f3()</span></code></a>, and <a class="reference internal" href="python-api.html#tskit.TreeSequence.f2" title="tskit.TreeSequence.f2"><code class="xref py py-meth docutils literal notranslate"><span class="pre">f2()</span></code></a>
+are the <code class="docutils literal notranslate"><span class="pre">f</span></code> statistics (also called <code class="docutils literal notranslate"><span class="pre">F</span></code> statistics) introduced in
+<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2842210/">Reich et al (2009)</a>.
+See the documentation (link below) for the definition,
+and <a class="reference external" href="https://www.genetics.org/content/202/4/1485">Peter (2016)</a> for readable
+discussion of their use.</p>
+</section>
+<section id="y-statistics">
+<span id="sec-stats-notes-y"></span><h3>Y statistics<a class="headerlink" href="#y-statistics" title="Permalink to this headline">#</a></h3>
+<p><a class="reference internal" href="python-api.html#tskit.TreeSequence.Y3" title="tskit.TreeSequence.Y3"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Y3()</span></code></a> and <a class="reference internal" href="python-api.html#tskit.TreeSequence.Y2" title="tskit.TreeSequence.Y2"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Y2()</span></code></a> are the <code class="docutils literal notranslate"><span class="pre">Y</span></code> statistics introduced
+by <a class="reference external" href="https://www.biorxiv.org/content/10.1101/354530v1">Ashander et al (2018)</a>
+as a three-sample intermediate between diversity/divergence (which are
+pairwise) and Patterson’s f statistics (which are four-way).</p>
+</section>
+<section id="derived-statistics">
+<span id="sec-stats-notes-derived"></span><h3>Derived statistics<a class="headerlink" href="#derived-statistics" title="Permalink to this headline">#</a></h3>
+<p>Most statistics have the property that <code class="docutils literal notranslate"><span class="pre">mode=&quot;branch&quot;</span></code> and
+<code class="docutils literal notranslate"><span class="pre">mode=&quot;site&quot;</span></code> are “dual” in the sense that they are equal, on average, under
+a high neutral mutation rate. <a class="reference internal" href="python-api.html#tskit.TreeSequence.Fst" title="tskit.TreeSequence.Fst"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Fst()</span></code></a> and <a class="reference internal" href="python-api.html#tskit.TreeSequence.Tajimas_D" title="tskit.TreeSequence.Tajimas_D"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tajimas_D()</span></code></a>
+do not have this property (since both are ratios of statistics that do have this property).</p>
+</section>
+<section id="genealogical-nearest-neighbours">
+<span id="sec-stats-notes-gnn"></span><h3>Genealogical nearest neighbours<a class="headerlink" href="#genealogical-nearest-neighbours" title="Permalink to this headline">#</a></h3>
+<p>The <a class="reference internal" href="python-api.html#tskit.TreeSequence.genealogical_nearest_neighbours" title="tskit.TreeSequence.genealogical_nearest_neighbours"><code class="xref py py-meth docutils literal notranslate"><span class="pre">genealogical_nearest_neighbours()</span></code></a> statistic is not based on branch
+lengths, but on topologies. therefore it currently has a slightly different interface to
+the other single site statistics. This may be revised in the future.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="provenance.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Provenance</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="topological-analysis.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Topological analysis</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      0.5.3
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

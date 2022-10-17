@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<!-- START: html-header -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta name=”robots” content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        tskit-dev - What's new in TSKIT 0.4.0!
+    </title>
+    <meta property="og:type" content="website">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="" name="description">
+    <meta content="0.4.0 introduces reference sequences, virtual roots, extra space for data columns and much more." property="og:description">
+    <meta content="0.4.0 introduces reference sequences, virtual roots, extra space for data columns and much more." property="twitter:description">
+    
+        <meta content="https://i.imgur.com/I9PBjvU.png" property="og:image">
+        <meta content="https://i.imgur.com/I9PBjvU.png" property="twitter:image">
+    
+
+    <meta content="tskit-dev - What's new in TSKIT 0.4.0!" property="og:title">
+    <meta content="tskit-dev - What's new in TSKIT 0.4.0!" property="twitter:title">
+    <script>
+      document.documentElement.className = 'js'
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicons/site.webmanifest" crossorigin="use-credentials">
+    <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.png" color="#085167">
+    <meta name="msapplication-TileColor" content="#085167">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.typekit.net/uhf4ono.css">
+    <link rel="stylesheet" href="/assets/dist/css/style.min.css">
+</head>
+<!-- END: html-header -->
+
+<body>
+<div class="page-wrapper">
+    <!-- START: header -->
+    <header class="header">
+        <!-- START: navbar -->
+        <nav class="nav navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <!-- START: icon-logo -->
+            <svg class="icon icon--logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 84.8 68">
+                <style>
+                    .logo-st0 {
+                        fill: #085167
+                    }
+
+                    .logo-st1 {
+                        fill: #14e2a8
+                    }
+                </style>
+                <path class="logo-st0"
+                      d="M2 61.4v-8.2H0v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                <path class="logo-st0"
+                      d="M62.7 67.5v-3.4h1.9V53.2h-1.9v-3.4h6.8v14.3h1.9v3.4h-8.7zm1.1-23.3c-.1-1.6 1.2-2.9 2.7-3 1.6-.1 2.9 1.2 3 2.7.1 1.6-1.2 2.9-2.7 3h-.1c-1.5.1-2.8-1-2.9-2.5v-.2"></path>
+                <path class="logo-st0"
+                      d="M39.6 67.5v-3.4h1.9V45.4h-1.9V42h6.8v14.4h4l1.7-3.2h-2.5v-3.4h9.6v3.4h-2.6L53.7 58l4.2 6h2.8v3.4h-9.9V64h1.7l-2.8-4.6h-3.4V64h1.9v3.4l-8.6.1z"></path>
+                <path class="logo-st0"
+                      d="M23.4 57c4.5 1.3 6.4 2.7 6.4 5.9 0 3.3-2.5 5.1-6.4 5.1-2.6 0-4.3-.7-5.4-1.9l-.1 1.3h-3.4v-6.1h3.7c.7 1.9 2.5 3.2 4.5 3.1 1.3 0 2.3-.5 2.3-1.6s-1-1.5-1.7-1.7l-2.6-.7c-2.8-.7-6.2-1.7-6.2-6 0-3.4 2.4-5.2 6-5.2 1.8 0 3.6.6 5 1.8l.1-1.3H29v5.9h-3.7c-.4-1.7-1.9-2.9-3.6-2.9-1.3 0-2.3.5-2.3 1.7 0 1 .6 1.4 1.8 1.7l2.2.9z"></path>
+                <path class="logo-st0"
+                      d="M75 61.4v-8.2h-2v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                <path class="logo-st1" d="M75 28.8h4.8v12.5H75z"></path>
+                <path class="logo-st1" d="M41.5 28.8h4.8v9.6h-4.8z"></path>
+                <path class="logo-st1" d="M41.5 24h38.3v4.8H41.5z"></path>
+                <path class="logo-st1" d="M58.3 14.4h4.8V24h-4.8z"></path>
+                <path class="logo-st1" d="M2 14.4h4.8v26.9H2z"></path>
+                <path class="logo-st1" d="M2 9.6h61.1v4.8H2z"></path>
+                <path class="logo-st1" d="M34.6 0h4.8v9.6h-4.8z"></path>
+            </svg>
+            <!-- END: icon-logo -->
+            <span class="visually-hidden">
+                        tskit
+                    </span>
+        </a>
+        <button class="navbar-toggler collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarContent"
+                aria-controls="navbarContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <!-- START: menu -->
+            <ul class="navbar-nav">
+                <li class="nav__item">
+                    <a href="/genetics-research" class=" nav__item__link">Genetics research</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/learn" class=" nav__item__link">Learn</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/software" class=" nav__item__link">Software</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/news" class=" nav__item__link">News</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/community" class=" nav__item__link">Community</a>
+                </li>
+            </ul>
+            <!-- END: menu -->
+        </div>
+    </div>
+</nav>
+        <!-- END: navbar -->
+
+        <!-- START: heading -->
+        
+        <!-- END: heading -->
+    </header>
+    <!-- END: header -->
+
+    <!-- START: content -->
+    <main class="page-content" id="content">
+        <!-- START: hero-type-2 -->
+<div class="hero hero--type-2">
+    <div class="container">
+        <div class="row">
+            <!-- NOTE: Different column values here than other instances of Type 2 Hero -->
+            <div class="col-md-8 col-lg-8">
+                <!-- NOTE: H1 here not H2 -->
+                <h1 class="hero__heading">
+                    What's new in TSKIT 0.4.0!
+                </h1>
+                <span class="hero__metadata">
+                    
+                        <span class="hero__metadata__heading">Ben Jeffery</span>
+                        &nbsp;|&nbsp;
+                    
+                            <time class="hero__metadate__timestamp" datetime="">December 08 2021</time>
+                        </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: hero-type-2 -->
+
+<!-- START: news-content -->
+<section class="section section--general-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 blog-entry">
+                <p>A quick rundown of whats coming in 0.4.0, full changelog with links to issues at <a href="https://github.com/tskit-dev/tskit/releases/tag/0.4.0">https://github.com/tskit-dev/tskit/releases/tag/0.4.0</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tskit</span>
+<span class="kn">import</span> <span class="nn">msprime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">tskit</span><span class="p">.</span><span class="n">__version__</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'0.4.0'
+</code></pre></div></div>
+
+<h3 id="breaking-changes">Breaking changes</h3>
+
+<ul>
+  <li>In a small but useful change the CLI <code class="highlighter-rouge">info</code> command now gives more detailed information on the tree sequence
+(benjeffery)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">tskit</span> <span class="n">info</span> <span class="n">tests</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">SLiM</span><span class="o">/</span><span class="n">single</span><span class="o">-</span><span class="n">locus</span><span class="o">-</span><span class="n">example</span><span class="p">.</span><span class="n">trees</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╔═══════════════════════╗
+║TreeSequence           ║
+╠═══════════════╤═══════╣
+║Trees          │      1║
+╟───────────────┼───────╢
+║Sequence Length│     10║
+╟───────────────┼───────╢
+║Time Units     │unknown║
+╟───────────────┼───────╢
+║Sample Nodes   │     10║
+╟───────────────┼───────╢
+║Total Size     │1.8 KiB║
+╚═══════════════╧═══════╝
+╔═══════════╤════╤═════════╤════════════╗
+║Table      │Rows│Size     │Has Metadata║
+╠═══════════╪════╪═════════╪════════════╣
+║Edges      │  12│392 Bytes│          No║
+╟───────────┼────┼─────────┼────────────╢
+║Individuals│   5│404 Bytes│         Yes║
+╟───────────┼────┼─────────┼────────────╢
+║Migrations │   0│  8 Bytes│          No║
+╟───────────┼────┼─────────┼────────────╢
+║Mutations  │   0│ 16 Bytes│          No║
+╟───────────┼────┼─────────┼────────────╢
+║Nodes      │  15│578 Bytes│         Yes║
+╟───────────┼────┼─────────┼────────────╢
+║Populations│   2│112 Bytes│         Yes║
+╟───────────┼────┼─────────┼────────────╢
+║Provenances│   1│176 Bytes│          No║
+╟───────────┼────┼─────────┼────────────╢
+║Sites      │   0│ 16 Bytes│          No║
+╚═══════════╧════╧═════════╧════════════╝
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Lets make a tree sequence to use in subsequent examples
+</span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="p">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="p">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="n">rate</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tc</span> <span class="o">=</span> <span class="n">ts</span><span class="p">.</span><span class="n">tables</span>
+<span class="n">ts</span>
+</code></pre></div></div>
+
+<div>
+  <style>
+    .tskit-table thead tr th {text-align: left;padding: 0.5em 0.5em;}
+    .tskit-table tbody tr td {padding: 0.5em 0.5em;}
+    .tskit-table tbody tr td:first-of-type {text-align: left;}
+    .tskit-details-label {vertical-align: top; padding-right:5px;}
+    .tskit-table-set {display: inline-flex;flex-wrap: wrap;margin: -12px 0 0 -12px;width: calc(100% + 12px);}
+    .tskit-table-set-table {margin: 12px 0 0 12px;}
+    details {display: inline-block;}
+    summary {cursor: pointer; outline: 0; display: list-item;}
+  </style>
+  <div class="tskit-table-set">
+    <div class="tskit-table-set-table">
+      <table class="tskit-table">
+        <thead>
+          <tr>
+            <th style="padding:0;line-height:21px;">
+              <img style="height: 32px;display: inline-block;padding: 3px 5px 3px 0;" src="https://raw.githubusercontent.com/tskit-dev/administrative/main/tskit_logo.svg" />
+              <a target="_blank" href="https://tskit.dev/tskit/docs/latest/python-api.html#the-treesequence-class"> Tree Sequence </a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Trees</td><td>1</td></tr>
+          <tr><td>Sequence Length</td><td>10.0</td></tr>
+          <tr><td>Time Units</td><td>unknown</td></tr>
+          <tr><td>Sample Nodes</td><td>40</td></tr>
+          <tr><td>Total Size</td><td>14.4 KiB</td></tr>
+          <tr>
+            <td>Metadata</td><td style="text-align: left;">No Metadata</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tskit-table-set-table">
+      <table class="tskit-table">
+        <thead>
+          <tr>
+            <th style="line-height:21px;">Table</th>
+            <th>Rows</th>
+            <th>Size</th>
+            <th>Has Metadata</th>
+          </tr>
+        </thead>
+        <tbody>
+
+      <tr>
+        <td>Edges</td>
+          <td>78</td>
+          <td>2.4 KiB</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Individuals</td>
+          <td>20</td>
+          <td>584 Bytes</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Migrations</td>
+          <td>0</td>
+          <td>8 Bytes</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Mutations</td>
+          <td>180</td>
+          <td>6.5 KiB</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Nodes</td>
+          <td>79</td>
+          <td>2.2 KiB</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Populations</td>
+          <td>1</td>
+          <td>224 Bytes</td>
+          <td style="text-align: center;">
+            ✅
+          </td>
+        </tr>
+
+      <tr>
+        <td>Provenances</td>
+          <td>2</td>
+          <td>1.6 KiB</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+      <tr>
+        <td>Sites</td>
+          <td>10</td>
+          <td>266 Bytes</td>
+          <td style="text-align: center;">
+
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ul>
+  <li>In a big change 64 bits are now used to store the sizes of ragged table columns such as metadata,
+ allowing them to hold more data. This change is fully backwards and forwards compatible
+  for all tree-sequences whose ragged column sizes fit into 32 bits. New tree-sequences with
+  large offset arrays that require 64 bits will fail to load in previous versions with
+  error <code class="highlighter-rouge">_tskit.FileFormatError: An incompatible type for a column was found in the
+  file</code>.
+  (jeromekelleher, benjeffery)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># This means the dtypes for offset columns has changed
+</span><span class="n">tc</span><span class="p">.</span><span class="n">nodes</span><span class="p">.</span><span class="n">metadata_offset</span><span class="p">.</span><span class="n">dtype</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dtype('uint64')
+</code></pre></div></div>
+
+<ul>
+  <li>To make tree traversals in the presence of multiple roots easier, the Tree class now conceptually has an extra node, the “virtual root” whose
+  children are the roots of the tree. The quintuply linked tree arrays
+  (parent_array, left_child_array, right_child_array, left_sib_array and right_sib_array)
+  all have one extra element. (jeromekelleher)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Get a tree to look at
+</span><span class="n">t</span> <span class="o">=</span> <span class="n">ts</span><span class="p">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">t</span>
+</code></pre></div></div>
+
+<div>
+  <style>
+    .tskit-table thead tr th {text-align: left;padding: 0.5em 0.5em;}
+    .tskit-table tbody tr td {padding: 0.5em 0.5em;}
+    .tskit-table tbody tr td:first-of-type {text-align: left;}
+    .tskit-details-label {vertical-align: top; padding-right:5px;}
+    .tskit-table-set {display: inline-flex;flex-wrap: wrap;margin: -12px 0 0 -12px;width: calc(100% + 12px);}
+    .tskit-table-set-table {margin: 12px 0 0 12px;}
+    details {display: inline-block;}
+    summary {cursor: pointer; outline: 0; display: list-item;}
+  </style>
+  <div class="tskit-table-set">
+    <div class="tskit-table-set-table">
+      <table class="tskit-table">
+        <thead>
+          <tr>
+            <th style="padding:0;line-height:21px;">
+              <img style="height: 32px;display: inline-block;padding: 3px 5px 3px 0;" src="https://raw.githubusercontent.com/tskit-dev/administrative/main/tskit_logo.svg" />
+              <a target="_blank" href="https://tskit.dev/tskit/docs/latest/python-api.html#the-tree-class"> Tree </a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Index</td><td>0</td></tr>
+          <tr><td>Interval</td><td>0-10 (10)</td></tr>
+          <tr><td>Roots</td><td>1</td></tr>
+          <tr><td>Nodes</td><td>79</td></tr>
+          <tr><td>Sites</td><td>10</td></tr>
+          <tr><td>Mutations</td><td>180</td></tr>
+          <tr><td>Total Branch Length</td><td>17.525159</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#How many usual nodes are in the tree
+</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">preorder</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>79
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#The quintuply linked arrays have an extra element - the virtual root
+</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">parent_array</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>80
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#The normal root is the penultimate node in those arrays:
+</span><span class="n">t</span><span class="p">.</span><span class="n">root</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>78
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#And it's parent is NULL as before
+</span><span class="n">t</span><span class="p">.</span><span class="n">parent_array</span><span class="p">[</span><span class="n">t</span><span class="p">.</span><span class="n">root</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-1
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#The virtual root is the last element
+</span><span class="n">t</span><span class="p">.</span><span class="n">virtual_root</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>79
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># And its children are the normal roots
+</span><span class="n">t</span><span class="p">.</span><span class="n">left_child_array</span><span class="p">[</span><span class="n">t</span><span class="p">.</span><span class="n">virtual_root</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>78
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Tree traversal orders returned by the <code class="highlighter-rouge">nodes</code> method have changed when there
+  are multiple roots. Previously orders were defined locally for each root, but
+  are now globally across all roots. (jeromekelleher)</p>
+  </li>
+  <li>
+    <p>Individuals are no longer guaranteed or required to be topologically sorted in a tree sequence.
+  <code class="highlighter-rouge">TableCollection.sort</code> no longer sorts individuals.(benjeffery)</p>
+  </li>
+  <li>
+    <p>Metadata encoding errors now raise <code class="highlighter-rouge">MetadataEncodingError</code></p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Encode some bad metadata and see that we get a nice, helpful error now.
+</span><span class="n">tskit</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">JSONCodec</span><span class="p">({</span><span class="s">"codec"</span><span class="p">:</span><span class="s">"json"</span><span class="p">}).</span><span class="n">encode</span><span class="p">({</span><span class="s">"a"</span><span class="p">:</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([])})</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+~/projects/tskit/python/tskit/metadata.py in encode(self, obj)
+    158         try:
+--&gt; 159             return tskit.canonical_json(obj).encode()
+    160         except TypeError as e:
+
+
+~/projects/tskit/python/tskit/util.py in canonical_json(obj)
+     57     """
+---&gt; 58     return json.dumps(obj, sort_keys=True, separators=(",", ":"))
+     59 
+
+
+~/miniconda3/lib/python3.9/json/__init__.py in dumps(obj, skipkeys, ensure_ascii, check_circular, allow_nan, cls, indent, separators, default, sort_keys, **kw)
+    233         cls = JSONEncoder
+--&gt; 234     return cls(
+    235         skipkeys=skipkeys, ensure_ascii=ensure_ascii,
+
+
+~/miniconda3/lib/python3.9/json/encoder.py in encode(self, o)
+    198         # equivalent to the PySequence_Fast that ''.join() would do.
+--&gt; 199         chunks = self.iterencode(o, _one_shot=True)
+    200         if not isinstance(chunks, (list, tuple)):
+
+
+~/miniconda3/lib/python3.9/json/encoder.py in iterencode(self, o, _one_shot)
+    256                 self.skipkeys, _one_shot)
+--&gt; 257         return _iterencode(o, 0)
+    258 
+
+
+~/miniconda3/lib/python3.9/json/encoder.py in default(self, o)
+    178         """
+--&gt; 179         raise TypeError(f'Object of type {o.__class__.__name__} '
+    180                         f'is not JSON serializable')
+
+
+TypeError: Object of type ndarray is not JSON serializable
+
+
+During handling of the above exception, another exception occurred:
+
+
+MetadataEncodingError                     Traceback (most recent call last)
+
+/tmp/ipykernel_2089335/467480944.py in &lt;module&gt;
+      1 # Encode some bad metadata and see that we get a nice, helpful error now.
+----&gt; 2 tskit.metadata.JSONCodec({"codec":"json"}).encode({"a":np.array([])})
+
+
+~/projects/tskit/python/tskit/metadata.py in encode(self, obj)
+    159             return tskit.canonical_json(obj).encode()
+    160         except TypeError as e:
+--&gt; 161             raise exceptions.MetadataEncodingError(
+    162                 f"Could not encode metadata of type {str(e).split()[3]}"
+    163             )
+
+
+MetadataEncodingError: Could not encode metadata of type ndarray
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Change default value for <code class="highlighter-rouge">missing_data_char</code> in the <code class="highlighter-rouge">TreeSequence.haplotypes</code>
+  method from “-“ to “N”. This is a more idiomatic usage to indicate
+  missing data rather than a gap in an alignment. (jeromekelleher)</p>
+  </li>
+  <li>
+    <p>Allow skipping of site and mutation tables in <code class="highlighter-rouge">TableCollection.sort</code> (benjeffery)</p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># To skip sorting, specifiy to start sorting at the end.
+</span><span class="n">tc</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">site_start</span><span class="o">=</span><span class="n">ts</span><span class="p">.</span><span class="n">num_sites</span><span class="p">,</span> <span class="n">mutation_start</span><span class="o">=</span><span class="n">ts</span><span class="p">.</span><span class="n">num_mutations</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Add <code class="highlighter-rouge">TableCollection.sort_individuals</code> to sort the individuals as this is no longer done by the
+  default sort. (benjeffery)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Method is similar to other sorts
+</span><span class="n">tc</span><span class="p">.</span><span class="n">sort_individuals</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Add <code class="highlighter-rouge">__setitem__</code> to all tables allowing single rows to be updated.
+ Ragged arrays are not reallocated if the size of the row is unchanged.
+ (jeromekelleher,benjeffery)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Lets replace this row for one with metadata
+</span><span class="n">tc</span><span class="p">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NodeTableRow(flags=1, time=0.0, population=0, individual=0, metadata=b'')
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Firstly set a schema
+</span><span class="n">tc</span><span class="p">.</span><span class="n">nodes</span><span class="p">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">tskit</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">MetadataSchema</span><span class="p">({</span><span class="s">"codec"</span><span class="p">:</span><span class="s">"json"</span><span class="p">})</span>
+<span class="c1">#Then we can simply assign a row with replaced metadata
+</span><span class="n">tc</span><span class="p">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">tc</span><span class="p">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s">"foo"</span><span class="p">:</span><span class="s">"bar"</span><span class="p">})</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#If you want to replace an attribute on all rows - this way is faster:
+</span><span class="n">copy</span><span class="o">=</span><span class="n">tc</span><span class="p">.</span><span class="n">nodes</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">tc</span><span class="p">.</span><span class="n">nodes</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">copy</span><span class="p">:</span>
+    <span class="n">tc</span><span class="p">.</span><span class="n">nodes</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s">"foo"</span><span class="p">:</span><span class="s">"bar"</span><span class="p">}))</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Added a new parameter <code class="highlighter-rouge">time</code> to <code class="highlighter-rouge">TreeSequence.samples()</code> allowing to select
+  samples at a specific time point or time interval.
+  (mufernando, petrelharp)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ts</span><span class="p">.</span><span class="n">samples</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+       17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+       34, 35, 36, 37, 38, 39], dtype=int32)
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Specify time as an interval
+</span><span class="n">ts</span><span class="p">.</span><span class="n">samples</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([], dtype=int32)
+</code></pre></div></div>
+
+<ul>
+  <li>Add <code class="highlighter-rouge">table.metadata_vector</code> to all table classes to allow easy extraction of a single
+  metadata key into an array
+  (petrelharp).</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#old way md = [n.metadata["foo"] for n in tc.nodes]
+</span><span class="n">tc</span><span class="p">.</span><span class="n">nodes</span><span class="p">.</span><span class="n">metadata_vector</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="p">[</span><span class="s">"foo"</span><span class="p">],</span> <span class="n">default_value</span><span class="o">=</span><span class="s">"wtf"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array(['bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar',
+       'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar',
+       'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar',
+       'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar',
+       'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar',
+       'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar',
+       'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar',
+       'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar',
+       'bar', 'bar', 'bar', 'bar', 'bar', 'bar', 'bar'], dtype='&lt;U3')
+</code></pre></div></div>
+
+<ul>
+  <li>Add <code class="highlighter-rouge">time_units</code> to <code class="highlighter-rouge">TreeSequence</code> to describe the units of the time dimension of the
+  tree sequence. This is then used to generate an error if <code class="highlighter-rouge">time_units</code> is <code class="highlighter-rouge">uncalibrated</code> when
+  using the branch lengths in statistics. (benjeffery)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tc</span><span class="p">.</span><span class="n">time_units</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'unknown'
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Make a tree sequence where the time dimension is uncalibrated
+</span><span class="n">tc</span><span class="p">.</span><span class="n">time_units</span><span class="o">=</span><span class="n">tskit</span><span class="p">.</span><span class="n">TIME_UNITS_UNCALIBRATED</span>
+<span class="n">tc</span><span class="p">.</span><span class="n">time_units</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">tc</span><span class="p">.</span><span class="n">tree_sequence</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#An error gets thrown if you try to do a statistic that makes no sense given the dimension
+</span><span class="n">ts</span><span class="p">.</span><span class="n">allele_frequency_spectrum</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s">"branch"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---------------------------------------------------------------------------
+
+LibraryError                              Traceback (most recent call last)
+
+/tmp/ipykernel_2089335/3925147128.py in &lt;module&gt;
+      1 #An error gets thrown if you try to do a statistic that makes no sense given the dimension
+----&gt; 2 ts.allele_frequency_spectrum(mode="branch")
+
+
+~/projects/tskit/python/tskit/trees.py in allele_frequency_spectrum(self, sample_sets, windows, mode, span_normalise, polarised)
+   7214         if sample_sets is None:
+   7215             sample_sets = [self.samples()]
+-&gt; 7216         return self.__one_way_sample_set_stat(
+   7217             self._ll_tree_sequence.allele_frequency_spectrum,
+   7218             sample_sets,
+
+
+~/projects/tskit/python/tskit/trees.py in __one_way_sample_set_stat(self, ll_method, sample_sets, windows, mode, span_normalise, polarised)
+   6499 
+   6500         flattened = util.safe_np_int_cast(np.hstack(sample_sets), np.int32)
+-&gt; 6501         stat = self.__run_windowed_stat(
+   6502             windows,
+   6503             ll_method,
+
+
+~/projects/tskit/python/tskit/trees.py in __run_windowed_stat(self, windows, method, *args, **kwargs)
+   6461         strip_dim = windows is None
+   6462         windows = self.parse_windows(windows)
+-&gt; 6463         stat = method(*args, **kwargs, windows=windows)
+   6464         if strip_dim:
+   6465             stat = stat[0]
+
+
+LibraryError: Statistics using branch lengths cannot be calculated when time_units is 'uncalibrated'
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Improved performance for tree traversal methods in the <code class="highlighter-rouge">nodes</code> iterator.
+  Roughly a 10X performance increase for “preorder”, “postorder”, “timeasc”
+  and “timedesc” (jeromekelleher)</p>
+  </li>
+  <li>
+    <p>Substantial performance improvement for <code class="highlighter-rouge">Tree.total_branch_length</code> (jeromekelleher)</p>
+  </li>
+  <li>
+    <p>Add the <code class="highlighter-rouge">discrete_genome</code> property to the TreeSequence class which is true if
+  all coordinates are discrete (jeromekelleher)</p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># For our example all the positions are integers
+</span><span class="n">ts</span><span class="p">.</span><span class="n">discrete_genome</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
+</code></pre></div></div>
+
+<ul>
+  <li>Add the <code class="highlighter-rouge">discrete_time</code> property to the TreeSequence class which is true if
+  all time coordinates are discrete or unknown (benjeffery)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ts</span><span class="p">.</span><span class="n">discrete_time</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>False
+</code></pre></div></div>
+
+<ul>
+  <li>Add the <code class="highlighter-rouge">TreeSequence.alignments</code> method. Uses the reference sequence if there is one or one can be specifed.(jeromekelleher)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span><span class="p">(</span><span class="n">ts</span><span class="p">.</span><span class="n">alignments</span><span class="p">())</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">ts</span><span class="p">.</span><span class="n">alignments</span><span class="p">(</span><span class="n">reference_sequence</span><span class="o">=</span><span class="n">tskit</span><span class="p">.</span><span class="n">random_nucleotides</span><span class="p">(</span><span class="n">ts</span><span class="p">.</span><span class="n">sequence_length</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['GAGTCCTGCA',
+ 'GAAGCCAATG',
+ 'AAGCACATGA',
+ 'GTCTCGTCTA',
+ 'GAGTCATACT',
+ 'GAGTCATACT',
+ 'CATGTGATAA',
+ 'TTATCGCACT',
+ 'CCCGTGCACC',
+ 'AAACTCCTGT',
+ 'TAAAACATGA',
+ 'TTCTCAATCG',
+ 'GAATCGAATA',
+ 'TTATCGGACG',
+ 'GAAGCTAGCC',
+ 'TTATCGCAAT',
+ 'AAGTACATGA',
+ 'TTATCGGACG',
+ 'TTATCGGACG',
+ 'TTCTCAATCG',
+ 'GAACCTAGTC',
+ 'TGGGAATTCG',
+ 'TACAACATTA',
+ 'GAAGCCAATC',
+ 'AAGTACATGA',
+ 'CGCGCCCGCC',
+ 'ACTTTAATGC',
+ 'GAACCGAGTC',
+ 'GAACCGAGTC',
+ 'TTATCGCAAT',
+ 'TTATCGCACC',
+ 'ACCTACATGC',
+ 'GAACCGAGTC',
+ 'CCCGTGTACC',
+ 'GTATCGCACT',
+ 'AAGTACATGA',
+ 'ACATACATGC',
+ 'ATGTCGTATA',
+ 'GAGACATACC',
+ 'TACTACATTA']
+</code></pre></div></div>
+
+<h2 id="reference-sequence">Reference sequence</h2>
+
+<h4 id="you-can-now-store-a-reference-in-the-tree-sequence-jeromekelleher-benjeffery-this-api-is-preliminary-we-intend-to-add-ways-to-fetch-from-urls-or-files-to-avoid-duplication">You can now store a reference in the tree sequence! (jeromekelleher, benjeffery) This API is preliminary, we intend to add ways to fetch from URLs or files to avoid duplication.</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tc</span><span class="p">.</span><span class="n">reference_sequence</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="s">"ATCG"</span>
+<span class="n">tc</span><span class="p">.</span><span class="n">reference_sequence</span><span class="p">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">tskit</span><span class="p">.</span><span class="n">MetadataSchema</span><span class="p">({</span><span class="s">"codec"</span><span class="p">:</span><span class="s">"json"</span><span class="p">})</span>
+<span class="n">tc</span><span class="p">.</span><span class="n">reference_sequence</span><span class="p">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s">"accession"</span><span class="p">:</span><span class="s">"someid"</span><span class="p">,</span> <span class="s">"other"</span><span class="p">:</span><span class="s">"stuff"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tc</span><span class="p">.</span><span class="n">reference_sequence</span><span class="p">.</span><span class="n">data</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'ATCG'
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tc</span><span class="p">.</span><span class="n">reference_sequence</span><span class="p">.</span><span class="n">metadata</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'accession': 'someid', 'other': 'stuff'}
+</code></pre></div></div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: news-content -->
+
+    </main>
+    <!-- END: content -->
+
+    <!-- START: footer -->
+        <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 offset-md-1">
+                <a class="footer__logo" href="./">
+                    <!-- START: icon-logo -->
+                    <svg class="icon icon--logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+                         viewBox="0 0 84.8 68">
+                        <style>
+                            .logo-st0 {
+                                fill: #085167
+                            }
+
+                            .logo-st1 {
+                                fill: #14e2a8
+                            }
+                        </style>
+                        <path class="logo-st0"
+                              d="M2 61.4v-8.2H0v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                        <path class="logo-st0"
+                              d="M62.7 67.5v-3.4h1.9V53.2h-1.9v-3.4h6.8v14.3h1.9v3.4h-8.7zm1.1-23.3c-.1-1.6 1.2-2.9 2.7-3 1.6-.1 2.9 1.2 3 2.7.1 1.6-1.2 2.9-2.7 3h-.1c-1.5.1-2.8-1-2.9-2.5v-.2"></path>
+                        <path class="logo-st0"
+                              d="M39.6 67.5v-3.4h1.9V45.4h-1.9V42h6.8v14.4h4l1.7-3.2h-2.5v-3.4h9.6v3.4h-2.6L53.7 58l4.2 6h2.8v3.4h-9.9V64h1.7l-2.8-4.6h-3.4V64h1.9v3.4l-8.6.1z"></path>
+                        <path class="logo-st0"
+                              d="M23.4 57c4.5 1.3 6.4 2.7 6.4 5.9 0 3.3-2.5 5.1-6.4 5.1-2.6 0-4.3-.7-5.4-1.9l-.1 1.3h-3.4v-6.1h3.7c.7 1.9 2.5 3.2 4.5 3.1 1.3 0 2.3-.5 2.3-1.6s-1-1.5-1.7-1.7l-2.6-.7c-2.8-.7-6.2-1.7-6.2-6 0-3.4 2.4-5.2 6-5.2 1.8 0 3.6.6 5 1.8l.1-1.3H29v5.9h-3.7c-.4-1.7-1.9-2.9-3.6-2.9-1.3 0-2.3.5-2.3 1.7 0 1 .6 1.4 1.8 1.7l2.2.9z"></path>
+                        <path class="logo-st0"
+                              d="M75 61.4v-8.2h-2v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                        <path class="logo-st1" d="M75 28.8h4.8v12.5H75z"></path>
+                        <path class="logo-st1" d="M41.5 28.8h4.8v9.6h-4.8z"></path>
+                        <path class="logo-st1" d="M41.5 24h38.3v4.8H41.5z"></path>
+                        <path class="logo-st1" d="M58.3 14.4h4.8V24h-4.8z"></path>
+                        <path class="logo-st1" d="M2 14.4h4.8v26.9H2z"></path>
+                        <path class="logo-st1" d="M2 9.6h61.1v4.8H2z"></path>
+                        <path class="logo-st1" d="M34.6 0h4.8v9.6h-4.8z"></path>
+                    </svg>
+                    <!-- END: icon-logo -->
+                    <span class="visually-hidden">
+                        tskit
+                    </span>
+                </a>
+            </div>
+            <div class="col">
+                <ul class="list list--unstyled">
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev/tskit-site/issues/new/choose" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Report a website issue
+                                </span>
+                        </a>
+                    </li>
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Github
+                                </span>
+                        </a>
+                    </li>
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev/.github/blob/main/CODE_OF_CONDUCT.md" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Code of conduct
+                                </span>
+                        </a>
+                    </li>
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev/tskit-site/blob/main/LICENSE" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Licence
+                                </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- END: footer -->
+    <!-- START: global modal -->
+    <div class="modal fade"
+         id="globalModal"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="globalModalLabel"
+         aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <button class="navbar-toggler modal-close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="modal-header visually-hidden">
+                    <h5 class="modal-title" id="globalModalLabel">
+                        Modal content
+                    </h5>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END: global modal -->
+
+</div>
+
+<script src="/assets/dist/js/main.min.js"></script>
+
+</body>
+</html>
+

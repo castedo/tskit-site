@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Documentation &mdash; tsinfer 0.2.3 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Command line interface" href="cli.html" />
+    <link rel="prev" title="Inference overview" href="inference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> tsinfer
+          </a>
+              <div class="version">
+                0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inference.html">Inference overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#file-formats">File formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sample-data">Sample data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ancestor-data">Ancestor data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-inference">Running inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_formats.html">File formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Developer documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tsinfer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-documentation">
+<span id="sec-api"></span><h1>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline"></a></h1>
+<section id="file-formats">
+<span id="sec-api-file-formats"></span><h2>File formats<a class="headerlink" href="#file-formats" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="tsinfer.load">
+<span class="sig-prename descclassname"><span class="pre">tsinfer.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.load" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a tsinfer <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> or <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> file from
+the specified path. The correct class will be determined by the content
+of the file. If the file is format not recognised a
+<a class="reference internal" href="#tsinfer.FileFormatError" title="tsinfer.FileFormatError"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileFormatError</span></code></a> will be thrown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The path of the file we wish to load.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The corresponding <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> or <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a>
+instance opened in read only mode.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> or <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#tsinfer.FileFormatError" title="tsinfer.FileFormatError"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileFormatError</span></code></a> if the file cannot be read.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="sample-data">
+<h3>Sample data<a class="headerlink" href="#sample-data" title="Permalink to this headline"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="tsinfer.SampleData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tsinfer.</span></span><span class="sig-name descname"><span class="pre">SampleData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_flush_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compressor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">DEFAULT_COMPRESSOR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_file_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData" title="Permalink to this definition"></a></dt>
+<dd><p>Class representing input sample data used for inference.
+See sample data file format <a class="reference internal" href="file_formats.html#sec-file-formats-samples"><span class="std std-ref">specifications</span></a>
+for details on the structure of this file.</p>
+<p>The most common usage for this class will be to import data from some
+external source and save it to file for later use. This will usually
+follow a pattern like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sample_data</span> <span class="o">=</span> <span class="n">tsinfer</span><span class="o">.</span><span class="n">SampleData</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;mydata.samples&quot;</span><span class="p">)</span>
+<span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="mi">1234</span><span class="p">,</span> <span class="n">genotypes</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">alleles</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">])</span>
+<span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="mi">5678</span><span class="p">,</span> <span class="n">genotypes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">alleles</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">])</span>
+<span class="n">sample_data</span><span class="o">.</span><span class="n">finalise</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This creates a sample data file for four haploid samples and two sites, and
+saves it in the file “mydata.samples”. Note that the call to
+<a class="reference internal" href="#tsinfer.SampleData.finalise" title="tsinfer.SampleData.finalise"><code class="xref py py-meth docutils literal notranslate"><span class="pre">finalise()</span></code></a> is essential here to ensure that all data will be
+correctly flushed to disk. For convenience, a context manager may
+also be used to ensure this is done:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">tsinfer</span><span class="o">.</span><span class="n">SampleData</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;mydata.samples&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">sample_data</span><span class="p">:</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">])</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="mi">5678</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>More complex <a class="reference internal" href="inference.html#sec-inference-data-model"><span class="std std-ref">data models</span></a> consisting
+of populations and polyploid individuals can also be specified. For
+example, we might have:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">tsinfer</span><span class="o">.</span><span class="n">SampleData</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;mydata.samples&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">sample_data</span><span class="p">:</span>
+    <span class="c1"># Define populations</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_population</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CEU&quot;</span><span class="p">})</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_population</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;YRI&quot;</span><span class="p">})</span>
+    <span class="c1"># Define individuals</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_individual</span><span class="p">(</span><span class="n">ploidy</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">population</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;NA12&quot;</span><span class="p">})</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_individual</span><span class="p">(</span><span class="n">ploidy</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">population</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;NA13&quot;</span><span class="p">})</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_individual</span><span class="p">(</span><span class="n">ploidy</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">population</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;NA14&quot;</span><span class="p">})</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_individual</span><span class="p">(</span><span class="n">ploidy</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">population</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;NA15&quot;</span><span class="p">})</span>
+    <span class="c1"># Define sites and genotypes</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">])</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="mi">5678</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>In this example we defined two populations and four diploid individuals,
+and so our genotypes arrays are of length eight. Thus, at first site the
+first individual is heterozygous, the second is homozygous with the derived
+allele and the other two individuals are homozygous with the ancestral
+allele. To illustrate how we can use site and population metadata to link
+up with external data sources we use the 1000 genomes identifiers (although
+of course the genotype data is fake). Here we suppose that we have the
+famous NA12878 trio from the CEU population, and one other individual from
+the YRI population. This metadata is then embedded in the final tree
+sequence that we infer, allowing us to use it conveniently in downstream
+analyses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a <code class="docutils literal notranslate"><span class="pre">path</span></code> is specified, the <code class="docutils literal notranslate"><span class="pre">max_file_size</span></code> option puts an
+upper limit on the possible size of the created file. On non-Windows
+systems, space for this file is not immediately allocated but just
+“reserved” using sparse file systems. However, on Windows systems
+the file is allocated immediately, so <code class="docutils literal notranslate"><span class="pre">max_file_size</span></code> takes a smaller
+default value, to avoid allocating very large files for no reason.
+Users who wish to run large inferences on Windows may therefore need to
+explictly set an appropriate <code class="docutils literal notranslate"><span class="pre">max_file_size</span></code>. Note that the
+<code class="docutils literal notranslate"><span class="pre">max_file_size</span></code> is only used while the file is being built: one the
+file has been finalised, it is shrunk to its minimum size.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequence_length</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – If specified, this is the sequence length
+that will be associated with the tree sequence output by
+<a class="reference internal" href="#tsinfer.infer" title="tsinfer.infer"><code class="xref py py-func docutils literal notranslate"><span class="pre">tsinfer.infer()</span></code></a> and <a class="reference internal" href="#tsinfer.match_samples" title="tsinfer.match_samples"><code class="xref py py-func docutils literal notranslate"><span class="pre">tsinfer.match_samples()</span></code></a>. If provided
+site coordinates must be less than this value.</p></li>
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The path of the file to store the sample data. If None,
+the information is stored in memory and not persistent.</p></li>
+<li><p><strong>num_flush_threads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of background threads to use
+for compressing data and flushing to disc. If &lt;= 0, do not spawn
+any threads but use a synchronous algorithm instead. Default=0.</p></li>
+<li><p><strong>compressor</strong> (<a class="reference external" href="https://numcodecs.readthedocs.io/en/stable/abc.html#numcodecs.abc.Codec" title="(in numcodecs v0.10.3.dev0+dirty)"><em>numcodecs.abc.Codec</em></a>) – A <a class="reference external" href="https://numcodecs.readthedocs.io/en/stable/abc.html#numcodecs.abc.Codec" title="(in numcodecs v0.10.3.dev0+dirty)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numcodecs.abc.Codec</span></code></a>
+instance to use for compressing data. Any codec may be used, but
+problems may occur with very large datasets on certain codecs as
+they cannot compress buffers &gt;2GB. If None, do not use any compression.
+Default=:class:<cite>numcodecs.zstd.Zstd</cite>.</p></li>
+<li><p><strong>chunk_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The chunk size used for
+<a class="reference external" href="http://zarr.readthedocs.io/">zarr arrays</a>. This affects
+compression level and algorithm performance. Default=1024.</p></li>
+<li><p><strong>max_file_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If a file is being used to store this data, set
+a maximum size in bytes for the stored file. If None, the default
+value of 1GiB (2**30 bytes) is used on Windows and 1TiB (2**40 bytes)
+on other platforms (see above for details).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.add_individual">
+<span class="sig-name descname"><span class="pre">add_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ploidy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.add_individual" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a new <a class="reference internal" href="inference.html#sec-inference-data-model-individual"><span class="std std-ref">Individual</span></a> to this
+<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> and returns its ID and those of the resulting additional
+samples. Adding an individual with ploidy <code class="docutils literal notranslate"><span class="pre">k</span></code> results in <code class="docutils literal notranslate"><span class="pre">k</span></code> new samples
+being added, and each of these samples will be associated with the
+new individual. Each new sample will also be associated with the specified
+population ID. It is an error to specify a population ID that does not
+correspond to a population defined using <a class="reference internal" href="#tsinfer.SampleData.add_population" title="tsinfer.SampleData.add_population"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_population()</span></code></a>.</p>
+<p>All calls to this method must be made <strong>after</strong> populations are defined
+using <a class="reference internal" href="#tsinfer.SampleData.add_population" title="tsinfer.SampleData.add_population"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_population()</span></code></a> and <strong>before</strong> sites are defined using
+<a class="reference internal" href="#tsinfer.SampleData.add_site" title="tsinfer.SampleData.add_site"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_site()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ploidy</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ploidy of this individual. This corresponds to the
+number of samples added that refer to this individual. Defaults to 1
+(haploid).</p></li>
+<li><p><strong>metadata</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – A JSON encodable dict-like object containing
+metadata that is to be associated with this individual.</p></li>
+<li><p><strong>population</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The ID of the population to associate with this
+individual (or more precisely, with the samples for this individual).
+If not specified or None, defaults to the null population (-1).</p></li>
+<li><p><strong>location</strong> (<em>arraylike</em>) – An array-like object defining n-dimensional
+spatial location of this individual. If not specified or None, the
+empty location is stored.</p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – The historical time into the past when the samples
+associated with this individual were taken. By default we assume that
+all samples come from the present time (i.e. the default time is 0).</p></li>
+<li><p><strong>flags</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The bitwise flags for this individual.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The ID of the newly added individual and a list of the sample
+IDs also added.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>(<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>(<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a>))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.add_population">
+<span class="sig-name descname"><span class="pre">add_population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.add_population" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a new <a class="reference internal" href="inference.html#sec-inference-data-model-population"><span class="std std-ref">Population</span></a> to this
+<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> and returns its ID.</p>
+<p>All calls to this method must be made <strong>before</strong> individuals or sites
+are defined.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>metadata</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – A JSON encodable dict-like object containing
+metadata that is to be associated with this population.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The ID of the newly added population.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.add_provenance">
+<span class="sig-name descname"><span class="pre">add_provenance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.add_provenance" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a new provenance record with the specified timestamp and record.
+Timestamps should ISO8601 formatted, and record is some JSON encodable
+object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.add_site">
+<span class="sig-name descname"><span class="pre">add_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genotypes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alleles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.add_site" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a new site to this <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> and returns its ID.</p>
+<p>At a minimum, the new site must specify the <code class="docutils literal notranslate"><span class="pre">position</span></code> and
+<code class="docutils literal notranslate"><span class="pre">genotypes</span></code>. Sites must be added in increasing order of position;
+duplicate positions are <strong>not</strong> supported. For each site a list of
+<code class="docutils literal notranslate"><span class="pre">alleles</span></code> may be supplied. This list defines the ancestral and
+derived states at the site. For example, if we set <code class="docutils literal notranslate"><span class="pre">alleles=[&quot;A&quot;,</span>
+<span class="pre">&quot;T&quot;]</span></code> then the ancestral state is “A” and the derived state is “T”.
+The observed state for each sample is then encoded using the
+<code class="docutils literal notranslate"><span class="pre">genotypes</span></code> parameter. Thus if we have <code class="docutils literal notranslate"><span class="pre">n</span></code> samples then
+this must be a one dimensional array-like object with length <code class="docutils literal notranslate"><span class="pre">n</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">genotypes</span></code> index into the list of <code class="docutils literal notranslate"><span class="pre">alleles</span></code>, so that for
+a given array <code class="docutils literal notranslate"><span class="pre">g</span></code> and sample index <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">g[j]</span></code> should contain
+<code class="docutils literal notranslate"><span class="pre">0</span></code> if sample <code class="docutils literal notranslate"><span class="pre">j</span></code> carries the ancestral state at this site and
+<code class="docutils literal notranslate"><span class="pre">1</span></code> if it carries the derived state. For multiple derived states,
+there may be more than 2 <code class="docutils literal notranslate"><span class="pre">alleles`,</span> <span class="pre">and</span> <span class="pre">``g[j]</span></code> can be greater
+than <code class="docutils literal notranslate"><span class="pre">1</span></code>, but such sites are not used for inference. All sites must
+have genotypes for the same number of samples.</p>
+<p>All populations and individuals must be defined <strong>before</strong> this method
+is called. If no individuals have been defined using
+<a class="reference internal" href="#tsinfer.SampleData.add_individual" title="tsinfer.SampleData.add_individual"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_individual()</span></code></a>, the first call to this method adds <code class="docutils literal notranslate"><span class="pre">n</span></code>
+haploid individuals, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the length of the <code class="docutils literal notranslate"><span class="pre">genotypes</span></code>
+array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – The floating point position of this site. Must be
+less than the <code class="docutils literal notranslate"><span class="pre">sequence_length</span></code> if provided to the <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a>
+constructor. Must be greater than all previously added sites.</p></li>
+<li><p><strong>genotypes</strong> (<em>arraylike</em>) – An array-like object defining the sample
+genotypes at this site. The array of genotypes corresponds to the
+observed alleles for each sample, represented by indexes into the
+alleles array. Missing sample data can be represented by tskit.MISSING_DATA
+in this array. The input is converted to a numpy array with
+dtype <code class="docutils literal notranslate"><span class="pre">np.int8</span></code>; therefore, for maximum efficiency ensure
+that the input array is also of this type.</p></li>
+<li><p><strong>alleles</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>)</em>) – A list of strings defining the alleles at this
+site. The zero’th element of this list is the <strong>ancestral state</strong>
+and further elements are the <strong>derived states</strong>. Only biallelic
+sites can currently be used for inference. Sites with 3 or more
+alleles cannot have <code class="docutils literal notranslate"><span class="pre">inference</span></code> (below) set to <code class="docutils literal notranslate"><span class="pre">True</span></code>. If not
+specified or None, defaults to [“0”, “1”].</p></li>
+<li><p><strong>metadata</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – A JSON encodable dict-like object containing
+metadata that is to be associated with this site.</p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – The time of occurence (pastwards) of the mutation to the
+derived state at this site. If not specified or None, the frequency of the
+derived alleles (i.e., the proportion of non-zero values in the genotypes,
+out of all the non-missing values) will be used in inference. For
+biallelic sites this frequency should provide a reasonable estimate
+of the relative time, as used to order ancestral haplotypes during the
+inference process. For sites not used in inference, such as singletons or
+sites with more than two alleles or when the time is specified as
+<code class="docutils literal notranslate"><span class="pre">np.nan</span></code>, then the value is unused. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The ID of the newly added site.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.arrays">
+<span class="sig-name descname"><span class="pre">arrays</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.arrays" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a list of all the zarr arrays in this DataContainer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.assert_data_equal">
+<span class="sig-name descname"><span class="pre">assert_data_equal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.assert_data_equal" title="Permalink to this definition"></a></dt>
+<dd><p>The same as <a class="reference internal" href="#tsinfer.SampleData.data_equal" title="tsinfer.SampleData.data_equal"><code class="xref py py-meth docutils literal notranslate"><span class="pre">data_equal()</span></code></a>, but raises an assertion rather than returning
+False. This is useful for testing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.clear_provenances">
+<span class="sig-name descname"><span class="pre">clear_provenances</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.clear_provenances" title="Permalink to this definition"></a></dt>
+<dd><p>Clear all provenances in this instance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.close" title="Permalink to this definition"></a></dt>
+<dd><p>Close this DataContainer. Any read or write operations attempted
+after calling this will fail.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_file_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.copy" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a copy of this DataContainer opened in ‘edit’ mode. If path
+is specified, this must not be equal to the path of the current
+data container. The new container will have a different UUID to the
+current.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.data_equal">
+<span class="sig-name descname"><span class="pre">data_equal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.data_equal" title="Permalink to this definition"></a></dt>
+<dd><p>Returns True if all the data attributes of this input file and the
+specified input file are equal. This compares every attribute except
+the UUID and provenance.</p>
+<p>To compare two <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instances for exact equality of
+all data including UUIDs and provenance data, use <code class="docutils literal notranslate"><span class="pre">s1</span> <span class="pre">==</span> <span class="pre">s2</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><em>SampleData</em></a>) – The other <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance to
+compare with.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the data held in this <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a>
+instance is identical to the date held in the other instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tsinfer.SampleData.file_size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">file_size</span></span><a class="headerlink" href="#tsinfer.SampleData.file_size" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the size of the underlying file, or -1 if we do not have a
+file associated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.finalise">
+<span class="sig-name descname"><span class="pre">finalise</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.finalise" title="Permalink to this definition"></a></dt>
+<dd><p>Ensures that the state of the data is flushed and writes the
+provenance for the current operation. The specified ‘command’ is used
+to fill the corresponding entry in the provenance dictionary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.from_tree_sequence">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_tree_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_sites_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_individuals_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.from_tree_sequence" title="Permalink to this definition"></a></dt>
+<dd><p>Create a SampleData instance from the sample nodes in an existing tree sequence.
+Each sample node in the tree sequence results in a sample created in the returned
+object. Populations in the tree sequence will be copied into the returned object.
+Individuals in the tree sequence that are associated with any sample nodes will
+also be incorporated: the ploidy of each individual is assumed to be the number
+of sample nodes which reference that individual; individuals with no sample nodes
+are omitted. A new haploid individual is created for any sample node which lacks
+an associated individual in the existing tree sequence. Thus a tree sequence
+with <code class="docutils literal notranslate"><span class="pre">u</span></code> sample nodes but no individuals will be translated into a SampleData
+file with <code class="docutils literal notranslate"><span class="pre">u</span></code> haploid individuals and <code class="docutils literal notranslate"><span class="pre">u</span></code> samples.</p>
+<p>Metadata associated with individuals, populations, sites, and at the top level
+of the tree sequence, is also stored in the appropriate places in the returned
+SampleData instance. Any such metadata must either have a schema defined
+or be JSON encodable text. See the <a class="reference external" href="https://tskit.readthedocs.io/en/stable/metadata.html">tskit documentation</a> for more details
+on metadata schemas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong> (<em>TreeSequence</em>) – The <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a> from which to generate
+samples.</p></li>
+<li><p><strong>use_sites_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the times of nodes in the tree
+sequence are used to set a time for each site (which affects the relative
+temporal order of ancestors during inference). Times for a site are only
+used if there is a single mutation at that site, in which case the node
+immediately below the mutation is taken as the origination time for the
+variant. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the frequency of the variant is used as a proxy for
+the relative variant time (see <a class="reference internal" href="#tsinfer.SampleData.add_site" title="tsinfer.SampleData.add_site"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_site()</span></code></a>). Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>use_individuals_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use the time of the sample nodes
+in the tree sequence as the time of the individuals associated with
+those nodes in the sample data file. This is likely only to be meaningful if
+<code class="docutils literal notranslate"><span class="pre">use_sites_time</span></code> is also <code class="docutils literal notranslate"><span class="pre">True</span></code>. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, all individuals are set
+to time 0. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Further arguments passed to the <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a>
+constructor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData">SampleData</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.haplotypes">
+<span class="sig-name descname"><span class="pre">haplotypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sites</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.haplotypes" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an iterator over the (sample_id, haplotype) pairs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – The sample IDs for which haplotypes are returned. If
+<code class="docutils literal notranslate"><span class="pre">None</span></code>, return haplotypes for all sample nodes, otherwise this may be a
+numpy array (or array-like) object (converted to dtype=np.int32).</p></li>
+<li><p><strong>sites</strong> (<em>array</em>) – A numpy array of sites to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tsinfer.SampleData.info">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">info</span></span><a class="headerlink" href="#tsinfer.SampleData.info" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a string containing the zarr info for each array.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.merge">
+<span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.merge" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a copy of this SampleData file merged with the specified
+other SampleData file. Subsequent keyword arguments are passed
+to the SampleData constructor for the returned merged dataset.</p>
+<p>The datasets are merged by following process:</p>
+<ol class="arabic simple">
+<li><p>We add the populations from this dataset to the result, followed
+by the populations from other. Population references from the two
+datasets are updated accordingly.</p></li>
+<li><p>We add individual data from this dataset to the result, followed
+by the individuals from the other dataset.</p></li>
+<li><p>We merge the variant data from the two datasets by comparing sites
+by their position. If two sites in the datasets have the same
+position we combine the genotype data. The alleles from this dataset
+are updated to include any new alleles in other, and we then combine
+and update the genotypes accordingly. It is an error if sites with
+the same position have different ancestral state, time, or metadata
+values. For sites that exist in one dataset and not the other,
+we insert the site with MISSING_DATA present in the genotypes for
+the dataset that does not contain the site.</p></li>
+<li><p>We add the provenances for this dataset, followed by the provenances
+for the other dataset.</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><em>SampleData</em></a>) – The other <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance to
+to merge.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A new SampleData instance which contains the merged data
+from the two datasets.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>.SampleData</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.min_site_times">
+<span class="sig-name descname"><span class="pre">min_site_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individuals_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.min_site_times" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a numpy array of the lower bound of the time of sites in the SampleData
+file. Each individual with a nonzero time (from the individuals_time array)
+gives a lower bound on the age of sites where the individual carries a
+derived allele.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A numpy array of the lower bound for each sites time.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarray(dtype=float64)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.num_alleles">
+<span class="sig-name descname"><span class="pre">num_alleles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sites</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.num_alleles" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a numpy array of the number of alleles at each site. Missing data is
+not counted as an allele.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sites</strong> (<em>array</em>) – A numpy array of sites for which to return data. If None
+(default) return all sites.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A numpy array of the number of alleles at each site.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray(dtype=uint32)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.provenances">
+<span class="sig-name descname"><span class="pre">provenances</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.provenances" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an iterator over the (timestamp, record) pairs representing
+the provenances for this data container.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.record_provenance">
+<span class="sig-name descname"><span class="pre">record_provenance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.record_provenance" title="Permalink to this definition"></a></dt>
+<dd><p>Records the provenance information for this file using the
+tskit provenances schema.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.sites">
+<span class="sig-name descname"><span class="pre">sites</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.sites" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an iterator over the Site objects. A subset of the
+sites can be returned using the <code class="docutils literal notranslate"><span class="pre">ids</span></code> parameter. This must
+be a list of integer site IDs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.subset">
+<span class="sig-name descname"><span class="pre">subset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individuals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sites</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.subset" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a subset of this sample data file consisting of the specified
+individuals and sites. It is important to note that these are
+<em>individual</em> IDs and not <em>sample</em> IDs (corresponding to distinct
+haplotypes within an individual). When working with haploid data, the
+individual and site IDs are guaranteed to be the same, and so can be
+used interchangably.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>individuals</strong> (<em>arraylike</em>) – The individual IDs to retain in the
+returned subset. IDs must be unique, and refer to valid individuals
+in the current dataset. IDs can be supplied in any order,
+and the order will be preserved in the returned data file (i.e.,
+<code class="docutils literal notranslate"><span class="pre">individuals[0]</span></code> will be the first individual in the new
+dataset, etc).</p></li>
+<li><p><strong>sites</strong> (<em>arraylike</em>) – The site IDs to retain in the
+returned subset. IDs must be unique, and refer to valid sites
+in the current dataset. Site IDs can be supplied in any order,
+but the order will <em>not</em> be preserved in the returned data file,
+so that sites are always in position sorted order in the output.</p></li>
+<li><p><strong>**kwargs</strong> – Further arguments passed to the <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a>
+constructor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData">SampleData</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.SampleData.variants">
+<span class="sig-name descname"><span class="pre">variants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sites</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.SampleData.variants" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an iterator over the Variant objects. This is equivalent to
+the TreeSequence.variants iterator.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<ol class="arabic simple">
+<li><p>Add documentation for the data attributes in read-mode.</p></li>
+<li><p>Define copy mode.</p></li>
+<li><p>Provide example of updating inference_sites</p></li>
+</ol>
+</div>
+</section>
+<section id="ancestor-data">
+<h3>Ancestor data<a class="headerlink" href="#ancestor-data" title="Permalink to this headline"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="tsinfer.AncestorData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tsinfer.</span></span><span class="sig-name descname"><span class="pre">AncestorData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_flush_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compressor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_file_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData" title="Permalink to this definition"></a></dt>
+<dd><p>Class representing the stored ancestor data produced by
+<a class="reference internal" href="#tsinfer.generate_ancestors" title="tsinfer.generate_ancestors"><code class="xref py py-func docutils literal notranslate"><span class="pre">generate_ancestors()</span></code></a>. See the ancestor data file format
+<a class="reference internal" href="file_formats.html#sec-file-formats-ancestors"><span class="std std-ref">specifications</span></a> for details on the structure
+of this file.</p>
+<p>See the documentation for <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> for a discussion of the
+<code class="docutils literal notranslate"><span class="pre">max_file_size</span></code> parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_data</strong> (<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><em>SampleData</em></a>) – The <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance
+that this ancestor data file was generated from.</p></li>
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The path of the file to store the ancestor data. If None,
+the information is stored in memory and not persistent.</p></li>
+<li><p><strong>num_flush_threads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of background threads to use
+for compressing data and flushing to disc. If &lt;= 0, do not spawn
+any threads but use a synchronous algorithm instead. Default=0.</p></li>
+<li><p><strong>compressor</strong> (<a class="reference external" href="https://numcodecs.readthedocs.io/en/stable/abc.html#numcodecs.abc.Codec" title="(in numcodecs v0.10.3.dev0+dirty)"><em>numcodecs.abc.Codec</em></a>) – A <a class="reference external" href="https://numcodecs.readthedocs.io/en/stable/abc.html#numcodecs.abc.Codec" title="(in numcodecs v0.10.3.dev0+dirty)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numcodecs.abc.Codec</span></code></a>
+instance to use for compressing data. Any codec may be used, but
+problems may occur with very large datasets on certain codecs as
+they cannot compress buffers &gt;2GB. If None, do not use any compression.
+Default=:class:<cite>numcodecs.zstd.Zstd</cite>.</p></li>
+<li><p><strong>chunk_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – <p>The chunk size used for
+<a class="reference external" href="http://zarr.readthedocs.io/">zarr arrays</a>. This affects
+compression level and algorithm performance. Default=1024.</p>
+</p></li>
+<li><p><strong>max_file_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If a file is being used to store this data, set
+a maximum size in bytes for the stored file. If None, the default
+value of 1GiB is used on Windows and 1TiB on other
+platforms (see above for details).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.add_ancestor">
+<span class="sig-name descname"><span class="pre">add_ancestor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">focal_sites</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">haplotype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.add_ancestor" title="Permalink to this definition"></a></dt>
+<dd><p>Adds an ancestor with the specified haplotype, with ancestral material over the
+interval [start:end], that is associated with the specified timepoint and has new
+mutations at the specified list of focal sites. Ancestors should be added in time
+order, with the oldest first. The id of the added ancestor is returned.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.add_provenance">
+<span class="sig-name descname"><span class="pre">add_provenance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.add_provenance" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a new provenance record with the specified timestamp and record.
+Timestamps should ISO8601 formatted, and record is some JSON encodable
+object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.ancestor">
+<span class="sig-name descname"><span class="pre">ancestor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.ancestor" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the ancestor with the specified ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Ancestor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.ancestors">
+<span class="sig-name descname"><span class="pre">ancestors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.ancestors" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an iterator over all the ancestors.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.ancestors_length">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ancestors_length</span></span><a class="headerlink" href="#tsinfer.AncestorData.ancestors_length" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the length of ancestors in physical coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.arrays">
+<span class="sig-name descname"><span class="pre">arrays</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.arrays" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a list of all the zarr arrays in this DataContainer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.clear_provenances">
+<span class="sig-name descname"><span class="pre">clear_provenances</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.clear_provenances" title="Permalink to this definition"></a></dt>
+<dd><p>Clear all provenances in this instance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.close" title="Permalink to this definition"></a></dt>
+<dd><p>Close this DataContainer. Any read or write operations attempted
+after calling this will fail.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_file_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.copy" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a copy of this DataContainer opened in ‘edit’ mode. If path
+is specified, this must not be equal to the path of the current
+data container. The new container will have a different UUID to the
+current.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.data_equal">
+<span class="sig-name descname"><span class="pre">data_equal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.data_equal" title="Permalink to this definition"></a></dt>
+<dd><p>Returns True if all the data attributes of this input file and the
+specified input file are equal. This compares every attribute except
+the UUID.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.file_size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">file_size</span></span><a class="headerlink" href="#tsinfer.AncestorData.file_size" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the size of the underlying file, or -1 if we do not have a
+file associated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.finalise">
+<span class="sig-name descname"><span class="pre">finalise</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.finalise" title="Permalink to this definition"></a></dt>
+<dd><p>Ensures that the state of the data is flushed and writes the
+provenance for the current operation. The specified ‘command’ is used
+to fill the corresponding entry in the provenance dictionary.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.info">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">info</span></span><a class="headerlink" href="#tsinfer.AncestorData.info" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a string containing the zarr info for each array.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.insert_proxy_samples">
+<span class="sig-name descname"><span class="pre">insert_proxy_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_mutation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_same_sample_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.insert_proxy_samples" title="Permalink to this definition"></a></dt>
+<dd><p>Take a set of samples from a <code class="docutils literal notranslate"><span class="pre">sample_data</span></code> instance and create additional
+“proxy sample ancestors” from them, returning a new <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a>
+instance including both the current ancestors and the additional ancestors
+at the appropriate time points.</p>
+<p>A <em>proxy sample ancestor</em> is an ancestor based upon a known sample. At
+sites used in the full inference process, the haplotype of this ancestor
+is identical to that of the sample on which it is based. The time of the
+ancestor is taken to be a fraction <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> older than the sample on
+which it is based.</p>
+<p>A common use of this function is to provide ancestral nodes for anchoring
+historical samples at the correct time when matching them into a tree
+sequence during the <a class="reference internal" href="#tsinfer.match_samples" title="tsinfer.match_samples"><code class="xref py py-func docutils literal notranslate"><span class="pre">tsinfer.match_samples()</span></code></a> stage of inference.
+For this reason, by default, the samples chosen from <code class="docutils literal notranslate"><span class="pre">sample_data</span></code>
+are those associated with historical (i.e. non-contemporary)
+<a class="reference internal" href="inference.html#sec-inference-data-model-individual"><span class="std std-ref">individuals</span></a>. This can be
+altered by using the <code class="docutils literal notranslate"><span class="pre">sample_ids</span></code> parameter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The proxy sample ancestors inserted here will correspond to extra nodes
+in the inferred tree sequence. At sites which are not used in the full
+inference process (e.g. sites unique to a single historical sample),
+these proxy sample ancestor nodes may have a different genotype from
+their corresponding sample.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_data</strong> (<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><em>SampleData</em></a>) – The <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance
+from which to select the samples used to create extra ancestors.</p></li>
+<li><p><strong>sample_ids</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>)</em>) – A list of sample ids in the <code class="docutils literal notranslate"><span class="pre">sample_data</span></code>
+instance that will be selected to create the extra ancestors. If
+<code class="docutils literal notranslate"><span class="pre">None</span></code> (default) select all the historical samples, i.e. those
+associated with an <a class="reference internal" href="inference.html#sec-inference-data-model-individual"><span class="std std-ref">Individual</span></a> whose
+time is greater than zero. The order of ids is ignored, as are
+duplicate ids.</p></li>
+<li><p><strong>epsilon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>)</em>) – An list of small time increments
+determining how much older each proxy sample ancestor is than the
+corresponding sample listed in <code class="docutils literal notranslate"><span class="pre">sample_ids</span></code>. A single value is also
+allowed, in which case it is used as the time increment for all selected
+proxy sample ancestors. If None (default) find <span class="math notranslate nohighlight">\({\delta}t\)</span>, the
+smallest time difference between between the sample times and the next
+oldest ancestor in the current <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> instance, setting
+<code class="docutils literal notranslate"><span class="pre">epsilon</span></code> = <span class="math notranslate nohighlight">\({\delta}t / 100\)</span> (or, if all selected samples
+are at least as old as the oldest ancestor, take <span class="math notranslate nohighlight">\({\delta}t\)</span>
+to be the smallest non-zero time difference between existing ancestors).</p></li>
+<li><p><strong>allow_mutation</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code> (the default), any site in a proxy
+sample ancestor that has a derived allele must have a pre-existing
+mutation in an older (non-proxy) ancestor, otherwise an error is raised.
+Alternatively, if <code class="docutils literal notranslate"><span class="pre">allow_mutation</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, proxy ancestors can
+contain a de-novo mutation at a site that also has a mutation elsewhere
+(i.e. breaking the infinite sites assumption), allowing them to possess
+derived alleles at sites where there are no pre-existing mutations in
+older ancestors.</p></li>
+<li><p><strong>require_same_sample_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> (default) then the
+the <code class="docutils literal notranslate"><span class="pre">sample_data</span></code> parameter must point to the same <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a>
+instance as that used to generate the current ancestors. If <code class="docutils literal notranslate"><span class="pre">False</span></code>,
+this requirement is not enforced, and it is the user’s responsibility
+to ensure that the encoding of alleles in <code class="docutils literal notranslate"><span class="pre">sample_data</span></code> matches the
+encoding in the current <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> instance (i.e. that in the
+original <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance on which the current ancestors
+are based).</p></li>
+<li><p><strong>**kwargs</strong> – Further arguments passed to the constructor when creating
+the new <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> instance which will be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A new <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData">AncestorData</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.provenances">
+<span class="sig-name descname"><span class="pre">provenances</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.provenances" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an iterator over the (timestamp, record) pairs representing
+the provenances for this data container.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.record_provenance">
+<span class="sig-name descname"><span class="pre">record_provenance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.record_provenance" title="Permalink to this definition"></a></dt>
+<dd><p>Records the provenance information for this file using the
+tskit provenances schema.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.set_inference_sites">
+<span class="sig-name descname"><span class="pre">set_inference_sites</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.set_inference_sites" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the sites used for inference (i.e., the sites at which ancestor haplotypes
+are defined) to the specified list of site IDs. This must be a subset of the
+sites in the sample data file, and the IDs must be in increasing order.</p>
+<p>This must be called before the first call to <a class="reference internal" href="#tsinfer.AncestorData.add_ancestor" title="tsinfer.AncestorData.add_ancestor"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_ancestor()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tsinfer.AncestorData.truncate_ancestors">
+<span class="sig-name descname"><span class="pre">truncate_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_time_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_time_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_multiplier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.AncestorData.truncate_ancestors" title="Permalink to this definition"></a></dt>
+<dd><p>Truncates the length of ancestors above a given time and returns a new
+<a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> instance.</p>
+<p>Given a set of haplotypes H such that <code class="docutils literal notranslate"><span class="pre">lower_time_bound</span></code> &lt;= <code class="docutils literal notranslate"><span class="pre">h.time</span></code> &lt;
+<code class="docutils literal notranslate"><span class="pre">upper_time_bound</span></code>, we let <code class="docutils literal notranslate"><span class="pre">max_len</span> <span class="pre">=</span> <span class="pre">length_multiplier</span> <span class="pre">*</span> <span class="pre">max(max(h.length)</span>
+<span class="pre">for</span> <span class="pre">h</span> <span class="pre">in</span> <span class="pre">H)</span></code>. Then, we truncate all haplotypes containing at least one focal
+site where <code class="docutils literal notranslate"><span class="pre">h.time</span> <span class="pre">&gt;=</span> <span class="pre">upper</span></code>, ensuring these haplotypes extend no further than
+half of <code class="docutils literal notranslate"><span class="pre">max_len</span></code> to the either side of the leftmost and
+rightmost focal sites of the ancestral haplotype. Note that ancestors above
+<code class="docutils literal notranslate"><span class="pre">upper_time_bound</span></code> may still be longer than <code class="docutils literal notranslate"><span class="pre">max_len</span></code> if the ancestor
+contains greater than 2 focal sites.</p>
+<p>This function should be used when <a class="reference internal" href="#tsinfer.generate_ancestors" title="tsinfer.generate_ancestors"><code class="xref py py-func docutils literal notranslate"><span class="pre">tsinfer.generate_ancestors()</span></code></a> generates
+old ancestors which are very long, as these can significantly slow down matching
+time. Older ancestors should generally be shorter than younger ancestors, so
+truncating the lengths of older ancestors has negligible effect on inference
+accuracy.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please ensure that the time values provided to <code class="docutils literal notranslate"><span class="pre">lower_time_bound</span></code> and
+<code class="docutils literal notranslate"><span class="pre">upper_time_bound</span></code> match the units used in the <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a>
+file, i.e. if your ancestors do not have site times specified,
+<code class="docutils literal notranslate"><span class="pre">upper_time_bound</span></code> should be between 0 and 1.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lower_time_bound</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Defines the lower bound (inclusive) of the half
+open interval where we search for a truncation value.</p></li>
+<li><p><strong>upper_time_bound</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Defines the upper bound (exclusive) of the half
+open interval where we search for a truncation value. The truncation value
+is the length of the longest haplotype in this interval multiplied by
+<code class="docutils literal notranslate"><span class="pre">length_multiplier</span></code>. The length of ancestors as old or older than
+<code class="docutils literal notranslate"><span class="pre">upper_time_bound</span></code> will be truncated using this value.</p></li>
+<li><p><strong>length_multiplier</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – A multiplier for the length of the longest
+ancestor in the half-open interval between <code class="docutils literal notranslate"><span class="pre">lower_time_bound</span></code> (inclusive)
+and <code class="docutils literal notranslate"><span class="pre">uppper_time_bound</span></code> (exclusive), i.e.
+if the longest ancestor in the interval is 1 megabase, a
+<code class="docutils literal notranslate"><span class="pre">length_multiplier</span></code> of 2 creates a maximum length of 2 megabases.</p></li>
+<li><p><strong>**kwargs</strong> – Further arguments passed to the <a class="reference internal" href="#tsinfer.AncestorData.copy" title="tsinfer.AncestorData.copy"><code class="xref py py-func docutils literal notranslate"><span class="pre">AncestorData.copy()</span></code></a>
+when creating the new <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> instance which will be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A new <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData">AncestorData</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<ol class="arabic simple">
+<li><p>Add documentation for the data attributes in read-mode.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="running-inference">
+<span id="sec-api-file-inference"></span><h2>Running inference<a class="headerlink" href="#running-inference" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="tsinfer.infer">
+<span class="sig-prename descclassname"><span class="pre">tsinfer.</span></span><span class="sig-name descname"><span class="pre">infer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recombination_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mismatch_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.infer" title="Permalink to this definition"></a></dt>
+<dd><p>Runs the full <a class="reference internal" href="inference.html#sec-inference"><span class="std std-ref">inference pipeline</span></a> on the specified
+<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance and returns the inferred
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a>.   See
+<a class="reference internal" href="inference.html#sec-inference-match-ancestors-and-samples"><span class="std std-ref">matching ancestors &amp; samples</span></a>
+in the documentation for details of <code class="docutils literal notranslate"><span class="pre">recombination_rate</span></code>, <code class="docutils literal notranslate"><span class="pre">mismatch_ratio</span></code>
+and <code class="docutils literal notranslate"><span class="pre">path_compression</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For finer grained control over inference, for example to set different mismatch
+ratios when matching ancestors versus samples, run
+<a class="reference internal" href="#tsinfer.generate_ancestors" title="tsinfer.generate_ancestors"><code class="xref py py-func docutils literal notranslate"><span class="pre">tsinfer.generate_ancestors()</span></code></a>, <a class="reference internal" href="#tsinfer.match_ancestors" title="tsinfer.match_ancestors"><code class="xref py py-func docutils literal notranslate"><span class="pre">tsinfer.match_ancestors()</span></code></a> and
+<a class="reference internal" href="#tsinfer.match_samples" title="tsinfer.match_samples"><code class="xref py py-func docutils literal notranslate"><span class="pre">tsinfer.match_samples()</span></code></a> separately.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_data</strong> (<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><em>SampleData</em></a>) – The input <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance
+representing the observed data that we wish to make inferences from.</p></li>
+<li><p><strong>recombination_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.RateMap" title="(in Python)"><em>msprime.RateMap</em></a>) – Either a floating point value giving a constant rate
+<span class="math notranslate nohighlight">\(\rho\)</span> per unit length of genome, or an <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.RateMap" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">msprime.RateMap</span></code></a>
+object. This is used to calculate the probability of recombination between
+adjacent sites. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all matching conflicts are resolved by
+recombination and all inference sites will have a single mutation
+(equivalent to mismatch_ratio near zero)</p></li>
+<li><p><strong>mismatch_ratio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – The probability of a mismatch relative to the median
+probability of recombination between adjacent sites: can only be used if a
+recombination rate has been set (default: 1)</p></li>
+<li><p><strong>path_compression</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to merge edges that share identical
+paths (essentially taking advantage of shared recombination breakpoints).</p></li>
+<li><p><strong>simplify</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to remove extra tree nodes and edges that are not
+on a path between the root and any of the samples. To do so, the final tree
+sequence is simplified by appling the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.simplify()</span></code></a>
+method with <code class="docutils literal notranslate"><span class="pre">filter_sites</span></code>, <code class="docutils literal notranslate"><span class="pre">filter_populations</span></code> and
+<code class="docutils literal notranslate"><span class="pre">filter_individuals</span></code> set to False, and <code class="docutils literal notranslate"><span class="pre">keep_unary</span></code> set to True
+(default = <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p></li>
+<li><p><strong>exclude_positions</strong> (<em>array_like</em>) – A list of site positions to exclude
+for full inference. Sites with these positions will not be used to generate
+ancestors, and not used during the copying process. Any such sites that
+exist in the sample data file will be included in the trees after the
+main inference process using parsimony. The list does not need to be
+in to be in any particular order, and can include site positions that
+are not present in the sample data file.</p></li>
+<li><p><strong>num_threads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of worker threads to use in parallelised
+sections of the algorithm. If &lt;= 0, do not spawn any threads and
+use simpler sequential algorithms (default).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a> object inferred from the
+input sample data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)">tskit.TreeSequence</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tsinfer.generate_ancestors">
+<span class="sig-prename descclassname"><span class="pre">tsinfer.</span></span><span class="sig-name descname"><span class="pre">generate_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.generate_ancestors" title="Permalink to this definition"></a></dt>
+<dd><p>Runs the ancestor generation <a class="reference internal" href="inference.html#sec-inference-generate-ancestors"><span class="std std-ref">algorithm</span></a>
+on the specified <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance and returns the resulting
+<a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> instance. If you wish to store generated ancestors
+persistently on file you must pass the <code class="docutils literal notranslate"><span class="pre">path</span></code> keyword argument to this
+function. For example,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ancestor_data</span> <span class="o">=</span> <span class="n">tsinfer</span><span class="o">.</span><span class="n">generate_ancestors</span><span class="p">(</span><span class="n">sample_data</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;mydata.ancestors&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Other keyword arguments are passed to the <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> constructor,
+which may be used to control the storage properties of the generated file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_data</strong> (<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><em>SampleData</em></a>) – The <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance that we are
+genering putative ancestors from.</p></li>
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The path of the file to store the sample data. If None,
+the information is stored in memory and not persistent.</p></li>
+<li><p><strong>exclude_positions</strong> (<em>array_like</em>) – A list of site positions to exclude
+for full inference. Sites with these positions will not be used to generate
+ancestors, and not used during the copying process. The list does not
+need be in any particular order.</p></li>
+<li><p><strong>num_threads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of worker threads to use. If &lt; 1, use a
+simpler synchronous algorithm.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The inferred ancestors stored in an <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData">AncestorData</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tsinfer.match_ancestors">
+<span class="sig-prename descclassname"><span class="pre">tsinfer.</span></span><span class="sig-name descname"><span class="pre">match_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancestor_data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recombination_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mismatch_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.match_ancestors" title="Permalink to this definition"></a></dt>
+<dd><p>Run the ancestor matching <a class="reference internal" href="inference.html#sec-inference-match-ancestors"><span class="std std-ref">algorithm</span></a>
+on the specified <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> and <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> instances,
+returning the resulting <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a> representing the
+complete ancestry of the putative ancestors. See
+<a class="reference internal" href="inference.html#sec-inference-match-ancestors-and-samples"><span class="std std-ref">matching ancestors &amp; samples</span></a>
+in the documentation for details of <code class="docutils literal notranslate"><span class="pre">recombination_rate</span></code>, <code class="docutils literal notranslate"><span class="pre">mismatch_ratio</span></code>
+and <code class="docutils literal notranslate"><span class="pre">path_compression</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_data</strong> (<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><em>SampleData</em></a>) – The <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance
+representing the input data.</p></li>
+<li><p><strong>ancestor_data</strong> (<a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><em>AncestorData</em></a>) – The <a class="reference internal" href="#tsinfer.AncestorData" title="tsinfer.AncestorData"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncestorData</span></code></a> instance
+representing the set of ancestral haplotypes for which we are finding
+a history.</p></li>
+<li><p><strong>recombination_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.RateMap" title="(in Python)"><em>msprime.RateMap</em></a>) – Either a floating point value giving a constant rate
+<span class="math notranslate nohighlight">\(\rho\)</span> per unit length of genome, or an <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.RateMap" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">msprime.RateMap</span></code></a>
+object. This is used to calculate the probability of recombination between
+adjacent sites. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all matching conflicts are resolved by
+recombination and all inference sites will have a single mutation
+(equivalent to mismatch_ratio near zero)</p></li>
+<li><p><strong>mismatch_ratio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – The probability of a mismatch relative to the median
+probability of recombination between adjacent sites: can only be used if a
+recombination rate has been set (default: 1)</p></li>
+<li><p><strong>path_compression</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to merge edges that share identical
+paths (essentially taking advantage of shared recombination breakpoints).</p></li>
+<li><p><strong>num_threads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of match worker threads to use. If
+this is &lt;= 0 then a simpler sequential algorithm is used (default).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The ancestors tree sequence representing the inferred history
+of the set of ancestors.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)">tskit.TreeSequence</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tsinfer.match_samples">
+<span class="sig-prename descclassname"><span class="pre">tsinfer.</span></span><span class="sig-name descname"><span class="pre">match_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancestors_ts</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recombination_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mismatch_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_sample_times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.match_samples" title="Permalink to this definition"></a></dt>
+<dd><p>Runs the sample matching <a class="reference internal" href="inference.html#sec-inference-match-samples"><span class="std std-ref">algorithm</span></a>
+on the specified <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance and ancestors tree sequence,
+returning the final <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a> instance containing
+the full inferred history for all samples and sites. See
+<a class="reference internal" href="inference.html#sec-inference-match-ancestors-and-samples"><span class="std std-ref">matching ancestors &amp; samples</span></a>
+in the documentation for details of <code class="docutils literal notranslate"><span class="pre">recombination_rate</span></code>, <code class="docutils literal notranslate"><span class="pre">mismatch_ratio</span></code>
+and <code class="docutils literal notranslate"><span class="pre">path_compression</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_data</strong> (<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><em>SampleData</em></a>) – The <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance
+representing the input data.</p></li>
+<li><p><strong>ancestors_ts</strong> (<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><em>tskit.TreeSequence</em></a>) – The
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a> instance representing the inferred
+history among ancestral ancestral haplotypes.</p></li>
+<li><p><strong>recombination_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.RateMap" title="(in Python)"><em>msprime.RateMap</em></a>) – Either a floating point value giving a constant rate
+<span class="math notranslate nohighlight">\(\rho\)</span> per unit length of genome, or an <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.RateMap" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">msprime.RateMap</span></code></a>
+object. This is used to calculate the probability of recombination between
+adjacent sites. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all matching conflicts are resolved by
+recombination and all inference sites will have a single mutation
+(equivalent to mismatch_ratio near zero)</p></li>
+<li><p><strong>mismatch_ratio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – The probability of a mismatch relative to the median
+probability of recombination between adjacent sites: can only be used if a
+recombination rate has been set (default: 1)</p></li>
+<li><p><strong>path_compression</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to merge edges that share identical
+paths (essentially taking advantage of shared recombination breakpoints).</p></li>
+<li><p><strong>simplify</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to remove extra tree nodes and edges that are not
+on a path between the root and any of the samples. To do so, the final tree
+sequence is simplified by appling the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.simplify()</span></code></a>
+method with <code class="docutils literal notranslate"><span class="pre">filter_sites</span></code>, <code class="docutils literal notranslate"><span class="pre">filter_populations</span></code> and
+<code class="docutils literal notranslate"><span class="pre">filter_individuals</span></code> set to False and <code class="docutils literal notranslate"><span class="pre">keep_unary</span></code> set to True
+(default = <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p></li>
+<li><p><strong>indexes</strong> (<em>array_like</em>) – An array of indexes into the sample_data file of
+the samples to match, or None for all samples.</p></li>
+<li><p><strong>force_sample_times</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – After matching, should an attempt be made to
+adjust the time of “historical samples” (those associated with an individual
+having a non-zero time) such that the sample nodes in the tree sequence
+appear at the time of the individual with which they are associated.</p></li>
+<li><p><strong>num_threads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of match worker threads to use. If
+this is &lt;= 0 then a simpler sequential algorithm is used (default).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The tree sequence representing the inferred history
+of the sample.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)">tskit.TreeSequence</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tsinfer.augment_ancestors">
+<span class="sig-prename descclassname"><span class="pre">tsinfer.</span></span><span class="sig-name descname"><span class="pre">augment_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancestors_ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexes</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recombination_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mismatch_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tsinfer.augment_ancestors" title="Permalink to this definition"></a></dt>
+<dd><p>Runs the sample matching <a class="reference internal" href="inference.html#sec-inference-match-samples"><span class="std std-ref">algorithm</span></a>
+on the specified <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance and ancestors tree sequence,
+for the specified subset of sample indexes, returning the
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a> instance including these samples. This
+tree sequence can then be used as an ancestors tree sequence for subsequent
+matching against all samples.  See
+<a class="reference internal" href="inference.html#sec-inference-match-ancestors-and-samples"><span class="std std-ref">matching ancestors &amp; samples</span></a>
+in the documentation for details of <code class="docutils literal notranslate"><span class="pre">recombination_rate</span></code>, <code class="docutils literal notranslate"><span class="pre">mismatch_ratio</span></code>
+and <code class="docutils literal notranslate"><span class="pre">path_compression</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample_data</strong> (<a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><em>SampleData</em></a>) – The <a class="reference internal" href="#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance
+representing the input data.</p></li>
+<li><p><strong>ancestors_ts</strong> (<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><em>tskit.TreeSequence</em></a>) – The
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a> instance representing the inferred
+history among ancestral ancestral haplotypes.</p></li>
+<li><p><strong>indexes</strong> (<em>array</em>) – The sample indexes to insert into the ancestors
+tree sequence.</p></li>
+<li><p><strong>recombination_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.RateMap" title="(in Python)"><em>msprime.RateMap</em></a>) – Either a floating point value giving a constant rate
+<span class="math notranslate nohighlight">\(\rho\)</span> per unit length of genome, or an <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.RateMap" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">msprime.RateMap</span></code></a>
+object. This is used to calculate the probability of recombination between
+adjacent sites. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all matching conflicts are resolved by
+recombination and all inference sites will have a single mutation
+(equivalent to mismatch_ratio near zero)</p></li>
+<li><p><strong>mismatch_ratio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – The probability of a mismatch relative to the median
+probability of recombination between adjacent sites: can only be used if a
+recombination rate has been set (default: 1)</p></li>
+<li><p><strong>path_compression</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to merge edges that share identical
+paths (essentially taking advantage of shared recombination breakpoints).</p></li>
+<li><p><strong>num_threads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of match worker threads to use. If
+this is &lt;= 0 then a simpler sequential algorithm is used (default).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The specified ancestors tree sequence augmented with copying
+paths for the specified sample.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)">tskit.TreeSequence</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="tsinfer.FileFormatError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tsinfer.</span></span><span class="sig-name descname"><span class="pre">FileFormatError</span></span><a class="headerlink" href="#tsinfer.FileFormatError" title="Permalink to this definition"></a></dt>
+<dd><p>Exception raised when a malformed file is encountered.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="inference.html" class="btn btn-neutral float-left" title="Inference overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cli.html" class="btn btn-neutral float-right" title="Command line interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2018, Jerome Kelleher.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

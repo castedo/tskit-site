@@ -1,0 +1,1048 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Topological analysis &#8212; Tskit manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bespoke.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Identity by descent" href="ibd.html" />
+    <link rel="prev" title="Statistics" href="stats.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tskit manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Quickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-model.html">
+   Data model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="provenance.html">
+   Provenance
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Analysis
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="stats.html">
+   Statistics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Topological analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ibd.html">
+   Identity by descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="export.html">
+   Data export
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python-api.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="c-api.html">
+   C API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="file-formats.html">
+   File formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  For developers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelogs.html">
+   Changelogs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            0.5.3
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/tskit"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tskit/issues/new?title=Issue%20on%20page%20%2Ftopological-analysis.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tskit/edit/main/docs/topological-analysis.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/topological-analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/topological-analysis.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visiting-nodes">
+   Visiting nodes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#descendant-traversal">
+     Descendant traversal
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#array-methods">
+       Array methods
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ascending-traversal">
+     Ascending traversal
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sec-combinatorics">
+   Identifying and counting topologies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpreting-tree-ranks">
+     Interpreting Tree Ranks
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#examples">
+       Examples
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enumerating-topologies">
+     Enumerating Topologies
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#enumerating-tree-shapes">
+       Enumerating Tree Shapes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#labelling-tree-shapes">
+       Labelling Tree Shapes
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Topological analysis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visiting-nodes">
+   Visiting nodes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#descendant-traversal">
+     Descendant traversal
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#array-methods">
+       Array methods
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ascending-traversal">
+     Ascending traversal
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sec-combinatorics">
+   Identifying and counting topologies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpreting-tree-ranks">
+     Interpreting Tree Ranks
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#examples">
+       Examples
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enumerating-topologies">
+     Enumerating Topologies
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#enumerating-tree-shapes">
+       Enumerating Tree Shapes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#labelling-tree-shapes">
+       Labelling Tree Shapes
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="topological-analysis">
+<span id="sec-topological-analysis"></span><h1>Topological analysis<a class="headerlink" href="#topological-analysis" title="Permalink to this headline">#</a></h1>
+<p>The branching structure of a tree is known as the tree <em>topology</em>. Dealing with the
+topological structure of trees is of key importance in dealing with genealogies
+such as those encoded in the tree sequence structure.</p>
+<section id="visiting-nodes">
+<span id="sec-topological-analysis-traversal"></span><h2>Visiting nodes<a class="headerlink" href="#visiting-nodes" title="Permalink to this headline">#</a></h2>
+<section id="descendant-traversal">
+<span id="sec-topological-analysis-descending"></span><h3>Descendant traversal<a class="headerlink" href="#descendant-traversal" title="Permalink to this headline">#</a></h3>
+<p>A basic thing to want to do is to visit all the nodes in a tree under a focal node
+(i.e. the focal node and all its descendants). This can be done in various
+<em>traversal orders</em>. The <code class="docutils literal notranslate"><span class="pre">tskit</span></code> library provides several methods to do this, such
+as <a class="reference internal" href="python-api.html#tskit.Tree.nodes" title="tskit.Tree.nodes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tree.nodes()</span></code></a> in the <a class="reference internal" href="python-api.html#sec-python-api"><span class="std std-ref">Python API</span></a>. By default, this method
+iterates over all the descendant nodes of the root(s) of the tree, and hence
+visits all the tree’s nodes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tskit</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">Tree</span><span class="o">.</span><span class="n">generate_balanced</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">arity</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">()))</span>
+
+<span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;preorder&quot;</span><span class="p">,</span> <span class="s2">&quot;inorder&quot;</span><span class="p">,</span> <span class="s2">&quot;postorder&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2">:</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/topological-analysis_1_0.svg" src="_images/topological-analysis_1_0.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>preorder:	 [14, 10, 0, 1, 2, 11, 3, 4, 5, 13, 6, 7, 12, 8, 9]
+inorder:	 [0, 10, 1, 2, 14, 3, 11, 4, 5, 6, 13, 7, 8, 12, 9]
+postorder:	 [0, 1, 2, 10, 3, 4, 5, 11, 6, 7, 8, 9, 12, 13, 14]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Providing a focal node ID allows us to traverse through that node’s descendants.
+For instance, here we visit node 13 and its descendants:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nodes under node 13:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="mi">13</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nodes under node 13: [13, 6, 7, 12, 8, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The node IDs returned by traversal methods allow us to to access node information.
+Below, for example, we use the <a class="reference internal" href="python-api.html#tskit.Tree.num_children" title="tskit.Tree.num_children"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tree.num_children()</span></code></a> method to find the number of
+children (the “arity”) of every non-leaf node, and take the average. Since the
+specific ordering of descendant nodes is not important in this case, we can leave
+it out (defaulting to preorder traversal, the most efficient order):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">av_arity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">tree</span><span class="o">.</span><span class="n">num_children</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">tree</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">(</span><span class="n">u</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average arity of internal nodes: </span><span class="si">{</span><span class="n">av_arity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average arity of internal nodes: 2.8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">tskit</span></code>, a tree can have multiple <a class="reference internal" href="data-model.html#sec-data-model-tree-roots"><span class="std std-ref">Roots</span></a>, each with a
+descendant topology.  However, for some algorithms, instead of traversing through
+the descendants of each root of a tree in turn, it can be helpful to start at a
+single node and traverse downwards through the entire genealogy. The
+<a class="reference internal" href="data-model.html#sec-data-model-tree-virtual-root"><span class="std std-ref">virtual root</span></a> is provided for this purpose.</p>
+</div>
+<section id="array-methods">
+<h4>Array methods<a class="headerlink" href="#array-methods" title="Permalink to this headline">#</a></h4>
+<p>The <a class="reference internal" href="python-api.html#tskit.Tree.nodes" title="tskit.Tree.nodes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tree.nodes()</span></code></a> iterator provides a convenient way of looping over descendant
+node IDs, but it can be more efficient to deal with all the IDs at once, as a
+single array of values. This can be combined with
+<a class="reference internal" href="python-api.html#sec-python-api-trees-node-measures-array"><span class="std std-ref">direct memory access</span></a> resulting in a
+high performance approach. Here, for example, is an equivalent
+array-based method to find the average arity of internal nodes, by counting
+how many times a node is referenced as a parent:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent_id</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">parent_array</span><span class="p">[</span><span class="n">tree</span><span class="o">.</span><span class="n">preorder</span><span class="p">()],</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average arity is </span><span class="si">{</span><span class="n">count</span><span class="p">[</span><span class="n">parent_id</span> <span class="o">!=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average arity is 2.8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The <a class="reference external" href="https://tskit.dev/tutorials/analysing_trees.html#sec-analysing-trees" title="(in Python)"><span>Analysing trees</span></a> tutorial provides a number of additional examples
+of tree traversal techniques, with different performance characteristics.</p>
+</div>
+</section>
+</section>
+<section id="ascending-traversal">
+<span id="sec-topological-analysis-ascending"></span><h3>Ascending traversal<a class="headerlink" href="#ascending-traversal" title="Permalink to this headline">#</a></h3>
+<p>For many applications it is useful to be able to traverse upwards from a node or set
+of nodes, such as the leaves. We can do this by iterating over parents. Here, for
+example, we traverse upwards from each of the samples in the tree:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">samples</span><span class="p">():</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">u</span>
+    <span class="k">while</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">:</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 -&gt; [0, 10, 14]
+1 -&gt; [1, 10, 14]
+2 -&gt; [2, 10, 14]
+3 -&gt; [3, 11, 14]
+4 -&gt; [4, 11, 14]
+5 -&gt; [5, 11, 14]
+6 -&gt; [6, 13, 14]
+7 -&gt; [7, 13, 14]
+8 -&gt; [8, 12, 13, 14]
+9 -&gt; [9, 12, 13, 14]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Indicate that this can be made performant using <code class="docutils literal notranslate"><span class="pre">numba</span></code>, and link out to a tutorial
+on high performance methods including the <code class="docutils literal notranslate"><span class="pre">numba</span></code> approach.</p>
+</div>
+</section>
+</section>
+<section id="sec-combinatorics">
+<span id="identifying-and-counting-topologies"></span><h2>Identifying and counting topologies<a class="headerlink" href="#sec-combinatorics" title="Permalink to this headline">#</a></h2>
+<p>tskit uses a combinatorial approach to identify unique topologies of
+rooted, leaf-labelled trees. It provides methods
+for enumerating all possible tree topologies, as well as converting
+back and forth between a tree and its position, or rank, in the
+enumeration of all possible topologies.
+These methods do not only apply to binary trees;
+rather, they cover general, rooted trees without unary nodes.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="python-api.html#tskit.Tree.rank" title="tskit.Tree.rank"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tree.rank()</span></code></a></p></td>
+<td><p>Return the rank of this tree.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="python-api.html#tskit.Tree.unrank" title="tskit.Tree.unrank"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tree.unrank()</span></code></a></p></td>
+<td><p>Return a Tree given its rank and a number of leaves.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="python-api.html#tskit.all_trees" title="tskit.all_trees"><code class="xref py py-func docutils literal notranslate"><span class="pre">tskit.all_trees()</span></code></a></p></td>
+<td><p>Return a generator over all leaf-labelled trees of n leaves.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="python-api.html#tskit.all_tree_shapes" title="tskit.all_tree_shapes"><code class="xref py py-func docutils literal notranslate"><span class="pre">tskit.all_tree_shapes()</span></code></a></p></td>
+<td><p>Return a generator over all tree shapes of n leaves.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="python-api.html#tskit.all_tree_labellings" title="tskit.all_tree_labellings"><code class="xref py py-func docutils literal notranslate"><span class="pre">tskit.all_tree_labellings()</span></code></a></p></td>
+<td><p>Return a generator over all labellings of the given tree’s shape.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As the number of nodes increases, the number of different topologies rises
+extremely rapidly (see its entry in the
+<a class="reference external" href="https://oeis.org/A000311">On-Line Encyclopedia of Integer Sequences</a>). This
+combinatorial explosion is a major limitation in any analysis that attempts to
+explore possible topologies. For example, although the <a class="reference internal" href="python-api.html#tskit.all_trees" title="tskit.all_trees"><code class="xref py py-func docutils literal notranslate"><span class="pre">tskit.all_trees()</span></code></a>
+function above will happily start generating topologies for (say) a tree of 50
+leaves, the total number of possible topologies is over <span class="math notranslate nohighlight">\(6^81\)</span>, which is of
+the same order as the number of atoms in the observable universe. Generating
+all the topologies of a tree with anything much more than 10 tips is likely
+to be impracticable.</p>
+</div>
+<section id="interpreting-tree-ranks">
+<span id="sec-tree-ranks"></span><h3>Interpreting Tree Ranks<a class="headerlink" href="#interpreting-tree-ranks" title="Permalink to this headline">#</a></h3>
+<p>To understand tree ranks we must look at how leaf-labelled tree topologies
+are enumerated. For example, we can use <a class="reference internal" href="python-api.html#tskit.all_trees" title="tskit.all_trees"><code class="xref py py-func docutils literal notranslate"><span class="pre">tskit.all_trees()</span></code></a>
+to generate all possible topologies of three leaves:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tskit</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tskit</span><span class="o">.</span><span class="n">all_trees</span><span class="p">(</span><span class="n">num_leaves</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">(</span><span class="n">node_labels</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;tree&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/topological-analysis_11_0.svg" src="_images/topological-analysis_11_0.svg" /><img alt="_images/topological-analysis_11_1.svg" src="_images/topological-analysis_11_1.svg" /><img alt="_images/topological-analysis_11_2.svg" src="_images/topological-analysis_11_2.svg" /><img alt="_images/topological-analysis_11_3.svg" src="_images/topological-analysis_11_3.svg" /></div>
+</div>
+<p>In this sequence, there exist two distinct tree shapes and each shape
+can be labelled in at least one unique way. Given that topologies are
+ordered first by their shape and then by their labelling, a tree
+topology can be uniquely identified by</p>
+<ol class="simple">
+<li><p>The shape of the tree</p></li>
+<li><p>The labelling of the tree’s shape</p></li>
+</ol>
+<p>We can refer to the first tree in the above enumeration as the
+first labelling of the first shape of trees with three leaves, or tree
+<span class="math notranslate nohighlight">\((0, 0)\)</span>. The second tree can be identified as the first labelling
+of the second shape, or <span class="math notranslate nohighlight">\((1, 0)\)</span>, and so on.
+This pair of indexes for the shape and labelling of a tree is referred
+to as the rank of the tree, and can be computed using the
+<a class="reference internal" href="python-api.html#tskit.Tree.rank" title="tskit.Tree.rank"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tree.rank()</span></code></a> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ranks</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tskit</span><span class="o">.</span><span class="n">all_trees</span><span class="p">(</span><span class="n">num_leaves</span><span class="o">=</span><span class="mi">3</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ranks of 3-leaf trees:&quot;</span><span class="p">,</span> <span class="n">ranks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ranks of 3-leaf trees: [Rank(shape=0, label=0), Rank(shape=1, label=0), Rank(shape=1, label=1), Rank(shape=1, label=2)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ranks in combinatorics are typically natural numbers. However,
+we refer to this tuple of shape and label rank as a rank because
+it serves the same purpose of indexing trees in an enumeration.</p>
+</div>
+<p>For details on how shapes and labellings are ordered, see
+<a class="reference internal" href="#sec-enumerating-topologies"><span class="std std-ref">Enumerating Topologies</span></a>.</p>
+<p>We can also reconstruct a leaf-labelled tree given its rank. This process
+is known as unranking, and can be performed using the <a class="reference internal" href="python-api.html#tskit.Tree.unrank" title="tskit.Tree.unrank"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tree.unrank()</span></code></a>
+method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">rank</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]:</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">Tree</span><span class="o">.</span><span class="n">unrank</span><span class="p">(</span><span class="n">num_leaves</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="n">rank</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">(</span><span class="n">node_labels</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;tree&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/topological-analysis_15_0.svg" src="_images/topological-analysis_15_0.svg" /><img alt="_images/topological-analysis_15_1.svg" src="_images/topological-analysis_15_1.svg" /><img alt="_images/topological-analysis_15_2.svg" src="_images/topological-analysis_15_2.svg" /><img alt="_images/topological-analysis_15_3.svg" src="_images/topological-analysis_15_3.svg" /></div>
+</div>
+<section id="examples">
+<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h4>
+<p>One application of tree ranks is to count the different
+leaf-labelled topologies in a tree sequence. Since the ranks
+are just tuples, we can use a Python <code class="docutils literal notranslate"><span class="pre">Counter</span></code> to track them.
+Here, we count and unrank the most frequently seen
+topology in a tree sequence. For brevity, this example assumes
+samples are synonymous with leaves.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">msprime</span>
+<span class="c1"># Simulate a tree sequence with 2 diploid individuals (i.e. 4 samples)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mf">1e8</span><span class="p">,</span> <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rank_counts</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">trees</span><span class="p">())</span>
+<span class="n">most_freq_rank</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="n">rank_counts</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">most_freq_topology</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">Tree</span><span class="o">.</span><span class="n">unrank</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">most_freq_rank</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Most frequent topology&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">most_freq_topology</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">(</span><span class="n">node_labels</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">3</span><span class="p">})))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Most frequent topology
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<img alt="_images/topological-analysis_17_2.svg" src="_images/topological-analysis_17_2.svg" /></div>
+</div>
+</section>
+</section>
+<section id="enumerating-topologies">
+<span id="sec-enumerating-topologies"></span><h3>Enumerating Topologies<a class="headerlink" href="#enumerating-topologies" title="Permalink to this headline">#</a></h3>
+<p>This section expands briefly on the approach used to enumerate
+tree topologies that serves as the basis for <a class="reference internal" href="python-api.html#tskit.Tree.rank" title="tskit.Tree.rank"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tree.rank()</span></code></a>
+and <a class="reference internal" href="python-api.html#tskit.Tree.unrank" title="tskit.Tree.unrank"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tree.unrank()</span></code></a>.
+To enumerate all rooted, leaf-labelled tree topologies, we first
+formulate a system of ordering and enumerating tree shapes. Then
+we define an enumeration of labellings given an arbitrary tree shape.</p>
+<section id="enumerating-tree-shapes">
+<h4>Enumerating Tree Shapes<a class="headerlink" href="#enumerating-tree-shapes" title="Permalink to this headline">#</a></h4>
+<p>Starting with <span class="math notranslate nohighlight">\(n = 1\)</span>, we see that the only shape for a tree
+with a single leaf is a single root leaf. A tree with <span class="math notranslate nohighlight">\(n &gt; 1\)</span>
+leaves can be obtained by joining at least two trees whose number of
+leaves sum to <span class="math notranslate nohighlight">\(n\)</span>.
+This maps very closely to the concept of integer partitions.
+Each tree shape of <span class="math notranslate nohighlight">\(n\)</span> leaves can be represented by taking a
+nondecreasing integer partition of <span class="math notranslate nohighlight">\(n\)</span> (elements of the partition
+are sorted in nondecreasing order) and recursively partitioning its
+elements. The order in which we select partitions of <span class="math notranslate nohighlight">\(n\)</span> is
+determined by the efficient
+<a class="reference external" href="http://jeromekelleher.net/generating-integer-partitions.html">rule_asc</a>
+algorithm for generating them.</p>
+<p>All tree shapes with four leaves, and the partitions that generate
+them, are:</p>
+<img alt="All four-leaf tree shapes and their generating partitions" src="_images/four_leaf_tree_shapes.png" />
+<p>Note that the middle column reflects all tree shapes of three leaves
+in the right subtree!</p>
+<p><code class="docutils literal notranslate"><span class="pre">*</span></code> This excludes the partition <span class="math notranslate nohighlight">\([n]\)</span>, since this would create a unary node
+and trees with unary nodes are inumerable (and potentially infinite).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using nondecreasing integer partitions enforces a
+<em>canonical orientation</em> on the tree shapes, where children under a node are
+ordered by the number of leaves below them.
+This is important because it prevents us from repeating trees that are
+topologically the same but whose children are ordered differently.</p>
+</div>
+</section>
+<section id="labelling-tree-shapes">
+<h4>Labelling Tree Shapes<a class="headerlink" href="#labelling-tree-shapes" title="Permalink to this headline">#</a></h4>
+<p>Tree shapes are useful in and of themselves, but we can use the enumeration
+formulated above to go further and assign labels to the leaves of each shape.</p>
+<p>Say we are given a tree <span class="math notranslate nohighlight">\(T\)</span> with <span class="math notranslate nohighlight">\(n\)</span> leaves, whose left-most
+subtree, <span class="math notranslate nohighlight">\(T_l\)</span>, has <code class="docutils literal notranslate"><span class="pre">k</span></code> leaves. For each of the <span class="math notranslate nohighlight">\(n \choose k\)</span>
+ways to select labels to assign to <span class="math notranslate nohighlight">\(T_l\)</span>, we produce a unique labelling
+of <span class="math notranslate nohighlight">\(T\)</span>. This process of choosing labels is repeated for the other
+children of <span class="math notranslate nohighlight">\(T\)</span> and then recursively for the subtrees.</p>
+<p>Looking back to the example from <a class="reference internal" href="#sec-tree-ranks"><span class="std std-ref">Interpreting Tree Ranks</span></a>, we can see
+the second tree shape, where the tree is a strictly bifucating tree of
+three leaves, can be labelled in 3 different unique ways.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">second_tree</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">Tree</span><span class="o">.</span><span class="n">unrank</span><span class="p">(</span><span class="n">num_leaves</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tskit</span><span class="o">.</span><span class="n">all_tree_labellings</span><span class="p">(</span><span class="n">second_tree</span><span class="p">):</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">(</span><span class="n">node_labels</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;tree&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/topological-analysis_19_0.svg" src="_images/topological-analysis_19_0.svg" /><img alt="_images/topological-analysis_19_1.svg" src="_images/topological-analysis_19_1.svg" /><img alt="_images/topological-analysis_19_2.svg" src="_images/topological-analysis_19_2.svg" /></div>
+</div>
+<p>The order of the tree labellings is a direct result of the way in which
+combinations of labels are chosen. The implementation in tskit uses a
+standard lexicographic ordering to choose labels. See how the trees
+are sorted by the order in which the left leaf’s label was chosen.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a caveat here regarding symmetry, similar to that of repeating
+tree shapes. Symmetrical trees run the risk of creating redundant labellings
+if all combinations of labels were exhausted. To prevent redundant labellings
+we impose a <em>canonical labelling</em>. In the case of two symmetrical subtrees,
+the left subtree must receive the minimum label from the label set. Notice
+how this is the case in the right subtrees above.</p>
+</div>
+<p>These two enumerations create a complete ordering of topologies where trees are
+ordered first by size (number of leaves), then by shape, then by their minimum
+label. It is this canonical order that enables efficient ranking and unranking
+of topologies.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="stats.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Statistics</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ibd.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Identity by descent</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      0.5.3
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

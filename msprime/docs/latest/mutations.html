@@ -1,0 +1,1895 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Mutation simulations &#8212; Msprime manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Demographic models" href="demography.html" />
+    <link rel="prev" title="Ancestry simulations" href="ancestry.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/msprime_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Msprime manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Quickstart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Running simulations
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ancestry.html">
+   Ancestry simulations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Mutation simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="demography.html">
+   Demographic models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="replication.html">
+   Randomness and replication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Utilities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rate_maps.html">
+   Rate Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pedigrees.html">
+   Pedigrees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="likelihoods.html">
+   Computing likelihoods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logging.html">
+   Logging
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="legacy.html">
+   Legacy (version 0.x) APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="switch_from_other_simulators.html">
+   Switching from other simulators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CITATION.html">
+   Citing msprime
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            msprime 1.2.1.dev16
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/msprime"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/msprime/issues/new?title=Issue%20on%20page%20%2Fmutations.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/msprime/edit/main/docs/mutations.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/mutations.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/mutations.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quick-reference">
+   Quick reference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specifying-rates">
+   Specifying rates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discrete-or-continuous">
+   Discrete or continuous
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restricting-time-span">
+   Restricting time span
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#silent-mutations">
+   Silent mutations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#existing-mutations">
+   Existing mutations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#silent-mutations-and-state-independence">
+     Silent mutations and state-independence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models">
+   Models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-mutation-models">
+     Matrix Mutation Models
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mutation-matrix-models-details">
+       Mutation Matrix Models Details
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-your-own-finite-sites-model">
+       Defining your own finite-sites model
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#parameterisation-of-matrix-mutation-models">
+       Parameterisation of Matrix Mutation Models
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#adjusting-mutation-rates-for-silent-mutations">
+       Adjusting mutation rates for silent mutations
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#microsatellite-mutation-models">
+     Microsatellite Mutation Models
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#working-with-copy-numbers">
+       Working with copy numbers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-more-complicated-microsatellite-model">
+       A more complicated microsatellite model
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#infinite-alleles-mutation-models">
+     Infinite Alleles Mutation Models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slim-mutations">
+     SLiM mutations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Mutation simulations</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quick-reference">
+   Quick reference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specifying-rates">
+   Specifying rates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discrete-or-continuous">
+   Discrete or continuous
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restricting-time-span">
+   Restricting time span
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#silent-mutations">
+   Silent mutations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#existing-mutations">
+   Existing mutations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#silent-mutations-and-state-independence">
+     Silent mutations and state-independence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models">
+   Models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-mutation-models">
+     Matrix Mutation Models
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mutation-matrix-models-details">
+       Mutation Matrix Models Details
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-your-own-finite-sites-model">
+       Defining your own finite-sites model
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#parameterisation-of-matrix-mutation-models">
+       Parameterisation of Matrix Mutation Models
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#adjusting-mutation-rates-for-silent-mutations">
+       Adjusting mutation rates for silent mutations
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#microsatellite-mutation-models">
+     Microsatellite Mutation Models
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#working-with-copy-numbers">
+       Working with copy numbers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-more-complicated-microsatellite-model">
+       A more complicated microsatellite model
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#infinite-alleles-mutation-models">
+     Infinite Alleles Mutation Models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slim-mutations">
+     SLiM mutations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="mutation-simulations">
+<span id="sec-mutations"></span><h1>Mutation simulations<a class="headerlink" href="#mutation-simulations" title="Permalink to this headline">#</a></h1>
+<p><a class="reference internal" href="ancestry.html#sec-ancestry"><span class="std std-ref">Ancestry simulations</span></a> in msprime simulate a random
+ancestral history of a set of sampled genomes. While the trees representing
+this history are very useful (and often all we need, for many purposes),
+they do not include any information about what the actual genome <strong>sequences</strong>
+would look like for these samples. To produce genetic variation data
+(as represented by a <a class="reference external" href="https://samtools.github.io/hts-specs/VCFv4.2.pdf">VCF file</a>,
+for example), we need to simulate some extra information: we need
+<em>mutations</em>. Msprime provides a powerful and efficient way of superimposing
+neutral mutations from a range of sequence evolution
+<a class="reference internal" href="#sec-mutations-models"><span class="std std-ref">models</span></a> using the <a class="reference internal" href="api.html#msprime.sim_mutations" title="msprime.sim_mutations"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_mutations()</span></code></a>
+function.</p>
+<p>For example, here we simulate the ancestry of two diploids (and therefore
+four sample genomes) and store the resulting <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a>
+object in the <code class="docutils literal notranslate"><span class="pre">ts</span></code> variable. We then simulate some mutations on
+that tree sequence, and show the resulting tree with mutations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">5678</span><span class="p">)</span>
+<span class="n">SVG</span><span class="p">(</span><span class="n">mts</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mutations_2_0.svg" src="_images/mutations_2_0.svg" /></div>
+</div>
+<p>We can see the variation data produced by these mutations most simply
+via the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.variants" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.variants()</span></code></a> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">mts</span><span class="o">.</span><span class="n">variants</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">var</span><span class="o">.</span><span class="n">alleles</span><span class="p">,</span> <span class="n">var</span><span class="o">.</span><span class="n">genotypes</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.0	(&#39;T&#39;, &#39;G&#39;)	[0 1 1 0]
+8.0	(&#39;A&#39;, &#39;T&#39;)	[0 1 1 0]
+18.0	(&#39;T&#39;, &#39;A&#39;)	[0 1 1 0]
+19.0	(&#39;A&#39;, &#39;C&#39;)	[0 1 1 0]
+28.0	(&#39;C&#39;, &#39;G&#39;)	[0 1 1 0]
+41.0	(&#39;T&#39;, &#39;C&#39;)	[1 0 0 1]
+55.0	(&#39;T&#39;, &#39;G&#39;)	[0 0 0 1]
+73.0	(&#39;A&#39;, &#39;C&#39;)	[0 1 1 0]
+78.0	(&#39;C&#39;, &#39;G&#39;)	[1 0 0 1]
+79.0	(&#39;G&#39;, &#39;T&#39;)	[1 0 0 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <a class="reference external" href="https://tskit.dev/tskit">tskit</a> library has many powerful
+methods for working with mutation data — see the
+<a class="reference external" href="https://tskit.dev/tutorials/getting_started.html#sec-tskit-getting-started" title="(in Python)"><span>Getting started with tskit</span></a> tutorial
+for more information.</p>
+<hr class="docutils" />
+<section id="quick-reference">
+<h2>Quick reference<a class="headerlink" href="#quick-reference" title="Permalink to this headline">#</a></h2>
+<dl class="simple myst">
+<dt><a class="reference internal" href="api.html#msprime.sim_mutations" title="msprime.sim_mutations"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_mutations()</span></code></a></dt><dd><p>Add simulated mutations to a tree sequence</p>
+</dd>
+</dl>
+<p><strong>Models</strong></p>
+<dl class="simple myst">
+<dt><a class="reference internal" href="api.html#msprime.JC69" title="msprime.JC69"><code class="xref py py-class docutils literal notranslate"><span class="pre">JC69</span></code></a> (Nucleotides)</dt><dd><p>Jukes &amp; Cantor model (‘69), equal probability of transitions between nucleotides</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.HKY" title="msprime.HKY"><code class="xref py py-class docutils literal notranslate"><span class="pre">HKY</span></code></a> (Nucleotides)</dt><dd><p>Hasegawa, Kishino &amp; Yano model (‘85), different probabilities for transitions and transversions</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.F84" title="msprime.F84"><code class="xref py py-class docutils literal notranslate"><span class="pre">F84</span></code></a> (Nucleotides)</dt><dd><p>Felsenstein model (‘84), different probabilities for transitions and transversions</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.GTR" title="msprime.GTR"><code class="xref py py-class docutils literal notranslate"><span class="pre">GTR</span></code></a> (Nucleotides)</dt><dd><p>Generalised Time-Reversible nucleotide mutation model</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.BLOSUM62" title="msprime.BLOSUM62"><code class="xref py py-class docutils literal notranslate"><span class="pre">BLOSUM62</span></code></a> (Amino acids)</dt><dd><p>The BLOSUM62 model of time-reversible amino acid mutation</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.PAM" title="msprime.PAM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PAM</span></code></a> (Amino acids)</dt><dd><p>The PAM model of time-reversible amino acid mutation</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.BinaryMutationModel" title="msprime.BinaryMutationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryMutationModel</span></code></a> (Binary ancestral/derived)</dt><dd><p>Binary mutation model with two flip-flopping alleles: “0” and “1”.</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.SMM" title="msprime.SMM"><code class="xref py py-class docutils literal notranslate"><span class="pre">SMM</span></code></a> (Microsatellites)</dt><dd><p>Stepwise mutation model for microsatellites</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.TPM" title="msprime.TPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">TPM</span></code></a> (Microsatellites)</dt><dd><p>Equal rate, two-phase model for microsatellites</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.EL2" title="msprime.EL2"><code class="xref py py-class docutils literal notranslate"><span class="pre">EL2</span></code></a> (Microsatellites)</dt><dd><p>Equal rate, two-phase, linear bias model for microsatellites</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.InfiniteAlleles" title="msprime.InfiniteAlleles"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfiniteAlleles</span></code></a> (Integers)</dt><dd><p>A generic infinite-alleles mutation model</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.SLiMMutationModel" title="msprime.SLiMMutationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">SLiMMutationModel</span></code></a> (Integers)</dt><dd><p>An infinite-alleles model producing SLiM-style mutations</p>
+</dd>
+<dt><a class="reference internal" href="api.html#msprime.MatrixMutationModel" title="msprime.MatrixMutationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixMutationModel</span></code></a> (General finite state model)</dt><dd><p>Superclass of mutation models with a finite set of states</p>
+</dd>
+</dl>
+<hr class="docutils" />
+</section>
+<section id="specifying-rates">
+<span id="sec-mutations-rate"></span><h2>Specifying rates<a class="headerlink" href="#specifying-rates" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">rate</span></code> parameter of <a class="reference internal" href="api.html#msprime.sim_mutations" title="msprime.sim_mutations"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_mutations()</span></code></a> determines the rate of mutations per unit
+of sequence length per generation. A rate must be specified for mutations to be generated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mts</span><span class="o">.</span><span class="n">num_mutations</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Running <a class="reference internal" href="api.html#msprime.sim_mutations" title="msprime.sim_mutations"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_mutations()</span></code></a> on this simulated tree of length 1 with <code class="docutils literal notranslate"><span class="pre">rate=1</span></code>
+produces 7 mutations.</p>
+<p>Specifying higher rates lead to proportionately more mutations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mts</span><span class="o">.</span><span class="n">num_mutations</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s also possible to provide a <a class="reference internal" href="api.html#msprime.RateMap" title="msprime.RateMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">RateMap</span></code></a> which specifies variable
+mutation rates over different stretches of the sequence.</p>
+<p>In the following example, the mutation rate between positions 0 and 2 is 0.5,
+between positions 2 and 5 is 0, and between positions 5 and 10 is 0.1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ratemap</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">RateMap</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">rate</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">ratemap</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">SVG</span><span class="p">(</span><span class="n">mts</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">(</span><span class="n">node_labels</span><span class="o">=</span><span class="p">{},</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mutations_10_0.svg" src="_images/mutations_10_0.svg" /></div>
+</div>
+<p>As we can see from the output, there are three mutations at site 0 (position 0),
+three mutations at site 1 (position 1), no mutations between positions 2 and 5
+(where the mutation rate is zero) and one mutation at site 2 (position 5).
+This illustrates that as the rate increases, the probability of recurrent mutation
+(multiple mutations at a site) also increases.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If using a <a class="reference internal" href="api.html#msprime.RateMap" title="msprime.RateMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">RateMap</span></code></a> with <a class="reference internal" href="api.html#msprime.sim_mutations" title="msprime.sim_mutations"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_mutations()</span></code></a>, be sure that the final
+position of the <a class="reference internal" href="api.html#msprime.RateMap" title="msprime.RateMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">RateMap</span></code></a> is the same as the
+<code class="docutils literal notranslate"><span class="pre">sequence_length</span></code> of the tree sequence you’re adding mutations to!</p>
+</div>
+</section>
+<section id="discrete-or-continuous">
+<span id="sec-mutations-discrete"></span><h2>Discrete or continuous<a class="headerlink" href="#discrete-or-continuous" title="Permalink to this headline">#</a></h2>
+<p>As in <a class="reference internal" href="api.html#msprime.sim_ancestry" title="msprime.sim_ancestry"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_ancestry()</span></code></a> (see <a class="reference internal" href="ancestry.html#sec-ancestry-discrete-genome"><span class="std std-ref">Discrete or continuous?</span></a>),
+the <code class="docutils literal notranslate"><span class="pre">discrete_genome</span></code> parameter controls whether mutations should be placed at
+discrete, integer coordinates or continuously at floating point positions.
+<code class="docutils literal notranslate"><span class="pre">discrete_genome=True</span></code> is the default:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">mts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">position</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 1., 2., 4.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Specifying <code class="docutils literal notranslate"><span class="pre">discrete_genome=False</span></code> places mutations at floating point positions
+continuously along the genome.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">discrete_genome</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">mts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">position</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.44910517, 1.03359577, 1.37043233, 1.98368303, 2.07117512,
+       2.20654612, 4.04140843])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">discrete_genome=False</span></code> means that the mutation model will conform
+to the classic <em>infinite sites</em> assumption, where each mutation in the simulation
+occurs at a new site.</p>
+</div>
+</section>
+<section id="restricting-time-span">
+<span id="sec-mutations-time-span"></span><h2>Restricting time span<a class="headerlink" href="#restricting-time-span" title="Permalink to this headline">#</a></h2>
+<p>The time range where mutations can be placed is specified using the <code class="docutils literal notranslate"><span class="pre">start_time</span></code>
+and <code class="docutils literal notranslate"><span class="pre">end_time</span></code> parameters. For instance, the following only allows mutations to occur
+earlier than time <code class="docutils literal notranslate"><span class="pre">1</span></code> in the tree:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">start_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.43665171, 2.36231214, 1.89044463, 1.75278168, 1.5317962 ,
+       1.29553628, 1.18207318, 1.14345689])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note, however, that the child node of the edge where the mutation occurred can be younger
+than <code class="docutils literal notranslate"><span class="pre">start_time</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="n">mts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">node</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 1.9775205 , 0.        , 0.        , 0.        ,
+       0.        , 0.17986861, 0.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is also possible to use multiple calls of <a class="reference internal" href="api.html#msprime.sim_mutations" title="msprime.sim_mutations"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_mutations()</span></code></a> with <code class="docutils literal notranslate"><span class="pre">start_time</span></code>
+and <code class="docutils literal notranslate"><span class="pre">end_time</span></code> specified to simulate differing mutation rates at different
+periods of time. For instance, the following code simulates mutations at a low rate
+prior to time <code class="docutils literal notranslate"><span class="pre">1</span></code> and at a higher rate more recently.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">start_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">mts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.29553628 1.15674901]
+[1.29553628 1.15674901 0.96826157 0.90004028 0.80074457 0.72974006
+ 0.69232262 0.53881673 0.41919452 0.39676747 0.31342418 0.20233004
+ 0.19810148 0.05438014 0.02639678 0.01660881]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As explained in <a class="reference internal" href="#sec-mutations-existing"><span class="std std-ref">the following section</span></a>, reversing the order of these two
+lines will result in an error, as older mutations must be added first.</p>
+</section>
+<section id="silent-mutations">
+<span id="sec-mutations-silent"></span><h2>Silent mutations<a class="headerlink" href="#silent-mutations" title="Permalink to this headline">#</a></h2>
+<p>Some of these mutation models produce <em>silent mutations</em>,
+that do not change the allelic state.
+For instance, here are all the mutations in a small simulation
+using the <a class="reference internal" href="api.html#msprime.HKY" title="msprime.HKY"><code class="xref py py-class docutils literal notranslate"><span class="pre">HKY</span></code></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_transitions</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">alleles</span><span class="p">):</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">alleles</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">alleles</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">sites</span><span class="p">():</span>
+        <span class="n">aa</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ancestral_state</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">mutations</span><span class="p">:</span>
+            <span class="n">pa</span> <span class="o">=</span> <span class="n">aa</span>
+            <span class="n">da</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">derived_state</span>
+            <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">parent</span> <span class="o">!=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">:</span>
+                <span class="n">pa</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">mutation</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span><span class="o">.</span><span class="n">derived_state</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">alleles</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">pa</span><span class="p">),</span> <span class="n">alleles</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">da</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">alleles</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">alleles</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">counts</span><span class="p">[</span><span class="n">j</span><span class="p">])))</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">HKY</span><span class="p">(</span><span class="n">kappa</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">equilibrium_frequencies</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span>
+    <span class="mi">5</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mf">1e7</span><span class="p">,</span> <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+    <span class="n">population_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">count_transitions</span><span class="p">(</span><span class="n">mts</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">alleles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	 A	C	G	T
+A	 0	89	90	74
+C	 102	36	148	63
+G	 71	165	39	94
+T	 60	62	89	0
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are a moderate but small number of C-&gt;C and G-&gt;G mutations.
+This is because under the HKY model with these parameters,
+the mutation rates for C and G is less than that of A and T.
+However, msprime puts down mutations on the trees at <em>constant</em> rate;
+and so to make the mutation process correct, some of these “mutations”
+are chosen to be silent.
+See <a class="reference internal" href="#sec-mutations-matrix-mutation-theory"><span class="std std-ref">Parameterisation of Matrix Mutation Models</span></a> for more details on how this works.</p>
+<p>Such silent mutations might be surprising, but they are harmless:
+they do not affect summary statistics
+(e.g., <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.diversity" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.diversity()</span></code></a>)
+or genotypes in any way.
+In fact, leaving them in makes msprime’s mutation process <em>more</em> robust:
+see <a class="reference internal" href="#sec-mutations-state-independence"><span class="std std-ref">Silent mutations and state-independence</span></a> for details.</p>
+<p>To demonstrate insensitivity to these silent mutations,
+let’s compute the number of segregating sites for the mutated tree sequence above.
+Here’s how many sites it has mutations at:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The tree sequence has </span><span class="si">{</span><span class="n">mts</span><span class="o">.</span><span class="n">num_sites</span><span class="si">}</span><span class="s2"> sites with mutations.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The tree sequence has 1182 sites with mutations.
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, we might expect the total number of segregating sites to be 1182.
+However, some are silent, and subtracting the number of these gets the same answer as
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.segregating_sites" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.segregating_sites()</span></code></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_silent</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">mts</span><span class="o">.</span><span class="n">sites</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">mutations</span><span class="p">:</span>
+        <span class="n">pa</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ancestral_state</span>
+        <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">parent</span> <span class="o">!=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">:</span>
+            <span class="n">pa</span> <span class="o">=</span> <span class="n">mts</span><span class="o">.</span><span class="n">mutation</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span><span class="o">.</span><span class="n">derived_state</span>
+        <span class="k">if</span> <span class="n">pa</span> <span class="o">==</span> <span class="n">m</span><span class="o">.</span><span class="n">derived_state</span><span class="p">:</span>
+            <span class="n">num_silent</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">segsites</span> <span class="o">=</span> <span class="n">mts</span><span class="o">.</span><span class="n">segregating_sites</span><span class="p">(</span><span class="n">span_normalise</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The tree sequence has </span><span class="si">{</span><span class="n">num_silent</span><span class="si">}</span><span class="s2"> silent mutations,</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;and </span><span class="si">{</span><span class="n">segsites</span><span class="si">}</span><span class="s2"> segregating sites.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The tree sequence has 75 silent mutations,
+and 1107.0 segregating sites.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Indeed, 1182 - 75 = 1107.</p>
+</section>
+<section id="existing-mutations">
+<span id="sec-mutations-existing"></span><h2>Existing mutations<a class="headerlink" href="#existing-mutations" title="Permalink to this headline">#</a></h2>
+<p>When you add mutations to a tree sequence which already contains them, the <code class="docutils literal notranslate"><span class="pre">keep</span></code> parameter
+controls whether existing mutations are kept or discarded (the default is <code class="docutils literal notranslate"><span class="pre">keep=True</span></code>).
+For instance, in final code block in <a class="reference internal" href="#sec-mutations-time-span"><span class="std std-ref">Restricting time span</span></a>, mutations were
+progressively added to a simulated tree sequence, beginning with the oldest time period.
+This could also be used to add mutations with different mutation models to different segments
+of the genome.</p>
+<p>While it is more natural to add younger mutations to a tree sequence which already contains
+older mutations, you can also add mutations ancestral to existing mutations,
+as in the following code block:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mmts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">mts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Before: </span><span class="si">{</span><span class="n">mts</span><span class="o">.</span><span class="n">num_mutations</span><span class="si">}</span><span class="s2"> mutations.</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;After: </span><span class="si">{</span><span class="n">mmts</span><span class="o">.</span><span class="n">num_mutations</span><span class="si">}</span><span class="s2"> mutations.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before: 4 mutations.
+After: 6 mutations.
+</pre></div>
+</div>
+</div>
+</div>
+<p>This might be done, for instance, if a tree sequence is the result of a forwards
+simulation that has non-neutral variation, and you’d like to add neutral mutations.</p>
+<section id="silent-mutations-and-state-independence">
+<span id="sec-mutations-state-independence"></span><h3>Silent mutations and state-independence<a class="headerlink" href="#silent-mutations-and-state-independence" title="Permalink to this headline">#</a></h3>
+<p>Although it is possible to add new mutations ancestrally to
+existing mutations, doing so can produce confusing situations.
+For instance, new mutations added to an already mutated site
+will not assign a new ancestral state: for instance, with the
+<a class="reference internal" href="api.html#msprime.PAM" title="msprime.PAM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PAM</span></code></a> of amino acid mutation,
+if a site has ancestral state <code class="docutils literal notranslate"><span class="pre">V</span></code> and a mutation with derived state <code class="docutils literal notranslate"><span class="pre">I</span></code>,
+and a new mutation is added ancestral to the existing one,
+the derived state of the new mutation will be randomly assigned
+(rather than being <code class="docutils literal notranslate"><span class="pre">V</span></code> as you might expect).
+This can lead to unlikely or even impossible situations:
+the new mutation in this example might be a <code class="docutils literal notranslate"><span class="pre">G</span></code>,
+since mutations from <code class="docutils literal notranslate"><span class="pre">V</span></code> to <code class="docutils literal notranslate"><span class="pre">G</span></code> and <code class="docutils literal notranslate"><span class="pre">V</span></code> to <code class="docutils literal notranslate"><span class="pre">I</span></code> are both reasonably likely.
+However, a mutation from <code class="docutils literal notranslate"><span class="pre">G</span></code> to <code class="docutils literal notranslate"><span class="pre">I</span></code> is impossible under this model,
+and we now have the chain V-&gt;G-&gt;I
+(the chain is possible under the <a class="reference internal" href="api.html#msprime.BLOSUM62" title="msprime.BLOSUM62"><code class="xref py py-class docutils literal notranslate"><span class="pre">BLOSUM62</span></code></a>, but unlikely).
+In practice this is more confusing than concerning,
+since it can only happen when the same site is mutated more than once,
+which affects only a small proportion of sites.</p>
+<p>The situation above occurred because the probability of mutating to <code class="docutils literal notranslate"><span class="pre">I</span></code>
+was very different depending on the initial state.
+However, if derived alleles are chosen in a way <em>independent</em> of the previous state,
+then adding mutations at rate <span class="math notranslate nohighlight">\(\alpha\)</span>
+and then adding mutations at rate <span class="math notranslate nohighlight">\(\beta\)</span>
+is <em>equivalent</em> to adding mutations once, at rate <span class="math notranslate nohighlight">\(\alpha + \beta\)</span>.
+A mutation model has this property if rows of its transition matrix are the same,
+and is called <em>state independent</em> (or, <em>parent independent</em>).
+For instance, mutations under the <a class="reference internal" href="api.html#msprime.JC69" title="msprime.JC69"><code class="xref py py-class docutils literal notranslate"><span class="pre">JC69</span></code></a>
+choose <em>any</em> derived allele with equal probability.
+This means that the <em>result</em> of a mutation can be chosen without knowing
+what the previous state at that site was (“state independence”),
+which implies that adding new mutations above a given mutation does not affect
+the probability of that mutation occurring.
+However, this is only true if “any derived allele” includes the previous allele,
+i.e., if we include <a class="reference internal" href="#sec-mutations-silent"><span class="std std-ref">silent mutations</span></a>.
+The default Jukes-Cantor model will mutate an <code class="docutils literal notranslate"><span class="pre">A</span></code> to either a <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, or <code class="docutils literal notranslate"><span class="pre">T</span></code>
+with equal probability, which we can check by looking at the <em>transition matrix</em>,
+whose rows give the probability that each allele mutates into each other allele
+(see <a class="reference internal" href="#sec-mutations-matrix-mutations-models"><span class="std std-ref">Matrix Mutation Models</span></a> for more):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jc69</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">JC69</span><span class="p">()</span>
+<span class="n">jc69</span><span class="o">.</span><span class="n">transition_matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.33333333, 0.33333333, 0.33333333],
+       [0.33333333, 0.        , 0.33333333, 0.33333333],
+       [0.33333333, 0.33333333, 0.        , 0.33333333],
+       [0.33333333, 0.33333333, 0.33333333, 0.        ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can check that this does not produce any silent mutations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rate</span> <span class="o">=</span> <span class="mf">1.5e-3</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mf">1e6</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">jc69</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">count_transitions</span><span class="p">(</span><span class="n">mts</span><span class="p">,</span> <span class="n">jc69</span><span class="o">.</span><span class="n">alleles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	 A	C	G	T
+A	 0	1133	1137	1175
+C	 1116	0	1090	1087
+G	 1138	1121	0	1172
+T	 1142	1133	1131	0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Although this model does not include silent mutations,
+applying it more than once could produce some -
+for instance, if one mutation with derived state <code class="docutils literal notranslate"><span class="pre">C</span></code> is inserted
+above an existing mutation with the same derived state.
+To make it state-independent, we have to choose the derived state
+uniformly from <em>all</em> nucleotides:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi_jc69</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">JC69</span><span class="p">(</span><span class="n">state_independent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pi_jc69</span><span class="o">.</span><span class="n">transition_matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.25, 0.25, 0.25, 0.25],
+       [0.25, 0.25, 0.25, 0.25],
+       [0.25, 0.25, 0.25, 0.25],
+       [0.25, 0.25, 0.25, 0.25]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>With this change, mutating twice with <a class="reference internal" href="api.html#msprime.JC69" title="msprime.JC69"><code class="xref py py-class docutils literal notranslate"><span class="pre">JC69</span></code></a>
+is <em>equivalent</em> to mutating once with rate equal to the sum of the rates.
+In other words, these two operations are equivalent:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span> <span class="o">*</span> <span class="n">rate</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">0.6</span> <span class="o">*</span> <span class="n">rate</span>
+<span class="c1"># mutate once:</span>
+<span class="n">mts1</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">alpha</span> <span class="o">+</span> <span class="n">beta</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">pi_jc69</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mutated once:&quot;</span><span class="p">)</span>
+<span class="n">count_transitions</span><span class="p">(</span><span class="n">mts1</span><span class="p">,</span> <span class="n">pi_jc69</span><span class="o">.</span><span class="n">alleles</span><span class="p">)</span>
+<span class="c1"># or, mutate twice:</span>
+<span class="n">mts2</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">pi_jc69</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">mts2</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">mts2</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">beta</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">pi_jc69</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mutated twice:&quot;</span><span class="p">)</span>
+<span class="n">count_transitions</span><span class="p">(</span><span class="n">mts2</span><span class="p">,</span> <span class="n">pi_jc69</span><span class="o">.</span><span class="n">alleles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mutated once:
+	 A	C	G	T
+A	 832	863	890	860
+C	 850	823	802	815
+G	 865	833	860	877
+T	 853	850	846	856
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mutated twice:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	 A	C	G	T
+A	 849	838	845	847
+C	 840	883	835	823
+G	 827	885	840	835
+T	 868	841	852	851
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are very similar - any differences are due to statistical noise.</p>
+<p>However, now 25% of the mutations are silent.
+These silent mutations are harmless, and will not affect most things at all.
+However, they do count as mutations, and so including them decreases the
+effective mutation rate.
+Above, we produced <code class="docutils literal notranslate"><span class="pre">mts</span></code> by mutating with the default Jukes-Cantor model
+at rate 1.5. Here, we produced <code class="docutils literal notranslate"><span class="pre">mts1</span></code> (and <code class="docutils literal notranslate"><span class="pre">mts2</span></code>) using Jukes-Cantor
+but with 25% of the mutations silent.
+This means that to produce an set of mutations equivalent to <code class="docutils literal notranslate"><span class="pre">mts</span></code>
+that includes silent mutations, we need to use the parent-independent
+Jukes-Cantor model with rate <span class="math notranslate nohighlight">\(1/(1-0.25) = 4/3\)</span> times higher:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mts_with_silent</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">rate</span> <span class="o">*</span> <span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">pi_jc69</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">count_transitions</span><span class="p">(</span><span class="n">mts_with_silent</span><span class="p">,</span> <span class="n">pi_jc69</span><span class="o">.</span><span class="n">alleles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	 A	C	G	T
+A	 1134	1124	1104	1226
+C	 1070	1040	1185	1153
+G	 1175	1106	1072	1118
+T	 1086	1153	1117	1113
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the offdiagonal counts are similar to what we saw above for <code class="docutils literal notranslate"><span class="pre">mts</span></code> -
+again, any differences are due to statistical noise.
+Another way to see this is that nucleotide diversity is similar for <code class="docutils literal notranslate"><span class="pre">mts</span></code> and <code class="docutils literal notranslate"><span class="pre">mts_with_silent</span></code>,
+but is only 75% as big for <code class="docutils literal notranslate"><span class="pre">mts1</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nucleotide diversity for default JC69 with rate </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">mts</span><span class="o">.</span><span class="n">diversity</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;              parent-independent JC69 with rate </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">mts1</span><span class="o">.</span><span class="n">diversity</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;              parent-independent JC69 with rate </span><span class="si">{</span><span class="n">rate</span> <span class="o">*</span> <span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">mts_with_silent</span><span class="o">.</span><span class="n">diversity</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nucleotide diversity for default JC69 with rate 0.0015: 0.0053
+              parent-independent JC69 with rate 0.0015: 0.0039
+              parent-independent JC69 with rate 0.002: 0.0053
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s the takeaways from this section:</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ol class="simple">
+<li><p>If you’re going to add mutations to the same tree sequence more than once,
+you should use the <code class="docutils literal notranslate"><span class="pre">parent_independent</span></code> mutation models
+(or carefully consider the consequences).</p></li>
+<li><p>If you use a parent-independent model, you need to make your mutation rate higher,
+to account for the silent mutations. See <a class="reference internal" href="#sec-mutations-adjusting-for-silent"><span class="std std-ref">Adjusting mutation rates for silent mutations</span></a>
+for more details.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="models">
+<span id="sec-mutations-models"></span><h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">#</a></h2>
+<p>Mutation models are specified using the <code class="docutils literal notranslate"><span class="pre">model</span></code> parameter to
+<a class="reference internal" href="api.html#msprime.sim_mutations" title="msprime.sim_mutations"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_mutations()</span></code></a>. This parameter can either take the form of a
+string describing the model (e.g. <code class="docutils literal notranslate"><span class="pre">model=&quot;jc69&quot;</span></code>) or an instance of a
+model definition class (e.g <code class="docutils literal notranslate"><span class="pre">model=msprime.JC69()</span></code>).
+Here are the available models; they are documented in more detail below.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html#msprime.BinaryMutationModel" title="msprime.BinaryMutationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryMutationModel</span></code></a>: Basic binary mutation model with two flip-flopping alleles: “0” and “1”.</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.JC69" title="msprime.JC69"><code class="xref py py-class docutils literal notranslate"><span class="pre">JC69</span></code></a>: Jukes &amp; Cantor model (‘69), equal probability of transitions between nucleotides</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.HKY" title="msprime.HKY"><code class="xref py py-class docutils literal notranslate"><span class="pre">HKY</span></code></a>: Hasegawa, Kishino &amp; Yano model (‘85), different probabilities for transitions and transversions</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.F84" title="msprime.F84"><code class="xref py py-class docutils literal notranslate"><span class="pre">F84</span></code></a>: Felsenstein model (‘84), different probabilities for transitions and transversions</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.GTR" title="msprime.GTR"><code class="xref py py-class docutils literal notranslate"><span class="pre">GTR</span></code></a>: The Generalised Time-Reversible nucleotide mutation model, a general parameterisation of a time-reversible mutation process</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.BLOSUM62" title="msprime.BLOSUM62"><code class="xref py py-class docutils literal notranslate"><span class="pre">BLOSUM62</span></code></a>: The BLOSUM62 model of time-reversible amino acid mutation</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.PAM" title="msprime.PAM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PAM</span></code></a>: The PAM model of time-reversible amino acid mutation</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.MatrixMutationModel" title="msprime.MatrixMutationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixMutationModel</span></code></a>: Superclass of the specific mutation models with a finite set of states</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.SMM" title="msprime.SMM"><code class="xref py py-class docutils literal notranslate"><span class="pre">SMM</span></code></a>: Stepwise mutation model for microsatellite repeat copy number. Ohta and Kimura (‘73)</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.TPM" title="msprime.TPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">TPM</span></code></a>: Two-phase mutation model for microsatellite repeat copy number. DiRienzo et al. (‘94)</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.EL2" title="msprime.EL2"><code class="xref py py-class docutils literal notranslate"><span class="pre">EL2</span></code></a>: Two-phase mutation model, equal rate, linear bias model for microsatellite repeat copy number. Garza et al. (‘95)</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.InfiniteAlleles" title="msprime.InfiniteAlleles"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfiniteAlleles</span></code></a>: A generic infinite-alleles mutation model</p></li>
+<li><p><a class="reference internal" href="api.html#msprime.SLiMMutationModel" title="msprime.SLiMMutationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">SLiMMutationModel</span></code></a>: An infinite-alleles model of mutation producing SLiM-style mutations</p></li>
+</ul>
+<section id="matrix-mutation-models">
+<span id="sec-mutations-matrix-mutations-models"></span><h3>Matrix Mutation Models<a class="headerlink" href="#matrix-mutation-models" title="Permalink to this headline">#</a></h3>
+<p>These classes are defined by an alphabet of possible alleles (<code class="docutils literal notranslate"><span class="pre">alleles</span></code>); an array of
+probabilities that determines how likely each allele is to be the root, ancestral allele
+(<code class="docutils literal notranslate"><span class="pre">root_distribution</span></code>); and a transition matrix specifying the probability for each allele
+to mutate to every other allele. Each class has specific values of these parameters to
+create the specific model. For your own custom model these parameters can be set using
+<a class="reference internal" href="api.html#msprime.MatrixMutationModel" title="msprime.MatrixMutationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">msprime.MatrixMutationModel</span></code></a>. For more detail about how mutations are simulated
+in these models see <a class="reference internal" href="#sec-mutations-matrix-mutation-models-details"><span class="std std-ref">Mutation Matrix Models Details</span></a>.</p>
+<section id="mutation-matrix-models-details">
+<span id="sec-mutations-matrix-mutation-models-details"></span><h4>Mutation Matrix Models Details<a class="headerlink" href="#mutation-matrix-models-details" title="Permalink to this headline">#</a></h4>
+<p>Mutation matrix models are specified by three things: an alphabet,
+a root distribution, and a transition matrix.
+These leave one free parameter: an overall mutation rate,
+specified by the mutation <code class="docutils literal notranslate"><span class="pre">rate</span></code> in the call to <a class="reference internal" href="api.html#msprime.sim_mutations" title="msprime.sim_mutations"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_mutations()</span></code></a>.
+Concisely,
+the underlying model of mutation is a continuous-time Markov chain on the alphabet,
+started by a draw from <code class="docutils literal notranslate"><span class="pre">root_distribution</span></code>, and
+with instantaneous transition rate from <code class="docutils literal notranslate"><span class="pre">i</span></code> to <code class="docutils literal notranslate"><span class="pre">j</span></code> that is equal to
+<code class="docutils literal notranslate"><span class="pre">rate</span></code> multiplied by <code class="docutils literal notranslate"><span class="pre">transition_matrix[i,j]</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">root</span> <span class="pre">distribution</span></code> and every row in the <code class="docutils literal notranslate"><span class="pre">transition_matrix</span></code>
+must give <em>probabilities</em>, i.e., they must be nonnegative numbers summing to 1.
+For the precise interpretation of these parameters
+(especially when the transition matrix has nonzero entries on the diagonal)
+see <a class="reference internal" href="#sec-mutations-matrix-mutation-theory"><span class="std std-ref">Parameterisation of Matrix Mutation Models</span></a>.</p>
+<p>You can define your own, but you probably don’t need to:
+there are several mutation matrix models already implemented in <code class="docutils literal notranslate"><span class="pre">msprime</span></code>,
+using binary (0/1), nucleotide, or amino acid alphabets:</p>
+</section>
+<section id="defining-your-own-finite-sites-model">
+<h4>Defining your own finite-sites model<a class="headerlink" href="#defining-your-own-finite-sites-model" title="Permalink to this headline">#</a></h4>
+<p>If you want to define your own <a class="reference internal" href="api.html#msprime.MatrixMutationModel" title="msprime.MatrixMutationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixMutationModel</span></code></a>, you have a good
+deal of freedom. For instance, here’s a “decomposition/growth/disturbance”
+mutation model, where the only possible transitions are 🎄 to 🔥, 🔥 to 💩, and
+💩 to 🎄, with the first transition happening at one-fifth the rate of the
+other two:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alleles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;💩&quot;</span><span class="p">,</span> <span class="s2">&quot;🎄&quot;</span><span class="p">,</span> <span class="s2">&quot;🔥&quot;</span><span class="p">]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">MatrixMutationModel</span><span class="p">(</span>
+    <span class="n">alleles</span><span class="p">,</span>
+    <span class="n">root_distribution</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="n">transition_matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
+<span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">population_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have simulated from this model at rate 2, so the overall rate of mutation
+from 💩 to 🎄 and 🔥 to 💩 is 2, and from 🎄 to 🔥 is <span class="math notranslate nohighlight">\(2 \times 0.2 = 0.4\)</span>.
+As a result, roughly 5/7th of the states will be 🎄, with the remainder
+divided evenly between 💩 and 🔥. Here is the resulting “genotype matrix”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">mts</span><span class="o">.</span><span class="n">variants</span><span class="p">():</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">alleles</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">genotypes</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔥🎄🎄🎄💩🎄🎄🎄🎄🎄🎄🎄
+💩💩💩🎄🎄🎄🎄💩🎄🎄🎄🎄
+🎄🎄🔥🔥💩🎄🎄🎄🎄🎄🎄🎄
+🎄🎄💩🔥🎄🎄🎄🎄💩💩🔥💩
+💩🎄🎄🎄🔥🎄🎄🎄🎄🎄🔥🎄
+🎄🎄🎄🎄🎄🎄🎄🎄🎄🎄🎄🎄
+💩🎄🎄🎄🎄💩🎄🎄🎄💩🎄💩
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parameterisation-of-matrix-mutation-models">
+<span id="sec-mutations-matrix-mutation-theory"></span><h4>Parameterisation of Matrix Mutation Models<a class="headerlink" href="#parameterisation-of-matrix-mutation-models" title="Permalink to this headline">#</a></h4>
+<p>Mutation matrix models are specified by three things: an alphabet,
+a root distribution, and a transition matrix.
+These leave one free parameter: an overall mutation rate,
+specified by the mutation <code class="docutils literal notranslate"><span class="pre">rate</span></code> in the call to <a class="reference internal" href="api.html#msprime.sim_mutations" title="msprime.sim_mutations"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_mutations()</span></code></a>.
+Concisely,
+the underlying model of mutation is a continuous-time Markov chain on the alphabet,
+started by a draw from <code class="docutils literal notranslate"><span class="pre">root_distribution</span></code>, and
+with instantaneous transition rate from <code class="docutils literal notranslate"><span class="pre">i</span></code> to <code class="docutils literal notranslate"><span class="pre">j</span></code> that is equal to
+<code class="docutils literal notranslate"><span class="pre">rate</span></code> multiplied by <code class="docutils literal notranslate"><span class="pre">transition_matrix[i,j]</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">root</span> <span class="pre">distribution</span></code> and every row in the <code class="docutils literal notranslate"><span class="pre">transition_matrix</span></code>
+must give <em>probabilities</em>, i.e., they must be nonnegative numbers summing to 1.</p>
+<p>To interpret these parameters,
+it helps to know how the underlying mutational process is implemented.
+First, mutations are placed on the tree,
+with a mean density equal to the <code class="docutils literal notranslate"><span class="pre">rate</span></code>, per unit of time and sequence length.
+If <code class="docutils literal notranslate"><span class="pre">discrete_genome=False</span></code> then this is an infinite-sites model,
+so each mutation occurs at a distinct position along the genome.
+If <code class="docutils literal notranslate"><span class="pre">discrete_genome=True</span></code> (the default setting) then at each integer position,
+each branch of the tree at that position gets a Poisson number of mutations
+with mean equal to <code class="docutils literal notranslate"><span class="pre">rate</span></code> multiplied by the length of the branch.
+Next, each site that has a mutation is assigned an ancestral state,
+i.e., the allele at the root of the tree at that position,
+by drawing an allele from the probabilities in the <code class="docutils literal notranslate"><span class="pre">root_distribution</span></code>.
+Now, each mutation is examined, moving down the tree,
+and a derived state is chosen using the probabilities given in the
+row of the <code class="docutils literal notranslate"><span class="pre">transition_matrix</span></code> that corresponds to the “parental state”,
+i.e., the allele that this mutation will replace.
+Importantly, the mutation is recorded even if the chosen allele is the same
+as the parental allele - so, if the diagonal of the transition matrix
+contains nonzero entries, then the mutated tree sequence will
+(probably) contain silent mutations.</p>
+<p>Some facts about Markov chains are useful to interpret the statistics
+of these mutation models.
+First, suppose we have tabulated all mutations, and so for each pair of alleles
+<span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> we have the proportion of mutations that caused an <span class="math notranslate nohighlight">\(i \to j\)</span> change.
+If allele <span class="math notranslate nohighlight">\(i\)</span> mutates to a different allele, the chance it mutates to allele <span class="math notranslate nohighlight">\(j\)</span>
+is proportional to <code class="docutils literal notranslate"><span class="pre">transition_matrix[i,j]</span></code> but excluding the diagonal (no-change) entry,
+so is equal to <code class="docutils literal notranslate"><span class="pre">transition_matrix[i,j]</span> <span class="pre">/</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">transition_matrix[i,i])</span></code>.
+Second, suppose that an ancestor carries allele <span class="math notranslate nohighlight">\(i\)</span> at a given position.
+The probability that her descendant some time <span class="math notranslate nohighlight">\(t\)</span> in the future carries allele <span class="math notranslate nohighlight">\(j\)</span> at that position
+is given by a matrix exponential of
+the scaled <a class="reference external" href="https://en.wikipedia.org/wiki/Transition_rate_matrix">infinitesimal rate matrix</a> of the Markov chain,
+which can be computed as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
+
+<span class="n">Q</span> <span class="o">=</span> <span class="p">(</span><span class="n">transition_matrix</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">alleles</span><span class="p">)))</span>
+<span class="n">Pt</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">expm</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">rate</span> <span class="o">*</span> <span class="n">Q</span><span class="p">)[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If the top of a branch of length <span class="math notranslate nohighlight">\(t\)</span> has allele <span class="math notranslate nohighlight">\(i\)</span>,
+the bottom of the branch has allele <span class="math notranslate nohighlight">\(j\)</span> with probability <code class="docutils literal notranslate"><span class="pre">Pt[i,j]</span></code>.</p>
+</section>
+<section id="adjusting-mutation-rates-for-silent-mutations">
+<span id="sec-mutations-adjusting-for-silent"></span><h4>Adjusting mutation rates for silent mutations<a class="headerlink" href="#adjusting-mutation-rates-for-silent-mutations" title="Permalink to this headline">#</a></h4>
+<p>As discussed in <a class="reference internal" href="#sec-mutations-silent"><span class="std std-ref">Silent mutations</span></a>, matrix mutation models can insert <em>silent</em> mutations,
+which may make it difficult to set the mutation rate appropriately,
+since by “mutation rate” we mean the rate of appearance of mutations that <em>change</em> the allelic state.
+However, the “mutation rate” is not in fact a single value: it depends on context,
+as some alleles may tend to mutate more than others.</p>
+<p>As an example of how to appropriately adjust the mutation rate to produce a given expected diversity,
+take the following somewhat contrived problem.
+Suppose we generate a tree sequence of 1000 samples of 10Mb from a population of size 1,000,
+which has mutations generated under the HKY model with <span class="math notranslate nohighlight">\(\kappa = 0.75\)</span>
+and equilibrium frequencies <span class="math notranslate nohighlight">\(\pi = [0.1, 0.2, 0.3, 0.4]\)</span>.
+We’d like to choose the mutation rate <span class="math notranslate nohighlight">\(\mu\)</span> so that the mean genetic diversity
+is equal to 0.001.
+If this was equal to the usual <span class="math notranslate nohighlight">\(\theta = 4Nu\)</span>, we’d need a “mutation rate”
+of <span class="math notranslate nohighlight">\(u = 2.5 \times 10^{-7}\)</span>, so we know we’ll need a number slightly higher than that.</p>
+<p>To do this, let’s figure out the mean rate of appearance of silent mutations.
+We know that (a) the rate of appearance of silent mutations per nucleotide is given by <span class="math notranslate nohighlight">\(\mu\)</span>
+times the diagonal of the transition matrix, and (b) the equilibrium frequency of the four
+nucleotides is given by <span class="math notranslate nohighlight">\(\pi\)</span>. Multiplying these together and adding them up
+gives us the expected proportion of mutations that are silent.
+Now, writing that we want <span class="math notranslate nohighlight">\(u\)</span> to equal <span class="math notranslate nohighlight">\(\mu\)</span> times one minus the this proportion,
+we get <span class="math notranslate nohighlight">\(2.5 \times 10^{-7} = \mu (1 - \sum_i \pi_i P_{ii})\)</span>, so
+solving for <span class="math notranslate nohighlight">\(\mu\)</span> gives us:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+<span class="n">hky</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">HKY</span><span class="p">(</span><span class="n">kappa</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">equilibrium_frequencies</span><span class="o">=</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">hky</span><span class="o">.</span><span class="n">transition_matrix</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">2.5e-7</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">u</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">P</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mutation rate should be increased by a factor of </span><span class="si">{</span><span class="n">mu</span><span class="o">/</span><span class="n">u</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mutation rate should be increased by a factor of 1.28.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s verify we get the nucleotide diversity we were aiming for:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">population_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mf">1e7</span><span class="p">,</span> <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">hky</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">mts</span><span class="o">.</span><span class="n">diversity</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Genetic diversity: </span><span class="si">{</span><span class="n">theta</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Genetic diversity: 0.0010836445272138172.
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s pretty close to 0.001! The difference is within statistical error.</p>
+</section>
+</section>
+<section id="microsatellite-mutation-models">
+<span id="sec-mutations-microsats"></span><h3>Microsatellite Mutation Models<a class="headerlink" href="#microsatellite-mutation-models" title="Permalink to this headline">#</a></h3>
+<p>We have implemented a number of mutational models that are commonly used
+to model the evolution of microsatellite repeats.
+The basic idea here is that the number of copies of a given repeat is
+tracked, and its evolution over time subject to one of a number of potential
+biases.</p>
+<p>Consider the <a class="reference external" href="https://en.wikipedia.org/wiki/Combined_DNA_Index_System">Combined DNA Index System</a>
+(CODIS), a US National database
+of genotypes maintained by the justice system for use in forensic DNA analysis.
+The CODIS system relies on 20 core microsatellite loci, that are unlinked across
+the human genome. Let’s simulate a sample of 5 individuals at 20 unlinked loci,
+and then apply the <a class="reference internal" href="api.html#msprime.SMM" title="msprime.SMM"><code class="xref py py-class docutils literal notranslate"><span class="pre">SMM</span></code></a> model to the sample.
+After running the simulation we then examine the variation across the loci, by
+iterating through the variants.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The alleles in <a class="reference internal" href="api.html#msprime.MicrosatMutationModel" title="msprime.MicrosatMutationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicrosatMutationModel</span></code></a>s such as this represent the
+copy number of the repeat, not the actual sequences observed. See below for some basic
+techniques for working with this kind of data.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">population_size</span><span class="o">=</span><span class="mi">100_000</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">SMM</span><span class="p">(</span><span class="n">lo</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">hi</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">mts</span><span class="o">.</span><span class="n">variants</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Site at:&quot;</span><span class="p">,</span> <span class="n">var</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">position</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Alleles:&quot;</span><span class="p">,</span> <span class="n">var</span><span class="o">.</span><span class="n">alleles</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Genotypes:&quot;</span><span class="p">,</span> <span class="n">var</span><span class="o">.</span><span class="n">genotypes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Site at: 0.0
+    Alleles: (&#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;4&#39;, &#39;3&#39;)
+    Genotypes: [0 4 4 2 2 5 4 0 4 4]
+Site at: 1.0
+    Alleles: (&#39;8&#39;, &#39;7&#39;)
+    Genotypes: [0 0 0 0 0 0 0 0 1 0]
+Site at: 2.0
+    Alleles: (&#39;6&#39;, &#39;5&#39;, &#39;4&#39;)
+    Genotypes: [0 0 1 0 2 1 1 2 1 0]
+Site at: 3.0
+    Alleles: (&#39;2&#39;, &#39;3&#39;, &#39;1&#39;)
+    Genotypes: [2 0 0 0 0 1 0 1 0 0]
+Site at: 4.0
+    Alleles: (&#39;2&#39;, &#39;1&#39;, &#39;3&#39;)
+    Genotypes: [0 1 0 1 2 0 0 1 1 0]
+Site at: 5.0
+    Alleles: (&#39;1&#39;, &#39;2&#39;)
+    Genotypes: [1 1 0 1 1 1 1 0 0 1]
+Site at: 6.0
+    Alleles: (&#39;7&#39;, &#39;8&#39;, &#39;9&#39;, &#39;10&#39;)
+    Genotypes: [0 0 1 3 0 1 2 2 2 0]
+Site at: 7.0
+    Alleles: (&#39;10&#39;, &#39;9&#39;, &#39;8&#39;)
+    Genotypes: [0 0 1 0 2 0 1 0 0 1]
+Site at: 8.0
+    Alleles: (&#39;9&#39;, &#39;10&#39;)
+    Genotypes: [0 1 0 1 0 0 1 0 0 0]
+Site at: 9.0
+    Alleles: (&#39;7&#39;, &#39;8&#39;)
+    Genotypes: [0 0 0 1 0 0 0 0 1 0]
+Site at: 10.0
+    Alleles: (&#39;3&#39;, &#39;2&#39;, &#39;1&#39;, &#39;4&#39;)
+    Genotypes: [0 3 0 0 0 3 3 0 1 0]
+Site at: 11.0
+    Alleles: (&#39;3&#39;, &#39;4&#39;, &#39;2&#39;, &#39;1&#39;)
+    Genotypes: [3 3 1 2 2 1 1 0 1 3]
+Site at: 12.0
+    Alleles: (&#39;3&#39;, &#39;2&#39;, &#39;1&#39;)
+    Genotypes: [0 1 2 2 1 1 2 1 2 2]
+Site at: 13.0
+    Alleles: (&#39;5&#39;, &#39;4&#39;, &#39;3&#39;, &#39;2&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;)
+    Genotypes: [2 5 5 5 6 5 7 5 5 6]
+Site at: 14.0
+    Alleles: (&#39;5&#39;, &#39;6&#39;, &#39;4&#39;, &#39;3&#39;, &#39;7&#39;)
+    Genotypes: [0 2 1 1 2 0 1 3 4 0]
+Site at: 15.0
+    Alleles: (&#39;2&#39;, &#39;1&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;)
+    Genotypes: [1 5 5 1 3 1 3 1 5 1]
+Site at: 16.0
+    Alleles: (&#39;6&#39;, &#39;7&#39;, &#39;5&#39;, &#39;4&#39;)
+    Genotypes: [1 2 0 3 0 0 2 1 0 1]
+Site at: 17.0
+    Alleles: (&#39;8&#39;, &#39;7&#39;, &#39;9&#39;, &#39;6&#39;, &#39;5&#39;, &#39;4&#39;, &#39;3&#39;, &#39;2&#39;)
+    Genotypes: [0 1 5 0 6 0 7 2 0 6]
+Site at: 18.0
+    Alleles: (&#39;2&#39;, &#39;1&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;)
+    Genotypes: [4 1 3 0 4 3 3 4 3 1]
+Site at: 19.0
+    Alleles: (&#39;8&#39;, &#39;9&#39;, &#39;7&#39;, &#39;10&#39;)
+    Genotypes: [1 3 0 3 3 3 3 1 1 3]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="working-with-copy-numbers">
+<h4>Working with copy numbers<a class="headerlink" href="#working-with-copy-numbers" title="Permalink to this headline">#</a></h4>
+<p>In order to perform some statistical analysis of microsatellite models,
+we need a function to convert the output of msprime into something that
+we can work with easily. The variation data is returned using the
+tskit <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.variants" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.variants()</span></code></a> method, which uses an array of
+alleles (the different states observed at a site) and an array of
+“genotypes”, which are the observations at that site for all of the samples.
+Usually, we think of alleles as being nucleotides or amino acids which
+are represented as strings. In this case, however, the alleles
+represent copy-numbers which are still represented as strings. So,
+to get the observed copy numbers, we must convert the alleles
+to a numeric type, and obtain the actual observations by
+indexing into this array. This is done in the following function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">copy_number_matrix</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the copy number matrix from the specified tree sequence</span>
+<span class="sd">    simulated under a MicrosatMutationModel.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ts</span><span class="o">.</span><span class="n">num_sites</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">num_samples</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">variants</span><span class="p">():</span>
+        <span class="n">alleles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">allele</span><span class="p">)</span> <span class="k">for</span> <span class="n">allele</span> <span class="ow">in</span> <span class="n">var</span><span class="o">.</span><span class="n">alleles</span><span class="p">])</span>
+        <span class="n">C</span><span class="p">[</span><span class="n">var</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">alleles</span><span class="p">[</span><span class="n">var</span><span class="o">.</span><span class="n">genotypes</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">C</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using this new tool, we can now look at the dependence of the variance in repeat
+number on mutation rate under the <a class="reference internal" href="api.html#msprime.SMM" title="msprime.SMM"><code class="xref py py-class docutils literal notranslate"><span class="pre">SMM</span></code></a> model. Much has been
+written over the years on how to estimate the mutation
+rate from the variance in repeat number
+(e.g., <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/8524801/">Zhivotovsky and Feldman, 1995</a>),
+so let’s simulate that signal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">rates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">variances</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">population_size</span><span class="o">=</span><span class="mi">100_000</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rates</span><span class="p">:</span>
+    <span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">msprime</span><span class="o">.</span><span class="n">SMM</span><span class="p">(),</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">copy_number_matrix</span><span class="p">(</span><span class="n">mts</span><span class="p">)</span>
+    <span class="n">variances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rates</span><span class="p">,</span> <span class="n">variances</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mutation rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Variance in repeat number&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mutations_54_0.png" src="_images/mutations_54_0.png" />
+</div>
+</div>
+<p>So here we are seeing a clear relationship between the variance
+in repeat number and mutation rate, as expected. 🔥🔥🔥</p>
+</section>
+<section id="a-more-complicated-microsatellite-model">
+<h4>A more complicated microsatellite model<a class="headerlink" href="#a-more-complicated-microsatellite-model" title="Permalink to this headline">#</a></h4>
+<p>In the 1990s a lot of work went in to describing patterns of
+mutation at microsatellite loci, and several models were
+put forward describing various biases in expansion vs contraction,
+mutistep mutations, and mutation rate biases. The
+<a class="reference internal" href="api.html#msprime.MicrosatMutationModel" title="msprime.MicrosatMutationModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicrosatMutationModel</span></code></a> implements the general parameterization
+of microsatellite mutation models developed in
+<a class="reference external" href="https://doi.org/10.1534/genetics.103.022665">Sainudiin et al. (2004)</a>,
+allowing users fine grained control of microsatellite mutation.</p>
+<p>One concrete instance of this general model is the equal rate, linear biased, two-phase
+mutation model of <a class="reference external" href="https://doi.org/10.1093/oxfordjournals.molbev.a040239">Garza et al. (1995)</a>
+that we have implemented in <a class="reference internal" href="api.html#msprime.EL2" title="msprime.EL2"><code class="xref py py-class docutils literal notranslate"><span class="pre">EL2</span></code></a>. Let’s simulate large
+samples under this model with different strengths of linear bias,
+and compare the distribution of allele sizes we get back.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">biases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span>
+    <span class="mi">1000</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">population_size</span><span class="o">=</span><span class="mi">100_000</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">biases</span><span class="p">:</span>
+    <span class="c1"># these are values of m and u from Sainudiin et al. (2004)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">EL2</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mf">0.68</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">copy_number_matrix</span><span class="p">(</span><span class="n">mts</span><span class="p">)</span>
+    <span class="n">kde</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kde</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;v=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;copy number&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mutations_56_0.png" src="_images/mutations_56_0.png" />
+</div>
+</div>
+<p>From these simulations we can see that the linear bias parameter <code class="docutils literal notranslate"><span class="pre">v</span></code>
+has a strong effect on the distribution of allele frequencies we
+might expect from our model. Care should be taken when choosing
+parameters for your own simulations. Potentially appropriate
+values for dinucleotide repeats in humans and chimp could be taken
+from Table 2 of <a class="reference external" href="https://doi.org/10.1534/genetics.103.022665">Sainudiin et al. (2004)</a>,
+but we offer no guarantees and your mileage may vary.</p>
+</section>
+</section>
+<section id="infinite-alleles-mutation-models">
+<span id="sec-mutations-mutation-infinite-alleles"></span><h3>Infinite Alleles Mutation Models<a class="headerlink" href="#infinite-alleles-mutation-models" title="Permalink to this headline">#</a></h3>
+<p>You can also use a model of <em>infinite alleles</em> mutation: where each new mutation produces a unique,
+never-before-seen allele. The underlying mutation model just assigns the derived state
+to be a new integer every time a new mutation appears.
+By default these integers start at zero, but a different starting point can be chosen,
+with the <code class="docutils literal notranslate"><span class="pre">start_allele</span></code> parameter.
+It does this globally across all mutations, so that the first assigned allele will be <code class="docutils literal notranslate"><span class="pre">start_allele</span></code>,
+and if <code class="docutils literal notranslate"><span class="pre">n</span></code> alleles are assigned in total (across ancestral and derived states),
+these will be the next <code class="docutils literal notranslate"><span class="pre">n-1</span></code> integers.
+Many theoretical results are derived based on this mutation model (e.g., Ewens’ sampling formula).</p>
+<p>For instance, here we’ll simulate with the infinite alleles model on a single tree,
+and print the resulting tree, labeling each mutation with its derived state:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">InfiniteAlleles</span><span class="p">()</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">mts</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">ml</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">derived_state</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mts</span><span class="o">.</span><span class="n">mutations</span><span class="p">()}</span>
+<span class="n">SVG</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">(</span><span class="n">mutation_labels</span><span class="o">=</span><span class="n">ml</span><span class="p">,</span> <span class="n">node_labels</span><span class="o">=</span><span class="p">{},</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mutations_58_0.svg" src="_images/mutations_58_0.svg" /></div>
+</div>
+<p>Apparently, there were 20 mutations at this site, but the alleles present in the population are
+“13” (in five copies), “17” (in two copies), and one copy each of “14”, “15”, “19”, and “20”.
+Note that all other mutations on the tree are not observed in the population as they have
+been are “overwritten” by subsequent mutations.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Neither this nor the next infinite alleles mutation model check to see if the alleles
+they produce already exist at the mutated sites. So, if you are using these
+models to add mutations to an already-mutated tree sequence, it is up to you
+to set the starting allele appropriately, and to make sure the results make sense!</p>
+</div>
+</section>
+<section id="slim-mutations">
+<span id="sec-mutations-mutation-slim-mutations"></span><h3>SLiM mutations<a class="headerlink" href="#slim-mutations" title="Permalink to this headline">#</a></h3>
+<p>A special class of infinite alleles model is provided for use with <a class="reference external" href="https://messerlab.org/slim/">SLiM</a>,
+to agree with the underlying mutation model in SLiM.
+As with the InfiniteAlleles model, it assigns each new mutation a unique integer,
+by keeping track of the <code class="docutils literal notranslate"><span class="pre">next_id</span></code> and incrementing it each time a new mutation appears.</p>
+<p>This differs from the <a class="reference internal" href="api.html#msprime.InfiniteAlleles" title="msprime.InfiniteAlleles"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfiniteAlleles</span></code></a> because mutations
+in SLiM can “stack”: new mutations can add to the existing state, rather than
+replacing the previous state. So, derived states are comma-separated lists of
+mutation IDs, and the ancestral state is always the empty string. For instance,
+if a new mutation with ID 5 occurs at a site, and then later another mutation
+appears with ID 64, the sequence of alleles moving along this line of descent
+would be <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, then <code class="docutils literal notranslate"><span class="pre">&quot;5&quot;</span></code>, and finally <code class="docutils literal notranslate"><span class="pre">&quot;5,64&quot;</span></code>. Furthermore, the mutation
+model adds SLiM metadata to each mutation, which records, among other things,
+the SLiM mutation type of each mutation, and the selection coefficient (which
+is always 0.0, since adding mutations in this way only makes sense if they are
+neutral). For this reason, the model has one required parameter: the <code class="docutils literal notranslate"><span class="pre">type</span></code>
+of the mutation, a nonnegative integer. If, for instance, you specify
+<code class="docutils literal notranslate"><span class="pre">type=1</span></code>, then the mutations in SLiM will be of type <code class="docutils literal notranslate"><span class="pre">m1</span></code>. For more
+information, and for how to modify the metadata (e.g., changing the selection
+coefficients), see
+<a class="reference external" href="https://pyslim.readthedocs.io/en/latest/">the pyslim documentation</a>.
+For instance,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">SLiMMutationModel</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span>
+    <span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">mts</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">ml</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">derived_state</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mts</span><span class="o">.</span><span class="n">mutations</span><span class="p">()}</span>
+<span class="n">SVG</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">(</span><span class="n">mutation_labels</span><span class="o">=</span><span class="n">ml</span><span class="p">,</span> <span class="n">node_labels</span><span class="o">=</span><span class="p">{},</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mutations_60_0.svg" src="_images/mutations_60_0.svg" /></div>
+</div>
+<p>These resulting alleles show how derived states are built.</p>
+<p>The behaviour of this mutation model when used to add mutations to a previously mutated
+tree sequence can be subtle. Let’s look at a simple example.
+Here, we first lay down mutations of type 1, starting from ID 0:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_1</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">SLiMMutationModel</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mts_1</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model_1</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">mts_1</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">ml</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">derived_state</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mts_1</span><span class="o">.</span><span class="n">mutations</span><span class="p">()}</span>
+<span class="n">SVG</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">(</span><span class="n">mutation_labels</span><span class="o">=</span><span class="n">ml</span><span class="p">,</span> <span class="n">node_labels</span><span class="o">=</span><span class="p">{},</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mutations_62_0.svg" src="_images/mutations_62_0.svg" /></div>
+</div>
+<p>Next, we lay down mutations of type 2.
+These we assign starting from ID 100,
+to make it easy to see which are which:
+in general just need to make sure that we start at an ID greater than any
+previously assigned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_2</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">SLiMMutationModel</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">next_id</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span>
+    <span class="n">mts_1</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model_2</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">mts</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">ml</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">m</span><span class="o">.</span><span class="n">derived_state</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mts</span><span class="o">.</span><span class="n">mutations</span><span class="p">()}</span>
+<span class="n">SVG</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">(</span><span class="n">mutation_labels</span><span class="o">=</span><span class="n">ml</span><span class="p">,</span> <span class="n">node_labels</span><span class="o">=</span><span class="p">{},</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/mutations_64_0.svg" src="_images/mutations_64_0.svg" /></div>
+</div>
+<p>Note what has happened here: on the top branch on the right side of the tree,
+with the first model we added two mutations: first a mutation with ID <code class="docutils literal notranslate"><span class="pre">0</span></code>,
+then a mutation with ID <code class="docutils literal notranslate"><span class="pre">3</span></code>.
+Then, with the second model, we added two more mutations to this same branch,
+with IDs <code class="docutils literal notranslate"><span class="pre">100</span></code> and <code class="docutils literal notranslate"><span class="pre">102</span></code>, between these two mutations.
+These were added to mutation <code class="docutils literal notranslate"><span class="pre">0</span></code>, obtaining alleles <code class="docutils literal notranslate"><span class="pre">0,100</span></code> and <code class="docutils literal notranslate"><span class="pre">0,100,102</span></code>.
+But then, moving down the branch, we come upon the mutation with ID <code class="docutils literal notranslate"><span class="pre">3</span></code>.
+This was already present in the tree sequence, so its derived state is not modified:
+<code class="docutils literal notranslate"><span class="pre">0,3</span></code>. We can rationalise this, post-hoc, by saying that the type 1 mutation <code class="docutils literal notranslate"><span class="pre">3</span></code>
+has “erased” the type 2 mutations <code class="docutils literal notranslate"><span class="pre">100</span></code> and <code class="docutils literal notranslate"><span class="pre">102</span></code>.
+If you want a different arrangement,
+you can go back and edit the derived states (and metadata) as you like.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ancestry.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Ancestry simulations</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="demography.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Demographic models</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      msprime 1.2.1.dev16
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

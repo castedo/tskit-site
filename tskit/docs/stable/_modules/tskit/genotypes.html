@@ -1,0 +1,764 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tskit.genotypes &#8212; Tskit manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bespoke.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tskit manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../quickstart.html">
+   Quickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-model.html">
+   Data model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../provenance.html">
+   Provenance
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../stats.html">
+   Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../topological-analysis.html">
+   Topological analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ibd.html">
+   Identity by descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../export.html">
+   Data export
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../python-api.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../c-api.html">
+   C API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../cli.html">
+   Command line interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../file-formats.html">
+   File formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  For developers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../changelogs.html">
+   Changelogs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            0.5.3
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/tskit"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tskit/issues/new?title=Issue%20on%20page%20%2F_modules/tskit/genotypes.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for tskit.genotypes</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># MIT License</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018-2022 Tskit Developers</span>
+<span class="c1"># Copyright (c) 2015-2018 University of Oxford</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
+<span class="c1"># copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="c1"># SOFTWARE.</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">typing</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">_tskit</span>
+<span class="kn">import</span> <span class="nn">tskit</span>
+<span class="kn">import</span> <span class="nn">tskit.trees</span> <span class="k">as</span> <span class="nn">trees</span>
+<span class="kn">import</span> <span class="nn">tskit.util</span> <span class="k">as</span> <span class="nn">util</span>
+
+
+<div class="viewcode-block" id="Variant"><a class="viewcode-back" href="../../python-api.html#tskit.Variant">[docs]</a><span class="k">class</span> <span class="nc">Variant</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A variant in a tree sequence, describing the observed genetic variation</span>
+<span class="sd">    among samples for a given site. A variant consists of (a) a tuple of</span>
+<span class="sd">    **alleles** listing the potential allelic states which samples at this site</span>
+<span class="sd">    can possess; (b) an array of **genotypes** mapping sample IDs to the observed</span>
+<span class="sd">    alleles (c) a reference to the :class:`Site` at which the Variant has been decoded</span>
+<span class="sd">    and (d) an array of **samples** giving the node id to which the each element of</span>
+<span class="sd">    the genotypes array corresponds.</span>
+
+<span class="sd">    After creation a Variant is not yet decoded, and has no genotypes.</span>
+<span class="sd">    To decode a Variant, call the :meth:`decode` method. The Variant class will then</span>
+<span class="sd">    use a Tree, internal to the Variant, to seek to the position of the site and</span>
+<span class="sd">    decode the genotypes at that site. It is therefore much more efficient to visit</span>
+<span class="sd">    sites in sequential genomic order, either in a forwards or backwards direction,</span>
+<span class="sd">    than to do so randomly.</span>
+
+<span class="sd">    Each element in the ``alleles`` tuple is a string, representing an</span>
+<span class="sd">    observed allelic state that may be seen at this site. The ``alleles`` tuple,</span>
+<span class="sd">    which is guaranteed not to contain any duplicates, is generated in one of two</span>
+<span class="sd">    ways. The first (and default) way is for ``tskit`` to generate the encoding on</span>
+<span class="sd">    the fly while generating genotypes. In this case, the first element of this</span>
+<span class="sd">    tuple is guaranteed to be the same as the site&#39;s ``ancestral_state`` value.</span>
+<span class="sd">    Note that allelic values may be listed that are not referred to by any</span>
+<span class="sd">    samples. For example, if we have a site that is fixed for the derived state</span>
+<span class="sd">    (i.e., we have a mutation over the tree root), all genotypes will be 1, but</span>
+<span class="sd">    the alleles list will be equal to ``(&#39;0&#39;, &#39;1&#39;)``. Other than the</span>
+<span class="sd">    ancestral state being the first allele, the alleles are listed in</span>
+<span class="sd">    no particular order, and the ordering should not be relied upon</span>
+<span class="sd">    (but see the notes on missing data below).</span>
+
+<span class="sd">    The second way is for the user to define the mapping between</span>
+<span class="sd">    genotype values and allelic state strings using the</span>
+<span class="sd">    ``alleles`` parameter to the :meth:`TreeSequence.variants` method.</span>
+<span class="sd">    In this case, there is no indication of which allele is the ancestral state,</span>
+<span class="sd">    as the ordering is determined by the user.</span>
+
+<span class="sd">    The ``genotypes`` represent the observed allelic states for each sample,</span>
+<span class="sd">    such that ``var.alleles[var.genotypes[j]]`` gives the string allele</span>
+<span class="sd">    for sample ID ``j``. Thus, the elements of the genotypes array are</span>
+<span class="sd">    indexes into the ``alleles`` list. The genotypes are provided in this</span>
+<span class="sd">    way via a numpy numeric array to enable efficient calculations. To obtain a</span>
+<span class="sd">    (less efficient) array of allele strings for each sample, you can use e.g.</span>
+<span class="sd">    ``np.asarray(variant.alleles)[variant.genotypes]``.</span>
+
+<span class="sd">    When :ref:`missing data&lt;sec_data_model_missing_data&gt;` is present at a given</span>
+<span class="sd">    site, the property ``has_missing_data`` will be True, at least one element</span>
+<span class="sd">    of the ``genotypes`` array will be equal to ``tskit.MISSING_DATA``, and the</span>
+<span class="sd">    last element of the ``alleles`` array will be ``None``. Note that in this</span>
+<span class="sd">    case ``variant.num_alleles`` will **not** be equal to</span>
+<span class="sd">    ``len(variant.alleles)``. The rationale for adding ``None`` to the end of</span>
+<span class="sd">    the ``alleles`` list is to help code that does not handle missing data</span>
+<span class="sd">    correctly fail early rather than introducing subtle and hard-to-find bugs.</span>
+<span class="sd">    As ``tskit.MISSING_DATA`` is equal to -1, code that decodes genotypes into</span>
+<span class="sd">    allelic values without taking missing data into account would otherwise</span>
+<span class="sd">    incorrectly output the last allele in the list.</span>
+
+<span class="sd">    :param TreeSequence tree_sequence: The tree sequence to which this variant</span>
+<span class="sd">        belongs.</span>
+<span class="sd">    :param array_like samples: An array of node IDs for which to generate</span>
+<span class="sd">        genotypes, or None for all sample nodes. Default: None.</span>
+<span class="sd">    :param bool isolated_as_missing: If True, the genotype value assigned to</span>
+<span class="sd">        missing samples (i.e., isolated samples without mutations) is</span>
+<span class="sd">        :data:`.MISSING_DATA` (-1). If False, missing samples will be</span>
+<span class="sd">        assigned the allele index for the ancestral state.</span>
+<span class="sd">        Default: True.</span>
+<span class="sd">    :param tuple alleles: A tuple of strings defining the encoding of</span>
+<span class="sd">        alleles as integer genotype values. At least one allele must be provided.</span>
+<span class="sd">        If duplicate alleles are provided, output genotypes will always be</span>
+<span class="sd">        encoded as the first occurrence of the allele. If None (the default),</span>
+<span class="sd">        the alleles are encoded as they are encountered during genotype</span>
+<span class="sd">        generation.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">tree_sequence</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">isolated_as_missing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alleles</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">isolated_as_missing</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">isolated_as_missing</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tree_sequence</span> <span class="o">=</span> <span class="n">tree_sequence</span>
+        <span class="k">if</span> <span class="n">samples</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">samples</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_np_int_cast</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span> <span class="o">=</span> <span class="n">_tskit</span><span class="o">.</span><span class="n">Variant</span><span class="p">(</span>
+            <span class="n">tree_sequence</span><span class="o">.</span><span class="n">_ll_tree_sequence</span><span class="p">,</span>
+            <span class="n">samples</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span>
+            <span class="n">isolated_as_missing</span><span class="o">=</span><span class="n">isolated_as_missing</span><span class="p">,</span>
+            <span class="n">alleles</span><span class="o">=</span><span class="n">alleles</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_check_decoded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">site_id</span> <span class="o">==</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;This variant has not yet been decoded at a specific site, &quot;</span>
+                <span class="s2">&quot;call Variant.decode to set the site.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">site</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">trees</span><span class="o">.</span><span class="n">Site</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The Site object for the site at which this variant has been decoded.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_decoded</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tree_sequence</span><span class="o">.</span><span class="n">site</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">site_id</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">alleles</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A tuple of the allelic values which samples can possess at the current</span>
+<span class="sd">        site. Unless an encoding of alleles is specified when creating this</span>
+<span class="sd">        variant instance, the first element of this tuple is always the site&#39;s</span>
+<span class="sd">        ancestral state.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">alleles</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">samples</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A numpy array of the node ids whose genotypes will be returned</span>
+<span class="sd">        by the :meth:`genotypes` method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">samples</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">genotypes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        An array of indexes into the list ``alleles``, giving the</span>
+<span class="sd">        state of each sample at the current site.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_decoded</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">genotypes</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">isolated_as_missing</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        True if isolated samples are decoded to missing data. If False, isolated</span>
+<span class="sd">        samples are decoded to the ancestral state.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">isolated_as_missing</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">has_missing_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        True if there is missing data for any of the</span>
+<span class="sd">        samples at the current site.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">alleles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">alleles</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">alleles</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">alleles</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_missing</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The number of samples with missing data at this site.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genotypes</span> <span class="o">==</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_alleles</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The number of distinct alleles at this site. Note that this may</span>
+<span class="sd">        not be the same as the number of distinct values in the genotypes</span>
+<span class="sd">        array: firstly missing data is not counted as an allele, and secondly,</span>
+<span class="sd">        the site may contain mutations to alternative allele states (which are</span>
+<span class="sd">        counted in the number of alleles) without the mutation being inherited</span>
+<span class="sd">        by any of the samples.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alleles</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_missing_data</span>
+
+    <span class="c1"># Deprecated alias to avoid breaking existing code.</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">position</span>
+
+    <span class="c1"># Deprecated alias to avoid breaking existing code.</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">site_id</span>
+
+    <span class="c1"># We need a custom eq for the numpy array</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Variant</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">tree_sequence</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">tree_sequence</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">site_id</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">site_id</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">site_id</span> <span class="o">!=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">alleles</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">alleles</span>
+            <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">genotypes</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">genotypes</span><span class="p">)</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="Variant.decode"><a class="viewcode-back" href="../../python-api.html#tskit.Variant.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">site_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Decode the variant at the given site, setting the site ID, genotypes and</span>
+<span class="sd">        alleles to those of the site and samples of this Variant.</span>
+
+<span class="sd">        :param int site_id: The ID of the site to decode. This must be a valid site ID.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">site_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Variant.copy"><a class="viewcode-back" href="../../python-api.html#tskit.Variant.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Variant</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a copy of this Variant. Note that calling :meth:`decode` on the</span>
+<span class="sd">        copy will fail as it does not take a copy of the internal tree.</span>
+
+<span class="sd">        :return: The copy of this Variant.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">variant_copy</span> <span class="o">=</span> <span class="n">Variant</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="n">Variant</span><span class="p">)</span>
+        <span class="n">variant_copy</span><span class="o">.</span><span class="n">tree_sequence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tree_sequence</span>
+        <span class="n">variant_copy</span><span class="o">.</span><span class="n">_ll_variant</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_variant</span><span class="o">.</span><span class="n">restricted_copy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">variant_copy</span></div>
+
+<div class="viewcode-block" id="Variant.counts"><a class="viewcode-back" href="../../python-api.html#tskit.Variant.counts">[docs]</a>    <span class="k">def</span> <span class="nf">counts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Counter</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a :class:`python:collections.Counter` object providing counts for each</span>
+<span class="sd">        possible :attr:`allele &lt;Variant.alleles&gt;` at this site: i.e. the number of</span>
+<span class="sd">        samples possessing that allele among the set of samples specified when creating</span>
+<span class="sd">        this Variant (by default, this is all the sample nodes in the tree sequence).</span>
+<span class="sd">        Missing data is represented by an allelic state of ``None``.</span>
+
+<span class="sd">        :return: A counter of the number of samples associated with each allele.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">alleles</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># we have to treat the last element of the genotypes array as special</span>
+            <span class="n">counts</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genotypes</span> <span class="o">==</span> <span class="n">tskit</span><span class="o">.</span><span class="n">MISSING_DATA</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">allele</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alleles</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="n">counts</span><span class="p">[</span><span class="n">allele</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genotypes</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bincounts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genotypes</span><span class="p">,</span> <span class="n">minlength</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_alleles</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">allele</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alleles</span><span class="p">):</span>
+                <span class="n">counts</span><span class="p">[</span><span class="n">allele</span><span class="p">]</span> <span class="o">=</span> <span class="n">bincounts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">counts</span></div>
+
+<div class="viewcode-block" id="Variant.frequencies"><a class="viewcode-back" href="../../python-api.html#tskit.Variant.frequencies">[docs]</a>    <span class="k">def</span> <span class="nf">frequencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">remove_missing</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a dictionary mapping each possible :attr:`allele &lt;Variant.alleles&gt;`</span>
+<span class="sd">        at this site to the frequency of that allele: i.e. the number of samples</span>
+<span class="sd">        with that allele divided by the total number of samples, among the set of</span>
+<span class="sd">        samples specified when creating this Variant (by default, this is all the</span>
+<span class="sd">        sample nodes in the tree sequence). Note, therefore, that if a restricted set</span>
+<span class="sd">        of samples was specified on creation, the allele frequencies returned here</span>
+<span class="sd">        will *not* be the global allele frequencies in the whole tree sequence.</span>
+
+<span class="sd">        :param bool remove_missing: If True, only samples with non-missing data will</span>
+<span class="sd">            be counted in the total number of samples used to calculate the frequency,</span>
+<span class="sd">            and no information on the frequency of missing data is returned. Otherwise</span>
+<span class="sd">            (default), samples with missing data are included when calculating</span>
+<span class="sd">            frequencies.</span>
+<span class="sd">        :return: A dictionary mapping allelic states to the frequency of each allele</span>
+<span class="sd">            among the samples</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">remove_missing</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">remove_missing</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">remove_missing</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_missing</span>
+        <span class="k">if</span> <span class="n">total</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;No non-missing samples at this site, frequencies undefined&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">allele</span><span class="p">:</span> <span class="n">count</span> <span class="o">/</span> <span class="n">total</span> <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="k">for</span> <span class="n">allele</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">allele</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">remove_missing</span><span class="p">)</span>
+        <span class="p">}</span></div>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a plain text summary of the contents of a variant.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">site_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">id</span>
+            <span class="n">site_position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">position</span>
+            <span class="n">counts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="p">()</span>
+            <span class="n">freqs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span><span class="p">()</span>
+            <span class="n">rows</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="p">[</span><span class="s2">&quot;Site id&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">site_id</span><span class="p">)],</span>
+                    <span class="p">[</span><span class="s2">&quot;Site position&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">site_position</span><span class="p">)],</span>
+                    <span class="p">[</span><span class="s2">&quot;Number of samples&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">samples</span><span class="p">))],</span>
+                    <span class="p">[</span><span class="s2">&quot;Number of alleles&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_alleles</span><span class="p">)],</span>
+                <span class="p">]</span>
+                <span class="o">+</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="sa">f</span><span class="s2">&quot;&quot;&quot;Samples with allele </span><span class="si">{</span><span class="s1">&#39;missing&#39;</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">is</span> <span class="kc">None</span>
+                            <span class="k">else</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">counts</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">freqs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="si">:</span><span class="s2">.2g</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">,</span>
+                    <span class="p">]</span>
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">alleles</span>
+                <span class="p">]</span>
+                <span class="o">+</span> <span class="p">[</span>
+                    <span class="p">[</span><span class="s2">&quot;Has missing data&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">has_missing_data</span><span class="p">)],</span>
+                    <span class="p">[</span><span class="s2">&quot;Isolated as missing&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">isolated_as_missing</span><span class="p">))],</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="n">rows</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">str</span><span class="p">(</span><span class="n">err</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">unicode_table</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Variant&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_repr_html_</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return an html summary of a variant. Called by Jupyter notebooks</span>
+<span class="sd">        to render a Variant.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">variant_html</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<span class="c1">#</span>
+<span class="c1"># Miscellaneous auxiliary methods.</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">allele_remap</span><span class="p">(</span><span class="n">alleles_from</span><span class="p">,</span> <span class="n">alleles_to</span><span class="p">):</span>
+    <span class="c1"># Returns an index map from the elements in one list (alleles_from)</span>
+    <span class="c1"># to the elements of another list (alleles_to).</span>
+    <span class="c1">#</span>
+    <span class="c1"># If some elements in alleles_from are not in alleles_to,</span>
+    <span class="c1"># then indices outside of alleles_to are used.</span>
+    <span class="n">alleles_to</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">alleles_to</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;U&quot;</span><span class="p">)</span>
+    <span class="n">alleles_from</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">alleles_from</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;U&quot;</span><span class="p">)</span>
+    <span class="n">allele_map</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">alleles_from</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;uint32&quot;</span><span class="p">)</span>
+    <span class="n">overflow</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">alleles_to</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">allele</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">alleles_from</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Use the index of the first matching element.</span>
+            <span class="n">allele_map</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">alleles_to</span> <span class="o">==</span> <span class="n">allele</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="n">allele_map</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">overflow</span>
+            <span class="n">overflow</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">allele_map</span>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      0.5.3
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

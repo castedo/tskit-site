@@ -1,0 +1,1278 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Pedigrees &#8212; Msprime manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Computing likelihoods" href="likelihoods.html" />
+    <link rel="prev" title="Rate Maps" href="rate_maps.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/msprime_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Msprime manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Quickstart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Running simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ancestry.html">
+   Ancestry simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mutations.html">
+   Mutation simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="demography.html">
+   Demographic models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="replication.html">
+   Randomness and replication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Utilities
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rate_maps.html">
+   Rate Maps
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Pedigrees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="likelihoods.html">
+   Computing likelihoods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logging.html">
+   Logging
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="legacy.html">
+   Legacy (version 0.x) APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="switch_from_other_simulators.html">
+   Switching from other simulators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CITATION.html">
+   Citing msprime
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            msprime 1.2.1.dev16
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/msprime"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/msprime/issues/new?title=Issue%20on%20page%20%2Fpedigrees.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/msprime/edit/main/docs/pedigrees.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/pedigrees.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/pedigrees.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pedigree-encoding">
+   Pedigree encoding
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requirements">
+     Requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metadata">
+   Metadata
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simplified-file-format">
+   Simplified file format
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#format-definition">
+     Format definition
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#required-columns">
+       Required columns
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#optional-columns">
+       Optional columns
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-example">
+     Basic example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifying-samples">
+     Specifying samples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demography-information">
+     Demography information
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualising-pedigrees">
+   Visualising pedigrees
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Pedigrees</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pedigree-encoding">
+   Pedigree encoding
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requirements">
+     Requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metadata">
+   Metadata
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simplified-file-format">
+   Simplified file format
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#format-definition">
+     Format definition
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#required-columns">
+       Required columns
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#optional-columns">
+       Optional columns
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-example">
+     Basic example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifying-samples">
+     Specifying samples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demography-information">
+     Demography information
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualising-pedigrees">
+   Visualising pedigrees
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="pedigrees">
+<span id="sec-pedigrees"></span><h1>Pedigrees<a class="headerlink" href="#pedigrees" title="Permalink to this headline">#</a></h1>
+<p>Pedigrees describe parent-offspring relationships between individuals,
+and can be provided as input to constrain simulations of genetic ancestry
+(see the <a class="reference internal" href="ancestry.html#sec-ancestry-models-fixed-pedigree"><span class="std std-ref">Fixed pedigree</span></a> section for details).
+In this section we describe the data structures used to encode pedigrees
+in msprime, and the utilities used to create input pedigrees.</p>
+<section id="pedigree-encoding">
+<span id="sec-pedigrees-encoding"></span><h2>Pedigree encoding<a class="headerlink" href="#pedigree-encoding" title="Permalink to this headline">#</a></h2>
+<p>Msprime uses the tskit
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/data-model.html#sec-node-table-definition" title="(in Python)"><span class="xref std std-ref">node</span></a> and
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/data-model.html#sec-individual-table-definition" title="(in Python)"><span class="xref std std-ref">individual</span></a> tables to encode pedigree
+information.
+Each <a class="reference external" href="https://tskit.dev/tskit/docs/stable/glossary.html#sec-data-model-definitions-individual" title="(in Python)"><span class="xref std std-ref">individual</span></a>
+is defined by a row in the individual table, and
+this row index is the individual’s <strong>id</strong>. Pedigree relationships
+are defined using the <code class="docutils literal notranslate"><span class="pre">parents</span></code> column, which contains the IDs
+of an individual’s parents. Further information is stored in the
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/glossary.html#sec-data-model-definitions-node" title="(in Python)"><span class="xref std std-ref">nodes</span></a> associated with the individual.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is important to note that sample status, time, and population information
+is associated with an individual’s nodes (see the <a class="reference internal" href="ancestry.html#sec-ancestry-ploidy"><span class="std std-ref">Ploidy</span></a>
+section for details), which is an artefact of tskit’s node-centric design.</p>
+</div>
+<p>It is possible to specify a pedigree model directly using tskit APIs,
+but it is simpler to use the <a class="reference internal" href="api.html#msprime.PedigreeBuilder" title="msprime.PedigreeBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">PedigreeBuilder</span></code></a> utility
+class (or the <a class="reference internal" href="#sec-pedigrees-file-format"><span class="std std-ref">Simplified file format</span></a>).
+In the following example we build a simple trio:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pb</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">PedigreeBuilder</span><span class="p">()</span>
+<span class="n">mom_id</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">add_individual</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dad_id</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">add_individual</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pb</span><span class="o">.</span><span class="n">add_individual</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="p">[</span><span class="n">mom_id</span><span class="p">,</span> <span class="n">dad_id</span><span class="p">],</span> <span class="n">is_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pedigree</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">finalise</span><span class="p">()</span>
+<span class="c1"># TODO replace with display(pedigree) when its implemented in tskit</span>
+<span class="c1"># https://github.com/tskit-dev/tskit/issues/2093</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pedigree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TableCollection
+
+Sequence Length: -1.0
+Time units: generations
+Metadata: b&#39;&#39;
+
+Individuals
+╔══╤═════╤════════╤═══════╤════════╗
+║id│flags│location│parents│metadata║
+╠══╪═════╪════════╪═══════╪════════╣
+║0 │    0│        │ -1, -1│        ║
+║1 │    0│        │ -1, -1│        ║
+║2 │    0│        │   0, 1│        ║
+╚══╧═════╧════════╧═══════╧════════╝
+
+Nodes
+╔══╤═════╤══════════╤══════════╤════╤════════╗
+║id│flags│population│individual│time│metadata║
+╠══╪═════╪══════════╪══════════╪════╪════════╣
+║0 │    0│         0│         0│   1│        ║
+║1 │    0│         0│         0│   1│        ║
+║2 │    0│         0│         1│   1│        ║
+║3 │    0│         0│         1│   1│        ║
+║4 │    1│         0│         2│   0│        ║
+║5 │    1│         0│         2│   0│        ║
+╚══╧═════╧══════════╧══════════╧════╧════════╝
+
+Edges
+╔══╤════╤═════╤══════╤═════╤════════╗
+║id│left│right│parent│child│metadata║
+╠══╪════╪═════╪══════╪═════╪════════╣
+╚══╧════╧═════╧══════╧═════╧════════╝
+
+Sites
+╔══╤════════╤═══════════════╤════════╗
+║id│position│ancestral_state│metadata║
+╠══╪════════╪═══════════════╪════════╣
+╚══╧════════╧═══════════════╧════════╝
+
+Mutations
+╔══╤════╤════╤════╤═════════════╤══════╤════════╗
+║id│site│node│time│derived_state│parent│metadata║
+╠══╪════╪════╪════╪═════════════╪══════╪════════╣
+╚══╧════╧════╧════╧═════════════╧══════╧════════╝
+
+Migrations
+╔══╤════╤═════╤════╤══════╤════╤════╤════════╗
+║id│left│right│node│source│dest│time│metadata║
+╠══╪════╪═════╪════╪══════╪════╪════╪════════╣
+╚══╧════╧═════╧════╧══════╧════╧════╧════════╝
+
+Populations
+╔══╤════════════════════════════════════╗
+║id│metadata                            ║
+╠══╪════════════════════════════════════╣
+║0 │{&#39;description&#39;: &#39;&#39;, &#39;name&#39;: &#39;pop_0&#39;}║
+╚══╧════════════════════════════════════╝
+
+Provenances
+╔══╤═════════╤══════╗
+║id│timestamp│record║
+╠══╪═════════╪══════╣
+╚══╧═════════╧══════╝
+</pre></div>
+</div>
+</div>
+</div>
+<p>The pedigree returned by the <a class="reference internal" href="api.html#msprime.PedigreeBuilder.finalise" title="msprime.PedigreeBuilder.finalise"><code class="xref py py-meth docutils literal notranslate"><span class="pre">finalise()</span></code></a> method
+contains the pedigree information defined by the calls to
+<a class="reference internal" href="api.html#msprime.PedigreeBuilder.add_individual" title="msprime.PedigreeBuilder.add_individual"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_individual()</span></code></a>. For this trio, we began by adding
+the parents, and because they are founders, we don’t provide any information
+about their parents. Each call to <a class="reference internal" href="api.html#msprime.PedigreeBuilder.add_individual" title="msprime.PedigreeBuilder.add_individual"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_individual()</span></code></a>
+returns the integer ID of newly added individual.</p>
+<section id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h3>
+<p>This section lists the detailed requirements of the low-level encoding
+for the tskit node and individual tables.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Most of this information is only
+of interest if you are constructing these tables by hand. For most
+purposes it’s best to use either the <a class="reference internal" href="api.html#msprime.PedigreeBuilder" title="msprime.PedigreeBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">PedigreeBuilder</span></code></a>
+API or the <a class="reference internal" href="#sec-pedigrees-file-format"><span class="std std-ref">Simplified file format</span></a>.</p>
+</div>
+<ul class="simple">
+<li><p>Each individual must have exactly two parents. Unknown parents are
+indicated using <code class="docutils literal notranslate"><span class="pre">-1</span></code> (thus, a founder individual will have
+<code class="docutils literal notranslate"><span class="pre">parents=[-1,</span> <span class="pre">-1]</span></code>.</p></li>
+<li><p>Each individual must be associated with exactly two nodes.</p></li>
+<li><p>All nodes associated with an individual must have the same <code class="docutils literal notranslate"><span class="pre">time</span></code>
+and <code class="docutils literal notranslate"><span class="pre">population</span></code> values. (These are referred to as the individual’s
+time and population, as a shorthand.)</p></li>
+<li><p>An individual’s time must be less than all its parent’s times.</p></li>
+</ul>
+</section>
+</section>
+<section id="metadata">
+<span id="sec-pedigrees-metadata"></span><h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">#</a></h2>
+<p>It is often useful to associate metadata with individuals when building
+a pedigree. This allows us to either directly store information about the
+individuals for later analysis, or to store an identifier to facilitate
+matching with existing records.</p>
+<p>In this example we update our simple trio by associating a string
+identifier with each individual. We use the
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.MetadataSchema.permissive_json" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.MetadataSchema.permissive_json()</span></code></a> function here to create
+a schema, as this is an easy and quick way to get a functional
+metadata schema. Much more sophisticated approaches are possible, however: please
+see the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/metadata.html#sec-metadata" title="(in Python)"><span class="xref std std-ref">tskit metadata documentation</span></a> for
+more information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pb</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">PedigreeBuilder</span><span class="p">(</span>
+    <span class="n">individuals_metadata_schema</span><span class="o">=</span><span class="n">tskit</span><span class="o">.</span><span class="n">MetadataSchema</span><span class="o">.</span><span class="n">permissive_json</span><span class="p">())</span>
+<span class="n">mom_id</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">add_individual</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mom&quot;</span><span class="p">})</span>
+<span class="n">dad_id</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">add_individual</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dad&quot;</span><span class="p">})</span>
+<span class="n">pb</span><span class="o">.</span><span class="n">add_individual</span><span class="p">(</span>
+    <span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="p">[</span><span class="n">mom_id</span><span class="p">,</span> <span class="n">dad_id</span><span class="p">],</span> <span class="n">is_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;child&quot;</span><span class="p">})</span>
+<span class="n">pedigree</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">finalise</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pedigree</span><span class="o">.</span><span class="n">individuals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <div>
+                <style scoped="">
+                    .tskit-table tbody tr th:only-of-type {vertical-align: middle;}
+                    .tskit-table tbody tr th {vertical-align: top;}
+                    .tskit-table tbody td {text-align: right;padding: 0.5em 0.5em;}
+                    .tskit-table tbody th {padding: 0.5em 0.5em;}
+                </style>
+                <table border="1" class="tskit-table">
+                    <thead>
+                        <tr>
+                            <th>id</th><th>flags</th><th>location</th><th>parents</th><th>metadata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>0</td><td></td><td>-1, -1</td><td>{'name': 'mom'}</td></tr>
+<tr><td>1</td><td>0</td><td></td><td>-1, -1</td><td>{'name': 'dad'}</td></tr>
+<tr><td>2</td><td>0</td><td></td><td>0, 1</td><td>{'name': 'child'}</td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+</div></div>
+</div>
+</section>
+<section id="simplified-file-format">
+<span id="sec-pedigrees-file-format"></span><h2>Simplified file format<a class="headerlink" href="#simplified-file-format" title="Permalink to this headline">#</a></h2>
+<p>The methods described in <a class="reference internal" href="#sec-pedigrees-encoding"><span class="std std-ref">Pedigree encoding</span></a> are general and
+allow for arbitrary metadata to be associated with individuals. It
+is often convenient to work with a text based representation of
+the pedigree, which is supported by the <a class="reference internal" href="api.html#msprime.parse_pedigree" title="msprime.parse_pedigree"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_pedigree()</span></code></a> function.
+The <a class="reference internal" href="#sec-pedigrees-file-format-definition"><span class="std std-ref">Format definition</span></a> section defines the columns and
+requirements for this file format.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the
+<a class="reference internal" href="#sec-pedigrees-file-format-basic-example"><span class="std std-ref">Basic example</span></a> and subsequent sections
+for examples.</p>
+</div>
+<section id="format-definition">
+<span id="sec-pedigrees-file-format-definition"></span><h3>Format definition<a class="headerlink" href="#format-definition" title="Permalink to this headline">#</a></h3>
+<p>This section describes the detailed rules for the pedigree text file format.</p>
+<p>The first line of the file must be a header starting with a <code class="docutils literal notranslate"><span class="pre">#</span></code> character,
+listing the included columns separated by white space.</p>
+<p>Columns can be listed in any order. Columns from the required columns list
+below must be included, and only recognised columns can be included in the
+file.</p>
+<p>All other lines in the file are rows defining a particular individual.
+Each row must contain data for all columns defined in the header,
+separated by whitespace.</p>
+<section id="required-columns">
+<h4>Required columns<a class="headerlink" href="#required-columns" title="Permalink to this headline">#</a></h4>
+<dl class="simple myst">
+<dt>id</dt><dd><p>A unique string identifier for this individual.</p>
+</dd>
+<dt>parent0</dt><dd><p>The parent that will be assigned to <code class="docutils literal notranslate"><span class="pre">parents[0]</span></code> in the
+<a class="reference internal" href="#sec-pedigrees-encoding"><span class="std std-ref">tskit encoding</span></a>. This must
+be either a identifier defined in the <code class="docutils literal notranslate"><span class="pre">id</span></code> column, or
+the value <code class="docutils literal notranslate"><span class="pre">.</span></code> (representing missing data).</p>
+</dd>
+<dt>parent1</dt><dd><p>The parent that will be assigned to <code class="docutils literal notranslate"><span class="pre">parents[1]</span></code> in the
+<a class="reference internal" href="#sec-pedigrees-encoding"><span class="std std-ref">tskit encoding</span></a>. The value
+requirements are identical to the <code class="docutils literal notranslate"><span class="pre">parent0</span></code> column.</p>
+</dd>
+<dt>time</dt><dd><p>The time value to associate with the individual.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">time</span></code> column may become optional in later releases.</p>
+</div>
+</section>
+<section id="optional-columns">
+<h4>Optional columns<a class="headerlink" href="#optional-columns" title="Permalink to this headline">#</a></h4>
+<dl class="simple myst">
+<dt>is_sample</dt><dd><p>The sample status of the individual. If equal to <code class="docutils literal notranslate"><span class="pre">1</span></code>, the
+nodes associated with this individual will be marked as samples.
+If <code class="docutils literal notranslate"><span class="pre">0</span></code> they will not. No other values are supported.</p>
+</dd>
+<dt>population</dt><dd><p>The population to associate with the individual. Values must
+correspond to
+<a class="reference internal" href="demography.html#sec-demography-populations-identifiers"><span class="std std-ref">population identifiers</span></a>
+in a supplied <a class="reference internal" href="api.html#msprime.Demography" title="msprime.Demography"><code class="xref py py-class docutils literal notranslate"><span class="pre">Demography</span></code></a> object</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="basic-example">
+<span id="sec-pedigrees-file-format-basic-example"></span><h3>Basic example<a class="headerlink" href="#basic-example" title="Permalink to this headline">#</a></h3>
+<p>In this example we encode a trio, <code class="docutils literal notranslate"><span class="pre">child</span></code>, <code class="docutils literal notranslate"><span class="pre">mom</span></code> and <code class="docutils literal notranslate"><span class="pre">dad</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2"># id parent0 parent1 time</span>
+<span class="s2">child mom dad 0</span>
+<span class="s2">mom    .   .  1</span>
+<span class="s2">dad    .   .  1</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">pedigree</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">parse_pedigree</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">txt</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pedigree</span><span class="o">.</span><span class="n">individuals</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pedigree</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <div>
+                <style scoped="">
+                    .tskit-table tbody tr th:only-of-type {vertical-align: middle;}
+                    .tskit-table tbody tr th {vertical-align: top;}
+                    .tskit-table tbody td {text-align: right;padding: 0.5em 0.5em;}
+                    .tskit-table tbody th {padding: 0.5em 0.5em;}
+                </style>
+                <table border="1" class="tskit-table">
+                    <thead>
+                        <tr>
+                            <th>id</th><th>flags</th><th>location</th><th>parents</th><th>metadata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>0</td><td></td><td>1, 2</td><td>{'file_id': 'child'}</td></tr>
+<tr><td>1</td><td>0</td><td></td><td>-1, -1</td><td>{'file_id': 'mom'}</td></tr>
+<tr><td>2</td><td>0</td><td></td><td>-1, -1</td><td>{'file_id': 'dad'}</td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+</div><div class="output text_html">
+            <div>
+                <style scoped="">
+                    .tskit-table tbody tr th:only-of-type {vertical-align: middle;}
+                    .tskit-table tbody tr th {vertical-align: top;}
+                    .tskit-table tbody td {text-align: right;padding: 0.5em 0.5em;}
+                    .tskit-table tbody th {padding: 0.5em 0.5em;}
+                </style>
+                <table border="1" class="tskit-table">
+                    <thead>
+                        <tr>
+                            <th>id</th><th>flags</th><th>population</th><th>individual</th><th>time</th><th>metadata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td></td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td></td></tr>
+<tr><td>2</td><td>0</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+<tr><td>3</td><td>0</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+<tr><td>4</td><td>0</td><td>0</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>5</td><td>0</td><td>0</td><td>2</td><td>1</td><td></td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+</div></div>
+</div>
+<p>We have three individuals in our input pedigree, and there is therefore
+three rows in the individual table. In the tskit encoding, individuals
+are referred to by their integer ID (the corresponding row in the
+individual table). Individuals are added to the table in the same order
+they appear in the file, and therefore <code class="docutils literal notranslate"><span class="pre">child</span></code> corresponds to ID 0,
+<code class="docutils literal notranslate"><span class="pre">mom</span></code> ID 1 and <code class="docutils literal notranslate"><span class="pre">dad</span></code> ID 2. These ID values are then used in the
+<code class="docutils literal notranslate"><span class="pre">parents</span></code> column to describe the pedigree relationships.</p>
+<p>Time information about individuals is stored in the node table,
+where the time of an individual is associated with its two nodes.
+For example, nodes 0 and 1 correspond to the two genomes of
+individual 0 (<code class="docutils literal notranslate"><span class="pre">child</span></code>), and these are both at time 0.</p>
+<p>The individual table also includes the original string <code class="docutils literal notranslate"><span class="pre">file_id</span></code> as
+metadata to faciliate joining with existing data sources. We can
+access these IDs as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="nb">id</span><span class="p">,</span> <span class="n">ind</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pedigree</span><span class="o">.</span><span class="n">individuals</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">ind</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file_id&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 -&gt; child
+1 -&gt; mom
+2 -&gt; dad
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the tskit <a class="reference external" href="https://tskit.dev/tskit/docs/stable/metadata.html#sec-metadata" title="(in Python)"><span class="xref std std-ref">metadata documentation</span></a> for more information
+on how to use metadata.</p>
+</div>
+</section>
+<section id="specifying-samples">
+<h3>Specifying samples<a class="headerlink" href="#specifying-samples" title="Permalink to this headline">#</a></h3>
+<p>In the previous example we did not specify which of our individuals were
+the samples (“probands”). In this case, <a class="reference internal" href="api.html#msprime.parse_pedigree" title="msprime.parse_pedigree"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_pedigree()</span></code></a> assumes
+that any individual at time 0 is a sample. This is show in the example
+above in the node table, where we can see that the flags value for
+both of <code class="docutils literal notranslate"><span class="pre">child</span></code>’s nodes is 1 (corresponding to <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.NODE_IS_SAMPLE" title="(in Python)"><code class="xref py py-data docutils literal notranslate"><span class="pre">tskit.NODE_IS_SAMPLE</span></code></a>)</p>
+<p>We can override this behaviour by providing an <code class="docutils literal notranslate"><span class="pre">is_sample</span></code> column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2"># id parent0 parent1 time is_sample</span>
+<span class="s2">child1 mom1 dad1 0 1</span>
+<span class="s2">mom1     .   .   1 0</span>
+<span class="s2">dad1     .   .   1 0</span>
+<span class="s2">child2 mom2 dad2 1 1</span>
+<span class="s2">mom2     .   .   2 0</span>
+<span class="s2">dad2     .   .   2 0</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">pedigree</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">parse_pedigree</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">txt</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pedigree</span><span class="o">.</span><span class="n">individuals</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pedigree</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <div>
+                <style scoped="">
+                    .tskit-table tbody tr th:only-of-type {vertical-align: middle;}
+                    .tskit-table tbody tr th {vertical-align: top;}
+                    .tskit-table tbody td {text-align: right;padding: 0.5em 0.5em;}
+                    .tskit-table tbody th {padding: 0.5em 0.5em;}
+                </style>
+                <table border="1" class="tskit-table">
+                    <thead>
+                        <tr>
+                            <th>id</th><th>flags</th><th>location</th><th>parents</th><th>metadata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>0</td><td></td><td>1, 2</td><td>{'file_id': 'child1'}</td></tr>
+<tr><td>1</td><td>0</td><td></td><td>-1, -1</td><td>{'file_id': 'mom1'}</td></tr>
+<tr><td>2</td><td>0</td><td></td><td>-1, -1</td><td>{'file_id': 'dad1'}</td></tr>
+<tr><td>3</td><td>0</td><td></td><td>4, 5</td><td>{'file_id': 'child2'}</td></tr>
+<tr><td>4</td><td>0</td><td></td><td>-1, -1</td><td>{'file_id': 'mom2'}</td></tr>
+<tr><td>5</td><td>0</td><td></td><td>-1, -1</td><td>{'file_id': 'dad2'}</td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+</div><div class="output text_html">
+            <div>
+                <style scoped="">
+                    .tskit-table tbody tr th:only-of-type {vertical-align: middle;}
+                    .tskit-table tbody tr th {vertical-align: top;}
+                    .tskit-table tbody td {text-align: right;padding: 0.5em 0.5em;}
+                    .tskit-table tbody th {padding: 0.5em 0.5em;}
+                </style>
+                <table border="1" class="tskit-table">
+                    <thead>
+                        <tr>
+                            <th>id</th><th>flags</th><th>population</th><th>individual</th><th>time</th><th>metadata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td></td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td></td></tr>
+<tr><td>2</td><td>0</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+<tr><td>3</td><td>0</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+<tr><td>4</td><td>0</td><td>0</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>5</td><td>0</td><td>0</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>6</td><td>1</td><td>0</td><td>3</td><td>1</td><td></td></tr>
+<tr><td>7</td><td>1</td><td>0</td><td>3</td><td>1</td><td></td></tr>
+<tr><td>8</td><td>0</td><td>0</td><td>4</td><td>2</td><td></td></tr>
+<tr><td>9</td><td>0</td><td>0</td><td>4</td><td>2</td><td></td></tr>
+<tr><td>10</td><td>0</td><td>0</td><td>5</td><td>2</td><td></td></tr>
+<tr><td>11</td><td>0</td><td>0</td><td>5</td><td>2</td><td></td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+</div></div>
+</div>
+<p>Here we have two trios, where the child in the second trio is from the
+same generation as the parents in the second. We use the <code class="docutils literal notranslate"><span class="pre">is_sample</span></code>
+column to specify that <code class="docutils literal notranslate"><span class="pre">child2</span></code> is a sample as well as <code class="docutils literal notranslate"><span class="pre">child1</span></code>.</p>
+</section>
+<section id="demography-information">
+<h3>Demography information<a class="headerlink" href="#demography-information" title="Permalink to this headline">#</a></h3>
+<p>If the founder individuals of the pedigree belong to different populations
+and we wish to simulate ancestry
+<a class="reference internal" href="ancestry.html#sec-ancestry-models-fixed-pedigree-completing"><span class="std std-ref">beyond the pedigree</span></a>,
+we must define a <a class="reference internal" href="demography.html#sec-demography"><span class="std std-ref">demographic model</span></a> and define
+the populations that the individuals belong to.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference internal" href="ancestry.html#sec-ancestry-models-fixed-pedigree-demography"><span class="std std-ref">Pedigrees and demography</span></a> section for
+a full discussion of how demography interacts with fixed pedigree simulations
+and important caveats.</p>
+</div>
+<p>To do this we must pass the <a class="reference internal" href="api.html#msprime.Demography" title="msprime.Demography"><code class="xref py py-class docutils literal notranslate"><span class="pre">Demography</span></code></a> instance defining the
+demographic model to <a class="reference internal" href="api.html#msprime.parse_pedigree" title="msprime.parse_pedigree"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_pedigree()</span></code></a>, and include
+a <code class="docutils literal notranslate"><span class="pre">population</span></code> column in the file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2"># id parent0 parent1 time is_sample population</span>
+<span class="s2">child1 mom1 dad1 0 1 A</span>
+<span class="s2">mom1     .   .   1 0 A</span>
+<span class="s2">dad1     .   .   1 0 A</span>
+<span class="s2">child2 mom2 dad2 1 1 B</span>
+<span class="s2">mom2     .   .   2 0 B</span>
+<span class="s2">dad2     .   .   2 0 B</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">demography</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">Demography</span><span class="p">()</span>
+<span class="n">demography</span><span class="o">.</span><span class="n">add_population</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">initial_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">demography</span><span class="o">.</span><span class="n">add_population</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">initial_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">demography</span><span class="o">.</span><span class="n">add_population</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="n">initial_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">demography</span><span class="o">.</span><span class="n">add_population_split</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">derived</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="n">ancestral</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">);</span>
+
+<span class="n">pedigree</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">parse_pedigree</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">txt</span><span class="p">),</span> <span class="n">demography</span><span class="o">=</span><span class="n">demography</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pedigree</span><span class="o">.</span><span class="n">populations</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pedigree</span><span class="o">.</span><span class="n">individuals</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pedigree</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <div>
+                <style scoped="">
+                    .tskit-table tbody tr th:only-of-type {vertical-align: middle;}
+                    .tskit-table tbody tr th {vertical-align: top;}
+                    .tskit-table tbody td {text-align: right;padding: 0.5em 0.5em;}
+                    .tskit-table tbody th {padding: 0.5em 0.5em;}
+                </style>
+                <table border="1" class="tskit-table">
+                    <thead>
+                        <tr>
+                            <th>id</th><th>metadata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>{'description': '', 'name': 'A'}</td></tr>
+<tr><td>1</td><td>{'description': '', 'name': 'B'}</td></tr>
+<tr><td>2</td><td>{'description': '', 'name': 'C'}</td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+</div><div class="output text_html">
+            <div>
+                <style scoped="">
+                    .tskit-table tbody tr th:only-of-type {vertical-align: middle;}
+                    .tskit-table tbody tr th {vertical-align: top;}
+                    .tskit-table tbody td {text-align: right;padding: 0.5em 0.5em;}
+                    .tskit-table tbody th {padding: 0.5em 0.5em;}
+                </style>
+                <table border="1" class="tskit-table">
+                    <thead>
+                        <tr>
+                            <th>id</th><th>flags</th><th>location</th><th>parents</th><th>metadata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>0</td><td></td><td>1, 2</td><td>{'file_id': 'child1'}</td></tr>
+<tr><td>1</td><td>0</td><td></td><td>-1, -1</td><td>{'file_id': 'mom1'}</td></tr>
+<tr><td>2</td><td>0</td><td></td><td>-1, -1</td><td>{'file_id': 'dad1'}</td></tr>
+<tr><td>3</td><td>0</td><td></td><td>4, 5</td><td>{'file_id': 'child2'}</td></tr>
+<tr><td>4</td><td>0</td><td></td><td>-1, -1</td><td>{'file_id': 'mom2'}</td></tr>
+<tr><td>5</td><td>0</td><td></td><td>-1, -1</td><td>{'file_id': 'dad2'}</td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+</div><div class="output text_html">
+            <div>
+                <style scoped="">
+                    .tskit-table tbody tr th:only-of-type {vertical-align: middle;}
+                    .tskit-table tbody tr th {vertical-align: top;}
+                    .tskit-table tbody td {text-align: right;padding: 0.5em 0.5em;}
+                    .tskit-table tbody th {padding: 0.5em 0.5em;}
+                </style>
+                <table border="1" class="tskit-table">
+                    <thead>
+                        <tr>
+                            <th>id</th><th>flags</th><th>population</th><th>individual</th><th>time</th><th>metadata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td></td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td></td></tr>
+<tr><td>2</td><td>0</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+<tr><td>3</td><td>0</td><td>0</td><td>1</td><td>1</td><td></td></tr>
+<tr><td>4</td><td>0</td><td>0</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>5</td><td>0</td><td>0</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>6</td><td>1</td><td>1</td><td>3</td><td>1</td><td></td></tr>
+<tr><td>7</td><td>1</td><td>1</td><td>3</td><td>1</td><td></td></tr>
+<tr><td>8</td><td>0</td><td>1</td><td>4</td><td>2</td><td></td></tr>
+<tr><td>9</td><td>0</td><td>1</td><td>4</td><td>2</td><td></td></tr>
+<tr><td>10</td><td>0</td><td>1</td><td>5</td><td>2</td><td></td></tr>
+<tr><td>11</td><td>0</td><td>1</td><td>5</td><td>2</td><td></td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+</div></div>
+</div>
+</section>
+</section>
+<section id="visualising-pedigrees">
+<span id="sec-pedigrees-visualisation"></span><h2>Visualising pedigrees<a class="headerlink" href="#visualising-pedigrees" title="Permalink to this headline">#</a></h2>
+<p>It is often useful to visualise a (small) pedigree. The following function
+is used in this documentation, which may be a useful recipe for others:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_pedigree</span><span class="p">(</span><span class="n">ped_ts</span><span class="p">):</span>
+
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">ped_ts</span><span class="o">.</span><span class="n">individuals</span><span class="p">():</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">ped_ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">time</span>
+        <span class="n">pop</span> <span class="o">=</span> <span class="n">ped_ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">population</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span> <span class="n">population</span><span class="o">=</span><span class="n">pop</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ind</span><span class="o">.</span><span class="n">parents</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="o">!=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">:</span>
+                <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">multipartite_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">subset_key</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">)</span>
+    <span class="n">colours</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">by_key</span><span class="p">()[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>
+    <span class="n">node_colours</span> <span class="o">=</span> <span class="p">[</span><span class="n">colours</span><span class="p">[</span><span class="n">node_attr</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]]</span> <span class="k">for</span> <span class="n">node_attr</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colours</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>See the <a class="reference internal" href="ancestry.html#sec-ancestry-models-fixed-pedigree-demography"><span class="std std-ref">Pedigrees and demography</span></a> section
+for an example of this function drawing pedigrees in a multi-population
+model.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="rate_maps.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Rate Maps</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="likelihoods.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Computing likelihoods</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      msprime 1.2.1.dev16
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

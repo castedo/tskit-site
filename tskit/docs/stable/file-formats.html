@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>File formats &#8212; Tskit manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bespoke.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development" href="development.html" />
+    <link rel="prev" title="Command line interface" href="cli.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tskit manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Quickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-model.html">
+   Data model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="provenance.html">
+   Provenance
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="stats.html">
+   Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="topological-analysis.html">
+   Topological analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ibd.html">
+   Identity by descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="export.html">
+   Data export
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python-api.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="c-api.html">
+   C API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   File formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  For developers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelogs.html">
+   Changelogs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            0.5.3
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/tskit"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tskit/issues/new?title=Issue%20on%20page%20%2Ffile-formats.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tskit/edit/main/docs/file-formats.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/file-formats.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/file-formats.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tree-sequence-file-format">
+   Tree sequence file format
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#legacy-versions">
+     Legacy Versions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#text-file-formats">
+   Text file formats
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#individual-text-format">
+     Individual text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#node-text-format">
+     Node text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#edge-text-format">
+     Edge text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#site-text-format">
+     Site text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutation-text-format">
+     Mutation text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#migration-text-format">
+     Migration text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#population-text-format">
+     Population text format
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>File formats</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tree-sequence-file-format">
+   Tree sequence file format
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#legacy-versions">
+     Legacy Versions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#text-file-formats">
+   Text file formats
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#individual-text-format">
+     Individual text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#node-text-format">
+     Node text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#edge-text-format">
+     Edge text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#site-text-format">
+     Site text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutation-text-format">
+     Mutation text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#migration-text-format">
+     Migration text format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#population-text-format">
+     Population text format
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="file-formats">
+<span id="sec-file-formats"></span><h1>File formats<a class="headerlink" href="#file-formats" title="Permalink to this headline">#</a></h1>
+<section id="tree-sequence-file-format">
+<span id="sec-tree-sequence-file-format"></span><h2>Tree sequence file format<a class="headerlink" href="#tree-sequence-file-format" title="Permalink to this headline">#</a></h2>
+<p>To make tree sequence data as efficient and easy as possible to use, we store the
+data on file in a columnar, binary format. The format is based on the
+<a class="reference external" href="https://pypi.org/project/kastore/">kastore</a> package, which is a simple
+key-value store for numerical data. There is a one-to-one correspondence
+between the tables described above and the arrays stored in these files.</p>
+<p>By convention, these files are given the <code class="docutils literal notranslate"><span class="pre">.trees</span></code> suffix (although this
+is not enforced in any way), and we will sometimes refer to them as “.trees”
+files. We also refer to them as “tree sequence files”.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Link to the documentation for kastore, and describe the arrays that are
+stored as well as the top-level metadata.</p>
+</div>
+<section id="legacy-versions">
+<h3>Legacy Versions<a class="headerlink" href="#legacy-versions" title="Permalink to this headline">#</a></h3>
+<p>Tree sequence files written by older versions of tskit are not readable by
+newer versions of tskit. For major releases of tskit, <code class="docutils literal notranslate"><span class="pre">tskit</span> <span class="pre">upgrade</span></code>
+will convert older tree sequence files to the latest version.</p>
+</section>
+</section>
+<section id="text-file-formats">
+<span id="sec-text-file-format"></span><h2>Text file formats<a class="headerlink" href="#text-file-formats" title="Permalink to this headline">#</a></h2>
+<p>The tree sequence text file format is based on a simple whitespace
+delimited approach. Each table corresponds to a single file, and is
+composed of a number of whitespace delimited columns. The first
+line of each file must be a <strong>header</strong> giving the names of each column.
+Subsequent rows must contain data for each of these columns, following
+the usual conventions. Each table has a set of mandatory and optional columns which are
+described below. The columns can be provided in any order, and extra columns
+can be included in the file. Note, in particular, that this means that
+an <code class="docutils literal notranslate"><span class="pre">id</span></code> column may be present in any of these files, but it will be
+ignored (IDs are always determined by the position of the row in a table).</p>
+<p>The <a class="reference internal" href="python-api.html#tskit.load_text" title="tskit.load_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">load_text()</span></code></a> method can be used to read tables in text format. This has been
+used to create the following very simple tree sequence, with four nodes, two trees,
+and three mutations at two sites, both on the first tree:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO once https://github.com/tskit-dev/tskit/issues/1824 is solved</span>
+<span class="c1"># change the individual table to include some with blank parents / locations</span>
+<span class="kn">import</span> <span class="nn">io</span>
+
+<span class="kn">import</span> <span class="nn">tskit</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span>
+
+<span class="n">individuals</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">flags       location     parents</span>
+<span class="s2">0           0.5,1.2      -1,-1</span>
+<span class="s2">0           1.0,3.4      0,-1</span>
+<span class="s2">0           3.5,6.3      0,1</span>
+<span class="s2">0           0.5          -1,-1</span>
+<span class="s2">0           0.5,0.5      2,3</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">nodes</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">is_sample   individual   time</span>
+<span class="s2">1           0            0.0</span>
+<span class="s2">1           0            0.0</span>
+<span class="s2">0           -1           2.0</span>
+<span class="s2">0           -1           3.0</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">left   right   parent  child</span>
+<span class="s2">0.0    7.0     2       0</span>
+<span class="s2">0.0    7.0     2       1</span>
+<span class="s2">7.0    10.0    3       0</span>
+<span class="s2">7.0    10.0    3       1</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">sites</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">position      ancestral_state</span>
+<span class="s2">2.0           AT</span>
+<span class="s2">4.0           A</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">mutations</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">site   node    derived_state    time    parent</span>
+<span class="s2">0      0       A                0.5     -1</span>
+<span class="s2">1      0       T                1.5     -1</span>
+<span class="s2">1      1       A                1.0     1</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">migrations</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">left   right   node   source   dest   time</span>
+<span class="s2">0.0    0.7     5      2        3      1.0</span>
+<span class="s2">0.8    0.9     8      3        4      3.0</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">populations</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">id   metadata</span>
+<span class="s2">0    cG9wMQ==</span>
+<span class="s2">1    cG9wMg==</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">load_text</span><span class="p">(</span>
+    <span class="n">individuals</span><span class="o">=</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">individuals</span><span class="p">),</span>
+    <span class="n">nodes</span><span class="o">=</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">nodes</span><span class="p">),</span>
+    <span class="n">edges</span><span class="o">=</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">edges</span><span class="p">),</span>
+    <span class="n">sites</span><span class="o">=</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">sites</span><span class="p">),</span>
+    <span class="n">mutations</span><span class="o">=</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">mutations</span><span class="p">),</span>
+    <span class="c1"># migrations=io.StringIO(migrations),  # uncomment when https://github.com/tskit-dev/tskit/issues/19 fixed</span>
+    <span class="n">populations</span><span class="o">=</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">populations</span><span class="p">),</span>
+    <span class="n">strict</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+<span class="n">SVG</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">draw_svg</span><span class="p">(</span><span class="n">y_axis</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/file-formats_1_0.svg" src="_images/file-formats_1_0.svg" /></div>
+</div>
+<p>A deletion from AT to A has occurred at position 2 on the branch leading to
+node 0, and two mutations have occurred at position 4 on the branch leading to
+node 1, first from A to T, then a back mutation to A. The genotypes of our two
+samples, nodes 0 and 1, are therefore AA and ATA. Note that this tree sequence
+also contains entries in the individual, population,
+and migration tables, but this is not shown plot above.</p>
+<section id="individual-text-format">
+<span id="sec-individual-text-format"></span><h3>Individual text format<a class="headerlink" href="#individual-text-format" title="Permalink to this headline">#</a></h3>
+<p>The individual text format must contain a <code class="docutils literal notranslate"><span class="pre">flags</span></code> column.
+Optionally, there may also be <code class="docutils literal notranslate"><span class="pre">location</span></code>, <code class="docutils literal notranslate"><span class="pre">parents</span></code> and
+<code class="docutils literal notranslate"><span class="pre">metadata</span></code> columns. See the
+<a class="reference internal" href="data-model.html#sec-individual-table-definition"><span class="std std-ref">individual table definitions</span></a>
+for details on these columns.</p>
+<p>Note that there are currently no globally defined <code class="docutils literal notranslate"><span class="pre">flags</span></code>, but the column
+is still required; a value of <code class="docutils literal notranslate"><span class="pre">0</span></code> means that there are no flags set.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">location</span></code> and <code class="docutils literal notranslate"><span class="pre">parents</span></code> columns should be a sequence of comma-separated numeric
+values. They do not all have to be the same length.</p>
+<div class="cell tag_hide-input tag_output-wide-tabs docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;An example individual table:&quot;</span><span class="p">))</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">dump_text</span><span class="p">(</span><span class="n">individuals</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">An example individual table:</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id	flags	location	parents	metadata
+0	0	0.5,1.2	-1,-1	
+1	0	1.0,3.4	0,-1	
+2	0	3.5,6.3	0,1	
+3	0	0.5	-1,-1	
+4	0	0.5,0.5	2,3	
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="node-text-format">
+<span id="sec-node-text-format"></span><h3>Node text format<a class="headerlink" href="#node-text-format" title="Permalink to this headline">#</a></h3>
+<p>The node text format must contain the columns <code class="docutils literal notranslate"><span class="pre">is_sample</span></code> and
+<code class="docutils literal notranslate"><span class="pre">time</span></code>. Optionally, there may also be <code class="docutils literal notranslate"><span class="pre">population</span></code>, <code class="docutils literal notranslate"><span class="pre">individual</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">metadata</span></code> columns. See the
+<a class="reference internal" href="data-model.html#sec-node-table-definition"><span class="std std-ref">node table definitions</span></a> for details on these columns.</p>
+<p>Note that we do not have a <code class="docutils literal notranslate"><span class="pre">flags</span></code> column in the text file format, but
+instead use <code class="docutils literal notranslate"><span class="pre">is_sample</span></code> (which may be 0 or 1). Currently, <code class="docutils literal notranslate"><span class="pre">NODE_IS_SAMPLE</span></code> is
+the only flag value defined for nodes, and as more flags are defined we will
+allow for extra columns in the text format.</p>
+<div class="cell tag_hide-input tag_output-wide-tabs docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;An example node table:&quot;</span><span class="p">))</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">dump_text</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">An example node table:</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id	is_sample	time	population	individual	metadata
+0	1	0.000000	-1	0	
+1	1	0.000000	-1	0	
+2	0	2.000000	-1	-1	
+3	0	3.000000	-1	-1	
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="edge-text-format">
+<span id="sec-edge-text-format"></span><h3>Edge text format<a class="headerlink" href="#edge-text-format" title="Permalink to this headline">#</a></h3>
+<p>The edge text format must contain the columns <code class="docutils literal notranslate"><span class="pre">left</span></code>,
+<code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">parent</span></code> and <code class="docutils literal notranslate"><span class="pre">child</span></code>. Optionally, there may also be
+a <code class="docutils literal notranslate"><span class="pre">metadata</span></code> column.
+See the <a class="reference internal" href="data-model.html#sec-edge-table-definition"><span class="std std-ref">edge table definitions</span></a>
+for details on these columns.</p>
+<div class="cell tag_hide-input tag_output-wide-tabs docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;An example edge table:&quot;</span><span class="p">))</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">dump_text</span><span class="p">(</span><span class="n">edges</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">An example edge table:</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>left	right	parent	child	metadata
+0.000000	7.000000	2	0	
+0.000000	7.000000	2	1	
+7.000000	10.000000	3	0	
+7.000000	10.000000	3	1	
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="site-text-format">
+<span id="sec-site-text-format"></span><h3>Site text format<a class="headerlink" href="#site-text-format" title="Permalink to this headline">#</a></h3>
+<p>The site text format must contain the columns <code class="docutils literal notranslate"><span class="pre">position</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ancestral_state</span></code>. The <code class="docutils literal notranslate"><span class="pre">metadata</span></code> column may also be optionally
+present. See the
+<a class="reference internal" href="data-model.html#sec-site-table-definition"><span class="std std-ref">site table definitions</span></a>
+for details on these columns.</p>
+<div class="cell tag_hide-input tag_output-wide-tabs docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;An example site table:&quot;</span><span class="p">))</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">dump_text</span><span class="p">(</span><span class="n">sites</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">An example site table:</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>position	ancestral_state	metadata
+2.000000	AT	
+4.000000	A	
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mutation-text-format">
+<span id="sec-mutation-text-format"></span><h3>Mutation text format<a class="headerlink" href="#mutation-text-format" title="Permalink to this headline">#</a></h3>
+<p>The mutation text format must contain the columns <code class="docutils literal notranslate"><span class="pre">site</span></code>,
+<code class="docutils literal notranslate"><span class="pre">node</span></code> and <code class="docutils literal notranslate"><span class="pre">derived_state</span></code>. The <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">parent</span></code> and <code class="docutils literal notranslate"><span class="pre">metadata</span></code> columns
+may also be optionally present (but <code class="docutils literal notranslate"><span class="pre">parent</span></code> must be specified if
+more than one mutation occurs at the same site). If <code class="docutils literal notranslate"><span class="pre">time</span></code> is absent
+<code class="docutils literal notranslate"><span class="pre">UNKNOWN_TIME</span></code> will be used to fill the column. See the
+<a class="reference internal" href="data-model.html#sec-mutation-table-definition"><span class="std std-ref">mutation table definitions</span></a>
+for details on these columns.</p>
+<div class="cell tag_hide-input tag_output-wide-tabs docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;An example mutation table:&quot;</span><span class="p">))</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">dump_text</span><span class="p">(</span><span class="n">mutations</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">An example mutation table:</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>site	node	time	derived_state	parent	metadata
+0	0	0.5	A	-1	
+1	0	1.5	T	-1	
+1	1	1.0	A	1	
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="migration-text-format">
+<span id="sec-migration-text-format"></span><h3>Migration text format<a class="headerlink" href="#migration-text-format" title="Permalink to this headline">#</a></h3>
+<p>The migration text format must contain the columns <code class="docutils literal notranslate"><span class="pre">left</span></code>,
+<code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">node</span></code>, <code class="docutils literal notranslate"><span class="pre">source</span></code>, <code class="docutils literal notranslate"><span class="pre">dest</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code>. The <code class="docutils literal notranslate"><span class="pre">metadata</span></code> column
+may also be optionally present. See the
+<a class="reference internal" href="data-model.html#sec-migration-table-definition"><span class="std std-ref">migration table definitions</span></a>
+for details on these columns.</p>
+<div class="cell tag_hide-input tag_output-wide-tabs docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;An example migration table:&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">migrations</span><span class="p">)</span>  <span class="c1"># fixme</span>
+<span class="c1"># ts.dump_text(migrations=sys.stdout)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">An example migration table:</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>left   right   node   source   dest   time
+0.0    0.7     5      2        3      1.0
+0.8    0.9     8      3        4      3.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="population-text-format">
+<span id="sec-population-text-format"></span><h3>Population text format<a class="headerlink" href="#population-text-format" title="Permalink to this headline">#</a></h3>
+<p>Population tables only have a <code class="docutils literal notranslate"><span class="pre">metadata</span></code> column, so the text format for
+a population table requires there to be a <code class="docutils literal notranslate"><span class="pre">metadata</span></code> column. See the
+<a class="reference internal" href="data-model.html#sec-population-table-definition"><span class="std std-ref">population table definitions</span></a> for
+details.</p>
+<div class="cell tag_hide-input tag_output-wide-tabs docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;An example population table:&quot;</span><span class="p">))</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">dump_text</span><span class="p">(</span><span class="n">populations</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">An example population table:</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id	metadata
+0	cG9wMQ==
+1	cG9wMg==
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">metadata</span></code> contains base64-encoded data (in this case, the strings
+<code class="docutils literal notranslate"><span class="pre">pop1</span></code> and <code class="docutils literal notranslate"><span class="pre">pop1</span></code>).</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="cli.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Command line interface</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="development.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Development</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      0.5.3
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

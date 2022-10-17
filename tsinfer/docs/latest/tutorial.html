@@ -1,0 +1,1219 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Tutorial &#8212; Tsinfer manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Inference overview" href="inference.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/tsinfer_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tsinfer manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome to tsinfer’s documentation!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorial
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="inference.html">
+   Inference overview
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Documentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  File Formats
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="file_formats.html">
+   File formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Developer documentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CITATION.html">
+   Citing tsinfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            tsinfer undefined
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/tsinfer"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tsinfer/issues/new?title=Issue%20on%20page%20%2Ftutorial.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tsinfer/edit/main/docs/tutorial.rst"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/tutorial.rst"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#toy-example">
+   Toy example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation-example">
+   Simulation example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-example">
+   Data example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-a-vcf">
+     Reading a VCF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-more-information">
+     Adding more information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis">
+     Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tutorial</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#toy-example">
+   Toy example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation-example">
+   Simulation example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-example">
+   Data example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-a-vcf">
+     Reading a VCF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-more-information">
+     Adding more information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis">
+     Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="tutorial">
+<span id="sec-tutorial"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">#</a></h1>
+<section id="toy-example">
+<h2>Toy example<a class="headerlink" href="#toy-example" title="Permalink to this headline">#</a></h2>
+<p>Suppose that we have observed the following data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span>  <span class="n">haplotype</span>
+<span class="mi">0</span>       <span class="n">AGCGAT</span>
+<span class="mi">1</span>       <span class="n">TGACAG</span>
+<span class="mi">2</span>       <span class="n">AGACAC</span>
+<span class="mi">3</span>       <span class="n">ACCGCT</span>
+<span class="mi">4</span>       <span class="n">ACCGCT</span>
+</pre></div>
+</div>
+<p>Here we have phased haplotype data for five samples at six sites. We wish to infer the
+genealogies that gave rise to this data set. To import the data into <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> we must
+know the <em>ancestral state</em> for each site we wish to use for inference; there are many
+methods for achieving this: details are outside the scope of this manual, but we have
+started a <a class="reference external" href="https://github.com/tskit-dev/tsinfer/discussions/523">discussion topic</a> on
+this issue to provide some recommendations. Assuming that we
+know the ancestral state, we can then import our data into a <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code>
+<a class="reference internal" href="file_formats.html#sec-file-formats-samples"><span class="std std-ref">Sample data</span></a> file using the Python
+<a class="reference internal" href="api.html#sec-api-file-formats"><span class="std std-ref">API</span></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tsinfer</span>
+
+<span class="k">with</span> <span class="n">tsinfer</span><span class="o">.</span><span class="n">SampleData</span><span class="p">(</span><span class="n">sequence_length</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="k">as</span> <span class="n">sample_data</span><span class="p">:</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">])</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">])</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">])</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">])</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">])</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Here we create a new <a class="reference internal" href="api.html#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> object for five samples. We then
+sequentially add the data for each site one-by-one using the
+<a class="reference internal" href="api.html#tsinfer.SampleData.add_site" title="tsinfer.SampleData.add_site"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SampleData.add_site()</span></code></a> method. The first argument for <code class="docutils literal notranslate"><span class="pre">add_site</span></code> is the
+position of the site in genome coordinates. This can be any positive value
+(even floating point), but site positions must be unique and sites must be
+added in increasing order of position. For convenience we’ve given the sites
+position 0 to 5 here, but they could be any values. The second argument for
+<code class="docutils literal notranslate"><span class="pre">add_site</span></code> is a list of <em>genotypes</em> for the site. Each value in a genotypes
+array <code class="docutils literal notranslate"><span class="pre">g</span></code> is an integer, giving an index into the list provided as the third
+argument to <code class="docutils literal notranslate"><span class="pre">add_site</span></code>: the list of <em>alleles</em> for this site. The initial element
+in each list of alleles is assumed to be the ancestral state (so that a zero in
+the genotypes list always indicates an ancestral variant). Each call to <code class="docutils literal notranslate"><span class="pre">add_site</span></code>
+thus stores a single column of the original haplotype data above. For example,
+the ancestral and derived states for the site at position 0 are “A” and “T” and the
+genotypes are 01000: this encodes the first column, ATAAA. Note that not all sites
+are used for inference: this includes fixed sites, singletons (in this example, the
+site at position 0) and sites with more than 2 alleles (e.g. the site at position 5);
+it is also possible to mark explicitly a site as not-for-inference when calling
+<code class="docutils literal notranslate"><span class="pre">add_site</span></code>, e.g. if the ancestral state designated for the site is questionable.</p>
+<p>Once we have stored our data in a <a class="reference internal" href="api.html#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> object, we can easily infer
+a <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#sec-python-api-trees-and-tree-sequences" title="(in Python)"><span class="xref std std-ref">tree sequence</span></a> using the Python
+API:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inferred_ts</span> <span class="o">=</span> <span class="n">tsinfer</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">sample_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And that’s it: we now have a fully functional <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a>
+object that we can interrogate in the usual ways. For example, we can look
+at the inferred topology and the stored haplotypes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">tree</span> <span class="ow">in</span> <span class="n">inferred_ts</span><span class="o">.</span><span class="n">trees</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;unicode&quot;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">sample_id</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">inferred_ts</span><span class="o">.</span><span class="n">haplotypes</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sample_id</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Which gives us the output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    7
+┏━━┳┻━━┓
+┃  5   6
+┃ ┏┻┓ ┏┻┓
+0 3 4 1 2
+
+0   AGCGAT
+1   TGACAG
+2   AGACAC
+3   ACCGCT
+4   ACCGCT
+</pre></div>
+</div>
+<p>You will notice that the inferred tree contains a <em>polytomy</em> at the root. This is a
+common feature of trees inferred by <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> and signals that there was not
+sufficient information to resolve the tree at this node.</p>
+<p>Each internal (non-sample) node in this inferred tree represents an ancestral sequence,
+constructed on the basis of shared, derived alleles at one or more of the sites. By
+default, the time of each such node is <em>not</em> measured in years or generations, but
+is simply the frequency of the shared derived allele(s) on which the ancestral sequence
+is based. To add meaningful dates to an inferred tree sequence you must use additional
+software such as <code class="docutils literal notranslate"><span class="pre">tsdate</span></code>: the <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> algorithm is only intended to infer the
+genetic relationships between the samples (i.e. the <em>topology</em> of the tree sequence).</p>
+<p>Note that the sample sequences generated by this tree sequence are identical to the
+input haplotype data: apart from the imputation of
+<a class="reference internal" href="inference.html#sec-inference-data-requirements"><span class="std std-ref">missing data</span></a>, <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> is guaranteed to
+losslessly encode any given input data, regardless of the inferred topology.</p>
+</section>
+<section id="simulation-example">
+<h2>Simulation example<a class="headerlink" href="#simulation-example" title="Permalink to this headline">#</a></h2>
+<p>The previous example showed how we can infer a tree sequence using the Python API for a trivial
+toy example. However, for real data we will not prepare our data and infer the tree sequence all
+in one go; rather, we will usually split the process into at least two distinct steps.</p>
+<p>The first step in any inference is to prepare your data and import it into a <a class="reference internal" href="file_formats.html#sec-file-formats-samples"><span class="std std-ref">sample data</span></a> file. For simplicity here we’ll use Python to simulate some
+data under the coalescent with recombination, using <a class="reference external" href="https://msprime.readthedocs.io/en/stable/api.html#msprime.simulate">msprime</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tqdm</span>
+<span class="kn">import</span> <span class="nn">msprime</span>
+<span class="kn">import</span> <span class="nn">tsinfer</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span>
+    <span class="n">sample_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+    <span class="n">Ne</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+    <span class="n">mutation_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+    <span class="n">length</span><span class="o">=</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span>
+    <span class="n">random_seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">&quot;simulation-source.trees&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;simulation done:&quot;</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">num_trees</span><span class="p">,</span> <span class="s2">&quot;trees and&quot;</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">num_sites</span><span class="p">,</span> <span class="s2">&quot;sites&quot;</span><span class="p">)</span>
+
+<span class="n">progress</span> <span class="o">=</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">num_sites</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tsinfer</span><span class="o">.</span><span class="n">SampleData</span><span class="p">(</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;simulation.samples&quot;</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">,</span> <span class="n">num_flush_threads</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">sample_data</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">variants</span><span class="p">():</span>
+        <span class="n">sample_data</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="n">var</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">var</span><span class="o">.</span><span class="n">genotypes</span><span class="p">,</span> <span class="n">var</span><span class="o">.</span><span class="n">alleles</span><span class="p">)</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    <span class="n">progress</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Running the code we get:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 simulation-example.py
+Simulation done: 36734 trees and 39001 sites
+100%|████████████████████████████████| 39001/39001 [00:51&lt;00:00, 762.26it/s]
+</pre></div>
+</div>
+<p>In this script we first run a simulation of a sample of 10 thousand 10 megabase chromosomes with
+human-like parameters, which results in about 37K distinct trees and 39K segregating sites. We
+then create a <a class="reference internal" href="api.html#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> instance to store the data we have simulated as before, but
+providing a few more parameters in this case. Firstly, we pass a <code class="docutils literal notranslate"><span class="pre">path</span></code> argument to provide a
+filename in which to permanently store the information. We also provide a <code class="docutils literal notranslate"><span class="pre">sequence_length</span></code>
+argument (which defines the overall coordinate space for site positions) so that this value can
+be recovered in the final tree sequence that we output later. Finally, we set
+<code class="docutils literal notranslate"><span class="pre">num_flush_threads=2</span></code>, which tells <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> to use two background threads for compressing
+data and flushing it to disk.</p>
+<p>To allow us to keep track of how this process of compressing and storing the sample data is
+progressing, the code above also sets up a progress meter using
+<a class="reference external" href="https://github.com/tqdm/tqdm">tqdm</a>. The script output above shows the state of the
+progress meter at the end of this process, and shows that it took about 50 seconds to
+import the data for this simulation into <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code>’s sample data format.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you already have a tree sequence file, and wish to create a sample data file from
+it, a shortcut is to use the <a class="reference internal" href="api.html#tsinfer.SampleData.from_tree_sequence" title="tsinfer.SampleData.from_tree_sequence"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tsinfer.SampleData.from_tree_sequence()</span></code></a> method. In
+this case you do not need to specify the sequence length, and you probably want to
+specify <code class="docutils literal notranslate"><span class="pre">use_times=False</span></code>. For example, the following snippet is equivalent to the
+data file creation part of the code above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span><span class="o">.</span><span class="n">SampleData</span><span class="o">.</span><span class="n">from_tree_sequence</span><span class="p">(</span>
+    <span class="n">ts</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;simulation.samples&quot;</span><span class="p">,</span> <span class="n">num_flush_threads</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">use_times</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Examining the files on the command line, we then see the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -lh simulation*
+-rw-r--r-- 1 jk jk  22M May 12 11:06 simulation.samples
+-rw-r--r-- 1 jk jk 4.8M May 12 11:06 simulation-source.trees
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">simulation.samples</span></code> file is quite small, being only about four times the size of the
+original <code class="docutils literal notranslate"><span class="pre">msprime</span></code> tree sequence file. The <a class="reference internal" href="cli.html#sec-cli"><span class="std std-ref">tsinfer command line interface</span></a>
+provides a useful way to examine files in more detail using the <code class="docutils literal notranslate"><span class="pre">list</span></code> (or <code class="docutils literal notranslate"><span class="pre">ls</span></code>) command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tsinfer ls simulate.samples
+path                  = simulation.samples
+file_size             = 21.8 MiB
+format_name           = tsinfer-sample-data
+format_version        = (1, 0)
+finalised             = True
+uuid                  = ab667d05-06bc-4a15-ab85-ab5a0ac39c36
+num_provenances       = 1
+provenances/timestamp = shape=(1,); dtype=object;
+provenances/record    = shape=(1,); dtype=object;
+sequence_length       = 10000000.0
+num_populations       = 0
+num_individuals       = 10000
+num_samples           = 10000
+num_sites             = 39001
+num_inference_sites   = 35166
+populations/metadata  = shape=(0,); dtype=object;
+individuals/metadata  = shape=(10000,); dtype=object;
+individuals/location  = shape=(10000,); dtype=object;
+samples/individual    = shape=(10000,); dtype=int32;uncompressed size=40.0 kB
+samples/population    = shape=(10000,); dtype=int32;uncompressed size=40.0 kB
+samples/metadata      = shape=(10000,); dtype=object;
+sites/position        = shape=(39001,); dtype=float64;uncompressed size=312.0 kB
+sites/alleles         = shape=(39001,); dtype=object;
+sites/inference       = shape=(39001,); dtype=uint8;uncompressed size=39.0 kB
+sites/genotypes       = shape=(39001, 10000); dtype=uint8;uncompressed size=390.0 MB
+sites/metadata        = shape=(39001,); dtype=object;
+</pre></div>
+</div>
+<p>Most of this output is not particularly interesting here, but we can see that the
+<code class="docutils literal notranslate"><span class="pre">sites/genotypes</span></code> array which holds all of the sample genotypes (and thus the vast bulk of the
+actual data) requires about 390MB uncompressed. The <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> sample data format is therefore
+achieving a roughly 20X compression in this case. In practise this means we can keep such files
+lying around without taking up too much space.</p>
+<p>Once we have our <code class="docutils literal notranslate"><span class="pre">.samples</span></code> file created, running the inference is straightforward.
+We can do so within Python (as we did in the toy example above), or use <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> on
+the command-line, which is useful when inference is expected to take a long time:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tsinfer infer simulation.samples -p -t 4
+ga-add   (1/6): 100%|███████████████████████| 35.2K/35.2K [00:02, 15.3Kit/s]
+ga-gen   (2/6): 100%|███████████████████████| 26.5K/26.5K [00:30,   862it/s]
+ma-match (3/6): 100%|██████████████████████▉| 26.5K/26.5K [01:02,   160it/s]
+ms-match (4/6): 100%|███████████████████████| 10.0K/10.0K [02:27,  67.9it/s]
+ms-paths (5/6): 100%|███████████████████████| 10.0K/10.0K [00:00, 26.0Kit/s]
+ms-sites (6/6): 100%|███████████████████████| 39.0K/39.0K [00:02, 15.5Kit/s]
+</pre></div>
+</div>
+<p>Running the <code class="docutils literal notranslate"><span class="pre">infer</span></code> command runs the full inference pipeline in one go (the individual steps
+are explained <a class="reference internal" href="inference.html#sec-inference"><span class="std std-ref">here</span></a>), writing the output, by default, to the tree sequence
+file <code class="docutils literal notranslate"><span class="pre">simulation.trees</span></code>. We provided two extra arguments to <code class="docutils literal notranslate"><span class="pre">infer</span></code>: the <code class="docutils literal notranslate"><span class="pre">-p</span></code> flag
+(<code class="docutils literal notranslate"><span class="pre">--progress</span></code>) gives us the progress bars show above, and <code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">4</span></code> (<code class="docutils literal notranslate"><span class="pre">--num-threads=4</span></code>) tells
+<code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> to use four worker threads whenever it can use them.</p>
+<p>This inference was run on a Core i3-530 processor (launched 2010) with 4GiB of RAM, and took
+about four minutes. The maximum memory usage was about 600MiB.</p>
+<p>Looking at our output files, we see:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -lh simulation*
+-rw-r--r-- 1 jk jk  22M May 12 11:06 simulation.samples
+-rw-r--r-- 1 jk jk 4.8M May 12 11:06 simulation-source.trees
+-rw-r--r-- 1 jk jk 4.4M May 12 11:27 simulation.trees
+</pre></div>
+</div>
+<p>Therefore our output tree sequence file that we have just inferred in less than five minutes is
+<em>even smaller</em> than the original <code class="docutils literal notranslate"><span class="pre">msprime</span></code> simulated tree sequence! Because the output file is
+also a <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a>, we can use the same API to work with both, for example,
+within Python we can do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tskit</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;simulation-source.trees&quot;</span><span class="p">)</span>
+<span class="n">inferred</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;simulation.trees&quot;</span><span class="p">)</span>
+
+<span class="n">subset</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">source_subset</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span>
+<span class="n">inferred_subset</span> <span class="o">=</span> <span class="n">inferred</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">source_subset</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True tree: interval=&quot;</span><span class="p">,</span> <span class="n">tree</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;unicode&quot;</span><span class="p">))</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">inferred_subset</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inferred tree: interval=&quot;</span><span class="p">,</span> <span class="n">tree</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;unicode&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This first loads up our source and inferred tree sequences from their corresponding
+<code class="docutils literal notranslate"><span class="pre">.trees</span></code> files. Each of the trees in these tree sequences has 10 thousand samples
+which is much too large to easily visualise. Therefore, to make things simple here
+we subset both tree sequences down to their minimal representations for six
+samples using <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.simplify()</span></code></a>.
+(Using this tiny subset of the overall data allows us to get an informal
+feel for the trees that are inferred by <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code>, but this is certainly
+not a recommended approach for validating the inference!)</p>
+<p>Once we’ve subsetted the tree sequences down to something that we can
+comfortably look at, we then get the <strong>first</strong> tree from each tree sequence
+and print it out. Note again that we are looking at only the first tree here;
+there will be thousands more trees in each sequence. The output we get is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>True tree: interval= (0.0, 488.1131463889296)
+    4546
+ ┏━━┻━┓
+ ┃    900
+ ┃  ┏━┻━┓
+ ┃  ┃   854
+ ┃  ┃ ┏━┻┓
+ 309┃ ┃  ┃
+┏┻┓ ┃ ┃  ┃
+┃ ┃ ┃ ┃  41
+┃ ┃ ┃ ┃ ┏┻┓
+0 1 2 3 4 5
+
+Inferred tree: interval= (0.0, 6176.988890134446)
+   2386
+ ┏━┳┻━━┓
+ ┃ ┃ 1697
+ ┃ ┃ ┏━╋━━┓
+ ┃ ┃ ┃ ┃ 480
+ ┃ ┃ ┃ ┃ ┏┻┓
+ 0 1 2 3 4 5
+</pre></div>
+</div>
+<p>There are a number of things to note about these two trees. Firstly, it
+is important to note that the intervals over which these trees apply are
+quite different: the true tree covers the interval up to coordinate
+488, but the inferred tree covers a much longer interval, up to 6176.
+Our inference depends on the mutational information that is present.
+If no mutations fall on a particular edge in the tree sequence, then
+we have no way of inferring that this edge existed. As a result, there
+will be tree transitions that we cannot pick up. In the simulation that we
+performed the mutation rate is equal to the recombination rate, and so
+we expect that many recombinations will be invisible to us in the
+output data.</p>
+<p>For similar reasons, there will be many nodes in the tree at which
+polytomies occur. Here we correctly infer that 4 and 5 coalesce
+first and that 4 is a sibling of this node. However, we were not
+able to distinguish the order in which 2 and 3 coalesced with
+the ancestors of 4 and 5, and so we have three children of node 2290
+in the inferred tree. (Note that, other than the samples, there is
+no correspondence between the node IDs in the source tree and the
+inferred tree.)</p>
+<p>The final point to make here is that there will be incorrect inferences in some
+trees. In this example we incorrectly inferred that 0 coalesces with the
+ancestor of nodes 2, 3, 4 and 5 before 1.</p>
+</section>
+<section id="data-example">
+<h2>Data example<a class="headerlink" href="#data-example" title="Permalink to this headline">#</a></h2>
+<p>Inputting real data for inference is similar in principle to the examples above:
+you simply iterate over the sites in your data file, calling <a class="reference internal" href="api.html#tsinfer.SampleData.add_site" title="tsinfer.SampleData.add_site"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SampleData.add_site()</span></code></a>
+for each variable site. We do not provide methods to read directly from other formats, as
+these formats are often too complex for automatic conversion. However, many Python
+libraries are available for reading different genomic data formats, and writing a script
+to iterate over the sites in such files is usually a fairly simple task. The example
+below shows how this can be done for a VCF file, using a freely available VCF reading
+library.</p>
+<section id="reading-a-vcf">
+<h3>Reading a VCF<a class="headerlink" href="#reading-a-vcf" title="Permalink to this headline">#</a></h3>
+<p>A common way to store genetic variation data is as a VCF (Variant Call Format) file.
+The <a class="reference external" href="https://github.com/brentp/cyvcf2">CYVCF2 library</a> provides a relatively fast
+Python interface for reading VCF files. The following script demonstrates how to infer a
+tree sequence from a simple VCF file. In particular the function below named
+<code class="docutils literal notranslate"><span class="pre">add_diploid_sites</span></code> illustrates how to iterate over the variants in a <code class="docutils literal notranslate"><span class="pre">CYVCF2.VCF</span></code>
+object and add them to a <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> sample data file. This particular script assumes
+that the VCF describes a set of phased, diploid individuals, and has the ancestral state
+present in the INFO field of the VCF (otherwise it takes the reference allele as the
+ancestral state). For example data, we use a publicly available VCF file of the genetic
+variants from chromosome 24 of ten Norwegian and French house sparrows,
+<em>Passer domesticus</em> (thanks to Mark Ravinet for the data file):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cyvcf2</span>
+<span class="kn">import</span> <span class="nn">tsinfer</span>
+
+
+<span class="k">def</span> <span class="nf">add_diploid_sites</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">samples</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read the sites in the vcf and add them to the samples object, reordering the</span>
+<span class="sd">    alleles to put the ancestral allele first, if it is available.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># You may want to change the following line, e.g. here we allow * (a spanning</span>
+    <span class="c1"># deletion) to be a valid allele state</span>
+    <span class="n">allele_chars</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&quot;ATGCatgc*&quot;</span><span class="p">)</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">variant</span> <span class="ow">in</span> <span class="n">vcf</span><span class="p">:</span>  <span class="c1"># Loop over variants, each assumed at a unique site</span>
+        <span class="k">if</span> <span class="n">pos</span> <span class="o">==</span> <span class="n">variant</span><span class="o">.</span><span class="n">POS</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Duplicate entries at position </span><span class="si">{</span><span class="n">pos</span><span class="si">}</span><span class="s2">, ignoring all but the first&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">variant</span><span class="o">.</span><span class="n">POS</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="ow">not</span> <span class="n">phased</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">phased</span> <span class="ow">in</span> <span class="n">variant</span><span class="o">.</span><span class="n">genotypes</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unphased genotypes for variant at position&quot;</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+        <span class="n">alleles</span> <span class="o">=</span> <span class="p">[</span><span class="n">variant</span><span class="o">.</span><span class="n">REF</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">+</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">variant</span><span class="o">.</span><span class="n">ALT</span><span class="p">]</span>
+        <span class="n">ancestral</span> <span class="o">=</span> <span class="n">variant</span><span class="o">.</span><span class="n">INFO</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;AA&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>  <span class="c1"># &quot;.&quot; means unknown</span>
+        <span class="c1"># some VCFs (e.g. from 1000G) have many values in the AA field: take the 1st</span>
+        <span class="n">ancestral</span> <span class="o">=</span> <span class="n">ancestral</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">ancestral</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span> <span class="ow">or</span> <span class="n">ancestral</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="c1"># use the reference as ancestral, if unknown (NB: you may not want this)</span>
+            <span class="n">ancestral</span> <span class="o">=</span> <span class="n">variant</span><span class="o">.</span><span class="n">REF</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="c1"># Ancestral state must be first in the allele list.</span>
+        <span class="n">ordered_alleles</span> <span class="o">=</span> <span class="p">[</span><span class="n">ancestral</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">alleles</span><span class="p">)</span> <span class="o">-</span> <span class="p">{</span><span class="n">ancestral</span><span class="p">})</span>
+        <span class="c1"># Check we have ATCG alleles</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ordered_alleles</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="n">allele_chars</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ignoring site at pos </span><span class="si">{</span><span class="n">pos</span><span class="si">}</span><span class="s2">: allele </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> not in </span><span class="si">{</span><span class="n">allele_chars</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+        <span class="n">allele_index</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">old_index</span><span class="p">:</span> <span class="n">ordered_alleles</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">old_index</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">alleles</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="c1"># Map original allele indexes to their indexes in the new alleles list.</span>
+        <span class="n">genotypes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">allele_index</span><span class="p">[</span><span class="n">old_index</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">variant</span><span class="o">.</span><span class="n">genotypes</span>
+            <span class="k">for</span> <span class="n">old_index</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="p">]</span>
+        <span class="n">samples</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">genotypes</span><span class="o">=</span><span class="n">genotypes</span><span class="p">,</span> <span class="n">alleles</span><span class="o">=</span><span class="n">ordered_alleles</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">chromosome_length</span><span class="p">(</span><span class="n">vcf</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">vcf</span><span class="o">.</span><span class="n">seqlens</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">vcf</span><span class="o">.</span><span class="n">seqlens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="c1"># URL for the VCF</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/tskit-dev/tsinfer/raw/main/docs/_static/P_dom_chr24_phased.vcf.gz&quot;</span>
+
+<span class="n">vcf</span> <span class="o">=</span> <span class="n">cyvcf2</span><span class="o">.</span><span class="n">VCF</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tsinfer</span><span class="o">.</span><span class="n">SampleData</span><span class="p">(</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;P_dom_chr24_phased.samples&quot;</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="n">chromosome_length</span><span class="p">(</span><span class="n">vcf</span><span class="p">)</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">samples</span><span class="p">:</span>
+    <span class="n">add_diploid_sites</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">samples</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Sample file created for </span><span class="si">{}</span><span class="s2"> samples &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">samples</span><span class="o">.</span><span class="n">num_samples</span><span class="p">)</span>
+    <span class="o">+</span> <span class="s2">&quot;(</span><span class="si">{}</span><span class="s2"> individuals) &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">samples</span><span class="o">.</span><span class="n">num_individuals</span><span class="p">)</span>
+    <span class="o">+</span> <span class="s2">&quot;with </span><span class="si">{}</span><span class="s2"> variable sites.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">samples</span><span class="o">.</span><span class="n">num_sites</span><span class="p">),</span>
+    <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Do the inference</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">tsinfer</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Inferred tree sequence: </span><span class="si">{}</span><span class="s2"> trees over </span><span class="si">{}</span><span class="s2"> Mb (</span><span class="si">{}</span><span class="s2"> edges)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">num_trees</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">sequence_length</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">num_edges</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>On a modern computer, this should only take a few seconds to run, producing this output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sample</span> <span class="n">file</span> <span class="n">created</span> <span class="k">for</span> <span class="mi">20</span> <span class="n">samples</span> <span class="p">(</span><span class="mi">20</span> <span class="n">individuals</span><span class="p">)</span> <span class="k">with</span> <span class="mi">13192</span> <span class="n">variable</span> <span class="n">sites</span><span class="o">.</span>
+<span class="n">Inferred</span> <span class="n">tree</span> <span class="n">sequence</span><span class="p">:</span> <span class="mi">6666</span> <span class="n">trees</span> <span class="p">(</span><span class="mi">32824</span> <span class="n">edges</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Larger VCF files will take some time to parse, and you may wish to add some sort of
+progress indicator to this script, for example by inserting the line
+<code class="docutils literal notranslate"><span class="pre">progressbar</span> <span class="pre">=</span> <span class="pre">tqdm.tqdm(total=samples.sequence_length,</span> <span class="pre">desc=&quot;Read</span> <span class="pre">VCF&quot;,</span> <span class="pre">unit='bp')</span></code>
+at the top of the <code class="docutils literal notranslate"><span class="pre">add_diploid_sites</span></code> function, followed by
+<code class="docutils literal notranslate"><span class="pre">progressbar.update(variant.POS</span> <span class="pre">-</span> <span class="pre">pos)</span></code> as the first line of the variant loop within
+that function. This code can also be modified to read huge VCF files in parallel, see
+<a class="reference external" href="https://github.com/tskit-dev/tsinfer/issues/277#issuecomment-652024871">this issue</a>.</p>
+</div>
+</section>
+<section id="adding-more-information">
+<h3>Adding more information<a class="headerlink" href="#adding-more-information" title="Permalink to this headline">#</a></h3>
+<p>As the output indicates, we have created 20 individuals, each with a single chromosome,
+rather than (as we probably intended) 10 individuals each with 2 chromosomes. That’s
+because the script has not called <a class="reference internal" href="api.html#tsinfer.SampleData.add_individual" title="tsinfer.SampleData.add_individual"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SampleData.add_individual()</span></code></a>, so
+<code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> has assumed that each input chromosome belongs to a single (haploid)
+<a class="reference internal" href="inference.html#sec-inference-data-model-individual"><span class="std std-ref">individual</span></a>. Although this is perfectly
+OK and does not invalidate further analysis, it may be difficult to match information
+from the original VCF file with nodes in the tree sequence. Ideally, you should aim to
+incorporate all necessary information into the sample data file, from where it will be
+carried through into the final inferred tree sequence. The code below demonstrates not
+only how to associate each pair of samples with a diploid individual, but also how to
+allocate an identifier to these individuals by using the individual’s metadata field.
+The code also gives a basic illustration of adding extra information about the
+<a class="reference internal" href="inference.html#sec-inference-data-model-population"><span class="std std-ref">population</span></a> from which each individual has
+been sampled.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="k">def</span> <span class="nf">add_populations</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">samples</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add tsinfer Population objects and returns a list of IDs corresponding to the VCF samples.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># In this VCF, the first letter of the sample name refers to the population</span>
+    <span class="n">samples_first_letter</span> <span class="o">=</span> <span class="p">[</span><span class="n">sample_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">sample_name</span> <span class="ow">in</span> <span class="n">vcf</span><span class="o">.</span><span class="n">samples</span><span class="p">]</span>
+    <span class="n">pop_lookup</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">pop_lookup</span><span class="p">[</span><span class="s2">&quot;8&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">samples</span><span class="o">.</span><span class="n">add_population</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;Norway&quot;</span><span class="p">})</span>
+    <span class="n">pop_lookup</span><span class="p">[</span><span class="s2">&quot;F&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">samples</span><span class="o">.</span><span class="n">add_population</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;France&quot;</span><span class="p">})</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">pop_lookup</span><span class="p">[</span><span class="n">first_letter</span><span class="p">]</span> <span class="k">for</span> <span class="n">first_letter</span> <span class="ow">in</span> <span class="n">samples_first_letter</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">add_diploid_individuals</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">samples</span><span class="p">,</span> <span class="n">populations</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vcf</span><span class="o">.</span><span class="n">samples</span><span class="p">,</span> <span class="n">populations</span><span class="p">):</span>
+        <span class="n">samples</span><span class="o">.</span><span class="n">add_individual</span><span class="p">(</span><span class="n">ploidy</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">},</span> <span class="n">population</span><span class="o">=</span><span class="n">population</span><span class="p">)</span>
+
+
+<span class="c1"># Repeat as previously but add both populations and individuals</span>
+<span class="n">vcf</span> <span class="o">=</span> <span class="n">cyvcf2</span><span class="o">.</span><span class="n">VCF</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tsinfer</span><span class="o">.</span><span class="n">SampleData</span><span class="p">(</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;P_dom_chr24_phased.samples&quot;</span><span class="p">,</span> <span class="n">sequence_length</span><span class="o">=</span><span class="n">chromosome_length</span><span class="p">(</span><span class="n">vcf</span><span class="p">)</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">samples</span><span class="p">:</span>
+    <span class="n">populations</span> <span class="o">=</span> <span class="n">add_populations</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">samples</span><span class="p">)</span>
+    <span class="n">add_diploid_individuals</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">samples</span><span class="p">,</span> <span class="n">populations</span><span class="p">)</span>
+    <span class="n">add_diploid_sites</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">samples</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Sample file created for </span><span class="si">{}</span><span class="s2"> samples &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">samples</span><span class="o">.</span><span class="n">num_samples</span><span class="p">)</span>
+    <span class="o">+</span> <span class="s2">&quot;(</span><span class="si">{}</span><span class="s2"> individuals) &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">samples</span><span class="o">.</span><span class="n">num_individuals</span><span class="p">)</span>
+    <span class="o">+</span> <span class="s2">&quot;with </span><span class="si">{}</span><span class="s2"> variable sites.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">samples</span><span class="o">.</span><span class="n">num_sites</span><span class="p">),</span>
+    <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Do the inference</span>
+<span class="n">sparrow_ts</span> <span class="o">=</span> <span class="n">tsinfer</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Inferred tree sequence `</span><span class="si">{}</span><span class="s2">`: </span><span class="si">{}</span><span class="s2"> trees over </span><span class="si">{}</span><span class="s2"> Mb&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="s2">&quot;sparrow_ts&quot;</span><span class="p">,</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">num_trees</span><span class="p">,</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">sequence_length</span> <span class="o">/</span> <span class="mf">1e6</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+<span class="c1"># Check the metadata</span>
+<span class="k">for</span> <span class="n">sample_node_id</span> <span class="ow">in</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">samples</span><span class="p">():</span>
+    <span class="n">individual_id</span> <span class="o">=</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">sample_node_id</span><span class="p">)</span><span class="o">.</span><span class="n">individual</span>
+    <span class="n">population_id</span> <span class="o">=</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">sample_node_id</span><span class="p">)</span><span class="o">.</span><span class="n">population</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Node&quot;</span><span class="p">,</span>
+        <span class="n">sample_node_id</span><span class="p">,</span>
+        <span class="s2">&quot;labels one chromosome 24 sampled from individual&quot;</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">sparrow_ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">individual_id</span><span class="p">)</span><span class="o">.</span><span class="n">metadata</span><span class="p">),</span>
+        <span class="s2">&quot;in&quot;</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">sparrow_ts</span><span class="o">.</span><span class="n">population</span><span class="p">(</span><span class="n">population_id</span><span class="p">)</span><span class="o">.</span><span class="n">metadata</span><span class="p">)[</span><span class="s2">&quot;country&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Which results in the correct output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Sample file created for 20 samples (10 individuals) with 13192 variable sites.
+Inferred tree sequence `sparrow_ts`: 6666 trees over 7.067267 Mb
+Node 0 labels one chromosome 24 sampled from individual {&#39;name&#39;: &#39;8934547&#39;} in Norway
+Node 1 labels one chromosome 24 sampled from individual {&#39;name&#39;: &#39;8934547&#39;} in Norway
+Node 2 labels one chromosome 24 sampled from individual {&#39;name&#39;: &#39;8L19766&#39;} in Norway
+...
+</pre></div>
+</div>
+</section>
+<section id="analysis">
+<h3>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h3>
+<p>To analyse your inferred tree sequence you can use all the analysis functions built in to
+the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/">tskit</a> library. The
+<a class="reference external" href="https://tskit.dev/tutorials/analysing_tree_sequences.html#sec-tutorial-stats" title="(in Python)"><span class="xref std std-ref">tskit tutorial</span></a> provides much more detail. Below we just give a
+flavour of the possibilities.</p>
+<p>To quickly eyeball small datasets, we can draw the entire tree sequence, or
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.Tree.draw" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">draw</span></code></a> the tree at any particular genomic position. The following
+code demonstrates how to use the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.at" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.at()</span></code></a> method to obtain the tree
+1Mb from the start of the sequence, and plot it, colouring the tips according to
+population:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">colours</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Norway&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">}</span>
+<span class="n">colours_for_node</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">samples</span><span class="p">():</span>
+    <span class="n">population_data</span> <span class="o">=</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">population</span><span class="p">(</span><span class="n">sparrow_ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">population</span><span class="p">)</span>
+    <span class="n">colours_for_node</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">colours</span><span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">population_data</span><span class="o">.</span><span class="n">metadata</span><span class="p">)[</span><span class="s2">&quot;country&quot;</span><span class="p">]]</span>
+
+<span class="n">individual_for_node</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">samples</span><span class="p">():</span>
+    <span class="n">individual_data</span> <span class="o">=</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">sparrow_ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">individual</span><span class="p">)</span>
+    <span class="n">individual_for_node</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">individual_data</span><span class="o">.</span><span class="n">metadata</span><span class="p">)[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;tree_at_1Mb.svg&quot;</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span>
+    <span class="n">node_labels</span><span class="o">=</span><span class="n">individual_for_node</span><span class="p">,</span>
+    <span class="n">node_colours</span><span class="o">=</span><span class="n">colours_for_node</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/tree_at_1Mb.svg"><img alt="An example tree" src="_images/tree_at_1Mb.svg" width="100%" /></a>
+<p>This tree seems to suggest that Norwegian and French individuals may not fall into
+discrete groups on the tree, but be part of a larger mixing population. Note, however,
+that this is only one of thousands of trees, and may not be typical of the genome as a
+whole. Additionally, most data sets will have far more samples than this example, so
+trees visualized in this way are likely to be huge and difficult to understand. It is
+possible to plot a subset of the tips by <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simplifying</span></code></a>
+the tree sequence to a limited number of samples, but it is likely that most studies will
+instead rely on various statistical summaries of the trees. Storing genetic data as a
+tree sequence makes many of these calculations fast and efficient, and tskit has both a
+set of <a class="reference external" href="https://tskit.dev/tskit/docs/stable/stats.html#sec-stats" title="(in Python)"><span class="xref std std-ref">commonly used methods</span></a> and a framework that
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/stats.html#sec-stats-general-api" title="(in Python)"><span class="xref std std-ref">generalizes population genetic statistics</span></a>. For example,
+the allele or site frequency spectrum (SFS) can be calculated using
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.allele_frequency_spectrum" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.allele_frequency_spectrum()</span></code></a> and the allelic diversity (“Tajima’s
+<span class="math notranslate nohighlight">\({\pi}\)</span>”) using <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.diversity" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.diversity()</span></code></a>, both of which can also be
+calculated locally (e.g. <a class="reference external" href="https://tskit.dev/tskit/docs/stable/stats.html#sec-stats-windows" title="(in Python)"><span class="xref std std-ref">per tree or in genomic windows</span></a>). As
+a basic example, here’s how to calculate genome-wide <span class="math notranslate nohighlight">\(F_{st}\)</span> between the Norwegian
+and French (sub)populations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">samples_listed_by_population</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="n">pop_id</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">pop_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sparrow_ts</span><span class="o">.</span><span class="n">num_populations</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">Fst</span> <span class="o">=</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">Fst</span><span class="p">(</span><span class="n">samples_listed_by_population</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Fst</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And following this, here is how to calculate the genealogical nearest neighbour (GNN)
+proportions, using the individual and population metadata to format the results table in
+a tidy manner</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">gnn</span> <span class="o">=</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">genealogical_nearest_neighbours</span><span class="p">(</span>
+    <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(),</span> <span class="n">samples_listed_by_population</span>
+<span class="p">)</span>
+
+<span class="c1"># Tabulate GNN nicely using a Pandas dataframe with named rows and columns</span>
+<span class="n">sample_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">sparrow_ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">samples</span><span class="p">()]</span>
+<span class="n">sample_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sample_nodes</span><span class="p">]</span>
+<span class="n">sample_names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">sparrow_ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">individual</span><span class="p">)</span><span class="o">.</span><span class="n">metadata</span><span class="p">)[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sample_nodes</span>
+<span class="p">]</span>
+<span class="n">sample_pops</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">sparrow_ts</span><span class="o">.</span><span class="n">population</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">population</span><span class="p">)</span><span class="o">.</span><span class="n">metadata</span><span class="p">)[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sample_nodes</span>
+<span class="p">]</span>
+<span class="n">gnn_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">gnn</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">sample_ids</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Sample node&quot;</span><span class="p">),</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">sample_names</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bird&quot;</span><span class="p">),</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">sample_pops</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Country&quot;</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">metadata</span><span class="p">)[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sparrow_ts</span><span class="o">.</span><span class="n">populations</span><span class="p">()],</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">gnn_table</span><span class="p">)</span>
+<span class="c1"># Summarize GNN for all birds from the same country</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gnn_table</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;Country&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>giving:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                               <span class="n">Norway</span>    <span class="n">France</span>
+<span class="n">Sample</span> <span class="n">node</span> <span class="n">Bird</span>    <span class="n">Country</span>
+<span class="mi">0</span>           <span class="mi">8934547</span> <span class="n">Norway</span>   <span class="mf">0.556627</span>  <span class="mf">0.443373</span>
+<span class="mi">1</span>           <span class="mi">8934547</span> <span class="n">Norway</span>   <span class="mf">0.512883</span>  <span class="mf">0.487117</span>
+<span class="mi">2</span>           <span class="mi">8</span><span class="n">L19766</span> <span class="n">Norway</span>   <span class="mf">0.492479</span>  <span class="mf">0.507521</span>
+<span class="mi">3</span>           <span class="mi">8</span><span class="n">L19766</span> <span class="n">Norway</span>   <span class="mf">0.479670</span>  <span class="mf">0.520330</span>
+<span class="mi">4</span>           <span class="mi">8</span><span class="n">M31651</span> <span class="n">Norway</span>   <span class="mf">0.540306</span>  <span class="mf">0.459694</span>
+<span class="mi">5</span>           <span class="mi">8</span><span class="n">M31651</span> <span class="n">Norway</span>   <span class="mf">0.586742</span>  <span class="mf">0.413258</span>
+<span class="mi">6</span>           <span class="mi">8</span><span class="n">N05890</span> <span class="n">Norway</span>   <span class="mf">0.545757</span>  <span class="mf">0.454243</span>
+<span class="mi">7</span>           <span class="mi">8</span><span class="n">N05890</span> <span class="n">Norway</span>   <span class="mf">0.551132</span>  <span class="mf">0.448868</span>
+<span class="mi">8</span>           <span class="mi">8</span><span class="n">N73604</span> <span class="n">Norway</span>   <span class="mf">0.531846</span>  <span class="mf">0.468154</span>
+<span class="mi">9</span>           <span class="mi">8</span><span class="n">N73604</span> <span class="n">Norway</span>   <span class="mf">0.528082</span>  <span class="mf">0.471918</span>
+<span class="mi">10</span>          <span class="n">FR041</span>   <span class="n">France</span>   <span class="mf">0.452105</span>  <span class="mf">0.547895</span>
+<span class="mi">11</span>          <span class="n">FR041</span>   <span class="n">France</span>   <span class="mf">0.457217</span>  <span class="mf">0.542783</span>
+<span class="mi">12</span>          <span class="n">FR044</span>   <span class="n">France</span>   <span class="mf">0.484194</span>  <span class="mf">0.515806</span>
+<span class="mi">13</span>          <span class="n">FR044</span>   <span class="n">France</span>   <span class="mf">0.421929</span>  <span class="mf">0.578071</span>
+<span class="mi">14</span>          <span class="n">FR046</span>   <span class="n">France</span>   <span class="mf">0.537646</span>  <span class="mf">0.462354</span>
+<span class="mi">15</span>          <span class="n">FR046</span>   <span class="n">France</span>   <span class="mf">0.493566</span>  <span class="mf">0.506434</span>
+<span class="mi">16</span>          <span class="n">FR048</span>   <span class="n">France</span>   <span class="mf">0.482920</span>  <span class="mf">0.517080</span>
+<span class="mi">17</span>          <span class="n">FR048</span>   <span class="n">France</span>   <span class="mf">0.475115</span>  <span class="mf">0.524885</span>
+<span class="mi">18</span>          <span class="n">FR050</span>   <span class="n">France</span>   <span class="mf">0.510829</span>  <span class="mf">0.489171</span>
+<span class="mi">19</span>          <span class="n">FR050</span>   <span class="n">France</span>   <span class="mf">0.491866</span>  <span class="mf">0.508134</span>
+
+
+           <span class="n">Norway</span>    <span class="n">France</span>
+<span class="n">Country</span>
+<span class="n">France</span>   <span class="mf">0.480739</span>  <span class="mf">0.519261</span>
+<span class="n">Norway</span>   <span class="mf">0.532552</span>  <span class="mf">0.467448</span>
+</pre></div>
+</div>
+<p>From this, it can be seen that the genealogical nearest neighbours of birds in Norway
+tend also to be in Norway, and vice versa for birds from France. In other words, there is
+a small but noticable degree of population structure in the data. The bird <code class="docutils literal notranslate"><span class="pre">8L19766</span></code>
+and one of the chromosomes of bird <code class="docutils literal notranslate"><span class="pre">FR046</span></code> seem to buck this trend, and it would
+probably be worth checking these data points further (perhaps they are migrant birds),
+and verifying if other chromosomes in these individuals show the same pattern.</p>
+<p>Much more can be done with the genomic statistics built into tskit. For further
+information, please refer to the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/stats.html#sec-stats" title="(in Python)"><span class="xref std std-ref">statistics section</span></a> of the
+tskit documentation.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="installation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Installation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="inference.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Inference overview</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2018.<br/>
+    <div class="extra_footer">
+      tsinfer undefined
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

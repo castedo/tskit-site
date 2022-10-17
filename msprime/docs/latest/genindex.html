@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; Msprime manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/msprime_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Msprime manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Quickstart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Running simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ancestry.html">
+   Ancestry simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mutations.html">
+   Mutation simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="demography.html">
+   Demographic models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="replication.html">
+   Randomness and replication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Utilities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rate_maps.html">
+   Rate Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pedigrees.html">
+   Pedigrees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="likelihoods.html">
+   Computing likelihoods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logging.html">
+   Logging
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="legacy.html">
+   Legacy (version 0.x) APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="switch_from_other_simulators.html">
+   Switching from other simulators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CITATION.html">
+   Citing msprime
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            msprime 1.2.1.dev16
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/msprime"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/msprime/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.Demography.add_admixture">add_admixture() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.add_census">add_census() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.PedigreeBuilder.add_individual">add_individual() (msprime.PedigreeBuilder method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.add_instantaneous_bottleneck">add_instantaneous_bottleneck() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.add_mass_migration">add_mass_migration() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.add_migration_rate_change">add_migration_rate_change() (msprime.Demography method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.Demography.add_population">add_population() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.add_population_parameters_change">add_population_parameters_change() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.add_population_split">add_population_split() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.add_simple_bottleneck">add_simple_bottleneck() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.add_symmetric_migration_rate_change">add_symmetric_migration_rate_change() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.AncestryModel">AncestryModel (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.assert_equal">assert_equal() (msprime.Demography method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.BetaCoalescent">BetaCoalescent (class in msprime)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.BinaryMutationModel">BinaryMutationModel (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.BLOSUM62">BLOSUM62 (class in msprime)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="legacy.html#msprime.CensusEvent">CensusEvent (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.DemographyDebugger.coalescence_rate_trajectory">coalescence_rate_trajectory() (msprime.DemographyDebugger method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.Demography.copy">copy() (msprime.Demography method)</a>
+
+      <ul>
+        <li><a href="api.html#msprime.RateMap.copy">(msprime.RateMap method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="installation.html#term-Debian-Ubuntu"><strong>Debian/Ubuntu</strong></a>
+</li>
+      <li><a href="api.html#msprime.Demography.debug">debug() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.Population.default_sampling_time">default_sampling_time (msprime.Population attribute)</a>
+</li>
+      <li><a href="api.html#msprime.Demography">Demography (class in msprime)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.DemographyDebugger">DemographyDebugger (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.Population.description">description (msprime.Population attribute)</a>
+</li>
+      <li><a href="api.html#msprime.DiracCoalescent">DiracCoalescent (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.DiscreteTimeWrightFisher">DiscreteTimeWrightFisher (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.AncestryModel.duration">duration (msprime.AncestryModel attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.EL2">EL2 (class in msprime)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.DemographyDebugger.epoch_start_time">epoch_start_time (msprime.DemographyDebugger property)</a>
+</li>
+      <li><a href="api.html#msprime.Population.extra_metadata">extra_metadata (msprime.Population attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.F84">F84 (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.PedigreeBuilder.finalise">finalise() (msprime.PedigreeBuilder method)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.find_index">find_index() (msprime.RateMap method)</a>
+</li>
+      <li><a href="api.html#msprime.FixedPedigree">FixedPedigree (class in msprime)</a>
+</li>
+      <li><a href="installation.html#term-FreeBSD"><strong>FreeBSD</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.Demography.from_demes">from_demes() (msprime.Demography static method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.from_old_style">from_old_style() (msprime.Demography static method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.from_species_tree">from_species_tree() (msprime.Demography static method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.from_starbeast">from_starbeast() (msprime.Demography static method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.from_tree_sequence">from_tree_sequence() (msprime.Demography static method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.RateMap.get_cumulative_mass">get_cumulative_mass() (msprime.RateMap method)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.get_rate">get_rate() (msprime.RateMap method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="legacy.html#msprime.RecombinationMap.get_total_recombination_rate">get_total_recombination_rate() (msprime.RecombinationMap method)</a>
+</li>
+      <li><a href="api.html#msprime.Population.growth_rate">growth_rate (msprime.Population attribute)</a>
+</li>
+      <li><a href="api.html#msprime.GTR">GTR (class in msprime)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.HKY">HKY (class in msprime)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.Population.id">id (msprime.Population attribute)</a>
+</li>
+      <li><a href="api.html#msprime.InfiniteAlleles">InfiniteAlleles (class in msprime)</a>
+</li>
+      <li><a href="legacy.html#msprime.InfiniteSites">InfiniteSites (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.Population.initial_size">initial_size (msprime.Population attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.Population.initially_active">initially_active (msprime.Population attribute)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.is_equivalent">is_equivalent() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.island_model">island_model() (msprime.Demography static method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.isolated_model">isolated_model() (msprime.Demography static method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.JC69">JC69 (class in msprime)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.RateMap.left">left (msprime.RateMap property)</a>
+</li>
+      <li><a href="api.html#msprime.DemographyDebugger.lineage_probabilities">lineage_probabilities() (msprime.DemographyDebugger method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.log_arg_likelihood">log_arg_likelihood() (in module msprime)</a>
+</li>
+      <li><a href="api.html#msprime.log_mutation_likelihood">log_mutation_likelihood() (in module msprime)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.RateMap.mass">mass (msprime.RateMap property)</a>
+</li>
+      <li><a href="legacy.html#msprime.MassMigration">MassMigration (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.MatrixMutationModel">MatrixMutationModel (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.DemographyDebugger.mean_coalescence_time">mean_coalescence_time() (msprime.DemographyDebugger method)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.mean_rate">mean_rate (msprime.RateMap property)</a>
+</li>
+      <li><a href="legacy.html#msprime.RecombinationMap.mean_recombination_rate">mean_recombination_rate (msprime.RecombinationMap property)</a>
+</li>
+      <li><a href="api.html#msprime.MicrosatMutationModel">MicrosatMutationModel (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.mid">mid (msprime.RateMap property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="legacy.html#msprime.MigrationRateChange">MigrationRateChange (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.missing">missing (msprime.RateMap property)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.missing_intervals">missing_intervals() (msprime.RateMap method)</a>
+</li>
+      <li><a href="api.html#msprime.msprime.NODE_IS_CA_EVENT">msprime.NODE_IS_CA_EVENT (in module msprime)</a>
+</li>
+      <li><a href="api.html#msprime.msprime.NODE_IS_CEN_EVENT">msprime.NODE_IS_CEN_EVENT (in module msprime)</a>
+</li>
+      <li><a href="api.html#msprime.msprime.NODE_IS_MIG_EVENT">msprime.NODE_IS_MIG_EVENT (in module msprime)</a>
+</li>
+      <li><a href="api.html#msprime.msprime.NODE_IS_RE_EVENT">msprime.NODE_IS_RE_EVENT (in module msprime)</a>
+</li>
+      <li><a href="legacy.html#msprime.mutate">mutate() (in module msprime)</a>
+</li>
+      <li><a href="api.html#msprime.MutationModel">MutationModel (class in msprime)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.Population.name">name (msprime.Population attribute)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.non_missing">non_missing (msprime.RateMap property)</a>
+</li>
+      <li><a href="api.html#msprime.DemographyDebugger.num_epochs">num_epochs (msprime.DemographyDebugger property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.RateMap.num_intervals">num_intervals (msprime.RateMap property)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.num_missing_intervals">num_missing_intervals (msprime.RateMap property)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.num_non_missing_intervals">num_non_missing_intervals (msprime.RateMap property)</a>
+</li>
+      <li><a href="api.html#msprime.SampleSet.num_samples">num_samples (msprime.SampleSet attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="installation.html#term-OS-X"><strong>OS X</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.PAM">PAM (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.parse_pedigree">parse_pedigree() (in module msprime)</a>
+</li>
+      <li><a href="api.html#msprime.PedigreeBuilder">PedigreeBuilder (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.SampleSet.ploidy">ploidy (msprime.SampleSet attribute)</a>
+</li>
+      <li><a href="api.html#msprime.Population">Population (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.SampleSet.population">population (msprime.SampleSet attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.DemographyDebugger.population_size_history">population_size_history (msprime.DemographyDebugger property)</a>
+</li>
+      <li><a href="api.html#msprime.DemographyDebugger.population_size_trajectory">population_size_trajectory() (msprime.DemographyDebugger method)</a>
+</li>
+      <li><a href="legacy.html#msprime.PopulationConfiguration">PopulationConfiguration (class in msprime)</a>
+</li>
+      <li><a href="legacy.html#msprime.PopulationParametersChange">PopulationParametersChange (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.position">position (msprime.RateMap property)</a>
+</li>
+      <li><a href="api.html#msprime.DemographyDebugger.possible_lineage_locations">possible_lineage_locations() (msprime.DemographyDebugger method)</a>
+</li>
+      <li><a href="api.html#msprime.DemographyDebugger.print_history">print_history() (msprime.DemographyDebugger method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.RateMap.rate">rate (msprime.RateMap property)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap">RateMap (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.read_hapmap">read_hapmap() (msprime.RateMap static method)</a>
+
+      <ul>
+        <li><a href="legacy.html#msprime.RecombinationMap.read_hapmap">(msprime.RecombinationMap class method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="legacy.html#msprime.RecombinationMap">RecombinationMap (class in msprime)</a>
+</li>
+      <li><a href="installation.html#term-Redhat-Fedora"><strong>Redhat/Fedora</strong></a>
+</li>
+      <li><a href="api.html#msprime.RateMap.right">right (msprime.RateMap property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="legacy.html#msprime.Sample">Sample (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.SampleSet">SampleSet (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.sequence_length">sequence_length (msprime.RateMap property)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.set_migration_rate">set_migration_rate() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.set_symmetric_migration_rate">set_symmetric_migration_rate() (msprime.Demography method)</a>
+</li>
+      <li><a href="api.html#msprime.sim_ancestry">sim_ancestry() (in module msprime)</a>
+</li>
+      <li><a href="api.html#msprime.sim_mutations">sim_mutations() (in module msprime)</a>
+</li>
+      <li><a href="legacy.html#msprime.simulate">simulate() (in module msprime)</a>
+</li>
+      <li><a href="legacy.html#msprime.SimulationModelChange">SimulationModelChange (class in msprime)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.RateMap.slice">slice() (msprime.RateMap method)</a>
+</li>
+      <li><a href="api.html#msprime.SLiMMutationModel">SLiMMutationModel (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.SmcApproxCoalescent">SmcApproxCoalescent (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.SmcPrimeApproxCoalescent">SmcPrimeApproxCoalescent (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.SMM">SMM (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.RateMap.span">span (msprime.RateMap property)</a>
+</li>
+      <li><a href="api.html#msprime.StandardCoalescent">StandardCoalescent (class in msprime)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.stepping_stone_model">stepping_stone_model() (msprime.Demography static method)</a>
+</li>
+      <li><a href="api.html#msprime.SweepGenicSelection">SweepGenicSelection (class in msprime)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.SampleSet.time">time (msprime.SampleSet attribute)</a>
+</li>
+      <li><a href="api.html#msprime.Demography.to_demes">to_demes() (msprime.Demography method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.RateMap.total_mass">total_mass (msprime.RateMap property)</a>
+</li>
+      <li><a href="api.html#msprime.TPM">TPM (class in msprime)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.RateMap.uniform">uniform() (msprime.RateMap static method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="legacy.html#msprime.RecombinationMap.uniform_map">uniform_map() (msprime.RecombinationMap class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#msprime.Demography.validate">validate() (msprime.Demography method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="installation.html#term-Windows"><strong>Windows</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      msprime 1.2.1.dev16
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

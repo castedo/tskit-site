@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyslim.spatial &#8212; PySLiM manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">PySLiM manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Using pyslim
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorial.html">
+   Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_space.html">
+   Vignette: A spatial simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_continuing.html">
+   Vignette: Following up with more coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_coalescent_diversity.html">
+   Vignette: Starting with diversity generated by coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_parallel_phylo.html">
+   Vignette: Parallelizing SLiM simulations in a phylogenetic tree
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time_units.html">
+   Time units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../previous_versions.html">
+   Migrating from previous versions of pyslim
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  pyslim reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../python_api.html">
+   Python API
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../development.html">
+   Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            pyslim 1.0.1
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for pyslim.spatial</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">msprime</span>
+<span class="kn">import</span> <span class="nn">tskit</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">.methods</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">def</span> <span class="nf">_in_location_bin</span><span class="p">(</span><span class="n">locations</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes the locations of individuals and tests if each is within [x0, x1) and</span>
+<span class="sd">    [y0, y1). Returns a list the same length as the number of individuals with</span>
+<span class="sd">    True if the corresponding individual is within the bounds and False</span>
+<span class="sd">    otherwise.  This is a helper function for `population_size`, and may change</span>
+<span class="sd">    or be removed in the future.</span>
+
+<span class="sd">    :param numpy.ndarray locations: An n x 3 array with rows individuals, the first</span>
+<span class="sd">        column the x coordinates, and the second column the y coordinates.</span>
+<span class="sd">    :param float x0: The lower x coordinate boundary.</span>
+<span class="sd">    :param float x1: The upper x coordinate boundary.</span>
+<span class="sd">    :param float y0: The lower y coordinate boundary.</span>
+<span class="sd">    :param float y1: The upper y coordinate boundary.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span>
+                <span class="n">locations</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x1</span><span class="p">,</span>
+                <span class="n">locations</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">x0</span><span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span>
+                <span class="n">locations</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">y1</span><span class="p">,</span>
+                <span class="n">locations</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">y0</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_average_time_alive</span><span class="p">(</span><span class="n">birth_times</span><span class="p">,</span> <span class="n">death_times</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Calculates the average population size in the time interval [`t0`, `t1`)</span>
+<span class="sd">    from birth times and death times of individuals. This is a helper function for</span>
+<span class="sd">    `population_size`, and may change or be removed in the future.</span>
+
+<span class="sd">    &#39;Average population size&#39; is the sum over all individuals of the length of</span>
+<span class="sd">    time each individual was alive in [`t0`, `t1`), divided by `t1 - t0`. For</span>
+<span class="sd">    integer t0 and t1, this is equivalent to the average over all integer time</span>
+<span class="sd">    steps in [t0, t1) of the number of individuals alive at that time step;</span>
+<span class="sd">    however, this is not restricted to integer times.</span>
+
+<span class="sd">    Time goes bacwards, so t1 is further in the past than t0 and birth times</span>
+<span class="sd">    are greater than death times. Birth times and death times should already</span>
+<span class="sd">    include an offset for the stage that individuals are remembered at. See</span>
+<span class="sd">    `population_size` code.</span>
+
+<span class="sd">    For example, suppose t0 = 1, t1 = 4, and there are four individuals with</span>
+<span class="sd">    birth times [3, 1, 5, 4] and death times [0, 1, 2, 4]. The first individual</span>
+<span class="sd">    is alive for three time steps in [t0, t1): 1, 2, and 3; the second</span>
+<span class="sd">    individual for one time step: 1; the third individual for two time steps: 2</span>
+<span class="sd">    and 3, and the fourth individual for zero (since the time interval is open</span>
+<span class="sd">    on the right and it was born at t1). So the average population size is (3 +</span>
+<span class="sd">    1 + 2 + 0)/(4-1) = 2.</span>
+
+<span class="sd">    :param numpy.ndarray birth_times: Birth times of individuals.</span>
+<span class="sd">    :param numpy.ndarray death_times: Death times of individuals. Should be the same</span>
+<span class="sd">        length as `birth_times`. Death times are less than or equal to birth times.</span>
+<span class="sd">    :param float t0: Lower time endpoint.</span>
+<span class="sd">    :param float t1: Upper time endpoint. t1 is greater than t0.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># length of the segment of time in [t0, t1) that the individual</span>
+    <span class="c1"># was alive for, i.e., of the intersection with [birth, death].</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">birth_times</span><span class="p">)</span> <span class="o">-</span>  <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">death_times</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="population_size"><a class="viewcode-back" href="../../python_api.html#pyslim.population_size">[docs]</a><span class="k">def</span> <span class="nf">population_size</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">x_bins</span><span class="p">,</span> <span class="n">y_bins</span><span class="p">,</span> <span class="n">time_bins</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="s1">&#39;late&#39;</span><span class="p">,</span> <span class="n">remembered_stage</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Calculates the population size in each of the spatial bins defined by grid lines</span>
+<span class="sd">    at ``x_bins`` and ``y_bins``, averaged over each of the time intervals separated by</span>
+<span class="sd">    ``time_bins``. To obtain actual (census) sizes, the tree sequence must contain</span>
+<span class="sd">    all individuals alive, e.g., from a SLiM simulation with all individuals</span>
+<span class="sd">    permanently remembered.</span>
+
+<span class="sd">    With ``nx``, ``ny`` and ``nt`` the number of bins in the ``x``, ``y`` and time directions</span>
+<span class="sd">    (so, ``nx`` is one less than the length of ``x_bins``),</span>
+<span class="sd">    returns a 3-d array with dimensions ``(nx, ny, nt)``.</span>
+<span class="sd">    The ``(i,j,k)``th element of the array is the average number of</span>
+<span class="sd">    individuals with ``x`` coordinate in the half-open interval ``[x_bins[i], x_bins[i + 1])``</span>
+<span class="sd">    and ``y`` coordinate in the half-open interval ``[y_bins[i], y_bins[i + 1])``,</span>
+<span class="sd">    averaged across all times in the half-open interval ``[time_bins[k], time_bins[k + 1])``.</span>
+
+<span class="sd">    For integer endpoints of the time bins, this average is equivalent to</span>
+<span class="sd">    recording the number of indivduals that are alive at each time in the time</span>
+<span class="sd">    interval and have location in the relevant location bin, then taking the</span>
+<span class="sd">    mean of these recorded population sizes.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: The tree sequence to calculate population size from.</span>
+<span class="sd">    :param numpy.ndarray x_bins: The x-coordinates of the boundaries of the location bins.</span>
+<span class="sd">    :param numpy.ndarray y_bins: The y-coordinates of the boundaries of the location bins.</span>
+<span class="sd">    :param numpy.ndarray time_bins: The endpoints of the time bins.</span>
+<span class="sd">    :param str stage: The stage in the SLiM life cycle that the endpoints of</span>
+<span class="sd">        the time bins refer to (either &quot;early&quot; or &quot;late&quot;; defaults to &quot;late&quot;).</span>
+<span class="sd">    :param str remembered_stage: The stage in the SLiM life cycle during which</span>
+<span class="sd">        individuals were Remembered (defaults to the stage the tree sequence was</span>
+<span class="sd">        recorded at, stored in metadata).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># TODO: make a helper function to do this</span>
+    <span class="k">if</span> <span class="n">stage</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;late&quot;</span><span class="p">,</span> <span class="s2">&quot;early&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown stage &#39;</span><span class="si">{</span><span class="n">stage</span><span class="si">}</span><span class="s2">&#39;: &quot;</span>
+                          <span class="s2">&quot;should be either &#39;early&#39; or &#39;late&#39;.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">remembered_stage</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">remembered_stage</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;stage&#39;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">remembered_stage</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;late&quot;</span><span class="p">,</span> <span class="s2">&quot;early&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown remembered_stage &#39;</span><span class="si">{</span><span class="n">remembered_stage</span><span class="si">}</span><span class="s2">&#39;: &quot;</span>
+                          <span class="s2">&quot;should be either &#39;early&#39; or &#39;late&#39;.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">remembered_stage</span> <span class="o">!=</span> <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;stage&#39;</span><span class="p">]:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Provided remembered_stage &#39;</span><span class="si">{</span><span class="n">remembered_stage</span><span class="si">}</span><span class="s2">&#39; does not&quot;</span>
+                      <span class="s2">&quot; match the stage at which the tree sequence was saved&quot;</span>
+                      <span class="sa">f</span><span class="s2">&quot; (&#39;</span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;stage&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;). This is not necessarily&quot;</span>
+                      <span class="s2">&quot; an error, but mismatched stages will lead to inconsistencies:&quot;</span>
+                      <span class="s2">&quot; make sure you know what you&#39;re doing.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># see individuals_alive_at for explanation</span>
+    <span class="k">if</span> <span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;early&quot;</span> <span class="ow">and</span> <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;model_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;WF&quot;</span><span class="p">:</span>
+        <span class="n">birth_offset</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">birth_offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">birth_times</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individuals_time</span> <span class="o">-</span> <span class="n">birth_offset</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;model_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;WF&quot;</span>
+            <span class="ow">or</span> <span class="n">stage</span> <span class="o">==</span> <span class="n">remembered_stage</span><span class="p">):</span>
+        <span class="n">age_offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">remembered_stage</span> <span class="o">==</span> <span class="s2">&quot;early&quot;</span>
+                <span class="ow">and</span> <span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;late&quot;</span><span class="p">):</span>
+            <span class="n">age_offset</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">age_offset</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">ages</span> <span class="o">=</span> <span class="n">individual_ages</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span> <span class="o">+</span> <span class="n">age_offset</span>
+    <span class="n">death_times</span> <span class="o">=</span> <span class="n">birth_times</span> <span class="o">-</span> <span class="n">ages</span>
+
+    <span class="n">time_breaks</span> <span class="o">=</span> <span class="n">time_bins</span>
+    <span class="n">x_breaks</span> <span class="o">=</span> <span class="n">x_bins</span>
+    <span class="n">y_breaks</span> <span class="o">=</span> <span class="n">y_bins</span>
+
+    <span class="n">nxbins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_breaks</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">nybins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_breaks</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">ntbins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_breaks</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">popsize</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nxbins</span><span class="p">,</span> <span class="n">nybins</span><span class="p">,</span> <span class="n">ntbins</span><span class="p">))</span>
+
+    <span class="n">locations</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individuals_location</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nxbins</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nybins</span><span class="p">):</span>
+            <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x_breaks</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">x_breaks</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">y_breaks</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">y_breaks</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">in_bin</span> <span class="o">=</span> <span class="n">_in_location_bin</span><span class="p">(</span><span class="n">locations</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ntbins</span><span class="p">):</span>
+                <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">time_breaks</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">time_breaks</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="n">popsize</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">_average_time_alive</span><span class="p">(</span>
+                        <span class="n">birth_times</span><span class="p">[</span><span class="n">in_bin</span><span class="p">],</span>
+                        <span class="n">death_times</span><span class="p">[</span><span class="n">in_bin</span><span class="p">],</span>
+                        <span class="n">t0</span><span class="p">,</span>
+                        <span class="n">t1</span><span class="p">,</span>
+                <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">popsize</span></div>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      pyslim 1.0.1
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+// Our colour palette, imported first so we can use its variables in conjunction with Bootstrap variables
+@import "palette";
+
+// Bootstrap - our overrides (if we want to change the values of any Bootstrap variables)
+@import "bootstrap-overrides";
+
+// Bootstrap - required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/containers";
+
+// Bootstrap - features we need (commented lines below are example of what you could import if needed)
+//@import "~bootstrap/scss/accordion";
+//@import "~bootstrap/scss/alert";
+//@import "~bootstrap/scss/badge";
+//@import "~bootstrap/scss/breadcrumb";
+//@import "~bootstrap/scss/button-group";
+//@import "~bootstrap/scss/buttons";
+//@import "~bootstrap/scss/card";
+//@import "~bootstrap/scss/carousel";
+//@import "~bootstrap/scss/close";
+//@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/helpers";
+@import "~bootstrap/scss/images";
+//@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+//@import "~bootstrap/scss/offcanvas";
+//@import "~bootstrap/scss/pagination";
+//@import "~bootstrap/scss/placeholders";
+//@import "~bootstrap/scss/popover";
+//@import "~bootstrap/scss/progress";
+//@import "~bootstrap/scss/spinners";
+//@import "~bootstrap/scss/tables";
+//@import "~bootstrap/scss/toasts";
+//@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/utilities/api";
+//@import "~bootstrap/scss/bootstrap";
+//@import "~bootstrap/scss/bootstrap-grid";
+//@import "~bootstrap/scss/bootstrap-reboot";
+//@import "~bootstrap/scss/bootstrap-utilities";
+
+// Our base/global styles
+@import "variables";
+@import "typography";
+@import "mixins";
+
+// Our components
+@import "components/buttons";
+@import "components/call-to-action";
+@import "components/card";
+@import "components/code";
+@import "components/footer";
+@import "components/forms";
+@import "components/header";
+@import "components/hero";
+@import "components/images";
+@import "components/links";
+@import "components/lists";
+@import "components/modal";
+@import "components/navbar";
+@import "components/page-heading";
+@import "components/page-wrapper";
+@import "components/pagination";
+@import "components/section";
+@import "components/video";
+@import "components/wysiwyg";
+
+.blog{
+  display: inherit;
+  padding: inherit;
+}
+
+.blog-entry{
+  img {
+    background-color: white;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.news-float-left {
+  float: left;
+  margin:20px;
+}

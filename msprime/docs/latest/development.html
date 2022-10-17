@@ -1,0 +1,1586 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Development &#8212; Msprime manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Citing msprime" href="CITATION.html" />
+    <link rel="prev" title="Switching from other simulators" href="switch_from_other_simulators.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/msprime_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Msprime manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Quickstart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Running simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ancestry.html">
+   Ancestry simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mutations.html">
+   Mutation simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="demography.html">
+   Demographic models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="replication.html">
+   Randomness and replication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Utilities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rate_maps.html">
+   Rate Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pedigrees.html">
+   Pedigrees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="likelihoods.html">
+   Computing likelihoods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logging.html">
+   Logging
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="legacy.html">
+   Legacy (version 0.x) APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="switch_from_other_simulators.html">
+   Switching from other simulators
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CITATION.html">
+   Citing msprime
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            msprime 1.2.1.dev16
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/msprime"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/msprime/issues/new?title=Issue%20on%20page%20%2Fdevelopment.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/msprime/edit/main/docs/development.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/development.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quickstart">
+   Quickstart
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements">
+   Requirements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#system-requirements">
+     System requirements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-requirements">
+     Python requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuous-integration-tests">
+   Continuous integration tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#documentation">
+   Documentation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building">
+     Building
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyterbook">
+     JupyterBook
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#restructuredtext">
+       reStructuredText
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#markdown">
+       Markdown
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#api-reference">
+     API Reference
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples">
+     Examples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cross-referencing">
+     Cross referencing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#high-level-python">
+   High-level Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conventions">
+     Conventions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#packaging">
+     Packaging
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tests">
+     Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interfacing-with-low-level-module">
+     Interfacing with low-level module
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#command-line-interfaces">
+     Command line interfaces
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-library">
+   C Library
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#toolchain">
+     Toolchain
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compiling">
+     Compiling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development-cli">
+     Development CLI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unit-tests">
+     Unit Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-style">
+     Code Style
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-conventions">
+     Coding conventions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-handling">
+     Error handling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-valgrind">
+     Running valgrind
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-c-interface">
+   Python C Interface
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-tests">
+   Statistical tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benchmarking">
+   Benchmarking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#containerization">
+   Containerization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#troubleshooting">
+   Troubleshooting
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Development</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quickstart">
+   Quickstart
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements">
+   Requirements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#system-requirements">
+     System requirements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-requirements">
+     Python requirements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuous-integration-tests">
+   Continuous integration tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#documentation">
+   Documentation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building">
+     Building
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyterbook">
+     JupyterBook
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#restructuredtext">
+       reStructuredText
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#markdown">
+       Markdown
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#api-reference">
+     API Reference
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples">
+     Examples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cross-referencing">
+     Cross referencing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#high-level-python">
+   High-level Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conventions">
+     Conventions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#packaging">
+     Packaging
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tests">
+     Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interfacing-with-low-level-module">
+     Interfacing with low-level module
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#command-line-interfaces">
+     Command line interfaces
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-library">
+   C Library
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#toolchain">
+     Toolchain
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compiling">
+     Compiling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#development-cli">
+     Development CLI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unit-tests">
+     Unit Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-style">
+     Code Style
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-conventions">
+     Coding conventions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#error-handling">
+     Error handling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-valgrind">
+     Running valgrind
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-c-interface">
+   Python C Interface
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-tests">
+   Statistical tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benchmarking">
+   Benchmarking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#containerization">
+   Containerization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#troubleshooting">
+   Troubleshooting
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="development">
+<span id="sec-development"></span><h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">#</a></h1>
+<p>If you would like to add some features to <code class="docutils literal notranslate"><span class="pre">msprime</span></code>, please read the
+following. If you think there is anything missing,
+please open an <a class="reference external" href="http://github.com/tskit-dev/msprime/issues">issue</a> or
+<a class="reference external" href="http://github.com/tskit-dev/msprime/pulls">pull request</a> on GitHub!</p>
+<section id="quickstart">
+<span id="sec-development-quickstart"></span><h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>Make a fork of the msprime repo on <a class="reference external" href="http://github.com/tskit-dev/msprime">GitHub</a></p></li>
+<li><p>Clone your fork into a local directory, making sure that the <strong>submodules
+are correctly initialised</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:tskit-dev/msprime.git --recurse-submodules
+</pre></div>
+</div>
+<p>For an already checked out repo, the submodules can be initialised using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git submodule update --init --recursive
+</pre></div>
+</div>
+</li>
+<li><p>Install the <a class="reference internal" href="#sec-development-requirements"><span class="std std-ref">requirements</span></a>.</p></li>
+<li><p>Build the low level module by running <code class="docutils literal notranslate"><span class="pre">make</span></code> in the project root.</p></li>
+<li><p>Run the tests to ensure everything has worked: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">pytest</span></code>. These should
+all pass.</p></li>
+<li><p>Install the pre-commit checks: <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">install</span></code></p></li>
+<li><p>Make your changes in a local branch. On each commit a <a class="reference external" href="https://pre-commit.com/">pre-commit hook</a>  will run
+checks for code style and common problems.
+Sometimes these will report “files were modified by this hook” <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>
+and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--amend</span></code> will update the commit with the automatically modified
+version.
+The modifications made are for consistency, code readability and designed to
+minimise merge conflicts. They are guaranteed not to modify the functionality of the
+code. To run the checks without committing use <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">run</span></code>. To bypass
+the checks (to save or get feedback on work-in-progress) use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--no-verify</span></code></p></li>
+<li><p>If you have modifed the C code then
+<code class="docutils literal notranslate"><span class="pre">clang-format</span> <span class="pre">-i</span> <span class="pre">lib/tests/*</span> <span class="pre">lib/!(avl).{c,h}</span></code> will format the code to
+satisfy CI checks.</p></li>
+<li><p>When ready open a pull request on GitHub. Please make sure that the tests pass before
+you open the PR, unless you want to ask the community for help with a failing test.</p></li>
+<li><p>See the <a class="reference external" href="https://tskit.readthedocs.io/en/latest/development.html#github-workflow">tskit documentation</a>
+for more details on the recommended GitHub workflow.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<span id="sec-development-requirements"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h2>
+<section id="system-requirements">
+<h3>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">#</a></h3>
+<p>To develop with msprime you will need to have <a class="reference external" href="https://www.gnu.org/software/gsl/">GSL</a>
+installed and a working compiler. Please see the <a class="reference internal" href="installation.html#sec-pip-install-source"><span class="std std-ref">pip install from source</span></a>
+section for how to install GSL on some common platforms.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You still need to install GSL and have a working compiler if you are working
+on the documentation because it requires a locally built version of the
+<a class="reference internal" href="#sec-development-c-module"><span class="std std-ref">C module</span></a>.</p>
+</div>
+</section>
+<section id="python-requirements">
+<h3>Python requirements<a class="headerlink" href="#python-requirements" title="Permalink to this headline">#</a></h3>
+<p>The list of packages needed for development are listed in
+<code class="docutils literal notranslate"><span class="pre">requirements/development.txt</span></code>. Install these using either:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">--</span><span class="n">file</span> <span class="n">requirements</span><span class="o">/</span><span class="n">development</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pip install -r requirements/development.txt
+</pre></div>
+</div>
+<p>depending on whether you are a conda or pip user.</p>
+</section>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<p>There are three main parts of <code class="docutils literal notranslate"><span class="pre">msprime</span></code>, in increasing order of complexity:</p>
+<ol class="simple">
+<li><p>High-level Python. The Python-API and command line interface tools are all defined
+in the <code class="docutils literal notranslate"><span class="pre">msprime</span></code> directory.</p></li>
+<li><p>C library. The underlying high-performance C code is written as a standalone library.
+All of the code for this library is in the <code class="docutils literal notranslate"><span class="pre">lib</span></code> directory.</p></li>
+<li><p>Low-level Python-C interface. The interface between the Python and C code is the
+<code class="docutils literal notranslate"><span class="pre">msprime/_msprimemodule.c</span></code> file, which defines the <code class="docutils literal notranslate"><span class="pre">msprime._msprime</span></code> module.</p></li>
+</ol>
+<p>Each of these aspects has its own coding conventions and development tools, which are
+documented in the following sections.</p>
+</section>
+<section id="continuous-integration-tests">
+<h2>Continuous integration tests<a class="headerlink" href="#continuous-integration-tests" title="Permalink to this headline">#</a></h2>
+<p>Two different continuous integration providers are used, which run different
+combinations of tests on different platforms:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://help.github.com/en/actions">Github actions</a> run a variety of code style and
+quality checks using <a class="reference external" href="https://pre-commit.com/">pre-commit</a> along
+with Python tests on Linux, OSX and Windows. The docs are also built and a preview
+generated if changes are detected.</p></li>
+<li><p><a class="reference external" href="https://circleci.com/">CircleCI</a> Runs all Python tests using the apt-get
+infrastructure for system requirements. Additionally, the low-level tests
+are run, coverage statistics calculated using <a class="reference external" href="https://codecov.io/gh">CodeCov</a>,
+and the documentation built.</p></li>
+</ol>
+</section>
+<section id="documentation">
+<span id="sec-development-documentation"></span><h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">#</a></h2>
+<p>The msprime manual exists to provide users with a comprehensive and authoritative
+source of information on msprime’s interfaces. From a high-level, the documentation
+is split into two main sections:</p>
+<ol class="simple">
+<li><p>The API Reference documentation provides a concise and precise description of
+a particular function or class. See the <a class="reference internal" href="#sec-development-documentation-api"><span class="std std-ref">API Reference</span></a>
+section for details.</p></li>
+<li><p>Thematically structured sections which discuss the functionality and
+explain features via minimal examples. See the
+<a class="reference internal" href="#sec-development-documentation-examples"><span class="std std-ref">Examples</span></a> section for details.</p></li>
+</ol>
+<p>Further documentation where features are combined to perform specific
+tasks is provided in the <a class="reference external" href="https://tskit.dev/tutorials">tskit tutorials</a> site.</p>
+<p>Documentation can be written on GitHub or locally. If you are new to contributing
+to msprime and you will be making minor edits to markdown text, you may find
+it easier to make edits on GitHub. To do this, hover your mouse over the GitHub
+icon in the top right corner of the documentation, and click “suggest edit”.
+You can then edit and preview markdown in GitHub’s user interface. Clicking
+“propose change” at the bottom of the page will commit to a new branch on your fork.
+If you do not already have a fork of the msprime repository, GitHub will prompt you
+to “fork this repository” - go ahead and create your fork.
+You can then create a pull request for your proposed change. On the other hand,
+if you are already familiar with contributing to msprime, or have more than simple
+markdown edits to add, you can edit and
+<a class="reference internal" href="#sec-development-documentation-building"><span class="std std-ref">build</span></a> the documentation locally.
+To do that, first follow the <a class="reference internal" href="#sec-development-quickstart"><span class="std std-ref">Quickstart</span></a>.
+Once you have created and checked out a “topic branch”, you are ready to start
+editing the documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please make sure you have built the low-level <a class="reference internal" href="#sec-development-c-module"><span class="std std-ref">C module</span></a>
+by running <code class="docutils literal notranslate"><span class="pre">make</span></code> in the project root directory before going any further.
+A lot of inscrutable errors are caused by a mismatch between the low-level C module
+installed in your system (or an older development version you previously compiled)
+and the local development version of msprime.</p>
+</div>
+<section id="building">
+<span id="sec-development-documentation-building"></span><h3>Building<a class="headerlink" href="#building" title="Permalink to this headline">#</a></h3>
+<p>To build the documentation locally, go to the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory and run <code class="docutils literal notranslate"><span class="pre">make</span></code>
+(ensure that the <a class="reference internal" href="#sec-development-requirements"><span class="std std-ref">Requirements</span></a> have been installed
+and the low-level C module has been built—see the note in the previous section).
+This will build the HTML documentation in  <code class="docutils literal notranslate"><span class="pre">docs/_build/html/</span></code>. You can now
+view the local build of the HTML in your local browser (if you do not know how
+to do this, try double clicking the HTML file).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are having some problems with getting the documentation to build
+try running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> which will delete all of the HTML and cached
+Jupyter notebook content.</p>
+</div>
+</section>
+<section id="jupyterbook">
+<h3>JupyterBook<a class="headerlink" href="#jupyterbook" title="Permalink to this headline">#</a></h3>
+<p>Documentation for msprime is built using <a class="reference external" href="https://jupyterbook.org">Jupyter Book</a>,
+which allows us to mix API documentation generated automatically using
+<a class="reference external" href="https://www.sphinx-doc.org">Sphinx</a> with code examples evaluated in a
+local <a class="reference external" href="https://jupyter.org">Jupyter</a> kernel. This is a very powerful
+system that allows us to generate beautiful and useful documentation,
+but it is quite new and has some quirks and gotchas.
+In particular, because of the mixture of API documentation and notebook
+content we need to write documentation using <strong>two different markup
+languages</strong>.</p>
+<section id="restructuredtext">
+<h4>reStructuredText<a class="headerlink" href="#restructuredtext" title="Permalink to this headline">#</a></h4>
+<p>All of the documentation for previous versions of msprime was written
+using the <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> format
+(rST) which is the default for Python documentation. Because of this, all of
+the API docstrings (see the <a class="reference internal" href="#sec-development-documentation-api"><span class="std std-ref">API Reference</span></a> section)
+are written using rST. Converting these docstrings to Markdown
+would be a lot of work (and support from upstream tools for Markdown
+dosctrings is patchy), and so we need to use rST for this
+purpose for the forseeable future.</p>
+<p>Some of the directives we use are only available in rST, and so these
+must be enclosed in <code class="docutils literal notranslate"><span class="pre">eval-rst</span></code> blocks like so:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{eval-rst}
+.. autoclass:: msprime.StandardCoalescent
+```
+</pre></div>
+</div>
+</section>
+<section id="markdown">
+<h4>Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">#</a></h4>
+<p>Everything <strong>besides</strong> API docstrings is written using
+<a class="reference external" href="https://jupyterbook.org/content/myst.html">MyST Markdown</a>. This is a
+superset of <a class="reference external" href="https://commonmark.org">common Markdown</a> which
+enables executable Jupyter content to be included in the documentation.
+In particular, JupyterBook and MyST are built on top of
+<a class="reference external" href="https://www.sphinx-doc.org">Sphinx</a> which allows us to do lots
+of cross-referencing.</p>
+<p>Some useful links:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://jupyterbook.org/reference/cheatsheet.html">MyST cheat sheet</a>
+is a great resource.</p></li>
+<li><p>The “Write Book Content” part of the <a class="reference external" href="https://jupyterbook.org/">Jupyter Book</a>
+documentation has lots of helpful examples and links.</p></li>
+<li><p>The <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/using/syntax.html">MyST Syntax Guide</a>
+is a good reference for the full syntax</p></li>
+<li><p>Sphinx
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html">directives</a>.
+Some of these will work with Jupyter Book, some won’t. There’s currently no
+comprehensive list of those that do. However, we tend to only use a small subset
+of the available directives, and you can usually get by following existing
+local examples.</p></li>
+<li><p>The <a class="reference external" href="https://jupyterbook.org/file-types/index.html">types of source files</a>
+section in the Jupyter Book documentation is useful reference for mixing
+and matching Markdown and rST like we’re doing.</p></li>
+</ul>
+</section>
+</section>
+<section id="api-reference">
+<span id="sec-development-documentation-api"></span><h3>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">#</a></h3>
+<p>API reference documentation is provided by
+<a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">docstrings</a> in the source
+code. These docstrings are written using
+<a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a>
+and <a class="reference external" href="https://www.sphinx-doc.org">Sphinx</a>.</p>
+<p>Docstrings should be <strong>concise</strong> and <strong>precise</strong>. Examples should not
+be provided directly in the docstrings, but each significant
+parameter (e.g.) in a function should have links to the corresponding
+<a class="reference internal" href="#sec-development-documentation-examples"><span class="std std-ref">examples</span></a> section.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Provide an example of a well-documented docstring with
+links to an examples section. We should use one of the simpler
+functions as an example of this.</p>
+</div>
+</section>
+<section id="examples">
+<span id="sec-development-documentation-examples"></span><h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h3>
+<p>The API reference documentation is gives precise formal information about
+how to use a particular function of class. The rest of the manual should
+provide the discussion and examples needed to contextualise this information
+and help users to orient themselves. The examples section for a given
+feature (e.g., function parameter) should:</p>
+<ul class="simple">
+<li><p>Provide some background into what this feature is for, so that an
+unsure reader can quickly orient themselves (external links to explain
+concepts is good for this).</p></li>
+<li><p>Give examples using inline Jupyter code to illustrate the various
+different ways that this feature can be used. These examples should
+be as small as possible, so that the overall document runs quickly.</p></li>
+</ul>
+<p>Juptyer notebook code is incluced by using blocks like this:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>```{code-cell}
+print(&quot;This is python code!)
+a = list(range(10)
+a
+```
+</pre></div>
+</div>
+<p>These cells behave exactly like they would in a Jupyter notebook (the
+whole document is actually treated and executed like one notebook)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For a document to be evaluated as a notebook you <strong>must</strong> have
+exactly the right <a class="reference external" href="https://jupyterbook.org/reference/cheatsheet.html#executable-code">YAML Frontmatter</a>
+at the top of the file.</p>
+</div>
+</section>
+<section id="cross-referencing">
+<span id="sec-development-documentation-cross-referencing"></span><h3>Cross referencing<a class="headerlink" href="#cross-referencing" title="Permalink to this headline">#</a></h3>
+<p>Cross referencing is done by using the <code class="docutils literal notranslate"><span class="pre">{ref}</span></code> inline role
+(see Jupyter Book <a class="reference external" href="https://jupyterbook.org/content/citations.html">documentation</a>
+for more details) to link
+to labelled sections within the manual or to API documentation.</p>
+<p>Sections within the manual should be labelled hierarchically, for example
+this section is labelled like this:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>(sec_development_documentation_cross_referencing)=
+<span class="gu">### Cross referencing</span>
+</pre></div>
+</div>
+<p>Elsewhere in the Markdown documentation we can then refer to this
+section like:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>See the {ref}`sec_development_documentation_cross_referencing` section for details.
+</pre></div>
+</div>
+<p>Cross references like this will automatically use the section name
+as the link text, which we can override if we like:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>See {ref}`another section&lt;sec_development_documentation_cross_referencing&gt;` for more information.
+</pre></div>
+</div>
+<p>To refer to a given section from an rST docstring, we’d do something like</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>See the <span class="na">:ref:</span><span class="nv">`sec_development_documentation_cross_referencing`</span> section for more details.
+</pre></div>
+</div>
+<p>When we want to refer to the API documentation for a function or class, we
+use the appropriate inline text role to do so. For example,</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>The {func}`.sim_ancestry` function lets us simulate ancestral histories.
+</pre></div>
+</div>
+<p>It’s a good idea to always use this form when referring to functions
+or classes so that the reader always has direct access to the API
+documentation for a given function when they might it.</p>
+</section>
+</section>
+<section id="high-level-python">
+<h2>High-level Python<a class="headerlink" href="#high-level-python" title="Permalink to this headline">#</a></h2>
+<p>Throughout this document, we assume that the <code class="docutils literal notranslate"><span class="pre">msprime</span></code> package is built and
+run locally <em>within</em> the project directory. That is, <code class="docutils literal notranslate"><span class="pre">msprime</span></code> is <em>not</em> installed
+into the Python installation using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span></code> or setuptools <a class="reference external" href="http://setuptools.readthedocs.io/en/latest/setuptools.html#id23">development
+mode</a>. Please
+ensure that you build the low-level module using (e.g.) <code class="docutils literal notranslate"><span class="pre">make</span></code> and that
+the shared object file is in the <code class="docutils literal notranslate"><span class="pre">msprime</span></code> directory. This will have a name
+like <code class="docutils literal notranslate"><span class="pre">_msprime.cpython-38-x86_64-linux-gnu.so</span></code>, depending on your platform
+and Python version.</p>
+<section id="conventions">
+<h3>Conventions<a class="headerlink" href="#conventions" title="Permalink to this headline">#</a></h3>
+<p>All Python code follows the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> style
+guide, and is checked using the <a class="reference external" href="http://flake8.pycqa.org/en/latest/">flake8</a>  tool as
+part of the continuous integration tests. <a class="reference external" href="https://github.com/psf/black">Black</a> is
+used as part of the pre-commit hook for python code style and formatting.</p>
+</section>
+<section id="packaging">
+<h3>Packaging<a class="headerlink" href="#packaging" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">msprime</span></code> is packaged and distributed as Python module, and follows the current
+<a class="reference external" href="http://packaging.python.org">best-practices</a> advocated by the
+<a class="reference external" href="http://pypa.io/en/latest/">Python Packaging Authority</a>. The primary means of
+distribution is though <a class="reference external" href="http://pypi.python.org/pypi/msprime">PyPI</a>, which provides the
+canonical source for each release.</p>
+<p>A package for <a class="reference external" href="http://conda.io/docs/">conda</a> is also available on
+<a class="reference external" href="https://github.com/conda-forge/msprime-feedstock">conda-forge</a>.</p>
+</section>
+<section id="tests">
+<h3>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">#</a></h3>
+<p>The tests for the high-level code are in the <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory, and run using
+<a class="reference external" href="https://docs.pytest.org/en/stable/">pytest</a>. A lot of the simulation and basic
+tests are contained in the <code class="docutils literal notranslate"><span class="pre">tests/test_highlevel.py</span></code> file, but more recently
+smaller test files with more focussed tests are preferred (e.g., <code class="docutils literal notranslate"><span class="pre">test_vcf.py</span></code>,
+<code class="docutils literal notranslate"><span class="pre">test_demography.py</span></code>).</p>
+<p>All new code must have high test coverage, which will be checked as part of the
+continuous integration tests by <a class="reference external" href="https://codecov.io/gh/tskit-dev/msprime/">CodeCov</a>.</p>
+</section>
+<section id="interfacing-with-low-level-module">
+<h3>Interfacing with low-level module<a class="headerlink" href="#interfacing-with-low-level-module" title="Permalink to this headline">#</a></h3>
+<p>Much of the high-level Python code only exists to provide a simpler interface to
+the low-level <code class="docutils literal notranslate"><span class="pre">_msprime</span></code> module. As such, many objects (such as <code class="docutils literal notranslate"><span class="pre">RecombinationMap</span></code>)
+are really just a shallow layer on top of the corresponding low-level object.
+The convention here is to keep a reference to the low-level object via
+a private instance variable such as <code class="docutils literal notranslate"><span class="pre">self._ll_recombination_map</span></code>.</p>
+</section>
+<section id="command-line-interfaces">
+<h3>Command line interfaces<a class="headerlink" href="#command-line-interfaces" title="Permalink to this headline">#</a></h3>
+<p>The command line interfaces for <code class="docutils literal notranslate"><span class="pre">msprime</span></code> are defined in the <code class="docutils literal notranslate"><span class="pre">msprime/cli.py</span></code> file.
+Each CLI has a single entry point (e.g. <code class="docutils literal notranslate"><span class="pre">msp_main</span></code>) which is invoked to run the
+program. These entry points are registered with <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> using the
+<code class="docutils literal notranslate"><span class="pre">console_scripts</span></code> argument in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, which allows them to be deployed as
+first-class executable programs in a cross-platform manner.</p>
+<p>There are simple scripts in the root of the project (currently: <code class="docutils literal notranslate"><span class="pre">msp_dev.py</span></code>,
+<code class="docutils literal notranslate"><span class="pre">mspms_dev.py</span></code>) which are used for development. For example, to run the
+development version of <code class="docutils literal notranslate"><span class="pre">mspms</span></code> use <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">mspms_dev.py</span></code>.</p>
+</section>
+</section>
+<section id="c-library">
+<h2>C Library<a class="headerlink" href="#c-library" title="Permalink to this headline">#</a></h2>
+<p>The low-level code for <code class="docutils literal notranslate"><span class="pre">msprime</span></code> is written in C, and is structured as a
+standalone library. This code is all contained in the <code class="docutils literal notranslate"><span class="pre">lib</span></code> directory.
+Although the code is structured as a library, it is not intended to be used
+outside of the <code class="docutils literal notranslate"><span class="pre">msprime</span></code> project! The interfaces at the C level change
+considerably over time, and are deliberately undocumented.</p>
+<section id="toolchain">
+<h3>Toolchain<a class="headerlink" href="#toolchain" title="Permalink to this headline">#</a></h3>
+<p>To compile and develop the C code, a few extra development libraries are needed.
+<a class="reference external" href="http://www.hyperrealm.com/libconfig/">Libconfig</a> is used for the development CLI
+and <a class="reference external" href="http://cunit.sourceforge.net">CUnit</a> for unit tests. We use the
+<a class="reference external" href="https://mesonbuild.com">meson</a> build system in conjunction with <a class="reference external" href="http://ninja-build.org">ninja-build</a> to compile the unit tests and
+development CLI. On Debian/Ubuntu, these can be installed using</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install libcunit1-dev libconfig-dev ninja-build
+</pre></div>
+</div>
+<p>Meson is best installed via <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip install meson --user
+</pre></div>
+</div>
+<p>On macOS rather than use <code class="docutils literal notranslate"><span class="pre">apt-get</span></code> for installation of these requirements
+a combination of <code class="docutils literal notranslate"><span class="pre">homebrew</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span></code> can be used (working as of 2020-01-15).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ brew install cunit
+$ python3 -m pip install meson --user
+$ python3 -m pip install ninja --user
+</pre></div>
+</div>
+<p>On macOS, conda builds are generally done using <code class="docutils literal notranslate"><span class="pre">clang</span></code> packages that are kept up to date:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda install clang_osx-64  clangxx_osx-64
+</pre></div>
+</div>
+<p>In order to make sure that these compilers work correctly (<em>e.g.</em>, so that they can find
+other dependencies installed via <code class="docutils literal notranslate"><span class="pre">conda</span></code>), you need to compile <code class="docutils literal notranslate"><span class="pre">msprime</span></code> with this command
+on versions of macOS older than “Mojave”:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">CONDA_BUILD_SYSROOT</span><span class="o">=</span>/ python3 setup.py build_ext -i
+</pre></div>
+</div>
+<p>On more recent macOS releases, you may omit the <code class="docutils literal notranslate"><span class="pre">CONDA_BUILD_SYSROOT</span></code> prefix.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The use of the C toolchain on macOS is a moving target. The above advice
+was written on 23 January 2020 and was validated by a few <code class="docutils literal notranslate"><span class="pre">msprime</span></code> contributors.
+Caveat emptor, etc..</p>
+</div>
+</section>
+<section id="compiling">
+<h3>Compiling<a class="headerlink" href="#compiling" title="Permalink to this headline">#</a></h3>
+<p>Meson keeps all compiled binaries in a build directory (this has many advantages
+such as allowing multiple builds with different options to coexist). It depends on
+a <code class="docutils literal notranslate"><span class="pre">meson.build</span></code> file which is in the <code class="docutils literal notranslate"><span class="pre">lib</span></code> directory. To set up the initial build
+directory, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> lib
+$ meson build
+</pre></div>
+</div>
+<p>The easiest way to compile the <a class="reference internal" href="#sec-development-c-unit-tests"><span class="std std-ref">Unit Tests</span></a>
+is to run <code class="docutils literal notranslate"><span class="pre">ninja</span> <span class="pre">-C</span> <span class="pre">build</span></code>. (Alternatively,
+you can <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the <code class="docutils literal notranslate"><span class="pre">build</span></code> directory and run <code class="docutils literal notranslate"><span class="pre">ninja</span></code>). All the
+compiled binaries are then in the <code class="docutils literal notranslate"><span class="pre">build</span></code> directory, so to run, for example, the
+<code class="docutils literal notranslate"><span class="pre">test_ancestry</span></code> unit tests, use <code class="docutils literal notranslate"><span class="pre">./build/test_ancestry</span></code>. A handy shortcut
+to compile the code and run all the unit tests is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ninja -C build <span class="nb">test</span>
+</pre></div>
+</div>
+<p>The <a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=5378">mesonic</a> plugin for vim
+simplifies this process and allows code to be compiled seamlessly within the
+editor.</p>
+</section>
+<section id="development-cli">
+<h3>Development CLI<a class="headerlink" href="#development-cli" title="Permalink to this headline">#</a></h3>
+<p>When developing the C code, it is usually best to use the development CLI to invoke
+the code. This is much simpler than going through the Python interface, and allows
+tools such as <a class="reference external" href="http://valgrind.org">valgrind</a> to be used directly. For example,
+when developing new simulation functionality, you should get the basic work done
+using the CLI and only move over to the Python API once you are reasonably sure
+that the code works properly.</p>
+<p>The development CLI is written using <a class="reference external" href="http://www.hyperrealm.com/libconfig/">libconfig</a> to parse the simulation parameters
+file, and <a class="reference external" href="https://github.com/argtable/argtable3">argtable3</a> to parse the
+command line arguments. The <code class="docutils literal notranslate"><span class="pre">argtable3</span></code> code is included in the source (but
+not used in the distributed binaries, since this is strictly a development
+tool). The source code is in <code class="docutils literal notranslate"><span class="pre">dev-tools/dev-cli.c</span></code>.</p>
+<p>After building, the CLI is run as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./build/dev-cli &lt;command&gt; &lt;arguments&gt;
+</pre></div>
+</div>
+<p>Running the <code class="docutils literal notranslate"><span class="pre">dev-cli</span></code> program without arguments will print out a summary of the
+options.</p>
+<!---
+warning
+
+The development CLI is a tool used to develop the msprime API, and not a
+polished artefact intended for users. There is quite a lot of code left
+over from earlier debugging which might not make immediate sense. Some
+commands may not work as expected, or indeed at all. Please feel free to
+tidy it up if you would like to improve it!
+-->
+<p>The most important command for simulator development is <code class="docutils literal notranslate"><span class="pre">simulate</span></code>,
+which takes a configuration file as a parameter and writes the resulting
+simulation to an output file in the native <code class="docutils literal notranslate"><span class="pre">.trees</span></code> format. For example,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./build/dev-cli simulate dev-tools/example.cfg -o out.trees
+</pre></div>
+</div>
+<p>The development configuration file describes the simulation that we want to
+run, and uses the
+<a class="reference external" href="http://www.hyperrealm.com/libconfig/libconfig_manual.html#Configuration-Files">libconfig syntax</a>.
+An example is given in the file <code class="docutils literal notranslate"><span class="pre">dev-tools/example.cfg</span></code> which should have sufficient documentation
+to be self-explanatory.</p>
+<!---
+warning
+
+It is important to note that all values in the low-level C code are in
+scaled coalescent units. The high-level Python API defines values in units
+of generations, but for the C code all time is measured in coalescent units.
+-->
+</section>
+<section id="unit-tests">
+<span id="sec-development-c-unit-tests"></span><h3>Unit Tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">#</a></h3>
+<p>The C-library has an extensive suite of unit tests written using
+<a class="reference external" href="http://cunit.sourceforge.net">CUnit</a>. These tests aim to establish that the
+low-level APIs work correctly over a variety of inputs, and particularly, that
+the tests don’t result in leaked memory or illegal memory accesses. The tests should be
+periodically run under valgrind to make sure of this.</p>
+<p>Tests are defined in the <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory, roughly split into suites
+defined in different files. For example, the tests associated with Fenwick
+trees are defined in the <code class="docutils literal notranslate"><span class="pre">tests/tests_fenwick.c</span></code> file. To run all the
+tests in this suite, use run using <code class="docutils literal notranslate"><span class="pre">./build/test_fenwick</span></code>.
+To run a specific test in a particular suite, provide the name of the
+test name as a command line argument, e.g.:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./build/test_fenwick test_fenwick_expand
+</pre></div>
+</div>
+<p>While 100% test coverage is not feasible for C code, we aim to cover all code
+that can be reached. (Some classes of error such as malloc failures
+and IO errors are difficult to simulate in C.) Code coverage statistics are
+automatically tracked using <a class="reference external" href="https://codecov.io/gh/tskit-dev/msprime/">CodeCov</a>.</p>
+</section>
+<section id="code-style">
+<h3>Code Style<a class="headerlink" href="#code-style" title="Permalink to this headline">#</a></h3>
+<p>C code is formatted using
+<a class="reference external" href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>
+with a custom configuration.
+To ensure that your code is correctly formatted, you can run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clang-format
+</pre></div>
+</div>
+<p>in the project root before submitting a pull request. Alternatively,
+you can run <code class="docutils literal notranslate"><span class="pre">clang-format</span> <span class="pre">-i</span> <span class="pre">*.[c,h]</span></code> in the <code class="docutils literal notranslate"><span class="pre">lib</span></code> directory.</p>
+<p>Vim users may find the
+<a class="reference external" href="https://github.com/rhysd/vim-clang-format">vim-clang-format</a>
+plugin useful for automatically formatting code.</p>
+</section>
+<section id="coding-conventions">
+<h3>Coding conventions<a class="headerlink" href="#coding-conventions" title="Permalink to this headline">#</a></h3>
+<p>The code is written using the <a class="reference external" href="https://en.wikipedia.org/wiki/C99">C99</a> standard. All
+variable declarations should be done at the start of a function, and functions
+kept short and simple where at all possible.</p>
+<p>No global or module level variables are used for production code.</p>
+<p>The code is organised following object-oriented principles. Each ‘class’ is defined using
+a struct, which encapsulates all the data it requires. Every ‘method’ on this class
+is then a function that takes this struct as its first parameter. Each class has
+an <code class="docutils literal notranslate"><span class="pre">alloc</span></code> method, which is responsible for allocating memory and a <code class="docutils literal notranslate"><span class="pre">free</span></code> method
+which frees all memory used by the object. For example, the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Fenwick_tree">Fenwick tree</a> class is defined as
+follows:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">log_size</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">tree</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">values</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">fenwick_t</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">fenwick_alloc</span><span class="p">(</span><span class="n">fenwick_t</span><span class="w"> </span><span class="o">*</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">initial_size</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">fenwick_free</span><span class="p">(</span><span class="n">fenwick_t</span><span class="w"> </span><span class="o">*</span><span class="n">self</span><span class="p">);</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">fenwick_get_total</span><span class="p">(</span><span class="n">fenwick_t</span><span class="w"> </span><span class="o">*</span><span class="n">self</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This defines the <code class="docutils literal notranslate"><span class="pre">fenwick_t</span></code> struct, and alloc and free methods and a method
+to return the total of the tree. Note that we follow the Python convention
+and use <code class="docutils literal notranslate"><span class="pre">self</span></code> to refer to the current instance.</p>
+<p>Most objects also provide a <code class="docutils literal notranslate"><span class="pre">print_state</span></code> method, which is useful for
+debugging.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Change to intersphinx mapping for this link.</p>
+</div>
+<p>Please see the documentation for the
+<a class="reference external" href="https://tskit.readthedocs.io/en/stable/c-api.html#sec-c-api-overview-structure">tskit C API</a>
+for more details on the how APIs are structured.</p>
+</section>
+<section id="error-handling">
+<h3>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">#</a></h3>
+<p>A critical element of producing reliable C programs is consistent error handling
+and checking of return values. All return values <strong>must</strong> be checked! In msprime,
+all functions (except the most trivial accessors) return an integer to indicate
+success or failure. Any negative value is an error, and must be handled accordingly.
+The following pattern is canonical:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msp_do_something</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">argument</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">out</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// rest of function</span>
+<span class="nl">out</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Here we test the return value of <code class="docutils literal notranslate"><span class="pre">msp_do_something</span></code> and if it is non-zero,
+abort the function and return this same value from the current function. This
+is a bit like throwing an exception in higher-level languages, but discipline
+is required to ensure that the error codes are propagated back to the original
+caller correctly.</p>
+<p>Particular care must be taken in functions that allocate memory, because
+we must ensure that this memory is freed in all possible success and
+failure scenarios. The following pattern is used throughout for this purpose:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MSP_ERR_NO_MEMORY</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">out</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// rest of function</span>
+<span class="nl">out</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>It is vital here that <code class="docutils literal notranslate"><span class="pre">x</span></code> is initialised to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> so that we are guaranteed
+correct behaviour in all cases. For this reason, the convention is to declare all
+pointer variables on a single line and to initialise them to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> as part
+of the declaration.</p>
+<p>Error codes are defined in <code class="docutils literal notranslate"><span class="pre">err.h</span></code>, and these can be translated into a
+message using <code class="docutils literal notranslate"><span class="pre">msp_strerror(err)</span></code>.</p>
+</section>
+<section id="running-valgrind">
+<h3>Running valgrind<a class="headerlink" href="#running-valgrind" title="Permalink to this headline">#</a></h3>
+<p>Valgrind is an essential development tool, and is used extensively. (Being able
+to run valgrind was one of the motivating factors in the C-library architecture.
+It is difficult to run valgrind on a Python extension module, and so the simplest
+way to ensure that the low-level code is memory-tight is to separate it out
+into an independent library.)</p>
+<p>Any new C unit tests that are written should be verified using valgrind to
+ensure that no memory is leaked. The entire test suite should be run
+through valgrind periodically also to detect any leaks or illegal
+memory accesses that have been overlooked.</p>
+</section>
+</section>
+<section id="python-c-interface">
+<span id="sec-development-c-module"></span><h2>Python C Interface<a class="headerlink" href="#python-c-interface" title="Permalink to this headline">#</a></h2>
+<p>The Python C interface is written using the
+<a class="reference external" href="https://docs.python.org/3.6/c-api/">Python C API</a> and the code is in the
+<code class="docutils literal notranslate"><span class="pre">msprime/_msprimemodule.c</span></code> file. When compiled, this produces the
+<code class="docutils literal notranslate"><span class="pre">msprime._msprime</span></code> module,
+which is imported by the high-level module. The low-level Python module is
+not intended to be used directly and may change arbitrarily over time.</p>
+<p>The conventions used within the low-level module here closely follow
+those in <code class="docutils literal notranslate"><span class="pre">tskit</span></code>; please see the
+<a class="reference external" href="https://tskit.readthedocs.io/en/stable/development.html#python-c-interface">documentation</a>
+for more information.</p>
+</section>
+<section id="statistical-tests">
+<h2>Statistical tests<a class="headerlink" href="#statistical-tests" title="Permalink to this headline">#</a></h2>
+<p>To ensure that <code class="docutils literal notranslate"><span class="pre">msprime</span></code> is simulating the correct process we run many statistical
+tests. Since these tests are quite expensive (taking some hours to run) and
+difficult to automatically validate, they are not run as part of CI but instead
+as a pre-release sanity check. They are also very useful to run when developing
+new simulation functionality, as subtle statistical bugs can easily slip in
+unnoticed.</p>
+<p>The statistical tests are all run via the <code class="docutils literal notranslate"><span class="pre">verification.py</span></code> script in the project root.
+The script has some extra dependencies listed in the <code class="docutils literal notranslate"><span class="pre">requirements/verification.txt</span></code>,
+which can be installed using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--file</span></code>. Run
+this script using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 verification.py
+</pre></div>
+</div>
+<p>The statistical tests depend on compiled programs in the <code class="docutils literal notranslate"><span class="pre">data</span></code> directory.
+This includes a customised version of <code class="docutils literal notranslate"><span class="pre">ms</span></code> and a locally compiled version of
+<a class="reference external" href="https://scrm.github.io/">scrm</a>. These programs must be compiled before
+running the statistical tests, and can be built by running <code class="docutils literal notranslate"><span class="pre">make</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">data</span></code> directory. If this is successful, there should be several binaries
+like <code class="docutils literal notranslate"><span class="pre">ms</span></code> and <code class="docutils literal notranslate"><span class="pre">ms_summary_stats</span></code> present in the <code class="docutils literal notranslate"><span class="pre">data</span></code>
+directory.</p>
+<p>Please the comments at the top of the <code class="docutils literal notranslate"><span class="pre">verification.py</span></code> script for details
+on how to write and run these tests.</p>
+</section>
+<section id="benchmarking">
+<h2>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this headline">#</a></h2>
+<p>Benchmarks to measure performance are in the <code class="docutils literal notranslate"><span class="pre">benchmarks</span></code> folder and are run using
+<a class="reference external" href="https://asv.readthedocs.io/en/stable/index.html">airspeed velocity</a>.
+An automated system runs the benchmarks on each push to the main branch and uploads
+the results to <a class="reference external" href="https://tskit-dev.github.io/msprime-asv">this github pages site</a>.
+These benchmarks can also be run locally to compare your branch with the main branch.
+Your changes must be in a commit to be measured. To run the benchmarks:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">asv</span> <span class="n">run</span> <span class="n">asv</span> <span class="n">run</span> <span class="n">HEAD</span><span class="o">...</span><span class="n">main</span><span class="o">~</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>This will run the benchmarks for the latest main branch commit and all commits on
+your current branch (the syntax for choosing commits is the same as <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>).
+The following commands then make a browsable report (link given in output of
+the command):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">asv</span> <span class="n">publish</span>
+<span class="n">asv</span> <span class="n">preview</span>
+</pre></div>
+</div>
+<p>Note the following tips:</p>
+<ul class="simple">
+<li><p>Specifying the range of commits to run uses the same syntax as git log.
+For example, to run for a single commit, use <code class="docutils literal notranslate"><span class="pre">asv</span> <span class="pre">run</span> <span class="pre">88fbbc33^!</span></code></p></li>
+<li><p>Be careful when running <code class="docutils literal notranslate"><span class="pre">asv</span> <span class="pre">dev</span></code> or using <code class="docutils literal notranslate"><span class="pre">python=same</span></code> as
+this can use the <em>installed</em> version of msprime rather than the local
+development version. This can lead to confusing results! When tuning
+benchmarks it’s better to commit often and use (e.g.)
+<code class="docutils literal notranslate"><span class="pre">asv</span> <span class="pre">run</span> <span class="pre">HEAD^!</span> <span class="pre">--show-stderr</span> <span class="pre">-b</span> <span class="pre">Hudson.time_large_sample_size</span></code>.</p></li>
+</ul>
+</section>
+<section id="containerization">
+<h2>Containerization<a class="headerlink" href="#containerization" title="Permalink to this headline">#</a></h2>
+<p>To run msprime in a container, see the
+<a class="reference internal" href="installation.html#sec-installation-container"><span class="std std-ref">installation instructions</span></a>.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">docker</span></code> to locally build an image, but it requires root access:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo docker build -t tskit/msprime .
+</pre></div>
+</div>
+<p><a class="reference external" href="https://podman.io/">podman</a> can build and run images without root privilege.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ podman build -t tskit/msprime .
+</pre></div>
+</div>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">make</span></code> is giving you strange errors, or if tests are failing for
+strange reasons, try running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> in the project root
+and then rebuilding.</p></li>
+<li><p>Beware of multiple versions of the python library installed by different
+programs (e.g., pip versus installing locally from source)! In python,
+<code class="docutils literal notranslate"><span class="pre">msprime.__file__</span></code> will tell you the location of the package that is being
+used.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="switch_from_other_simulators.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Switching from other simulators</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="CITATION.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Citing msprime</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      msprime 1.2.1.dev16
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

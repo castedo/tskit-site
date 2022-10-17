@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<!-- START: html-header -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta name=”robots” content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        tskit-dev - News
+    </title>
+    <meta property="og:type" content="website">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="" name="description">
+    <meta content="Latest updates from the tskit ecosystem." property="og:description">
+    <meta content="Latest updates from the tskit ecosystem." property="twitter:description">
+    
+        <meta content="https://i.imgur.com/I9PBjvU.png" property="og:image">
+        <meta content="https://i.imgur.com/I9PBjvU.png" property="twitter:image">
+    
+
+    <meta content="tskit-dev - News" property="og:title">
+    <meta content="tskit-dev - News" property="twitter:title">
+    <script>
+      document.documentElement.className = 'js'
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicons/site.webmanifest" crossorigin="use-credentials">
+    <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.png" color="#085167">
+    <meta name="msapplication-TileColor" content="#085167">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.typekit.net/uhf4ono.css">
+    <link rel="stylesheet" href="/assets/dist/css/style.min.css">
+</head>
+<!-- END: html-header -->
+
+<body>
+<div class="page-wrapper">
+    <!-- START: header -->
+    <header class="header">
+        <!-- START: navbar -->
+        <nav class="nav navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <!-- START: icon-logo -->
+            <svg class="icon icon--logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 84.8 68">
+                <style>
+                    .logo-st0 {
+                        fill: #085167
+                    }
+
+                    .logo-st1 {
+                        fill: #14e2a8
+                    }
+                </style>
+                <path class="logo-st0"
+                      d="M2 61.4v-8.2H0v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                <path class="logo-st0"
+                      d="M62.7 67.5v-3.4h1.9V53.2h-1.9v-3.4h6.8v14.3h1.9v3.4h-8.7zm1.1-23.3c-.1-1.6 1.2-2.9 2.7-3 1.6-.1 2.9 1.2 3 2.7.1 1.6-1.2 2.9-2.7 3h-.1c-1.5.1-2.8-1-2.9-2.5v-.2"></path>
+                <path class="logo-st0"
+                      d="M39.6 67.5v-3.4h1.9V45.4h-1.9V42h6.8v14.4h4l1.7-3.2h-2.5v-3.4h9.6v3.4h-2.6L53.7 58l4.2 6h2.8v3.4h-9.9V64h1.7l-2.8-4.6h-3.4V64h1.9v3.4l-8.6.1z"></path>
+                <path class="logo-st0"
+                      d="M23.4 57c4.5 1.3 6.4 2.7 6.4 5.9 0 3.3-2.5 5.1-6.4 5.1-2.6 0-4.3-.7-5.4-1.9l-.1 1.3h-3.4v-6.1h3.7c.7 1.9 2.5 3.2 4.5 3.1 1.3 0 2.3-.5 2.3-1.6s-1-1.5-1.7-1.7l-2.6-.7c-2.8-.7-6.2-1.7-6.2-6 0-3.4 2.4-5.2 6-5.2 1.8 0 3.6.6 5 1.8l.1-1.3H29v5.9h-3.7c-.4-1.7-1.9-2.9-3.6-2.9-1.3 0-2.3.5-2.3 1.7 0 1 .6 1.4 1.8 1.7l2.2.9z"></path>
+                <path class="logo-st0"
+                      d="M75 61.4v-8.2h-2v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                <path class="logo-st1" d="M75 28.8h4.8v12.5H75z"></path>
+                <path class="logo-st1" d="M41.5 28.8h4.8v9.6h-4.8z"></path>
+                <path class="logo-st1" d="M41.5 24h38.3v4.8H41.5z"></path>
+                <path class="logo-st1" d="M58.3 14.4h4.8V24h-4.8z"></path>
+                <path class="logo-st1" d="M2 14.4h4.8v26.9H2z"></path>
+                <path class="logo-st1" d="M2 9.6h61.1v4.8H2z"></path>
+                <path class="logo-st1" d="M34.6 0h4.8v9.6h-4.8z"></path>
+            </svg>
+            <!-- END: icon-logo -->
+            <span class="visually-hidden">
+                        tskit
+                    </span>
+        </a>
+        <button class="navbar-toggler collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarContent"
+                aria-controls="navbarContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <!-- START: menu -->
+            <ul class="navbar-nav">
+                <li class="nav__item">
+                    <a href="/genetics-research" class=" nav__item__link">Genetics research</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/learn" class=" nav__item__link">Learn</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/software" class=" nav__item__link">Software</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/news" class=" nav__item__link">News</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/community" class=" nav__item__link">Community</a>
+                </li>
+            </ul>
+            <!-- END: menu -->
+        </div>
+    </div>
+</nav>
+        <!-- END: navbar -->
+
+        <!-- START: heading -->
+        
+        <div class="page-heading page-heading--type-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h1 class="page-heading__text">
+                            News
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- END: heading -->
+    </header>
+    <!-- END: header -->
+
+    <!-- START: content -->
+    <main class="page-content" id="content">
+                  <!-- START: cards-type-3 -->
+          <section class="section section--cards section--cards--type-3">
+               <div class="container">
+                    <div class="row">
+                         <div class="col-md-8">
+                              <h3 class="section__heading">
+                                   Latest updates from the tskit ecosystem
+                              </h3>
+                         </div>
+                    </div>
+                    <div class="row">
+                        
+                        
+                        <div class="col-lg-4">
+                            <!-- START: card -->
+                            <a href="/news/20220927-smbe.html" class="card card--type-3 card--is-link">
+<!--                                <img alt="News Image 01"-->
+<!--                                     class="card__image img-fluid"-->
+<!--                                     src="./assets/images/news-01-thumb@1x.jpg"-->
+<!--                                     srcset="./assets/images/news-01-thumb@1x.jpg, ./assets/images/news-01-thumb@2x.jpg 2x"-->
+<!--                                     sizes="(min-width: 1400px) 400px,-->
+<!--                                        (min-width: 1200px) 340px,-->
+<!--                                        (min-width: 992px) 280px,-->
+<!--                                        (min-width: 768px) 680px,-->
+<!--                                        (min-width: 576px) 500px,-->
+<!--                                        280px-->
+<!--                                "-->
+<!--                                >-->
+                                <span class="card__metadata">
+                                    
+                                    <span class="card__metadata__heading">By Yan Wong</span>
+                                    &nbsp;|&nbsp;
+                                    
+                                    <time class="card__metadate__timestamp" datetime="2022-09-27">September 27 2022</time>
+                                </span>
+                                <h5 class="card__heading">
+                                    Tskit keynote talk
+                                </h5>
+                                <div class="wysiwyg">
+                                    
+                                        <img src="../assets/images/news/20220927-smbe/wilder.jpg" style="float: left;width:100px;padding-right:20px" />
+                                    
+                                    <p>
+                                        <p>On Fri 30th Sept, an invited talk by Wilder Wohns focussing on results from recent <em>tskit</em>-related advances, for the online SMBE Everywhere symposium.</p>
+
+                                    </p>
+                                </div>
+                                <span class="list__item__link link link--type-1"
+                                      target="_blank"
+                                      rel="noopener noreferrer">
+                                <span class="link__text">
+                                    Read
+                                </span>
+                            </span>
+                            </a>
+                            <!-- END: card -->
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <!-- START: card -->
+                            <a href="/news/20220622-tskit-0.5.0.html" class="card card--type-3 card--is-link">
+<!--                                <img alt="News Image 01"-->
+<!--                                     class="card__image img-fluid"-->
+<!--                                     src="./assets/images/news-01-thumb@1x.jpg"-->
+<!--                                     srcset="./assets/images/news-01-thumb@1x.jpg, ./assets/images/news-01-thumb@2x.jpg 2x"-->
+<!--                                     sizes="(min-width: 1400px) 400px,-->
+<!--                                        (min-width: 1200px) 340px,-->
+<!--                                        (min-width: 992px) 280px,-->
+<!--                                        (min-width: 768px) 680px,-->
+<!--                                        (min-width: 576px) 500px,-->
+<!--                                        280px-->
+<!--                                "-->
+<!--                                >-->
+                                <span class="card__metadata">
+                                    
+                                    <span class="card__metadata__heading">By Ben Jeffery</span>
+                                    &nbsp;|&nbsp;
+                                    
+                                    <time class="card__metadate__timestamp" datetime="2022-06-22">June 22 2022</time>
+                                </span>
+                                <h5 class="card__heading">
+                                    What's new in TSKIT 0.5.0!
+                                </h5>
+                                <div class="wysiwyg">
+                                    
+                                    <p>
+                                        <p>0.5.0 introduces balance metrics, tree arrays, topology operations, performance improvements and much more.</p>
+
+                                    </p>
+                                </div>
+                                <span class="list__item__link link link--type-1"
+                                      target="_blank"
+                                      rel="noopener noreferrer">
+                                <span class="link__text">
+                                    Read
+                                </span>
+                            </span>
+                            </a>
+                            <!-- END: card -->
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <!-- START: card -->
+                            <a href="/news/20211208-tskit-0.4.0.html" class="card card--type-3 card--is-link">
+<!--                                <img alt="News Image 01"-->
+<!--                                     class="card__image img-fluid"-->
+<!--                                     src="./assets/images/news-01-thumb@1x.jpg"-->
+<!--                                     srcset="./assets/images/news-01-thumb@1x.jpg, ./assets/images/news-01-thumb@2x.jpg 2x"-->
+<!--                                     sizes="(min-width: 1400px) 400px,-->
+<!--                                        (min-width: 1200px) 340px,-->
+<!--                                        (min-width: 992px) 280px,-->
+<!--                                        (min-width: 768px) 680px,-->
+<!--                                        (min-width: 576px) 500px,-->
+<!--                                        280px-->
+<!--                                "-->
+<!--                                >-->
+                                <span class="card__metadata">
+                                    
+                                    <span class="card__metadata__heading">By Ben Jeffery</span>
+                                    &nbsp;|&nbsp;
+                                    
+                                    <time class="card__metadate__timestamp" datetime="2021-12-08">December 08 2021</time>
+                                </span>
+                                <h5 class="card__heading">
+                                    What's new in TSKIT 0.4.0!
+                                </h5>
+                                <div class="wysiwyg">
+                                    
+                                    <p>
+                                        <p>0.4.0 introduces reference sequences, virtual roots, extra space for data columns and much more.</p>
+
+                                    </p>
+                                </div>
+                                <span class="list__item__link link link--type-1"
+                                      target="_blank"
+                                      rel="noopener noreferrer">
+                                <span class="link__text">
+                                    Read
+                                </span>
+                            </span>
+                            </a>
+                            <!-- END: card -->
+                        </div>
+                        
+                    </div>
+               </div>
+
+<!--               &lt;!&ndash; START: pagination &ndash;&gt;-->
+<!--               <div class="container">-->
+<!--                    <div class="row">-->
+<!--                         <div class="col">-->
+<!--                              <nav class="pagination-wrapper">-->
+<!--                                   <ul class="pagination list list&#45;&#45;unstyled list&#45;&#45;horizontal">-->
+<!--                                        <li class="list__item">-->
+<!--                                    <span class="pagination__number pagination__number&#45;&#45;prev disabled">-->
+<!--                                        Prev-->
+<!--                                    </span>-->
+<!--                                        </li>-->
+<!--                                        <li class="list__item">-->
+<!--                                    <span class="pagination__number pagination__number&#45;&#45;current">-->
+<!--                                        1-->
+<!--                                    </span>-->
+<!--                                        </li>-->
+<!--                                        <li class="list__item">-->
+<!--                                             <a class="pagination__number" href="#">-->
+<!--                                                  2-->
+<!--                                             </a>-->
+<!--                                        </li>-->
+<!--                                        <li class="list__item">-->
+<!--                                             <a class="pagination__number" href="#">-->
+<!--                                                  3-->
+<!--                                             </a>-->
+<!--                                        </li>-->
+<!--                                        <li class="list__item">-->
+<!--                                             <a class="pagination__number" href="#">-->
+<!--                                                  4-->
+<!--                                             </a>-->
+<!--                                        </li>-->
+<!--                                        <li class="list__item">-->
+<!--                                    <span class="pagination__dots">-->
+<!--                                        &hellip;-->
+<!--                                    </span>-->
+<!--                                        </li>-->
+<!--                                        <li class="list__item">-->
+<!--                                             <a class="pagination__number" href="#">-->
+<!--                                                  12-->
+<!--                                             </a>-->
+<!--                                        </li>-->
+<!--                                        <li class="list__item">-->
+<!--                                             <a class="pagination__number pagination__number&#45;&#45;next" href="#">-->
+<!--                                                  Next-->
+<!--                                             </a>-->
+<!--                                        </li>-->
+<!--                                   </ul>-->
+<!--                              </nav>-->
+<!--                         </div>-->
+<!--                    </div>-->
+<!--               </div>-->
+<!--               &lt;!&ndash; END: pagination &ndash;&gt;-->
+
+          </section>
+          <!-- END: cards-type-3 -->
+
+</div>
+
+<script src="./assets/dist/js/main.min.js"></script>
+
+</body>
+</html>
+
+    </main>
+    <!-- END: content -->
+
+    <!-- START: footer -->
+        <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 offset-md-1">
+                <a class="footer__logo" href="./">
+                    <!-- START: icon-logo -->
+                    <svg class="icon icon--logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+                         viewBox="0 0 84.8 68">
+                        <style>
+                            .logo-st0 {
+                                fill: #085167
+                            }
+
+                            .logo-st1 {
+                                fill: #14e2a8
+                            }
+                        </style>
+                        <path class="logo-st0"
+                              d="M2 61.4v-8.2H0v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                        <path class="logo-st0"
+                              d="M62.7 67.5v-3.4h1.9V53.2h-1.9v-3.4h6.8v14.3h1.9v3.4h-8.7zm1.1-23.3c-.1-1.6 1.2-2.9 2.7-3 1.6-.1 2.9 1.2 3 2.7.1 1.6-1.2 2.9-2.7 3h-.1c-1.5.1-2.8-1-2.9-2.5v-.2"></path>
+                        <path class="logo-st0"
+                              d="M39.6 67.5v-3.4h1.9V45.4h-1.9V42h6.8v14.4h4l1.7-3.2h-2.5v-3.4h9.6v3.4h-2.6L53.7 58l4.2 6h2.8v3.4h-9.9V64h1.7l-2.8-4.6h-3.4V64h1.9v3.4l-8.6.1z"></path>
+                        <path class="logo-st0"
+                              d="M23.4 57c4.5 1.3 6.4 2.7 6.4 5.9 0 3.3-2.5 5.1-6.4 5.1-2.6 0-4.3-.7-5.4-1.9l-.1 1.3h-3.4v-6.1h3.7c.7 1.9 2.5 3.2 4.5 3.1 1.3 0 2.3-.5 2.3-1.6s-1-1.5-1.7-1.7l-2.6-.7c-2.8-.7-6.2-1.7-6.2-6 0-3.4 2.4-5.2 6-5.2 1.8 0 3.6.6 5 1.8l.1-1.3H29v5.9h-3.7c-.4-1.7-1.9-2.9-3.6-2.9-1.3 0-2.3.5-2.3 1.7 0 1 .6 1.4 1.8 1.7l2.2.9z"></path>
+                        <path class="logo-st0"
+                              d="M75 61.4v-8.2h-2v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                        <path class="logo-st1" d="M75 28.8h4.8v12.5H75z"></path>
+                        <path class="logo-st1" d="M41.5 28.8h4.8v9.6h-4.8z"></path>
+                        <path class="logo-st1" d="M41.5 24h38.3v4.8H41.5z"></path>
+                        <path class="logo-st1" d="M58.3 14.4h4.8V24h-4.8z"></path>
+                        <path class="logo-st1" d="M2 14.4h4.8v26.9H2z"></path>
+                        <path class="logo-st1" d="M2 9.6h61.1v4.8H2z"></path>
+                        <path class="logo-st1" d="M34.6 0h4.8v9.6h-4.8z"></path>
+                    </svg>
+                    <!-- END: icon-logo -->
+                    <span class="visually-hidden">
+                        tskit
+                    </span>
+                </a>
+            </div>
+            <div class="col">
+                <ul class="list list--unstyled">
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev/tskit-site/issues/new/choose" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Report a website issue
+                                </span>
+                        </a>
+                    </li>
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Github
+                                </span>
+                        </a>
+                    </li>
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev/.github/blob/main/CODE_OF_CONDUCT.md" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Code of conduct
+                                </span>
+                        </a>
+                    </li>
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev/tskit-site/blob/main/LICENSE" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Licence
+                                </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- END: footer -->
+    <!-- START: global modal -->
+    <div class="modal fade"
+         id="globalModal"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="globalModalLabel"
+         aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <button class="navbar-toggler modal-close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="modal-header visually-hidden">
+                    <h5 class="modal-title" id="globalModalLabel">
+                        Modal content
+                    </h5>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END: global modal -->
+
+</div>
+
+<script src="/assets/dist/js/main.min.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,2103 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>msprime.mutations &#8212; Msprime manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/msprime_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Msprime manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../quickstart.html">
+   Quickstart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Running simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ancestry.html">
+   Ancestry simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../mutations.html">
+   Mutation simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../demography.html">
+   Demographic models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../replication.html">
+   Randomness and replication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../api.html">
+   API Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Utilities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../rate_maps.html">
+   Rate Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../pedigrees.html">
+   Pedigrees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../likelihoods.html">
+   Computing likelihoods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../logging.html">
+   Logging
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../legacy.html">
+   Legacy (version 0.x) APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../switch_from_other_simulators.html">
+   Switching from other simulators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../CITATION.html">
+   Citing msprime
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            msprime 1.2.1.dev16
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/msprime"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/msprime/issues/new?title=Issue%20on%20page%20%2F_modules/msprime/mutations.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for msprime.mutations</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (C) 2018-2021 University of Oxford</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of msprime.</span>
+<span class="c1">#</span>
+<span class="c1"># msprime is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU General Public License as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># msprime is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with msprime.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c1">#</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module responsible for generating mutations on a given tree sequence.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numbers</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tskit</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">core</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">intervals</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">provenance</span>
+<span class="kn">from</span> <span class="nn">msprime</span> <span class="kn">import</span> <span class="n">_msprime</span>
+
+<span class="n">_ACGT_ALLELES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">]</span>
+<span class="n">_AMINO_ACIDS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;R&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;N&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;D&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;C&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Q&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;E&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;G&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;H&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;I&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;L&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;K&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;M&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;F&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;P&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;S&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;T&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;W&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Y&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;V&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="MutationModel"><a class="viewcode-back" href="../../api.html#msprime.MutationModel">[docs]</a><span class="k">class</span> <span class="nc">MutationModel</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstract superclass of msprime mutation models.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># This version of asdict makes sure that we have sufficient parameters</span>
+        <span class="c1"># to call the constructor and recreate the class. However, this means</span>
+        <span class="c1"># that subclasses *must* have an instance variable of the same name as</span>
+        <span class="c1"># each parameter.</span>
+        <span class="c1"># This is essential for Provenance round-tripping to work.</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="MatrixMutationModel"><a class="viewcode-back" href="../../api.html#msprime.MatrixMutationModel">[docs]</a><span class="k">class</span> <span class="nc">MatrixMutationModel</span><span class="p">(</span><span class="n">_msprime</span><span class="o">.</span><span class="n">MatrixMutationModel</span><span class="p">,</span> <span class="n">MutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Superclass of the specific mutation models with a finite set of states.</span>
+<span class="sd">    This class can be used to create a matrix mutation model with custom</span>
+<span class="sd">    alleles and probabilities. For details of how this works see</span>
+<span class="sd">    :ref:`sec_mutations_matrix_mutation_models_details`.</span>
+
+<span class="sd">    :param list[str] alleles: A list of the possible alleles generated by the model. Each</span>
+<span class="sd">        entry is a string.</span>
+<span class="sd">    :param list[float] root_distribution: An array of float values the same length</span>
+<span class="sd">        as ``alleles`` which should sum to 1. These values are used to determine the</span>
+<span class="sd">        ancestral state of each mutated site. For example if ``alleles`` is</span>
+<span class="sd">        ``[&#39;A&#39;,&#39;B&#39;]`` and ``root_distribution`` is ``[1,0]`` all ancestral states will be</span>
+<span class="sd">        ``&#39;A&#39;``.</span>
+<span class="sd">    :param list[float] transition_matrix: A square 2d-matrix of transition</span>
+<span class="sd">        probabilities where both dimensions are equal to the length of the ``alleles``</span>
+<span class="sd">        argument. These are used to determine the derived state at each mutation. Note</span>
+<span class="sd">        that rows should sum to 1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Mutation model with alleles </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">alleles</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;  root distribution: </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_distribution</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;  transition matrix:</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transition_matrix</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;     </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">row</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">s</span></div>
+
+
+<div class="viewcode-block" id="SLiMMutationModel"><a class="viewcode-back" href="../../api.html#msprime.SLiMMutationModel">[docs]</a><span class="k">class</span> <span class="nc">SLiMMutationModel</span><span class="p">(</span><span class="n">_msprime</span><span class="o">.</span><span class="n">SLiMMutationModel</span><span class="p">,</span> <span class="n">MutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An infinite-alleles model of mutation producing &quot;SLiM-style&quot; mutations.</span>
+
+<span class="sd">    To agree with mutations produced by SLiM, the ancestral state of each new</span>
+<span class="sd">    site is set to the empty string, and each derived state is produced by</span>
+<span class="sd">    appending the &quot;next allele&quot; to the previous state. The result is that each</span>
+<span class="sd">    allele is a comma-separated string of all mutations that have occurred up</span>
+<span class="sd">    to the root.</span>
+
+<span class="sd">    Mutations produced by SLiM carry both a ``time`` attribute, in units of &quot;time ago&quot;</span>
+<span class="sd">    as usual for tskit, as well as a metadata attributed called &quot;origin_generation&quot;,</span>
+<span class="sd">    in units of time since the start of the simulation. Adding these two together -</span>
+<span class="sd">    time since the start of the simulation plus time until the end - is equal to the</span>
+<span class="sd">    total number of generations of the simulation. The origin_generation is not</span>
+<span class="sd">    currently used by SLiM, but for consistency, the origin_generation attribute for</span>
+<span class="sd">    mutations produced by this model is set equal to ``slim_generation`` minus</span>
+<span class="sd">    ``floor(mut.time)``, where ``mut.time`` is the (tskit) time ago of the mutation.</span>
+
+<span class="sd">    :param int type: The nonnegative integer defining the &quot;type&quot; of SLiM mutation</span>
+<span class="sd">        that will be recorded in metadata.</span>
+<span class="sd">    :param int next_id: The nonnegative integer to start assigning alleles from.</span>
+<span class="sd">        (default: 0)</span>
+<span class="sd">    :param int slim_generation: The &quot;SLiM generation&quot; time used in determining the</span>
+<span class="sd">        &quot;origin_generation&quot; metadata attribute of mutations. This can usually</span>
+<span class="sd">        be left at its default, which is 1.</span>
+<span class="sd">    :param int block_size: The block size for allocating derived states.</span>
+<span class="sd">        You do not need to change this unless you get an &quot;out of memory&quot; error</span>
+<span class="sd">        due to a very large number of stacked mutations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Mutation model for SLiM mutations of type m</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;  next ID: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">next_id</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="p">)</span></div>
+
+
+<span class="c1"># NOTE: we use a hacky workaround here for documenting the next_allele instance</span>
+<span class="c1"># variable because of the nasty sphinx bug:</span>
+<span class="c1"># https://github.com/sphinx-doc/sphinx/issues/2549</span>
+<span class="c1"># This seems to be basically impossible to workaround in JupyterBook, so it</span>
+<span class="c1"># seems best to just avoid using ivars. The correct approach going forward</span>
+<span class="c1"># would appear to be to use dataclasses and to document each variable</span>
+<span class="c1"># independently (e.g., Population class).</span>
+<div class="viewcode-block" id="InfiniteAlleles"><a class="viewcode-back" href="../../api.html#msprime.InfiniteAlleles">[docs]</a><span class="k">class</span> <span class="nc">InfiniteAlleles</span><span class="p">(</span><span class="n">_msprime</span><span class="o">.</span><span class="n">InfiniteAllelesMutationModel</span><span class="p">,</span> <span class="n">MutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An *infinite alleles* model of mutation in which each allele is a</span>
+<span class="sd">    unique positive integer. This works by keeping track of a &quot;next</span>
+<span class="sd">    allele&quot;: each time the model is asked to produce a new allele (either for an</span>
+<span class="sd">    ancestral or derived state), the &quot;next allele&quot; is provided, and then</span>
+<span class="sd">    incremented.</span>
+
+<span class="sd">    **Variables:**</span>
+
+<span class="sd">    **next_allele**: The *next* allele to be assigned. This increments by</span>
+<span class="sd">    one each time an allele is assigned to a new mutation, and resets to</span>
+<span class="sd">    ``start_allele`` each time a new ancestral state is assigned.</span>
+
+<span class="sd">    :param int start_allele: The nonnegative integer to start assigning alleles from.</span>
+<span class="sd">       (default: 0)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Infinite alleles mutation model, beginning with allele&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start_allele</span><span class="si">}</span><span class="se">\n</span><span class="s2">    next allele: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">next_allele</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BinaryMutationModel"><a class="viewcode-back" href="../../api.html#msprime.BinaryMutationModel">[docs]</a><span class="k">class</span> <span class="nc">BinaryMutationModel</span><span class="p">(</span><span class="n">MatrixMutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Basic binary mutation model with two alleles: ``&quot;0&quot;`` and ``&quot;1&quot;``, and ancestral</span>
+<span class="sd">    allele always ``&quot;0&quot;``.</span>
+
+<span class="sd">    This is a :class:`.MatrixMutationModel` with alleles ``[&quot;0&quot;, &quot;1&quot;]``,</span>
+<span class="sd">    root distribution ``[1.0, 0.0]``, and transition matrix that is either</span>
+<span class="sd">    ``[[0.0, 1.0], [1.0, 0.0]]`` (by default), or</span>
+<span class="sd">    ``[[0.5, 0.5], [0.5, 0.5]]`` (if ``state_independent=True``).</span>
+
+<span class="sd">    :param bool state_independent: Whether mutations will be generated in a way</span>
+<span class="sd">        independent of the previous allelic state, which includes silent mutations.</span>
+<span class="sd">        See :ref:`sec_mutations_existing` for more details.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_independent</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">alleles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">]</span>
+        <span class="n">root_distribution</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">state_independent</span><span class="p">:</span>
+            <span class="n">transition_matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">transition_matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">alleles</span><span class="p">,</span> <span class="n">root_distribution</span><span class="p">,</span> <span class="n">transition_matrix</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">general_microsat_rate_matrix</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct the general microsat rate matrix associated</span>
+<span class="sd">    with the Sainudiin et al. (2004) parameterization.</span>
+<span class="sd">    While the original paper implements a continuous time markov chain,</span>
+<span class="sd">    here we implement the jump process rate matrix equivalent for consistency</span>
+<span class="sd">    with the :class:`.MatrixMutationModel`.</span>
+
+<span class="sd">    In particular if :math:`q_{ij}` is an element of the originally defined</span>
+<span class="sd">    transition matrix, we define :math:`M = \\max_i \\left( \\sum_j q_{ij} \\right)`.</span>
+<span class="sd">    Then, as a :class:`.MatrixMutationModel` this model has the transition</span>
+<span class="sd">    matrix :math:`P_{ij} = q_{ij} / M`, and :math:`P_{ii} = 1 - \\sum_{j\\neq i} P_{ij}`.</span>
+
+<span class="sd">    :param float s: strength of length dependence on mutation rate</span>
+<span class="sd">     (i.e. s=0 uniform rate)</span>
+<span class="sd">    :param float u: constant bias parameter; U ~ (0, 1)</span>
+<span class="sd">    :param float v: linear bias parameter; v ~ (-inf, inf)</span>
+<span class="sd">    :param float p: probability of a single step mutation</span>
+<span class="sd">    :param float m: success prob of truncated gamma distribution</span>
+<span class="sd">    :param int lo: lower bound on repeat number</span>
+<span class="sd">    :param int hi: upper bound on repeat number</span>
+<span class="sd">    :return: rate matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Helper functions for the Sainudiin et al. rate matrix</span>
+    <span class="k">def</span> <span class="nf">alpha_microsat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">lo</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">u</span> <span class="o">-</span> <span class="p">(</span><span class="n">v</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">lo</span><span class="p">))))</span>
+
+    <span class="k">def</span> <span class="nf">beta_microsat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">lo</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        beta helper function from Sainudiin et al. (2004)</span>
+<span class="sd">        represents the mutation rate from allele i</span>
+<span class="sd">        :param float s: strength of length dependence on mutation rate</span>
+<span class="sd">        (i.e. s=0 uniform rate)</span>
+<span class="sd">        :param int lo: lower bound</span>
+<span class="sd">        :param int hi: upper bound</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">((</span><span class="n">i</span> <span class="o">-</span> <span class="n">lo</span><span class="p">)</span> <span class="o">*</span> <span class="n">s</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">gamma_microsat</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        gamma helper function from Sainudiin et al. (2004)</span>
+<span class="sd">        :param float m: prob success</span>
+<span class="sd">        :param int i: in-state</span>
+<span class="sd">        :param int j: out-state</span>
+<span class="sd">        :param int lo: lower bound of microsat repeat length distribution</span>
+<span class="sd">        :param int hi: upper bound of microsat repeat length distribution</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">lo</span> <span class="o">&lt;=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">hi</span><span class="p">:</span>
+            <span class="n">denom</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="n">hi</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">lo</span> <span class="o">&lt;=</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">hi</span><span class="p">:</span>
+            <span class="n">denom</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">lo</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;microsat model error. i and j must be between lo and hi&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">num</span> <span class="o">/</span> <span class="n">denom</span>
+
+    <span class="n">nalleles</span> <span class="o">=</span> <span class="n">hi</span> <span class="o">-</span> <span class="n">lo</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">rate_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nalleles</span><span class="p">,</span> <span class="n">nalleles</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># shift coords to account for 0-indexing in rate matrix</span>
+            <span class="n">ii</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">lo</span>
+            <span class="n">jj</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="n">lo</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">rate_matrix</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">beta_microsat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">lo</span><span class="p">)</span>
+                    <span class="o">*</span> <span class="n">alpha_microsat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">lo</span><span class="p">)</span>
+                    <span class="o">*</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">gamma_microsat</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)))</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">rate_matrix</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">beta_microsat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">lo</span><span class="p">)</span>
+                    <span class="o">*</span> <span class="n">alpha_microsat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">lo</span><span class="p">)</span>
+                    <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span>
+                    <span class="o">*</span> <span class="n">gamma_microsat</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">rate_matrix</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">beta_microsat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">lo</span><span class="p">)</span>
+                    <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha_microsat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">lo</span><span class="p">))</span>
+                    <span class="o">*</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">gamma_microsat</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)))</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">rate_matrix</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">beta_microsat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">lo</span><span class="p">)</span>
+                    <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha_microsat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">lo</span><span class="p">))</span>
+                    <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span>
+                    <span class="o">*</span> <span class="n">gamma_microsat</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">rate_matrix</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># scale by max row sum; then normalize to 1</span>
+    <span class="n">row_sums</span> <span class="o">=</span> <span class="n">rate_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">row_sums</span><span class="p">)</span>
+    <span class="n">rate_matrix</span> <span class="o">/=</span> <span class="n">alpha</span>
+    <span class="n">row_sums</span> <span class="o">=</span> <span class="n">rate_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">rate_matrix</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rate_matrix</span>
+
+
+<div class="viewcode-block" id="MicrosatMutationModel"><a class="viewcode-back" href="../../api.html#msprime.MicrosatMutationModel">[docs]</a><span class="k">class</span> <span class="nc">MicrosatMutationModel</span><span class="p">(</span><span class="n">MatrixMutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    General class for Microsatellite mutation models</span>
+<span class="sd">    which parameterizes the transition matrix describing</span>
+<span class="sd">    changes among alleles using five parameters according</span>
+<span class="sd">    to the model of</span>
+<span class="sd">    `Sainudiin et al. (2004) &lt;https://doi.org/10.1534/genetics.103.022665&gt;`_</span>
+
+<span class="sd">    .. seealso:: See the :ref:`sec_mutations_microsats` section for more details</span>
+<span class="sd">       and examples.</span>
+
+<span class="sd">    Concretely, mutation rates under this model are computed as follows.</span>
+<span class="sd">    Let ``qij`` be the transition rate from equation (3) in Sainudiin et al,</span>
+<span class="sd">    and let ``M`` be the largest row sum of the matrix whose i,j-th entry</span>
+<span class="sd">    is ``qij`` and whose diagonals are zero. Then if the mutation rate</span>
+<span class="sd">    passed to :func:`.sim_mutations` is ``m``, the mutation rate from</span>
+<span class="sd">    allele ``i`` to allele ``j`` is ``m * qij / M``.</span>
+
+<span class="sd">    Note that the values of ``lo`` and ``hi`` are in units of repeat number,</span>
+<span class="sd">    and are unrelated to repeat length</span>
+<span class="sd">    (e.g., the repeat itself can be dinucleotide, tri-nucleotide, etcetera).</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">        The default values for ``lo`` and ``hi`` are chosen arbitrarily.</span>
+<span class="sd">        The default of ``lo=2`` is chosed because repeat number need be greater</span>
+<span class="sd">        than for it to be considered a repeat. Please ensure</span>
+<span class="sd">        that you set ``lo`` and ``hi``</span>
+<span class="sd">        to the appropriate values for your organism / locus of interest.</span>
+
+<span class="sd">    :param float s: strength of length dependence on mutation rate.</span>
+<span class="sd">        Defaults to 0, i.e., no length dependence.</span>
+<span class="sd">    :param float u: Constant bias parameter; must be between 0 and 1.</span>
+<span class="sd">        Defaults to 0.5, i.e., no bias.</span>
+<span class="sd">    :param float v: Linear bias parameter. Defaults to 0, i.e., no bias.</span>
+<span class="sd">    :param float p: Probability of a single step mutation. Defaults to 1.</span>
+<span class="sd">    :param float m: 1 / (mean multistep mutation size). Defaults to 1.</span>
+<span class="sd">    :param int lo: Lower bound on repeat number. Defaults to 2.</span>
+<span class="sd">    :param int hi: Upper bound on repeat number (inclusive). Defaults to 50.</span>
+<span class="sd">    :param list[float] root_distribution: An array of float values of length hi-lo+1</span>
+<span class="sd">        which should sum to 1, and give the probabilities used to choose</span>
+<span class="sd">        the ancestral state of each microsatellite.</span>
+<span class="sd">        Defaults to the stationary distribution of the model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">u</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">v</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">p</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">lo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">hi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">root_distribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">s</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="k">if</span> <span class="n">u</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">u</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">v</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">p</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">m</span>
+        <span class="n">lo</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">lo</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">lo</span>
+        <span class="n">hi</span> <span class="o">=</span> <span class="mi">50</span> <span class="k">if</span> <span class="n">hi</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">hi</span>
+
+        <span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="ow">not</span> <span class="n">math</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">params</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All parameters must be finite&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">params</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All parameters must be numeric&quot;</span><span class="p">)</span>
+
+        <span class="n">lo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span>
+        <span class="n">hi</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">lo</span> <span class="o">&gt;</span> <span class="n">hi</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;lo &gt; hi&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">lo</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;lo must be &gt;= 0&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">hi</span> <span class="o">-</span> <span class="n">lo</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;s must be &gt; -1/(hi-lo+1)&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">u</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">u</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;u must be between 0 and 1&quot;</span><span class="p">)</span>
+        <span class="n">alleles</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="n">transition_matrix</span> <span class="o">=</span> <span class="n">general_microsat_rate_matrix</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">root_distribution</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># solve for stationary distribution</span>
+            <span class="n">S</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">transition_matrix</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real_if_close</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">stationary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">U</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+            <span class="n">stationary</span> <span class="o">=</span> <span class="n">stationary</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">stationary</span><span class="p">)</span>
+            <span class="n">root_distribution</span> <span class="o">=</span> <span class="n">stationary</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">alleles</span><span class="p">,</span> <span class="n">root_distribution</span><span class="p">,</span> <span class="n">transition_matrix</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SMM"><a class="viewcode-back" href="../../api.html#msprime.SMM">[docs]</a><span class="k">class</span> <span class="nc">SMM</span><span class="p">(</span><span class="n">MicrosatMutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Stepwise mutation model (Ohta and Kimura, 1978),</span>
+<span class="sd">    for microsatellite repeat number.</span>
+
+<span class="sd">    This is a :class:`.MicrosatMutationModel` with alleles ``[lo, .. , hi]``,</span>
+<span class="sd">    a root distribution (stationary distribution by default),</span>
+<span class="sd">    and a transition matrix that allows only mutations that</span>
+<span class="sd">    change the number of repeats by +/- 1. Concretely, if the mutation</span>
+<span class="sd">    rate is ``m``, then an allele ``k`` mutates to ``k+1`` and ``k-1``</span>
+<span class="sd">    at rate ``m/2`` each,</span>
+<span class="sd">    except that mutations above ``hi`` or below ``lo`` result in no change.</span>
+
+<span class="sd">    :param int lo: Repeat number lower bound. See the documentation for</span>
+<span class="sd">        :class:`.MicrosatMutationModel` for details.</span>
+<span class="sd">    :param int hi: Repeat number upper bound. See the documentation for</span>
+<span class="sd">        :class:`.MicrosatMutationModel` for details.</span>
+<span class="sd">    :param list[float] root_distribution: See the documentation for</span>
+<span class="sd">        :class:`.MicrosatMutationModel` for details.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">root_distribution</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">lo</span><span class="o">=</span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="o">=</span><span class="n">hi</span><span class="p">,</span> <span class="n">root_distribution</span><span class="o">=</span><span class="n">root_distribution</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TPM"><a class="viewcode-back" href="../../api.html#msprime.TPM">[docs]</a><span class="k">class</span> <span class="nc">TPM</span><span class="p">(</span><span class="n">MicrosatMutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Two-phase mutation model of</span>
+<span class="sd">    `DiRienzo et al. (1994) &lt;https://doi.org/10.1073/pnas.91.8.3166&gt;`_</span>
+
+<span class="sd">    This models evolution of microsatellite repeat number in a manner</span>
+<span class="sd">    that allows for multi-step mutations in copy number of microsatellite repeats.</span>
+<span class="sd">    This is parameterized by `p` the probability of a single step mutation,</span>
+<span class="sd">    and `m` the success probability of the truncated gamma distribution</span>
+<span class="sd">    describing the distribution of longer steps such that the</span>
+<span class="sd">    mean multi-step mutation is length `1/m`.</span>
+<span class="sd">    For this model both `p` and `m` need to be set to &lt; 1.0.</span>
+
+<span class="sd">    This is a :class:`.MicrosatMutationModel` with alleles ``[lo, .. , hi]``.</span>
+<span class="sd">    For a precise definition of the mutation rates, see :class:`.MicrosatMutationModel`</span>
+<span class="sd">    with ``s=0``, ``u=0.5``, and ``v=0``.</span>
+<span class="sd">    See :class:`.MicrosatMutationModel` for further details of parameterization.</span>
+
+<span class="sd">    :param float p: Probability of a single step mutation.</span>
+<span class="sd">    :param float m: Success prob of truncated gamma distribution.</span>
+<span class="sd">    :param int lo: Repeat number lower bound. See the documentation for</span>
+<span class="sd">        :class:`.MicrosatMutationModel` for details.</span>
+<span class="sd">    :param int hi: Repeat number upper bound. See the documentation for</span>
+<span class="sd">        :class:`.MicrosatMutationModel` for details.</span>
+<span class="sd">    :param list[float] root_distribution: See the documentation for</span>
+<span class="sd">        :class:`.MicrosatMutationModel` for details.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">lo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root_distribution</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;p must be between 0 and 1&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;m must be between 0 and 1&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">lo</span><span class="o">=</span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="o">=</span><span class="n">hi</span><span class="p">,</span> <span class="n">root_distribution</span><span class="o">=</span><span class="n">root_distribution</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="EL2"><a class="viewcode-back" href="../../api.html#msprime.EL2">[docs]</a><span class="k">class</span> <span class="nc">EL2</span><span class="p">(</span><span class="n">MicrosatMutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Equal rate, linear biased, two-phase mutation model of</span>
+<span class="sd">    `Garza et al. (1995) &lt;10.1093/oxfordjournals.molbev.a040239&gt;`_</span>
+<span class="sd">    as parameterized by</span>
+<span class="sd">    `Sainudiin et al. (2004) &lt;https://doi.org/10.1534/genetics.103.022665&gt;`_</span>
+
+<span class="sd">    This models evolution of microsatellite repeat number in a manner</span>
+<span class="sd">    that allows for multi-step mutations in copy number.</span>
+<span class="sd">    This is parameterized by `m` the success probability of</span>
+<span class="sd">    the truncated gamma distribution</span>
+<span class="sd">    describing the distribution of longer steps, such that the</span>
+<span class="sd">    mean multi-step mutation is length `1/m`. `u` the constant</span>
+<span class="sd">    bias parameter which determines bias (if any) in expansion or</span>
+<span class="sd">    contraction of the repeat number, and `v` the linear bias</span>
+<span class="sd">    parameter which determines mutation rate variation associated</span>
+<span class="sd">    with repeat number.</span>
+<span class="sd">    For this model `m` need to be set to &lt; 1.0,</span>
+<span class="sd">    and `u` needs to be set to between 0 and 1.</span>
+<span class="sd">    and `v` can take any real, positive or negative value.</span>
+
+<span class="sd">    See :class:`.MicrosatMutationModel` for details on the  constant</span>
+<span class="sd">    bias parameter `u` and a linear bias parameter `v`.</span>
+
+<span class="sd">    This is a :class:`.MicrosatMutationModel` with alleles ``[lo, .. , hi]``</span>
+<span class="sd">    For a precise definition of the mutation rates,</span>
+<span class="sd">    see :class:`.MicrosatMutationModel`</span>
+<span class="sd">    with ``s=0``.</span>
+
+<span class="sd">    :param float m: Success prob of truncated gamma distribution.</span>
+<span class="sd">    :param float u: Constant bias parameter.</span>
+<span class="sd">    :param float v: Linear bias parameter.</span>
+<span class="sd">    :param int lo: Repeat number lower bound. See the documentation for</span>
+<span class="sd">        :class:`.MicrosatMutationModel` for details.</span>
+<span class="sd">    :param int hi: Repeat number upper bound. See the documentation for</span>
+<span class="sd">        :class:`.MicrosatMutationModel` for details.</span>
+<span class="sd">    :param list[float] root_distribution: See the documentation for</span>
+<span class="sd">        :class:`.MicrosatMutationModel` for details.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">lo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root_distribution</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;m must be between 0 and 1&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">u</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;u must be between 0 and 1&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">lo</span><span class="o">=</span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="o">=</span><span class="n">hi</span><span class="p">,</span> <span class="n">root_distribution</span><span class="o">=</span><span class="n">root_distribution</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="JC69"><a class="viewcode-back" href="../../api.html#msprime.JC69">[docs]</a><span class="k">class</span> <span class="nc">JC69</span><span class="p">(</span><span class="n">MatrixMutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Jukes-Cantor mutation model (Jukes and Cantor 1969). Based on the standard ACGT</span>
+<span class="sd">    nucleotides as allelic states, this model assumes equal probabilities for</span>
+<span class="sd">    ancestral state and equal probabilities for all possible transitions.</span>
+
+<span class="sd">    This is a :class:`.MatrixMutationModel` with alleles ``[&quot;A&quot;, &quot;C&quot;, &quot;G&quot;, &quot;T&quot;]``,</span>
+<span class="sd">    root distribution ``[1/4, 1/4, 1/4, 1/4]``, and default transition matrix</span>
+<span class="sd">    ``[[0, 1/3, 1/3, 1/3], [1/3, 0, 1/3, 1/3],</span>
+<span class="sd">    [1/3, 1/3, 0, 1/3], [1/3, 1/3, 1/3, 0]]``.</span>
+<span class="sd">    It has no free parameters.</span>
+
+<span class="sd">    If ``state_independent`` is True, then instead all entries of the</span>
+<span class="sd">    transition matrix will be 1/4, so one-quarter of the mutations will be</span>
+<span class="sd">    silent. See :ref:`sec_mutations_existing` for more details.</span>
+
+<span class="sd">    Citation: *Jukes TH, Cantor CR (1969). Evolution of Protein Molecules. pp. 21-132.*</span>
+
+<span class="sd">    :param bool state_independent: Whether mutations will be generated in a way</span>
+<span class="sd">        independent of the previous allelic state.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_independent</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">alleles</span> <span class="o">=</span> <span class="n">_ACGT_ALLELES</span>
+        <span class="n">root_distribution</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>
+        <span class="n">transition_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">state_independent</span><span class="p">:</span>
+            <span class="n">transition_matrix</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">transition_matrix</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">alleles</span><span class="p">,</span> <span class="n">root_distribution</span><span class="p">,</span> <span class="n">transition_matrix</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="HKY"><a class="viewcode-back" href="../../api.html#msprime.HKY">[docs]</a><span class="k">class</span> <span class="nc">HKY</span><span class="p">(</span><span class="n">MatrixMutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The Hasegawa, Kishino and Yano mutation model (Hasegawa et al. 1985). Based on the</span>
+<span class="sd">    standard ACGT nucleotides as allelic states, this model allows different rates for</span>
+<span class="sd">    transitions and transversions, and sets an equilibrium frequency for each nucleotide.</span>
+<span class="sd">    In addition a custom ancestral frequency (``root_distribution``) can be specified.</span>
+<span class="sd">    With ``kappa=1.0`` and the default values of the other arguments this model is equal</span>
+<span class="sd">    to :class:`.JC69`. This model is similar to :class:`.F84`</span>
+<span class="sd">    but with a differing parameterisation for ``kappa``.</span>
+
+<span class="sd">    This model is parameterised by :math:`\\kappa` (``kappa``), the ratio of</span>
+<span class="sd">    transition to transversion mutation rates, and :math:`\\pi`</span>
+<span class="sd">    (``equilibrium_frequencies``), the vector of equilibrium nucleotide</span>
+<span class="sd">    frequencies. If this mutation model is used with a ``mutation_rate`` of</span>
+<span class="sd">    :math:`\\mu`, then the mutation rate from the i-th to the j-th allele is</span>
+<span class="sd">    equal to :math:`Q_{ij}`, where</span>
+
+<span class="sd">    :math:`\\mathbf{Q} =</span>
+<span class="sd">    \\frac{\\mu}{M} \\times</span>
+<span class="sd">    \\begin{bmatrix}</span>
+<span class="sd">    \\cdot        &amp;  \\pi_C         &amp; \\kappa \\pi_G &amp; \\pi_T           \\\\</span>
+<span class="sd">    \\pi_A        &amp;  \\cdot         &amp; \\pi_G        &amp; \\kappa \\pi_T    \\\\</span>
+<span class="sd">    \\kappa \\pi_A &amp;  \\pi_C         &amp; \\cdot        &amp; \\pi_T           \\\\</span>
+<span class="sd">    \\pi_A        &amp;  \\kappa \\pi_C  &amp; \\pi_G        &amp; \\cdot</span>
+<span class="sd">    \\end{bmatrix}`</span>
+
+<span class="sd">    Here :math:`M` is an overall scaling factor on the mutation rate that can</span>
+<span class="sd">    be computed as follows: let :math:`q_{ij} = \\pi_j` if i&lt;-&gt;j is a transversion,</span>
+<span class="sd">    and :math:`q_{ij} = \\kappa \\pi_j` otherwise. Set :math:`q_{ii} = 0`,</span>
+<span class="sd">    and then let :math:`M` be the largest row sum of :math:`q`, i.e.,</span>
+<span class="sd">    :math:`M = \\max_i \\left( \\sum_j q_{ij} \\right)`.</span>
+<span class="sd">    Then, this implementation as a :class:`.MatrixMutationModel` has the transition</span>
+<span class="sd">    matrix :math:`P_{ij} = q_{ij} / M`, and :math:`P_{ii} = 1 - \\sum_{j\\neq i} P_{ij}`.</span>
+
+<span class="sd">    Note also that :math:`\\kappa` is the ratio of *individual* mutation rates,</span>
+<span class="sd">    not the ratio of *total* transition to transversion rates, which would</span>
+<span class="sd">    be :math:`\\kappa/2`, as is used in some parameterisations.</span>
+
+<span class="sd">    If ``state_independent`` is true, then the above is modified by setting</span>
+<span class="sd">    :math:`q_{ii} = \\kappa \\pi_i`. This makes the model completely state-independent</span>
+<span class="sd">    only if :math:`\\kappa = 1` by adding additional silent mutations.</span>
+<span class="sd">    See :ref:`sec_mutations_existing` for more details.</span>
+
+<span class="sd">    Citation: *Hasegawa M, Kishino H, Yano T (1985).  &quot;Dating of the human-ape</span>
+<span class="sd">    splitting by a molecular clock of mitochondrial DNA&quot;. Journal of Molecular</span>
+<span class="sd">    Evolution. 22 (2): 160–74.*</span>
+
+<span class="sd">    Note that this implementation has the root distribution as a separate</span>
+<span class="sd">    parameter, although it defaults to the equilibrium distribution. If you</span>
+<span class="sd">    set the root distribution to be different than the equilibrium distribution,</span>
+<span class="sd">    then you have a nonequilibrium model, and you should make sure that&#39;s what</span>
+<span class="sd">    you want.</span>
+
+<span class="sd">    :param float kappa: Scaling parameter by which the transition matrix is modified for</span>
+<span class="sd">        transitions (A&lt;&gt;G, C&lt;&gt;T). For example a value of ``0`` means that no transitions</span>
+<span class="sd">        will occur, ``1`` makes the probability of transitions and</span>
+<span class="sd">        transversions equal.</span>
+<span class="sd">    :param list[float] equilibrium_frequencies: An array of float values of length</span>
+<span class="sd">        4 which should sum to 1. These values are used to determine equilibrium</span>
+<span class="sd">        frequencies (long-term averages) of the alleles. Defaults to</span>
+<span class="sd">        [0.25, 0.25, 0.25, 0.25], i.e., all nucleotides equally likely.</span>
+<span class="sd">    :param list[float] root_distribution: An array of float values of length 4</span>
+<span class="sd">        which should sum to 1. These values are used to determine the ancestral state of</span>
+<span class="sd">        each mutational site. Defaults to the value of ``equilibrium_frequencies``.</span>
+<span class="sd">    :param bool state_independent: Whether to include a higher rate of silent mutations</span>
+<span class="sd">        that makes the model closer to state-independent.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">kappa</span><span class="p">,</span>
+        <span class="n">equilibrium_frequencies</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">root_distribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">state_independent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">alleles</span> <span class="o">=</span> <span class="n">_ACGT_ALLELES</span>
+        <span class="k">if</span> <span class="n">equilibrium_frequencies</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">equilibrium_frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">equilibrium_frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">equilibrium_frequencies</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">root_distribution</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">root_distribution</span> <span class="o">=</span> <span class="n">equilibrium_frequencies</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">transition_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="c1"># positions in transition matrix for transitions</span>
+        <span class="n">transition_pos</span> <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">transition_matrix</span><span class="p">[</span><span class="n">transition_pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">kappa</span>
+        <span class="n">transition_matrix</span> <span class="o">*=</span> <span class="n">equilibrium_frequencies</span>
+        <span class="k">if</span> <span class="n">state_independent</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">,</span> <span class="n">kappa</span> <span class="o">*</span> <span class="n">equilibrium_frequencies</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">transition_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+        <span class="n">transition_matrix</span> <span class="o">/=</span> <span class="nb">max</span><span class="p">(</span><span class="n">row_sums</span><span class="p">)</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">transition_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span>
+            <span class="n">transition_matrix</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="n">row_sums</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">))</span>
+        <span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">alleles</span><span class="p">,</span> <span class="n">root_distribution</span><span class="p">,</span> <span class="n">transition_matrix</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="F84"><a class="viewcode-back" href="../../api.html#msprime.F84">[docs]</a><span class="k">class</span> <span class="nc">F84</span><span class="p">(</span><span class="n">MatrixMutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The F84 mutation model (Felsenstein and Churchill, 1996). Based on the</span>
+<span class="sd">    standard ACGT nucleotides as allelic states, this model takes into account</span>
+<span class="sd">    transitions and transversions, and sets an equilibrium frequency for each nucleotide.</span>
+<span class="sd">    In addition a custom ancestral frequency (``root_distribution``) can be specified.</span>
+<span class="sd">    With ``kappa=1.0`` and the default values of the other arguments this model is equal</span>
+<span class="sd">    to :class:`.JC69`. This model is similar to :class:`.HKY`</span>
+<span class="sd">    but with a differing parameterisation for ``kappa``.</span>
+
+<span class="sd">    This model is parameterised by :math:`\\kappa` (``kappa``), the ratio of</span>
+<span class="sd">    transition to transversion mutation rates, and :math:`\\pi`</span>
+<span class="sd">    (``equilibrium_frequencies``), the vector of equilibrium nucleotide</span>
+<span class="sd">    frequencies. If this mutation model is used with a ``mutation_rate`` of</span>
+<span class="sd">    :math:`\\mu`, then the mutation rate from the i-th to the j-th allele is</span>
+<span class="sd">    equal to :math:`Q_{ij}`, where</span>
+
+<span class="sd">    :math:`\\mathbf{Q} =</span>
+<span class="sd">    \\frac{\\mu}{M} \\times</span>
+<span class="sd">    \\begin{bmatrix}</span>
+<span class="sd">    \\cdot &amp; \\pi_C</span>
+<span class="sd">    &amp; \\left(1 + \\frac{\\kappa-1}{\\pi_A + \\pi_G}\\right) \\pi_G &amp; \\pi_T \\\\</span>
+<span class="sd">    \\pi_A &amp; \\cdot &amp; \\pi_G</span>
+<span class="sd">    &amp; \\left(1 + \\frac{\\kappa-1}{\\pi_C + \\pi_T}\\right) \\pi_T \\\\</span>
+<span class="sd">    \\left(1 + \\frac{\\kappa-1}{\\pi_A + \\pi_G}\\right) \\pi_A &amp; \\pi_C</span>
+<span class="sd">    &amp; \\cdot &amp; \\pi_T \\\\</span>
+<span class="sd">    \\pi_A &amp; \\left(1 + \\frac{\\kappa-1}{\\pi_C + \\pi_T}\\right) \\pi_C</span>
+<span class="sd">    &amp; \\pi_G &amp; \\cdot</span>
+<span class="sd">    \\end{bmatrix}`</span>
+
+<span class="sd">    Here :math:`M` is an overall scaling factor on the mutation rate that can be</span>
+<span class="sd">    computed as follows: let :math:`q_{ij} = \\pi_j` if i&lt;-&gt;j is a transversion,</span>
+<span class="sd">    :math:`q_{ij} = (1 + (\\kappa-1)/(\\pi_A + \\pi_G)) \\pi_j` if i and j are</span>
+<span class="sd">    A and G in some order,</span>
+<span class="sd">    :math:`q_{ij} = (1 + (\\kappa-1)/(\\pi_C + \\pi_T)) \\pi_j` if i and j are</span>
+<span class="sd">    C and T in some order, and :math:`q_{ii} = 0`. Let :math:`M` be the largest</span>
+<span class="sd">    row sum of :math:`q`, i.e., :math:`M = \\max_i \\left( \\sum_j q_{ij} \\right)`.</span>
+<span class="sd">    Then, this implementation as a :class:`.MatrixMutationModel` has the</span>
+<span class="sd">    transition matrix :math:`P_{ij} = q_{ij} / M`,</span>
+<span class="sd">    and :math:`P_{ii} = 1 - \\sum_{j\\neq i} P_{ij}`.</span>
+
+<span class="sd">    If ``state_independent`` is true, then the above is modified by setting</span>
+<span class="sd">    :math:`q_{ii} = \\kappa \\pi_i`. This makes the model completely state-independent</span>
+<span class="sd">    only if :math:`\\kappa = 1` by adding additional silent mutations.</span>
+<span class="sd">    See :ref:`sec_mutations_existing` for more details.</span>
+
+<span class="sd">    Citation: *Felsenstein J, Churchill GA (January 1996). &quot;A Hidden Markov</span>
+<span class="sd">    Model approach to variation among sites in rate of evolution&quot;. Molecular</span>
+<span class="sd">    Biology and Evolution. 13 (1): 93–104.*</span>
+
+<span class="sd">    Note that this implementation has the root distribution as a separate</span>
+<span class="sd">    parameter, although it defaults to the equilibrium distribution. If you</span>
+<span class="sd">    set the root distribution to be different than the equilibrium distribution,</span>
+<span class="sd">    then you have a nonequilibrium model, and you should make sure that&#39;s what</span>
+<span class="sd">    you want.</span>
+
+<span class="sd">    :param float kappa: Scaling parameter by which the transition matrix is modified for</span>
+<span class="sd">        transitions (A&lt;&gt;G, C&lt;&gt;T). Must be greater than or equal to the larger of</span>
+<span class="sd">        :math:`(\\pi_A+\\pi_G)/(\\pi_C+\\pi_T)`</span>
+<span class="sd">        and :math:`(\\pi_C+\\pi_T)/(\\pi_A+\\pi_G)`.</span>
+<span class="sd">    :param list[float] equilibrium_frequencies: An array of float values of length</span>
+<span class="sd">        4 which should sum to 1. These values are used to determine equilibrium</span>
+<span class="sd">        frequencies (long-term averages) of the alleles. Defaults to</span>
+<span class="sd">        [0.25, 0.25, 0.25, 0.25], i.e all nucleotides equally likely.</span>
+<span class="sd">    :param list[float] root_distribution: An array of float values of length 4</span>
+<span class="sd">        which should sum to 1. These values are used to determine the ancestral state of</span>
+<span class="sd">        each mutational site. Defaults to the value of ``equilibrium_frequencies``.</span>
+<span class="sd">    :param bool state_independent: Whether to include a higher rate of silent mutations</span>
+<span class="sd">        that makes the model closer to state-independent.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">kappa</span><span class="p">,</span>
+        <span class="n">equilibrium_frequencies</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">root_distribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">state_independent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">alleles</span> <span class="o">=</span> <span class="n">_ACGT_ALLELES</span>
+        <span class="k">if</span> <span class="n">equilibrium_frequencies</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">equilibrium_frequencies</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">root_distribution</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">root_distribution</span> <span class="o">=</span> <span class="n">equilibrium_frequencies</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">transition_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+        <span class="c1"># positions in transition matrix for transitions</span>
+        <span class="n">transition_pos_AG</span> <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">transition_pos_CT</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">p_AG</span> <span class="o">=</span> <span class="n">equilibrium_frequencies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">equilibrium_frequencies</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">p_CT</span> <span class="o">=</span> <span class="n">equilibrium_frequencies</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">equilibrium_frequencies</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">kappa</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p_AG</span><span class="p">,</span> <span class="n">p_CT</span><span class="p">]))</span>
+        <span class="n">transition_matrix</span><span class="p">[</span><span class="n">transition_pos_AG</span><span class="p">]</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">transition_matrix</span><span class="p">[</span><span class="n">transition_pos_CT</span><span class="p">]</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">transition_matrix</span> <span class="o">*=</span> <span class="n">equilibrium_frequencies</span>
+        <span class="k">if</span> <span class="n">state_independent</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span>
+                <span class="n">transition_matrix</span><span class="p">,</span>
+                <span class="n">equilibrium_frequencies</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">gamma</span><span class="p">,</span> <span class="n">gamma</span><span class="p">]),</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">transition_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">transition_matrix</span> <span class="o">=</span> <span class="n">transition_matrix</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">row_sums</span><span class="p">)</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">transition_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span>
+            <span class="n">transition_matrix</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="n">row_sums</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">))</span>
+        <span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">alleles</span><span class="p">,</span> <span class="n">root_distribution</span><span class="p">,</span> <span class="n">transition_matrix</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GTR"><a class="viewcode-back" href="../../api.html#msprime.GTR">[docs]</a><span class="k">class</span> <span class="nc">GTR</span><span class="p">(</span><span class="n">MatrixMutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The Generalised Time-Reversible nucleotide mutation model, a general</span>
+<span class="sd">    parameterisation of a time-reversible mutation process (Tavaré et al.</span>
+<span class="sd">    1986). It allows specification of per-nucleotide equilibrium frequencies</span>
+<span class="sd">    and equilibrium transition rates.</span>
+
+<span class="sd">    This model is parameterised by the vector :math:`r` (``relative_rates``),</span>
+<span class="sd">    and :math:`\\pi` (``equilibrium_frequencies``), the vector of equilibrium nucleotide</span>
+<span class="sd">    frequencies. The entries of ``relative_rates`` are, in this order,</span>
+<span class="sd">    :math:`(r_{AC}, r_{AG}, r_{AT}, r_{CG}, r_{CT}, r_{GT})`. If this mutation model</span>
+<span class="sd">    is used with a ``mutation_rate`` of :math:`\\mu`, then the mutation rate from the</span>
+<span class="sd">    i-th to the j-th allele is :math:`Q_{ij}`, where</span>
+
+<span class="sd">    :math:`\\mathbf{Q} =</span>
+<span class="sd">    \\frac{\\mu}{M} \\times</span>
+<span class="sd">    \\begin{bmatrix}</span>
+<span class="sd">    \\cdot        &amp;  r_{AC} \\pi_C  &amp; r_{AG} \\pi_G &amp; r_{AT} \\pi_T    \\\\</span>
+<span class="sd">    r_{AC} \\pi_A &amp;  \\cdot         &amp; r_{CG} \\pi_G &amp; r_{CT} \\pi_T    \\\\</span>
+<span class="sd">    r_{AG} \\pi_A &amp;  r_{CG} \\pi_C  &amp; \\cdot        &amp; r_{GT} \\pi_T    \\\\</span>
+<span class="sd">    r_{AT} \\pi_A &amp;  r_{CT} \\pi_C  &amp; r_{GT} \\pi_G &amp; \\cdot</span>
+<span class="sd">    \\end{bmatrix}`</span>
+
+<span class="sd">    Here :math:`M` is an overall scaling factor on the mutation rate that can be</span>
+<span class="sd">    computed as follows: let :math:`q_{ij} = r_{ij} \\pi_j`</span>
+<span class="sd">    and :math:`q_{ii} = 0`,</span>
+<span class="sd">    and then let :math:`M` be the largest row sum of :math:`q`,</span>
+<span class="sd">    i.e., :math:`M = \\max_i \\left( \\sum_j q_{ij} \\right)`.</span>
+<span class="sd">    Then, this implementation as a :class:`.MatrixMutationModel` has</span>
+<span class="sd">    the transition matrix :math:`P_{ij} = q_{ij} / M`, and :math:`P_{ii}`</span>
+<span class="sd">    chosen so rows sum to one.</span>
+
+<span class="sd">    If ``state_independent`` is true, then the above is modified by setting</span>
+<span class="sd">    :math:`q_{ii} = \\pi_i`. This makes the model completely state-independent</span>
+<span class="sd">    only if all :math:`r_{ij} = 1` by adding additional silent mutations.</span>
+<span class="sd">    See :ref:`sec_mutations_existing` for more details.</span>
+
+<span class="sd">    Citation: *Tavaré S (1986). &quot;Some Probabilistic and Statistical Problems in the</span>
+<span class="sd">    Analysis of DNA Sequences&quot;. Lectures on Mathematics in the Life Sciences. 17:</span>
+<span class="sd">    57–86.*</span>
+
+<span class="sd">    Note that this implementation has the root distribution as a separate</span>
+<span class="sd">    parameter, although it defaults to the equilibrium distribution. If you</span>
+<span class="sd">    set the root distribution to be different than the equilibrium distribution,</span>
+<span class="sd">    then you have a nonequilibrium model, and you should make sure that&#39;s what</span>
+<span class="sd">    you want.</span>
+
+<span class="sd">    :param list[float] relative_rates: Controls the relative rates of</span>
+<span class="sd">        mutation between each pair of nucleotides, in order &quot;A&lt;&gt;C&quot;, &quot;A&lt;&gt;G&quot;, &quot;A&lt;&gt;T&quot;,</span>
+<span class="sd">        &quot;C&lt;&gt;G&quot;, &quot;C&lt;&gt;T&quot;, and &quot;G&lt;&gt;T&quot;.</span>
+<span class="sd">    :param list[float] equilibrium_frequencies: The equilibrium base</span>
+<span class="sd">        frequencies, a list of four probabilities that sum to one. (Default: equal</span>
+<span class="sd">        frequencies.)</span>
+<span class="sd">    :param list[float] root_distribution: An array of float values of length 4</span>
+<span class="sd">        which should sum to 1. These values are used to determine the ancestral state of</span>
+<span class="sd">        each mutational site. Defaults to the value of ``equilibrium_frequencies``.</span>
+<span class="sd">    :param bool state_independent: Whether to include a higher rate of silent mutations</span>
+<span class="sd">        that makes the model closer to state-independent.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">relative_rates</span><span class="p">,</span>
+        <span class="n">equilibrium_frequencies</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">root_distribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">state_independent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">alleles</span> <span class="o">=</span> <span class="n">_ACGT_ALLELES</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">relative_rates</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
+        <span class="k">if</span> <span class="n">equilibrium_frequencies</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">equilibrium_frequencies</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">root_distribution</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">root_distribution</span> <span class="o">=</span> <span class="n">equilibrium_frequencies</span>
+
+        <span class="n">transition_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="c1"># relative_rates: [A-&gt;C, A-&gt;G, A-&gt;T, C-&gt;G, C-&gt;T, G-&gt;T]</span>
+        <span class="n">tri_upper</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu_indices_from</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">transition_matrix</span><span class="p">[</span><span class="n">tri_upper</span><span class="p">]</span> <span class="o">=</span> <span class="n">relative_rates</span>
+        <span class="n">transition_matrix</span> <span class="o">+=</span> <span class="n">transition_matrix</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">if</span> <span class="n">state_independent</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">transition_matrix</span> <span class="o">*=</span> <span class="n">equilibrium_frequencies</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">transition_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">transition_matrix</span> <span class="o">=</span> <span class="n">transition_matrix</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">row_sums</span><span class="p">)</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">transition_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">alleles</span><span class="p">,</span> <span class="n">root_distribution</span><span class="p">,</span> <span class="n">transition_matrix</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BLOSUM62"><a class="viewcode-back" href="../../api.html#msprime.BLOSUM62">[docs]</a><span class="k">class</span> <span class="nc">BLOSUM62</span><span class="p">(</span><span class="n">MatrixMutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The BLOSUM62 model of time-reversible amino acid mutation. This model has</span>
+<span class="sd">    no free parameters.</span>
+
+<span class="sd">    The model is parameterised by a 20-by-20 symmetric matrix of relative rates,</span>
+<span class="sd">    :math:`B`, and a vector of amino acid equilibrium frequencies, :math:`\\pi`</span>
+<span class="sd">    (for the precise order, see this model&#39;s `.alleles` attribute).</span>
+<span class="sd">    If this mutation model is used with a ``mutation_rate`` of :math:`\\mu`, then</span>
+<span class="sd">    the mutation rate from the i-th to the j-th allele is :math:`Q_{ij}`, where</span>
+
+<span class="sd">    :math:`Q_{ij} = \\frac{\\mu}{M} B_{ij} \\pi_j,`</span>
+
+<span class="sd">    where :math:`M` is an overall scaling factor chosen so that the largest</span>
+<span class="sd">    row sum in the matrix :math:`B_{ij} \\pi_j /M` is equal to one.</span>
+<span class="sd">    In this model, :math:`M = 1.726203705809619`.</span>
+<span class="sd">    This implementation as a :class:`.MatrixMutationModel` has transition matrix</span>
+<span class="sd">    :math:`P_{ij} = B_{ij} \\pi_{j} / M`, and :math:`P_{ii}` chosen so rows sum to one,</span>
+<span class="sd">    and root distribution equal to the equilibrium frequencies, :math:`\\pi`,</span>
+<span class="sd">    so the matrix :math:`B` can be recovered as follows:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">       model = msprime.BLOSUM62()</span>
+<span class="sd">       M = 1.726203705809619</span>
+<span class="sd">       B = M * model.transition_matrix / model.root_distribution</span>
+
+<span class="sd">    Citation: The values of :math:`B` and :math:`\\pi` used here were copied from</span>
+<span class="sd">    `Seq-Gen &lt;http://tree.bio.ed.ac.uk/software/seqgen/&gt;`_.</span>
+<span class="sd">    The original citation is: *Henikoff, S., and J. G. Henikoff. 1992. PNAS USA</span>
+<span class="sd">    89:10915-10919,* and the numerical values were provided in: *Yu,Y.-K.,</span>
+<span class="sd">    Wootton, J.C. and Altschul, S.F. (2003) The compositional adjustment of amino</span>
+<span class="sd">    acid substitution matrices. Proc. Natl Acad. Sci., USA, 100, 15688–15693.*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">alleles</span> <span class="o">=</span> <span class="n">_AMINO_ACIDS</span>
+        <span class="n">num_alleles</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">alleles</span><span class="p">)</span>
+        <span class="n">root_distribution</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="mf">0.074</span><span class="p">,</span>
+            <span class="mf">0.052</span><span class="p">,</span>
+            <span class="mf">0.045</span><span class="p">,</span>
+            <span class="mf">0.054</span><span class="p">,</span>
+            <span class="mf">0.025</span><span class="p">,</span>
+            <span class="mf">0.034</span><span class="p">,</span>
+            <span class="mf">0.054</span><span class="p">,</span>
+            <span class="mf">0.074</span><span class="p">,</span>
+            <span class="mf">0.026</span><span class="p">,</span>
+            <span class="mf">0.068</span><span class="p">,</span>
+            <span class="mf">0.099</span><span class="p">,</span>
+            <span class="mf">0.058</span><span class="p">,</span>
+            <span class="mf">0.025</span><span class="p">,</span>
+            <span class="mf">0.047</span><span class="p">,</span>
+            <span class="mf">0.039</span><span class="p">,</span>
+            <span class="mf">0.057</span><span class="p">,</span>
+            <span class="mf">0.051</span><span class="p">,</span>
+            <span class="mf">0.013</span><span class="p">,</span>
+            <span class="mf">0.032</span><span class="p">,</span>
+            <span class="mf">0.073</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="n">relative_rates</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="mf">0.735790389698</span><span class="p">,</span>
+            <span class="mf">0.485391055466</span><span class="p">,</span>
+            <span class="mf">1.297446705134</span><span class="p">,</span>
+            <span class="mf">0.543161820899</span><span class="p">,</span>
+            <span class="mf">0.500964408555</span><span class="p">,</span>
+            <span class="mf">3.180100048216</span><span class="p">,</span>
+            <span class="mf">1.459995310470</span><span class="p">,</span>
+            <span class="mf">0.227826574209</span><span class="p">,</span>
+            <span class="mf">0.397358949897</span><span class="p">,</span>
+            <span class="mf">0.240836614802</span><span class="p">,</span>
+            <span class="mf">1.199705704602</span><span class="p">,</span>
+            <span class="mf">3.020833610064</span><span class="p">,</span>
+            <span class="mf">1.839216146992</span><span class="p">,</span>
+            <span class="mf">1.190945703396</span><span class="p">,</span>
+            <span class="mf">0.329801504630</span><span class="p">,</span>
+            <span class="mf">1.170949042800</span><span class="p">,</span>
+            <span class="mf">1.360574190420</span><span class="p">,</span>
+            <span class="mf">1.240488508640</span><span class="p">,</span>
+            <span class="mf">3.761625208368</span><span class="p">,</span>
+            <span class="mf">0.140748891814</span><span class="p">,</span>
+            <span class="mf">5.528919177928</span><span class="p">,</span>
+            <span class="mf">1.955883574960</span><span class="p">,</span>
+            <span class="mf">0.418763308518</span><span class="p">,</span>
+            <span class="mf">1.355872344485</span><span class="p">,</span>
+            <span class="mf">0.798473248968</span><span class="p">,</span>
+            <span class="mf">0.418203192284</span><span class="p">,</span>
+            <span class="mf">0.609846305383</span><span class="p">,</span>
+            <span class="mf">0.423579992176</span><span class="p">,</span>
+            <span class="mf">0.716241444998</span><span class="p">,</span>
+            <span class="mf">1.456141166336</span><span class="p">,</span>
+            <span class="mf">2.414501434208</span><span class="p">,</span>
+            <span class="mf">0.778142664022</span><span class="p">,</span>
+            <span class="mf">0.354058109831</span><span class="p">,</span>
+            <span class="mf">2.435341131140</span><span class="p">,</span>
+            <span class="mf">1.626891056982</span><span class="p">,</span>
+            <span class="mf">0.539859124954</span><span class="p">,</span>
+            <span class="mf">0.605899003687</span><span class="p">,</span>
+            <span class="mf">0.232036445142</span><span class="p">,</span>
+            <span class="mf">0.283017326278</span><span class="p">,</span>
+            <span class="mf">0.418555732462</span><span class="p">,</span>
+            <span class="mf">0.774894022794</span><span class="p">,</span>
+            <span class="mf">0.236202451204</span><span class="p">,</span>
+            <span class="mf">0.186848046932</span><span class="p">,</span>
+            <span class="mf">0.189296292376</span><span class="p">,</span>
+            <span class="mf">0.252718447885</span><span class="p">,</span>
+            <span class="mf">0.800016530518</span><span class="p">,</span>
+            <span class="mf">0.622711669692</span><span class="p">,</span>
+            <span class="mf">0.211888159615</span><span class="p">,</span>
+            <span class="mf">0.218131577594</span><span class="p">,</span>
+            <span class="mf">0.831842640142</span><span class="p">,</span>
+            <span class="mf">0.580737093181</span><span class="p">,</span>
+            <span class="mf">0.372625175087</span><span class="p">,</span>
+            <span class="mf">0.217721159236</span><span class="p">,</span>
+            <span class="mf">0.348072209797</span><span class="p">,</span>
+            <span class="mf">3.890963773304</span><span class="p">,</span>
+            <span class="mf">1.295201266783</span><span class="p">,</span>
+            <span class="mf">5.411115141489</span><span class="p">,</span>
+            <span class="mf">1.593137043457</span><span class="p">,</span>
+            <span class="mf">1.032447924952</span><span class="p">,</span>
+            <span class="mf">0.285078800906</span><span class="p">,</span>
+            <span class="mf">3.945277674515</span><span class="p">,</span>
+            <span class="mf">2.802427151679</span><span class="p">,</span>
+            <span class="mf">0.752042440303</span><span class="p">,</span>
+            <span class="mf">1.022507035889</span><span class="p">,</span>
+            <span class="mf">0.406193586642</span><span class="p">,</span>
+            <span class="mf">0.445570274261</span><span class="p">,</span>
+            <span class="mf">1.253758266664</span><span class="p">,</span>
+            <span class="mf">0.983692987457</span><span class="p">,</span>
+            <span class="mf">0.648441278787</span><span class="p">,</span>
+            <span class="mf">0.222621897958</span><span class="p">,</span>
+            <span class="mf">0.767688823480</span><span class="p">,</span>
+            <span class="mf">2.494896077113</span><span class="p">,</span>
+            <span class="mf">0.555415397470</span><span class="p">,</span>
+            <span class="mf">0.459436173579</span><span class="p">,</span>
+            <span class="mf">0.984311525359</span><span class="p">,</span>
+            <span class="mf">3.364797763104</span><span class="p">,</span>
+            <span class="mf">6.030559379572</span><span class="p">,</span>
+            <span class="mf">1.073061184332</span><span class="p">,</span>
+            <span class="mf">0.492964679748</span><span class="p">,</span>
+            <span class="mf">0.371644693209</span><span class="p">,</span>
+            <span class="mf">0.354861249223</span><span class="p">,</span>
+            <span class="mf">0.281730694207</span><span class="p">,</span>
+            <span class="mf">0.441337471187</span><span class="p">,</span>
+            <span class="mf">0.144356959750</span><span class="p">,</span>
+            <span class="mf">0.291409084165</span><span class="p">,</span>
+            <span class="mf">0.368166464453</span><span class="p">,</span>
+            <span class="mf">0.714533703928</span><span class="p">,</span>
+            <span class="mf">1.517359325954</span><span class="p">,</span>
+            <span class="mf">2.064839703237</span><span class="p">,</span>
+            <span class="mf">0.266924750511</span><span class="p">,</span>
+            <span class="mf">1.773855168830</span><span class="p">,</span>
+            <span class="mf">1.173275900924</span><span class="p">,</span>
+            <span class="mf">0.448133661718</span><span class="p">,</span>
+            <span class="mf">0.494887043702</span><span class="p">,</span>
+            <span class="mf">0.730628272998</span><span class="p">,</span>
+            <span class="mf">0.356008498769</span><span class="p">,</span>
+            <span class="mf">0.858570575674</span><span class="p">,</span>
+            <span class="mf">0.926563934846</span><span class="p">,</span>
+            <span class="mf">0.504086599527</span><span class="p">,</span>
+            <span class="mf">0.527007339151</span><span class="p">,</span>
+            <span class="mf">0.388355409206</span><span class="p">,</span>
+            <span class="mf">0.374555687471</span><span class="p">,</span>
+            <span class="mf">1.047383450722</span><span class="p">,</span>
+            <span class="mf">0.454123625103</span><span class="p">,</span>
+            <span class="mf">0.233597909629</span><span class="p">,</span>
+            <span class="mf">4.325092687057</span><span class="p">,</span>
+            <span class="mf">1.122783104210</span><span class="p">,</span>
+            <span class="mf">2.904101656456</span><span class="p">,</span>
+            <span class="mf">1.582754142065</span><span class="p">,</span>
+            <span class="mf">1.197188415094</span><span class="p">,</span>
+            <span class="mf">1.934870924596</span><span class="p">,</span>
+            <span class="mf">1.769893238937</span><span class="p">,</span>
+            <span class="mf">1.509326253224</span><span class="p">,</span>
+            <span class="mf">1.117029762910</span><span class="p">,</span>
+            <span class="mf">0.357544412460</span><span class="p">,</span>
+            <span class="mf">0.352969184527</span><span class="p">,</span>
+            <span class="mf">1.752165917819</span><span class="p">,</span>
+            <span class="mf">0.918723415746</span><span class="p">,</span>
+            <span class="mf">0.540027644824</span><span class="p">,</span>
+            <span class="mf">1.169129577716</span><span class="p">,</span>
+            <span class="mf">1.729178019485</span><span class="p">,</span>
+            <span class="mf">0.914665954563</span><span class="p">,</span>
+            <span class="mf">1.898173634533</span><span class="p">,</span>
+            <span class="mf">0.934187509431</span><span class="p">,</span>
+            <span class="mf">1.119831358516</span><span class="p">,</span>
+            <span class="mf">1.277480294596</span><span class="p">,</span>
+            <span class="mf">1.071097236007</span><span class="p">,</span>
+            <span class="mf">0.641436011405</span><span class="p">,</span>
+            <span class="mf">0.585407090225</span><span class="p">,</span>
+            <span class="mf">1.179091197260</span><span class="p">,</span>
+            <span class="mf">0.915259857694</span><span class="p">,</span>
+            <span class="mf">1.303875200799</span><span class="p">,</span>
+            <span class="mf">1.488548053722</span><span class="p">,</span>
+            <span class="mf">0.488206118793</span><span class="p">,</span>
+            <span class="mf">1.005451683149</span><span class="p">,</span>
+            <span class="mf">5.151556292270</span><span class="p">,</span>
+            <span class="mf">0.465839367725</span><span class="p">,</span>
+            <span class="mf">0.426382310122</span><span class="p">,</span>
+            <span class="mf">0.191482046247</span><span class="p">,</span>
+            <span class="mf">0.145345046279</span><span class="p">,</span>
+            <span class="mf">0.527664418872</span><span class="p">,</span>
+            <span class="mf">0.758653808642</span><span class="p">,</span>
+            <span class="mf">0.407635648938</span><span class="p">,</span>
+            <span class="mf">0.508358924638</span><span class="p">,</span>
+            <span class="mf">0.301248600780</span><span class="p">,</span>
+            <span class="mf">0.341985787540</span><span class="p">,</span>
+            <span class="mf">0.691474634600</span><span class="p">,</span>
+            <span class="mf">0.332243040634</span><span class="p">,</span>
+            <span class="mf">0.888101098152</span><span class="p">,</span>
+            <span class="mf">2.074324893497</span><span class="p">,</span>
+            <span class="mf">0.252214830027</span><span class="p">,</span>
+            <span class="mf">0.387925622098</span><span class="p">,</span>
+            <span class="mf">0.513128126891</span><span class="p">,</span>
+            <span class="mf">0.718206697586</span><span class="p">,</span>
+            <span class="mf">0.720517441216</span><span class="p">,</span>
+            <span class="mf">0.538222519037</span><span class="p">,</span>
+            <span class="mf">0.261422208965</span><span class="p">,</span>
+            <span class="mf">0.470237733696</span><span class="p">,</span>
+            <span class="mf">0.958989742850</span><span class="p">,</span>
+            <span class="mf">0.596719300346</span><span class="p">,</span>
+            <span class="mf">0.308055737035</span><span class="p">,</span>
+            <span class="mf">4.218953969389</span><span class="p">,</span>
+            <span class="mf">0.674617093228</span><span class="p">,</span>
+            <span class="mf">0.811245856323</span><span class="p">,</span>
+            <span class="mf">0.717993486900</span><span class="p">,</span>
+            <span class="mf">0.951682162246</span><span class="p">,</span>
+            <span class="mf">6.747260430801</span><span class="p">,</span>
+            <span class="mf">0.369405319355</span><span class="p">,</span>
+            <span class="mf">0.796751520761</span><span class="p">,</span>
+            <span class="mf">0.801010243199</span><span class="p">,</span>
+            <span class="mf">4.054419006558</span><span class="p">,</span>
+            <span class="mf">2.187774522005</span><span class="p">,</span>
+            <span class="mf">0.438388343772</span><span class="p">,</span>
+            <span class="mf">0.312858797993</span><span class="p">,</span>
+            <span class="mf">0.258129289418</span><span class="p">,</span>
+            <span class="mf">1.116352478606</span><span class="p">,</span>
+            <span class="mf">0.530785790125</span><span class="p">,</span>
+            <span class="mf">0.524253846338</span><span class="p">,</span>
+            <span class="mf">0.253340790190</span><span class="p">,</span>
+            <span class="mf">0.201555971750</span><span class="p">,</span>
+            <span class="mf">8.311839405458</span><span class="p">,</span>
+            <span class="mf">2.231405688913</span><span class="p">,</span>
+            <span class="mf">0.498138475304</span><span class="p">,</span>
+            <span class="mf">2.575850755315</span><span class="p">,</span>
+            <span class="mf">0.838119610178</span><span class="p">,</span>
+            <span class="mf">0.496908410676</span><span class="p">,</span>
+            <span class="mf">0.561925457442</span><span class="p">,</span>
+            <span class="mf">2.253074051176</span><span class="p">,</span>
+            <span class="mf">0.266508731426</span><span class="p">,</span>
+            <span class="mf">1.000000000000</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="n">transition_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_alleles</span><span class="p">,</span> <span class="n">num_alleles</span><span class="p">))</span>
+        <span class="n">tril</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril_indices</span><span class="p">(</span><span class="n">num_alleles</span><span class="p">,</span> <span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">transition_matrix</span><span class="p">[</span><span class="n">tril</span><span class="p">]</span> <span class="o">=</span> <span class="n">relative_rates</span>
+        <span class="n">transition_matrix</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">transition_matrix</span> <span class="o">*=</span> <span class="n">root_distribution</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">transition_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">transition_matrix</span> <span class="o">=</span> <span class="n">transition_matrix</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">row_sums</span><span class="p">)</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">transition_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">alleles</span><span class="p">,</span> <span class="n">root_distribution</span><span class="p">,</span> <span class="n">transition_matrix</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PAM"><a class="viewcode-back" href="../../api.html#msprime.PAM">[docs]</a><span class="k">class</span> <span class="nc">PAM</span><span class="p">(</span><span class="n">MatrixMutationModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The PAM model of time-reversible amino acid mutation. This model has no</span>
+<span class="sd">    free parameters.</span>
+
+<span class="sd">    The model is parameterised by a 20-by-20 symmetric matrix of relative rates,</span>
+<span class="sd">    :math:`B`, and a vector of amino acid equilibrium frequencies, :math:`\\pi`</span>
+<span class="sd">    (for the precise order, see this model&#39;s `.alleles` attribute).</span>
+<span class="sd">    If this mutation model is used with a ``mutation_rate`` of :math:`\\mu`, then</span>
+<span class="sd">    the mutation rate from the i-th to the j-th allele is :math:`Q_{ij}`, where</span>
+
+<span class="sd">    :math:`Q_{ij} = \\frac{\\mu}{M} B_{ij} \\pi_j,`</span>
+
+<span class="sd">    where :math:`M` is an overall scaling factor chosen so that the largest</span>
+<span class="sd">    row sum in the matrix :math:`B_{ij} \\pi_j /M` is equal to one.</span>
+<span class="sd">    In this model, :math:`M = 1.78314862248`.</span>
+<span class="sd">    This implementation as a :class:`.MatrixMutationModel` has transition matrix</span>
+<span class="sd">    :math:`P_{ij} = B_{ij} \\pi_{j} / M`, and :math:`P_{ii}` chosen so rows sum to one,</span>
+<span class="sd">    and root distribution equal to the equilibrium frequencies, :math:`\\pi`,</span>
+<span class="sd">    so the matrix :math:`B` can be recovered as follows:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">       model = msprime.PAM()</span>
+<span class="sd">       M = 1.78314862248</span>
+<span class="sd">       B = M * model.transition_matrix / model.root_distribution</span>
+
+<span class="sd">    Citation: The values of :math:`B` and :math:`\\pi` used here were copied from</span>
+<span class="sd">    `Seq-Gen &lt;http://tree.bio.ed.ac.uk/software/seqgen/&gt;`_,</span>
+<span class="sd">    and follow the &quot;Dayhoff DCMut&quot; model as described in *Kosiol, C., and Goldman,</span>
+<span class="sd">    N. 2005. Different versions of the Dayhoff rate matrix. Molecular Biology and</span>
+<span class="sd">    Evolution 22:193-199.* The original citation is: *Dayhoff, M.O., Schwartz,</span>
+<span class="sd">    R.M., Orcutt, B.C. (1978). A model of evolutionary change in proteins. Atlas of</span>
+<span class="sd">    Protein Sequence Structures, Vol. 5, Suppl. 3, National Biomedical Research</span>
+<span class="sd">    Foundation, Washington DC, pp. 345-352.*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">alleles</span> <span class="o">=</span> <span class="n">_AMINO_ACIDS</span>
+        <span class="n">num_alleles</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">alleles</span><span class="p">)</span>
+        <span class="n">root_distribution</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="mf">0.087127</span><span class="p">,</span>
+            <span class="mf">0.040904</span><span class="p">,</span>
+            <span class="mf">0.040432</span><span class="p">,</span>
+            <span class="mf">0.046872</span><span class="p">,</span>
+            <span class="mf">0.033474</span><span class="p">,</span>
+            <span class="mf">0.038255</span><span class="p">,</span>
+            <span class="mf">0.049530</span><span class="p">,</span>
+            <span class="mf">0.088612</span><span class="p">,</span>
+            <span class="mf">0.033619</span><span class="p">,</span>
+            <span class="mf">0.036886</span><span class="p">,</span>
+            <span class="mf">0.085357</span><span class="p">,</span>
+            <span class="mf">0.080481</span><span class="p">,</span>
+            <span class="mf">0.014753</span><span class="p">,</span>
+            <span class="mf">0.039772</span><span class="p">,</span>
+            <span class="mf">0.050680</span><span class="p">,</span>
+            <span class="mf">0.069577</span><span class="p">,</span>
+            <span class="mf">0.058542</span><span class="p">,</span>
+            <span class="mf">0.010494</span><span class="p">,</span>
+            <span class="mf">0.029916</span><span class="p">,</span>
+            <span class="mf">0.064717</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="n">relative_rates</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="mf">0.267828</span><span class="p">,</span>
+            <span class="mf">0.984474</span><span class="p">,</span>
+            <span class="mf">0.327059</span><span class="p">,</span>
+            <span class="mf">1.199805</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">8.931515</span><span class="p">,</span>
+            <span class="mf">0.360016</span><span class="p">,</span>
+            <span class="mf">0.232374</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.887753</span><span class="p">,</span>
+            <span class="mf">2.439939</span><span class="p">,</span>
+            <span class="mf">1.028509</span><span class="p">,</span>
+            <span class="mf">1.348551</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">1.961167</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">1.493409</span><span class="p">,</span>
+            <span class="mf">11.388659</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">7.086022</span><span class="p">,</span>
+            <span class="mf">2.386111</span><span class="p">,</span>
+            <span class="mf">0.087791</span><span class="p">,</span>
+            <span class="mf">1.385352</span><span class="p">,</span>
+            <span class="mf">1.240981</span><span class="p">,</span>
+            <span class="mf">0.107278</span><span class="p">,</span>
+            <span class="mf">0.281581</span><span class="p">,</span>
+            <span class="mf">0.811907</span><span class="p">,</span>
+            <span class="mf">0.228116</span><span class="p">,</span>
+            <span class="mf">2.383148</span><span class="p">,</span>
+            <span class="mf">5.290024</span><span class="p">,</span>
+            <span class="mf">0.868241</span><span class="p">,</span>
+            <span class="mf">0.282729</span><span class="p">,</span>
+            <span class="mf">6.011613</span><span class="p">,</span>
+            <span class="mf">0.439469</span><span class="p">,</span>
+            <span class="mf">0.106802</span><span class="p">,</span>
+            <span class="mf">0.653416</span><span class="p">,</span>
+            <span class="mf">0.632629</span><span class="p">,</span>
+            <span class="mf">0.768024</span><span class="p">,</span>
+            <span class="mf">0.239248</span><span class="p">,</span>
+            <span class="mf">0.438074</span><span class="p">,</span>
+            <span class="mf">0.180393</span><span class="p">,</span>
+            <span class="mf">0.609526</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.076981</span><span class="p">,</span>
+            <span class="mf">0.406431</span><span class="p">,</span>
+            <span class="mf">0.154924</span><span class="p">,</span>
+            <span class="mf">0.341113</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.730772</span><span class="p">,</span>
+            <span class="mf">0.112880</span><span class="p">,</span>
+            <span class="mf">0.071514</span><span class="p">,</span>
+            <span class="mf">0.443504</span><span class="p">,</span>
+            <span class="mf">2.556685</span><span class="p">,</span>
+            <span class="mf">0.258635</span><span class="p">,</span>
+            <span class="mf">4.610124</span><span class="p">,</span>
+            <span class="mf">3.148371</span><span class="p">,</span>
+            <span class="mf">0.716913</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">1.519078</span><span class="p">,</span>
+            <span class="mf">0.830078</span><span class="p">,</span>
+            <span class="mf">0.267683</span><span class="p">,</span>
+            <span class="mf">0.270475</span><span class="p">,</span>
+            <span class="mf">0.460857</span><span class="p">,</span>
+            <span class="mf">0.180629</span><span class="p">,</span>
+            <span class="mf">0.717840</span><span class="p">,</span>
+            <span class="mf">0.896321</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">1.127499</span><span class="p">,</span>
+            <span class="mf">0.304803</span><span class="p">,</span>
+            <span class="mf">0.170372</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">3.332732</span><span class="p">,</span>
+            <span class="mf">5.230115</span><span class="p">,</span>
+            <span class="mf">2.411739</span><span class="p">,</span>
+            <span class="mf">0.183641</span><span class="p">,</span>
+            <span class="mf">0.136906</span><span class="p">,</span>
+            <span class="mf">0.138503</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.153478</span><span class="p">,</span>
+            <span class="mf">0.475927</span><span class="p">,</span>
+            <span class="mf">1.951951</span><span class="p">,</span>
+            <span class="mf">1.565160</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.921860</span><span class="p">,</span>
+            <span class="mf">2.485920</span><span class="p">,</span>
+            <span class="mf">1.028313</span><span class="p">,</span>
+            <span class="mf">0.419244</span><span class="p">,</span>
+            <span class="mf">0.133940</span><span class="p">,</span>
+            <span class="mf">0.187550</span><span class="p">,</span>
+            <span class="mf">1.526188</span><span class="p">,</span>
+            <span class="mf">0.507003</span><span class="p">,</span>
+            <span class="mf">0.347153</span><span class="p">,</span>
+            <span class="mf">0.933709</span><span class="p">,</span>
+            <span class="mf">0.119152</span><span class="p">,</span>
+            <span class="mf">0.316258</span><span class="p">,</span>
+            <span class="mf">0.335419</span><span class="p">,</span>
+            <span class="mf">0.170205</span><span class="p">,</span>
+            <span class="mf">0.110506</span><span class="p">,</span>
+            <span class="mf">4.051870</span><span class="p">,</span>
+            <span class="mf">1.531590</span><span class="p">,</span>
+            <span class="mf">4.885892</span><span class="p">,</span>
+            <span class="mf">0.956097</span><span class="p">,</span>
+            <span class="mf">1.598356</span><span class="p">,</span>
+            <span class="mf">0.561828</span><span class="p">,</span>
+            <span class="mf">0.793999</span><span class="p">,</span>
+            <span class="mf">2.322243</span><span class="p">,</span>
+            <span class="mf">0.353643</span><span class="p">,</span>
+            <span class="mf">0.247955</span><span class="p">,</span>
+            <span class="mf">0.171432</span><span class="p">,</span>
+            <span class="mf">0.954557</span><span class="p">,</span>
+            <span class="mf">0.619951</span><span class="p">,</span>
+            <span class="mf">0.459901</span><span class="p">,</span>
+            <span class="mf">2.427202</span><span class="p">,</span>
+            <span class="mf">3.680365</span><span class="p">,</span>
+            <span class="mf">0.265745</span><span class="p">,</span>
+            <span class="mf">2.271697</span><span class="p">,</span>
+            <span class="mf">0.660930</span><span class="p">,</span>
+            <span class="mf">0.162366</span><span class="p">,</span>
+            <span class="mf">0.525651</span><span class="p">,</span>
+            <span class="mf">0.340156</span><span class="p">,</span>
+            <span class="mf">0.306662</span><span class="p">,</span>
+            <span class="mf">0.226333</span><span class="p">,</span>
+            <span class="mf">1.900739</span><span class="p">,</span>
+            <span class="mf">0.331090</span><span class="p">,</span>
+            <span class="mf">1.350599</span><span class="p">,</span>
+            <span class="mf">1.031534</span><span class="p">,</span>
+            <span class="mf">0.136655</span><span class="p">,</span>
+            <span class="mf">0.782857</span><span class="p">,</span>
+            <span class="mf">5.436674</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">2.001375</span><span class="p">,</span>
+            <span class="mf">0.224968</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.270564</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.461776</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.762354</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.740819</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.244139</span><span class="p">,</span>
+            <span class="mf">0.078012</span><span class="p">,</span>
+            <span class="mf">0.946940</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.953164</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.214717</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">1.265400</span><span class="p">,</span>
+            <span class="mf">0.374834</span><span class="p">,</span>
+            <span class="mf">0.286572</span><span class="p">,</span>
+            <span class="mf">0.132142</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">6.952629</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.336289</span><span class="p">,</span>
+            <span class="mf">0.417839</span><span class="p">,</span>
+            <span class="mf">0.608070</span><span class="p">,</span>
+            <span class="mf">2.059564</span><span class="p">,</span>
+            <span class="mf">0.240368</span><span class="p">,</span>
+            <span class="mf">0.158067</span><span class="p">,</span>
+            <span class="mf">0.178316</span><span class="p">,</span>
+            <span class="mf">0.484678</span><span class="p">,</span>
+            <span class="mf">0.346983</span><span class="p">,</span>
+            <span class="mf">0.367250</span><span class="p">,</span>
+            <span class="mf">0.538165</span><span class="p">,</span>
+            <span class="mf">0.438715</span><span class="p">,</span>
+            <span class="mf">8.810038</span><span class="p">,</span>
+            <span class="mf">1.745156</span><span class="p">,</span>
+            <span class="mf">0.103850</span><span class="p">,</span>
+            <span class="mf">2.565955</span><span class="p">,</span>
+            <span class="mf">0.123606</span><span class="p">,</span>
+            <span class="mf">0.485026</span><span class="p">,</span>
+            <span class="mf">0.303836</span><span class="p">,</span>
+            <span class="mf">1.561997</span><span class="p">,</span>
+            <span class="mf">0.000000</span><span class="p">,</span>
+            <span class="mf">0.279379</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="n">transition_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_alleles</span><span class="p">,</span> <span class="n">num_alleles</span><span class="p">))</span>
+        <span class="n">tril</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril_indices</span><span class="p">(</span><span class="n">num_alleles</span><span class="p">,</span> <span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">transition_matrix</span><span class="p">[</span><span class="n">tril</span><span class="p">]</span> <span class="o">=</span> <span class="n">relative_rates</span>
+        <span class="n">transition_matrix</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">transition_matrix</span> <span class="o">*=</span> <span class="n">root_distribution</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">transition_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">transition_matrix</span> <span class="o">=</span> <span class="n">transition_matrix</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">row_sums</span><span class="p">)</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">transition_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">transition_matrix</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">alleles</span><span class="p">,</span> <span class="n">root_distribution</span><span class="p">,</span> <span class="n">transition_matrix</span><span class="p">)</span></div>
+
+
+<span class="c1"># Pre 1.0, we had these constants to define the alphabet for the</span>
+<span class="c1"># simple infinite sites mutations. These should be deprecated and removed</span>
+<span class="c1"># along with the InfiniteSites class.</span>
+<span class="n">BINARY</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">NUCLEOTIDES</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<div class="viewcode-block" id="InfiniteSites"><a class="viewcode-back" href="../../legacy.html#msprime.InfiniteSites">[docs]</a><span class="k">class</span> <span class="nc">InfiniteSites</span><span class="p">(</span><span class="n">MatrixMutationModel</span><span class="p">):</span>
+    <span class="c1"># This mutation model is defined for backwards compatibility, and is a remnant</span>
+    <span class="c1"># of an earlier design.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alphabet</span><span class="o">=</span><span class="n">BINARY</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alphabet</span> <span class="o">=</span> <span class="n">alphabet</span>
+        <span class="n">models</span> <span class="o">=</span> <span class="p">{</span><span class="n">BINARY</span><span class="p">:</span> <span class="n">BinaryMutationModel</span><span class="p">(),</span> <span class="n">NUCLEOTIDES</span><span class="p">:</span> <span class="n">JC69</span><span class="p">()}</span>
+        <span class="k">if</span> <span class="n">alphabet</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Bad alphabet&quot;</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="n">alphabet</span><span class="p">]</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">alleles</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">root_distribution</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">transition_matrix</span>
+        <span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_simple_mutate</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">tables</span><span class="p">,</span>
+    <span class="n">sequence_length</span><span class="p">,</span>
+    <span class="n">rate</span><span class="p">,</span>
+    <span class="n">random_generator</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate mutations directly using the low-level interfaces. Only</span>
+<span class="sd">    for internal use with the ms and old-style simulate() interfaces.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rate_map</span> <span class="o">=</span> <span class="n">intervals</span><span class="o">.</span><span class="n">RateMap</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">sequence_length</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
+    <span class="n">_msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span>
+        <span class="n">tables</span><span class="p">,</span>
+        <span class="n">random_generator</span><span class="p">,</span>
+        <span class="n">rate_map</span><span class="o">.</span><span class="n">asdict</span><span class="p">(),</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">BinaryMutationModel</span><span class="p">(),</span>
+        <span class="n">discrete_genome</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="mutate"><a class="viewcode-back" href="../../legacy.html#msprime.mutate">[docs]</a><span class="k">def</span> <span class="nf">mutate</span><span class="p">(</span>
+    <span class="n">tree_sequence</span><span class="p">,</span>
+    <span class="n">rate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">start_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">end_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulates mutations on the specified ancestry and returns the resulting</span>
+<span class="sd">    :class:`tskit.TreeSequence`. Mutations are generated at the specified rate in</span>
+<span class="sd">    measured generations. Mutations are generated under the infinite sites</span>
+<span class="sd">    model, and so the rate of new mutations is per unit of sequence length per</span>
+<span class="sd">    generation.</span>
+
+<span class="sd">    .. note:: This function is deprecated and we recommend new code use</span>
+<span class="sd">        the :func:`sim_mutations` function instead, which is similar</span>
+<span class="sd">        but offers more functionality and defaults to simulating mutations</span>
+<span class="sd">        on a discrete genome. This function will be supported indefinitely,</span>
+<span class="sd">        however.</span>
+
+<span class="sd">    If a random seed is specified, this is used to seed the random number</span>
+<span class="sd">    generator. If the same seed is specified and all other parameters are equal</span>
+<span class="sd">    then the same mutations will be generated. If no random seed is specified</span>
+<span class="sd">    then one is generated automatically.</span>
+
+<span class="sd">    If the ``model`` parameter is specified, this determines the model under</span>
+<span class="sd">    which mutations are generated. By default mutations from the</span>
+<span class="sd">    infinite sites model with a binary alphabet are generated.</span>
+
+<span class="sd">    By default, sites and mutations in the parameter tree sequence are</span>
+<span class="sd">    discarded. If the ``keep`` parameter is true, however, *additional*</span>
+<span class="sd">    mutations are simulated. Under the infinite sites mutation model, all new</span>
+<span class="sd">    mutations generated will occur at distinct positions from each other and</span>
+<span class="sd">    from any existing mutations (by rejection sampling).</span>
+
+<span class="sd">    The time interval over which mutations can occur may be controlled</span>
+<span class="sd">    using the ``start_time`` and ``end_time`` parameters. The ``start_time``</span>
+<span class="sd">    defines the lower bound (in time-ago) on this interval and ``max_time``</span>
+<span class="sd">    the upper bound. Note that we may have mutations associated with</span>
+<span class="sd">    nodes with time &lt;= ``start_time`` since mutations store the node at the</span>
+<span class="sd">    bottom (i.e., towards the leaves) of the branch that they occur on.</span>
+
+<span class="sd">    :param tskit.TreeSequence tree_sequence: The tree sequence onto which we</span>
+<span class="sd">        wish to throw mutations.</span>
+<span class="sd">    :param float rate: The rate of mutation per generation. (Default: 0).</span>
+<span class="sd">    :param int random_seed: The random seed. If this is `None`, a</span>
+<span class="sd">        random seed will be automatically generated. Valid random</span>
+<span class="sd">        seeds must be between 1 and :math:`2^{32} - 1`.</span>
+<span class="sd">    :param MutationModel model: The mutation model to use when generating</span>
+<span class="sd">        mutations. If not specified or None, the :class:`.InfiniteSites`</span>
+<span class="sd">        mutation model is used.</span>
+<span class="sd">    :param bool keep: Whether to keep existing mutations (default: False).</span>
+<span class="sd">    :param float start_time: The minimum time at which a mutation can</span>
+<span class="sd">        occur. (Default: no restriction.)</span>
+<span class="sd">    :param float end_time: The maximum time at which a mutation can occur</span>
+<span class="sd">        (Default: no restriction).</span>
+<span class="sd">    :return: The :class:`tskit.TreeSequence` object  resulting from overlaying</span>
+<span class="sd">        mutations on the input tree sequence.</span>
+<span class="sd">    :rtype: :class:`tskit.TreeSequence`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># It&#39;s probably an error if someone tries to use a new-style model</span>
+    <span class="c1"># with the old mutate() function, and so we raise an error if anyone</span>
+    <span class="c1"># does, to help them move to the new interface.</span>
+    <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">InfiniteSites</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;This is a legacy interface which does not support general &quot;</span>
+            <span class="s2">&quot;mutation models. Please use the sim_ancestry function instead.&quot;</span>
+        <span class="p">)</span>
+    <span class="c1"># The legacy function simulates 0/1 alleles by default.</span>
+    <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">BinaryMutationModel</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">sim_mutations</span><span class="p">(</span>
+        <span class="n">tree_sequence</span><span class="p">,</span>
+        <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">,</span>
+        <span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="n">keep</span><span class="o">=</span><span class="n">keep</span><span class="p">,</span>
+        <span class="n">start_time</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span>
+        <span class="n">end_time</span><span class="o">=</span><span class="n">end_time</span><span class="p">,</span>
+        <span class="n">discrete_genome</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<span class="c1"># String names here should match Seq-Gen where possible</span>
+<span class="n">MODEL_MAP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;infinite_alleles&quot;</span><span class="p">:</span> <span class="n">InfiniteAlleles</span><span class="p">,</span>
+    <span class="s2">&quot;binary&quot;</span><span class="p">:</span> <span class="n">BinaryMutationModel</span><span class="p">,</span>
+    <span class="s2">&quot;jc69&quot;</span><span class="p">:</span> <span class="n">JC69</span><span class="p">,</span>
+    <span class="s2">&quot;blosum62&quot;</span><span class="p">:</span> <span class="n">BLOSUM62</span><span class="p">,</span>
+    <span class="s2">&quot;pam&quot;</span><span class="p">:</span> <span class="n">PAM</span><span class="p">,</span>
+    <span class="c1"># &quot;slim&quot;: SLiMMutationModel(), Needs type argument so can&#39;t be string init&#39;d</span>
+    <span class="c1"># &quot;hky&quot;: HKY(), Needs kappa argument</span>
+    <span class="c1"># &quot;f84&quot;: F84(), Needs kappa argument</span>
+    <span class="c1"># &quot;gtr&quot;: GTR(), Needs relative_rates argument</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">mutation_model_factory</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a mutation model corresponding to the specified model.</span>
+<span class="sd">    - If model is None, the default mutation model is returned.</span>
+<span class="sd">    - If model is a string, return the corresponding model instance.</span>
+<span class="sd">    - If model is an instance of MutationModel, return it.</span>
+<span class="sd">    - Otherwise raise a type error.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">model_instance</span> <span class="o">=</span> <span class="n">JC69</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">lower_model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">lower_model</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MODEL_MAP</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Model &#39;</span><span class="si">{}</span><span class="s2">&#39; unknown. Choose from </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">model</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">MODEL_MAP</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="n">model_instance</span> <span class="o">=</span> <span class="n">MODEL_MAP</span><span class="p">[</span><span class="n">lower_model</span><span class="p">]()</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">MutationModel</span><span class="p">):</span>
+        <span class="n">model_instance</span> <span class="o">=</span> <span class="n">model</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s2">&quot;Mutation model must be a string or an instance of MutationModel&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">model_instance</span>
+
+
+<div class="viewcode-block" id="sim_mutations"><a class="viewcode-back" href="../../api.html#msprime.sim_mutations">[docs]</a><span class="k">def</span> <span class="nf">sim_mutations</span><span class="p">(</span>
+    <span class="n">tree_sequence</span><span class="p">,</span>
+    <span class="n">rate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">start_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">end_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">discrete_genome</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">keep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulates mutations on the specified ancestry and returns the resulting</span>
+<span class="sd">    :class:`tskit.TreeSequence`. Mutations are generated at the specified rate</span>
+<span class="sd">    per unit of sequence length, per unit of time. By default, mutations are</span>
+<span class="sd">    generated at discrete sites along the genome and multiple mutations</span>
+<span class="sd">    can occur at any given site. A continuous sequence, infinite-sites model</span>
+<span class="sd">    can also be specified by setting the ``discrete_genome`` parameter to</span>
+<span class="sd">    False.</span>
+
+<span class="sd">    If the ``model`` parameter is specified, this determines the model</span>
+<span class="sd">    of sequence evolution under which mutations are generated.</span>
+<span class="sd">    The default mutation model is the :class:`msprime.JC69`,</span>
+<span class="sd">    a symmetrical mutation model among the ACGT alleles.</span>
+<span class="sd">    See the :ref:`sec_mutations_models` section for details of available models.</span>
+
+<span class="sd">    If a ``random_seed`` is specified, this is used to seed the random number</span>
+<span class="sd">    generator. If the same seed is specified and all other parameters are equal</span>
+<span class="sd">    then the same mutations will be generated. If no random seed is specified</span>
+<span class="sd">    then one is generated automatically.</span>
+
+<span class="sd">    The time interval over which mutations can occur may be controlled</span>
+<span class="sd">    using the ``start_time`` and ``end_time`` parameters. The ``start_time``</span>
+<span class="sd">    defines the lower bound (in time-ago) on this interval and ``max_time``</span>
+<span class="sd">    the upper bound. Note that we may have mutations associated with</span>
+<span class="sd">    nodes with time &lt;= ``start_time`` since mutations store the node at the</span>
+<span class="sd">    bottom (i.e., towards the leaves) of the branch that they occur on.</span>
+
+<span class="sd">    If the tree sequence already has mutations, these are by default retained,</span>
+<span class="sd">    but can be discarded by passing ``keep=False``. However, adding new</span>
+<span class="sd">    mutations to a tree sequence with existing mutations must be done with</span>
+<span class="sd">    caution, since it can lead to incorrect or nonsensical results if mutation</span>
+<span class="sd">    probabilities differ by ancestral state. (As an extreme example, suppose</span>
+<span class="sd">    that X-&gt;Y and X-&gt;Z are allowable transitions, but Y-&gt;Z is not. If a branch</span>
+<span class="sd">    already has an X-&gt;Y mutation on it, then calling `sim_mutations(...,</span>
+<span class="sd">    keep=True)` might insert an X-&gt;Z mutation above the existing mutation, thus</span>
+<span class="sd">    implying the impossible chain X-&gt;Y-&gt;Z.)  However, the effect on nucleotide</span>
+<span class="sd">    models of mutation are generally very small.</span>
+
+<span class="sd">    .. note:: Many mutation models will insert silent transitions (e.g.,</span>
+<span class="sd">        placing a mutation to A above an existing mutation to A). Such mutations</span>
+<span class="sd">        are harmless and are required for us to guarantee the statistical</span>
+<span class="sd">        properties of the process of sequentially adding mutations to a tree</span>
+<span class="sd">        sequence.</span>
+
+<span class="sd">    :param tskit.TreeSequence tree_sequence: The tree sequence we</span>
+<span class="sd">        wish to throw mutations onto.</span>
+<span class="sd">    :param float rate: The rate of mutation per unit of sequence length</span>
+<span class="sd">        per unit time, as either a single number (for a uniform rate) or as a</span>
+<span class="sd">        :class:`.RateMap`. (Default: 0).</span>
+<span class="sd">    :param int random_seed: The random seed. If this is `None`, a</span>
+<span class="sd">        random seed will be automatically generated. Valid random</span>
+<span class="sd">        seeds must be between 1 and :math:`2^{32} - 1`.</span>
+<span class="sd">        See the :ref:`sec_randomness_seeds` section for usage examples.</span>
+<span class="sd">    :param MutationModel model: The mutation model to use when generating</span>
+<span class="sd">        mutations. This can either be a string (e.g., ``&quot;jc69&quot;``) or</span>
+<span class="sd">        an instance of a simulation model class</span>
+<span class="sd">        e.g, ``msprime.F84(kappa=0.5)``.</span>
+<span class="sd">        If not specified or None, the :class:`.JC69`</span>
+<span class="sd">        mutation model is used. Please see the</span>
+<span class="sd">        :ref:`sec_mutations_models` section for more details</span>
+<span class="sd">        on specifying mutation models.</span>
+<span class="sd">    :param float start_time: The minimum time ago at which a mutation can</span>
+<span class="sd">        occur. (Default: no restriction.)</span>
+<span class="sd">    :param float end_time: The maximum time ago at which a mutation can occur</span>
+<span class="sd">        (Default: no restriction).</span>
+<span class="sd">    :param bool discrete_genome: Whether to generate mutations at only integer positions</span>
+<span class="sd">        along the genome (Default=True).</span>
+<span class="sd">    :param bool keep: Whether to keep existing mutations. (default: True)</span>
+<span class="sd">    :return: The :class:`tskit.TreeSequence` object resulting from overlaying</span>
+<span class="sd">        mutations on the input tree sequence.</span>
+<span class="sd">    :rtype: :class:`tskit.TreeSequence`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">tables</span> <span class="o">=</span> <span class="n">tree_sequence</span><span class="o">.</span><span class="n">tables</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;First argument must be a TreeSequence instance.&quot;</span><span class="p">)</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">random_seed</span>
+    <span class="k">if</span> <span class="n">random_seed</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">command</span><span class="o">=</span><span class="s2">&quot;sim_mutations&quot;</span><span class="p">,</span>
+        <span class="n">tree_sequence</span><span class="o">=</span><span class="n">tree_sequence</span><span class="p">,</span>
+        <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="n">start_time</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span>
+        <span class="n">end_time</span><span class="o">=</span><span class="n">end_time</span><span class="p">,</span>
+        <span class="n">discrete_genome</span><span class="o">=</span><span class="n">discrete_genome</span><span class="p">,</span>
+        <span class="n">keep</span><span class="o">=</span><span class="n">keep</span><span class="p">,</span>
+        <span class="n">random_seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">encoded_provenance</span> <span class="o">=</span> <span class="n">provenance</span><span class="o">.</span><span class="n">json_encode_provenance</span><span class="p">(</span>
+        <span class="n">provenance</span><span class="o">.</span><span class="n">get_provenance_dict</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">rate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">rate</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span>
+        <span class="n">rate_map</span> <span class="o">=</span> <span class="n">intervals</span><span class="o">.</span><span class="n">RateMap</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">tree_sequence</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="n">rate_map</span> <span class="o">=</span> <span class="n">rate</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rate_map</span><span class="p">,</span> <span class="n">intervals</span><span class="o">.</span><span class="n">RateMap</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;rate must be a float or a RateMap&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">tables</span><span class="o">.</span><span class="n">time_units</span> <span class="o">==</span> <span class="n">tskit</span><span class="o">.</span><span class="n">TIME_UNITS_UNCALIBRATED</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Simulating mutations doesn&#39;t make sense when time is uncalibrated&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">start_time</span> <span class="o">=</span> <span class="o">-</span><span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span> <span class="k">if</span> <span class="n">start_time</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="n">start_time</span><span class="p">)</span>
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span> <span class="k">if</span> <span class="n">end_time</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="n">end_time</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">start_time</span> <span class="o">&gt;</span> <span class="n">end_time</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;start_time must be &lt;= end_time&quot;</span><span class="p">)</span>
+    <span class="n">discrete_genome</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">_parse_flag</span><span class="p">(</span><span class="n">discrete_genome</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">keep</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">_parse_flag</span><span class="p">(</span><span class="n">keep</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">mutation_model_factory</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">_msprime</span><span class="o">.</span><span class="n">RandomGenerator</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">lwt</span> <span class="o">=</span> <span class="n">_msprime</span><span class="o">.</span><span class="n">LightweightTableCollection</span><span class="p">()</span>
+    <span class="n">lwt</span><span class="o">.</span><span class="n">fromdict</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">asdict</span><span class="p">())</span>
+    <span class="n">_msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span>
+        <span class="n">tables</span><span class="o">=</span><span class="n">lwt</span><span class="p">,</span>
+        <span class="n">random_generator</span><span class="o">=</span><span class="n">rng</span><span class="p">,</span>
+        <span class="n">rate_map</span><span class="o">=</span><span class="n">rate_map</span><span class="o">.</span><span class="n">asdict</span><span class="p">(),</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="n">discrete_genome</span><span class="o">=</span><span class="n">discrete_genome</span><span class="p">,</span>
+        <span class="n">keep</span><span class="o">=</span><span class="n">keep</span><span class="p">,</span>
+        <span class="n">start_time</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span>
+        <span class="n">end_time</span><span class="o">=</span><span class="n">end_time</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">TableCollection</span><span class="o">.</span><span class="n">fromdict</span><span class="p">(</span><span class="n">lwt</span><span class="o">.</span><span class="n">asdict</span><span class="p">())</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">provenances</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="n">encoded_provenance</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tables</span><span class="o">.</span><span class="n">tree_sequence</span><span class="p">()</span></div>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      msprime 1.2.1.dev16
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

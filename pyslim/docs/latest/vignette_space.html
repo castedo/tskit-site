@@ -1,0 +1,1157 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vignette: A spatial simulation &#8212; PySLiM manual</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vignette: Following up with more coalescent simulation" href="vignette_continuing.html" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">PySLiM manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Using pyslim
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorial.html">
+   Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Vignette: A spatial simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_continuing.html">
+   Vignette: Following up with more coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_coalescent_diversity.html">
+   Vignette: Starting with diversity generated by coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_parallel_phylo.html">
+   Vignette: Parallelizing SLiM simulations in a phylogenetic tree
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="time_units.html">
+   Time units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="previous_versions.html">
+   Migrating from previous versions of pyslim
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  pyslim reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_api.html">
+   Python API
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  pyslim 1.0.1
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/vignette_space.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/vignette_space.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/tskit-dev/pyslim"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/tskit-dev/pyslim/issues/new?title=Issue%20on%20page%20%2Fvignette_space.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/tskit-dev/pyslim/edit/main/docs/vignette_space.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/tskit-dev/pyslim/main?urlpath=tree/docs/vignette_space.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation">
+   Simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recapitation-and-mutation">
+   Recapitation and mutation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#take-a-sample-of-individuals">
+   Take a sample of individuals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-locations">
+   Plotting locations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isolation-by-distance">
+   Isolation by distance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vcf-output">
+   VCF output
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-information">
+   More information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-about-simplification">
+   What about simplification?
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Vignette: A spatial simulation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation">
+   Simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recapitation-and-mutation">
+   Recapitation and mutation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#take-a-sample-of-individuals">
+   Take a sample of individuals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-locations">
+   Plotting locations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isolation-by-distance">
+   Isolation by distance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vcf-output">
+   VCF output
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-information">
+   More information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-about-simplification">
+   What about simplification?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="vignette-a-spatial-simulation">
+<span id="sec-vignette-space"></span><h1>Vignette: A spatial simulation<a class="headerlink" href="#vignette-a-spatial-simulation" title="Permalink to this headline">¶</a></h1>
+<p>Here we’ll talk through a typical workflow with pyslim,
+which will:</p>
+<ol class="simple">
+<li><p>Simulate data with SLiM, remembering some ancestral individuals.</p></li>
+<li><p>Recapitate and mutate.</p></li>
+<li><p>Take a subsample of the modern and ancestral individuals.</p></li>
+<li><p>Get these individual locations and make a map.</p></li>
+<li><p>Compute divergences between individuals, and plot against geographic distance.</p></li>
+<li><p>Write out a VCF file of these individuals’ genotypes and other data for use by other programs.</p></li>
+</ol>
+<div class="section" id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
+<p>Here is a simple spatial SLiM recipe that simulates 1000 individuals on a spatial landscape.
+The focus of this vignette is not on SLiM, so we won’t go into detail here.
+Here are notes:</p>
+<ol class="simple">
+<li><p>It does not have <em>any</em> mutations: we’ll add these on afterwards.</p></li>
+<li><p>There is local fecundity regulation of population density: individuals with more neighbors
+have fewer offspring.</p></li>
+<li><p>We run the simulation for 2000 time steps, and “remember” everyone who is alive at time step 1000.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">initialize</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">initializeSLiMModelType</span><span class="p">(</span><span class="s2">&quot;nonWF&quot;</span><span class="p">);</span>
+   <span class="n">initializeSLiMOptions</span><span class="p">(</span><span class="n">dimensionality</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">);</span>
+   <span class="n">initializeTreeSeq</span><span class="p">();</span>
+   <span class="n">initializeMutationRate</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+   <span class="n">initializeMutationType</span><span class="p">(</span><span class="s2">&quot;m1&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+   <span class="n">initializeGenomicElementType</span><span class="p">(</span><span class="s2">&quot;g1&quot;</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+   <span class="n">initializeGenomicElement</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1e8</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">initializeRecombinationRate</span><span class="p">(</span><span class="mf">1e-8</span><span class="p">);</span>    
+
+   <span class="n">defineConstant</span><span class="p">(</span><span class="s2">&quot;LAMBDA&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">);</span> <span class="o">//</span> <span class="n">birth</span> <span class="n">rate</span>
+   <span class="n">defineConstant</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>      <span class="o">//</span> <span class="n">carrying</span> <span class="n">capacity</span> <span class="n">per</span> <span class="n">unit</span> <span class="n">area</span>
+   <span class="n">defineConstant</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="mi">35</span><span class="p">);</span>      <span class="o">//</span> <span class="n">width</span> <span class="ow">and</span> <span class="n">height</span> <span class="n">of</span> <span class="n">the</span> <span class="n">area</span>
+   <span class="n">defineConstant</span><span class="p">(</span><span class="s2">&quot;MU&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>     <span class="o">//</span> <span class="n">death</span> <span class="n">rate</span>
+   <span class="n">defineConstant</span><span class="p">(</span><span class="s2">&quot;SIGMA&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>  <span class="o">//</span> <span class="n">interaction</span> <span class="n">distance</span>
+   
+   <span class="o">//</span> <span class="n">spatial</span> <span class="n">interaction</span> <span class="k">for</span> <span class="n">local</span> <span class="n">competition</span>
+   <span class="n">initializeInteractionType</span><span class="p">(</span><span class="s2">&quot;i1&quot;</span><span class="p">,</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="n">reciprocal</span><span class="o">=</span><span class="n">T</span><span class="p">,</span>
+                             <span class="n">maxDistance</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">SIGMA</span><span class="p">);</span>
+   <span class="n">i1</span><span class="o">.</span><span class="n">setInteractionFunction</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">SIGMA</span><span class="o">^</span><span class="mi">2</span><span class="p">),</span> <span class="n">SIGMA</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">reproduction</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">neighbor_density</span> <span class="o">=</span> <span class="n">i1</span><span class="o">.</span><span class="n">totalOfNeighborStrengths</span><span class="p">(</span><span class="n">individual</span><span class="p">);</span>
+   <span class="n">num_offspring</span> <span class="o">=</span> <span class="n">rpois</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">LAMBDA</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">neighbor_density</span> <span class="o">/</span> <span class="n">K</span><span class="p">));</span>
+   <span class="n">mate</span> <span class="o">=</span> <span class="n">i1</span><span class="o">.</span><span class="n">drawByStrength</span><span class="p">(</span><span class="n">individual</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>  <span class="o">//</span> <span class="n">single</span> <span class="n">mating</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">mate</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">for</span> <span class="p">(</span><span class="n">k</span> <span class="ow">in</span> <span class="n">seqLen</span><span class="p">(</span><span class="n">num_offspring</span><span class="p">))</span> <span class="p">{</span>
+           <span class="n">offspring</span> <span class="o">=</span> <span class="n">p1</span><span class="o">.</span><span class="n">addCrossed</span><span class="p">(</span><span class="n">individual</span><span class="p">,</span> <span class="n">mate</span><span class="p">);</span>
+           <span class="n">pos</span> <span class="o">=</span> <span class="n">individual</span><span class="o">.</span><span class="n">spatialPosition</span> <span class="o">+</span> <span class="n">rnorm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SIGMA</span><span class="p">);</span>
+           <span class="n">offspring</span><span class="o">.</span><span class="n">setSpatialPosition</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">pointReflected</span><span class="p">(</span><span class="n">pos</span><span class="p">));</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="mi">1</span> <span class="n">early</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">addSubpop</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span> <span class="n">K</span> <span class="o">*</span> <span class="n">W</span> <span class="o">*</span> <span class="n">W</span><span class="p">);</span>
+   <span class="n">p1</span><span class="o">.</span><span class="n">setSpatialBounds</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">W</span><span class="p">));</span>
+   <span class="k">for</span> <span class="p">(</span><span class="n">ind</span> <span class="ow">in</span> <span class="n">p1</span><span class="o">.</span><span class="n">individuals</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">ind</span><span class="o">.</span><span class="n">setSpatialPosition</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">pointUniform</span><span class="p">());</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">early</span><span class="p">()</span> <span class="p">{</span> <span class="o">//</span> <span class="n">survival</span> <span class="n">probabilities</span>
+   <span class="n">p1</span><span class="o">.</span><span class="n">fitnessScaling</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">MU</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">late</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">i1</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">subpopulations</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="mi">1000</span> <span class="n">late</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">treeSeqRememberIndividuals</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">individuals</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="mi">2000</span> <span class="n">late</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">treeSeqOutput</span><span class="p">(</span><span class="s2">&quot;spatial_sim.trees&quot;</span><span class="p">);</span>
+   <span class="n">catn</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">);</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">simulationFinished</span><span class="p">();</span>
+<span class="p">}</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+slim -s 23 vignette_space.slim
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// Initial random seed:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// RunInitializeCallbacks():
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeSLiMModelType(modelType = &#39;nonWF&#39;);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeSLiMOptions(dimensionality = &#39;xy&#39;);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeTreeSeq();
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeMutationRate(0);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeMutationType(1, 0.5, &quot;f&quot;, 0);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeGenomicElementType(1, m1, 1);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeGenomicElement(g1, 0, 99999999);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeRecombinationRate(1e-08);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeInteractionType(1, &quot;xy&quot;, reciprocal=T, maxDistance=3);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// Starting run at tick &lt;start&gt;:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok, now let’s have a quick look at the output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slim_ts</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;spatial_sim.trees&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The tree sequence has </span><span class="si">{</span><span class="n">slim_ts</span><span class="o">.</span><span class="n">num_trees</span><span class="si">}</span><span class="s2"> trees</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;on a genome of length </span><span class="si">{</span><span class="n">slim_ts</span><span class="o">.</span><span class="n">sequence_length</span><span class="si">}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">slim_ts</span><span class="o">.</span><span class="n">num_individuals</span><span class="si">}</span><span class="s2"> individuals, </span><span class="si">{</span><span class="n">slim_ts</span><span class="o">.</span><span class="n">num_samples</span><span class="si">}</span><span class="s2"> &#39;sample&#39; genomes,</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;and </span><span class="si">{</span><span class="n">slim_ts</span><span class="o">.</span><span class="n">num_mutations</span><span class="si">}</span><span class="s2"> mutations.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The tree sequence has 36209 trees
+on a genome of length 100000000.0,
+2497 individuals, 4994 &#39;sample&#39; genomes,
+and 0 mutations.
+</pre></div>
+</div>
+</div>
+</div>
+<p>It makes sense we have no mutations: we haven’t added any yet.
+The tree sequence is recording the relationship between 5,424 genomes (the “samples”),
+which requires 37,095 distinct trees along the genome.
+Individuals are diploid, which explains why the number of individuals
+is equal to half the number of samples.
+Let’s have a look at how old those individuals are,
+by tabulating when they were born:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">individual_times</span> <span class="o">=</span> <span class="n">slim_ts</span><span class="o">.</span><span class="n">individuals_time</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">individual_times</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">individual_times</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span><span class="si">}</span><span class="s2"> individuals from time </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 618 individuals from time 0.0.
+There are 298 individuals from time 1.0.
+There are 161 individuals from time 2.0.
+There are 85 individuals from time 3.0.
+There are 29 individuals from time 4.0.
+There are 28 individuals from time 5.0.
+There are 9 individuals from time 6.0.
+There are 6 individuals from time 7.0.
+There are 3 individuals from time 8.0.
+There are 4 individuals from time 9.0.
+There are 1 individuals from time 11.0.
+There are 647 individuals from time 1000.0.
+There are 307 individuals from time 1001.0.
+There are 142 individuals from time 1002.0.
+There are 82 individuals from time 1003.0.
+There are 36 individuals from time 1004.0.
+There are 17 individuals from time 1005.0.
+There are 10 individuals from time 1006.0.
+There are 9 individuals from time 1007.0.
+There are 1 individuals from time 1008.0.
+There are 1 individuals from time 1009.0.
+There are 2 individuals from time 1010.0.
+There are 1 individuals from time 1011.0.
+</pre></div>
+</div>
+</div>
+</div>
+<p>These “times” record the birth times of each individual.
+These are <em>tskit</em> times, which are in units of “time ago”,
+so for instance, there are 343 individuals born one time unit before the end of the simulation
+and 167 born two time units before the end of the simulation.
+(This confusing choice of units is because tskit was developed for msprime, a coalescent simulator.)
+This also tells us that there’s a bunch of individuals born around 1000 time steps ago,
+when we asked SLiM to Remember everyone alive at the time,
+and some more in the past few time steps, i.e., the present.
+This is a non-Wright-Fisher simulation,
+and so individuals may live for more than one time step (even up to age 10, it seems).
+Let’s check that all these individuals are alive at either (a) today or (b) 1000 time steps ago.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]:</span>
+  <span class="n">alive</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">individuals_alive_at</span><span class="p">(</span><span class="n">slim_ts</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There were </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">alive</span><span class="p">)</span><span class="si">}</span><span class="s2"> individuals alive </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2"> time steps in the past.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There were 1242 individuals alive 0 time steps in the past.
+There were 1255 individuals alive 1000 time steps in the past.
+</pre></div>
+</div>
+</div>
+</div>
+<p>And, 1378 + 1334 is 2712, the total number of individuals.
+So, this all checks out.</p>
+</div>
+<div class="section" id="recapitation-and-mutation">
+<h2>Recapitation and mutation<a class="headerlink" href="#recapitation-and-mutation" title="Permalink to this headline">¶</a></h2>
+<p>Next, we want to (a) simulate some ancestral diversity and (b) add in neutral mutations.
+Please see <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1755-0998.12968%3E">Haller et al (2019)</a>
+for the why and how of these steps.
+But, first let’s see if recapitation is necessary:
+on how much of the genome is the tree sequence not coalesced?
+In other words, recapitation adds diversity present in the initial generation;
+will it make a difference?
+In fact, <em>no</em> segments of the genome have coalesced:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of trees with only one root: </span><span class="si">{</span><span class="nb">sum</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">num_roots</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">slim_ts</span><span class="o">.</span><span class="n">trees</span><span class="p">()])</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;Number with more than one root: </span><span class="si">{</span><span class="nb">sum</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">num_roots</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">slim_ts</span><span class="o">.</span><span class="n">trees</span><span class="p">()])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of trees with only one root: 0
+Number with more than one root: 36209
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we will:</p>
+<ol class="simple">
+<li><p>Recapitate, running a coalescent simulation to build ancestral trees.</p></li>
+<li><p>Mutate, adding neutral variation.</p></li>
+<li><p>Save the resulting tree sequence to disk for future use.</p></li>
+</ol>
+<p>We <em>won’t</em> simplify, since we may as well keep around all the information.
+But, if we did (e.g., if we were running a large number of simulations),
+we would need to pass <code class="docutils literal notranslate"><span class="pre">keep_input_roots=True</span></code> to allow recapitation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The units of time in the tree sequence are SLiM’s “time steps”, and
+so are not necessarily equal to the mean generation time in a
+non-Wright-Fisher model. Per-generation rates need to be divided by the
+mean generation time, which can be measured in SLiM.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recap_ts</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">recapitate</span><span class="p">(</span><span class="n">slim_ts</span><span class="p">,</span> <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">ancestral_Ne</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span>
+         <span class="n">recap_ts</span><span class="p">,</span>
+         <span class="n">rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+         <span class="n">model</span><span class="o">=</span><span class="n">msprime</span><span class="o">.</span><span class="n">SLiMMutationModel</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+         <span class="n">keep</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">&quot;spatial_sim.recap.trees&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The tree sequence now has </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_trees</span><span class="si">}</span><span class="s2"> trees,</span><span class="se">\n</span><span class="s2">&quot;</span>
+       <span class="s2">&quot; and </span><span class="si">{ts.num_mutations}</span><span class="s2"> mutations.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/msprime/ancestry.py:831: TimeUnitsMismatchWarning: The initial_state has time_units=ticks but time is measured in generations in msprime. This may lead to significant discrepancies between the timescales. If you wish to suppress this warning, you can use, e.g., warnings.simplefilter(&#39;ignore&#39;, msprime.TimeUnitsMismatchWarning)
+  warnings.warn(message, TimeUnitsMismatchWarning)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The tree sequence now has 39786 trees,
+ and {ts.num_mutations} mutations.
+</pre></div>
+</div>
+</div>
+</div>
+<p>See <a class="reference internal" href="tutorial.html#sec-tutorial-adding-neutral-mutations"><span class="std std-ref">Adding neutral mutations to a SLiM simulation</span></a> for discussion of the options to
+<a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.sim_mutations" title="(in Python)"><code class="xref py py-func docutils literal notranslate"><span class="pre">msprime.sim_mutations()</span></code></a>.</p>
+<p>We will have no further use for <code class="docutils literal notranslate"><span class="pre">slim_ts</span></code> or for <code class="docutils literal notranslate"><span class="pre">recap_ts</span></code>;
+we’ve just given them separate names for tidyness.
+And, since the original SLiM mutation had no mutations, we didn’t need to specify <code class="docutils literal notranslate"><span class="pre">keep=True</span></code>
+in <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.sim_mutations" title="(in Python)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_mutations</span></code></a>, but if we <em>had</em> put down selected mutations with SLiM
+we’d probably want to keep them around.</p>
+</div>
+<div class="section" id="take-a-sample-of-individuals">
+<h2>Take a sample of individuals<a class="headerlink" href="#take-a-sample-of-individuals" title="Permalink to this headline">¶</a></h2>
+<p>Now it’s time to compute some things.
+In real life we don’t get to work with <em>everyone</em> usually,
+so we’ll take a subset of individuals.
+The range we have simulated has width and height 35 units,
+with a population density of around 1 per unit area.
+We’ll get genomes to work with by pulling out</p>
+<ol class="simple">
+<li><p>All the modern individuals in the five squares of width 5 in the corners of the range
+and the center, and</p></li>
+<li><p>Five individuals sampled randomly from everyone alive 1000 time steps ago.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+
+<span class="n">alive</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">individuals_alive_at</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">locs</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individuals_location</span><span class="p">[</span><span class="n">alive</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="n">W</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;topleft&#39;</span> <span class="p">:</span> <span class="n">alive</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">locs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">,</span> <span class="n">locs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">)],</span>
+  <span class="s1">&#39;topright&#39;</span> <span class="p">:</span> <span class="n">alive</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">locs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">,</span> <span class="n">locs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">W</span> <span class="o">-</span> <span class="n">w</span><span class="p">)],</span>
+  <span class="s1">&#39;bottomleft&#39;</span> <span class="p">:</span> <span class="n">alive</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">locs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">W</span> <span class="o">-</span> <span class="n">w</span><span class="p">,</span> <span class="n">locs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">)],</span>
+  <span class="s1">&#39;bottomright&#39;</span> <span class="p">:</span> <span class="n">alive</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">locs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">W</span> <span class="o">-</span> <span class="n">w</span><span class="p">,</span> <span class="n">locs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">W</span> <span class="o">-</span> <span class="n">w</span><span class="p">)],</span>
+  <span class="s1">&#39;center&#39;</span> <span class="p">:</span> <span class="n">alive</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">locs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">W</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+                                  <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">locs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">W</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
+  <span class="p">}</span>
+
+<span class="n">old_ones</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">individuals_alive_at</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">groups</span><span class="p">[</span><span class="s1">&#39;ancient&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">old_ones</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We have </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="si">}</span><span class="s2"> individuals in the </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> group.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We have 17 individuals in the topleft group.
+We have 42 individuals in the topright group.
+We have 32 individuals in the bottomleft group.
+We have 23 individuals in the bottomright group.
+We have 26 individuals in the center group.
+We have 5 individuals in the ancient group.
+</pre></div>
+</div>
+</div>
+</div>
+<p>To keep names associated with each subset of individuals,
+we’ve kept the individuals in a dict, so that for instance
+<code class="docutils literal notranslate"><span class="pre">groups[&quot;topleft&quot;]</span></code> is an array of all the individual IDs that are in the top left corner.
+The IDs of the ancient individuals we will work with are kept in the array <code class="docutils literal notranslate"><span class="pre">ancient</span></code>.</p>
+<p>Let’s do a quick consistency check, that everyone in <code class="docutils literal notranslate"><span class="pre">ancient</span></code> was actually born around 1000 time steps ago:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">[</span><span class="s2">&quot;ancient&quot;</span><span class="p">]:</span>
+  <span class="n">ind</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="c1"># TODO: will work on next tskit release</span>
+  <span class="c1"># assert(ind.time &gt;= 1000 and ind.time &lt; 1020)</span>
+  <span class="n">time</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">time</span>
+  <span class="k">assert</span><span class="p">(</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="mi">1000</span> <span class="ow">and</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="mi">1020</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>No errors occurred, so that checks out.</p>
+</div>
+<div class="section" id="plotting-locations">
+<h2>Plotting locations<a class="headerlink" href="#plotting-locations" title="Permalink to this headline">¶</a></h2>
+<p>We should check this: plot where these individuals lie
+relative to everyone else.
+The individuals locations are available as a property of individuals,
+but to make things easier, it’s also present in a <code class="docutils literal notranslate"><span class="pre">num_individuals</span> <span class="pre">x</span> <span class="pre">3</span></code>
+numpy array as <code class="docutils literal notranslate"><span class="pre">ts.individuals_location</span></code>.
+(There are three columns because SLiM allows for
+<code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code> coordinates, but we’ll just use the first two.)
+Since <code class="docutils literal notranslate"><span class="pre">groups[&quot;topleft&quot;]</span></code> is an array of individual IDs,
+we can pull out the locations of the “topleft” individuals
+by indexing the rows of the individual location array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Locations:&quot;</span><span class="p">)</span>
+<span class="n">all_locs</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individuals_location</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_locs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape:&quot;</span><span class="p">)</span>
+<span class="n">all_locs</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;topleft locations shape:&quot;</span><span class="p">)</span>
+<span class="n">all_locs</span><span class="p">[</span><span class="n">groups</span><span class="p">[</span><span class="s2">&quot;topleft&quot;</span><span class="p">],</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Locations:
+[[24.37301558 24.41729922  0.        ]
+ [22.05227884  1.55546446  0.        ]
+ [ 7.66744824 28.54097583  0.        ]
+ ...
+ [33.8697077   7.94441404  0.        ]
+ [16.2380576   3.78547076  0.        ]
+ [ 3.13074587  0.38643692  0.        ]]
+shape:
+topleft locations shape:
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(17, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using this, we can easily plot the locations of all the individuals from today
+(on the left) and 1000 time steps ago (on the right).
+We have to do a bit of mucking around to set the colors so that they reflect
+which group each individual is in.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">group_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;topleft&#39;</span><span class="p">,</span> <span class="s1">&#39;topright&#39;</span><span class="p">,</span> <span class="s1">&#39;bottomleft&#39;</span><span class="p">,</span> <span class="s1">&#39;bottomright&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;ancient&#39;</span><span class="p">]</span>
+<span class="n">ind_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">num_individuals</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">group_order</span><span class="p">):</span>
+  <span class="n">ind_colors</span><span class="p">[</span><span class="n">groups</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">j</span>
+
+<span class="n">old_locs</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individuals_location</span><span class="p">[</span><span class="n">old_ones</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;today&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">locs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">locs</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">ind_colors</span><span class="p">[</span><span class="n">alive</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;long ago&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">old_locs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">old_locs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">ind_colors</span><span class="p">[</span><span class="n">old_ones</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/vignette_space_20_0.png" src="_images/vignette_space_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="isolation-by-distance">
+<h2>Isolation by distance<a class="headerlink" href="#isolation-by-distance" title="Permalink to this headline">¶</a></h2>
+<p>Now, let’s look at <em>isolation by distance</em>, i.e.,
+let’s compare geographic and genetic distances.
+Here, “genetic distance” will be mean pairwise sequence divergence.
+First, we’ll compute mean genetic distance between each of our five groups.</p>
+<p>The first thing we need to do is some bookkeeping.
+So far, we’ve just worked with <em>individuals</em>,
+but tree sequence tools, in particular the statistics computation methods from tskit,
+are designed to work with <em>genomes</em>, also known as “nodes”.
+So, first we need to pull out the <em>node IDs</em> corresponding to the individuals we want.
+The things that make up a tree sequence - individuals, nodes, mutations, etcetera -
+can generally be examined individually.
+For instance, here’s what we have for the the first “ancient” individual:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="s1">&#39;ancient&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Individual(id=1837, flags=131072, location=array([16.02192465, 33.68672597,  0.        ]), parents=array([-1, -1], dtype=int32), nodes=array([1190, 1191], dtype=int32), metadata={
+    &#39;pedigree_id&#39;: 1306914,
+    &#39;pedigree_p1&#39;: 1305559,
+    &#39;pedigree_p2&#39;: 1304766,
+    &#39;age&#39;: 1,
+    &#39;subpopulation&#39;: 1,
+    &#39;sex&#39;: -1,
+    &#39;flags&#39;: 0
+   })
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that among other things, each individual carries around a list of their node IDs,
+i.e., their genomes.
+We need to put these all in a list of lists,
+so that, for instance, the first element of the list will have the node IDs of all the genomes
+of the individuals in the “topleft” group.
+And, since we kept the individual IDs in a dict, which are unordered,
+we’ll have to do some extra work to make sure we keep track of order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampled_nodes</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">group_order</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+     <span class="n">sampled_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s do a consistency check: the number of nodes in each element of this list
+should be twice the number of individuals in the corresponding list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">sampled_nodes</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[17, 42, 32, 23, 26, 5]
+[34, 84, 64, 46, 52, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<p>For instance, in the ‘topleft’ corner there are 12 diploids,
+with 24 nodes. That checks out.</p>
+<p>Now, we can compute the matrix of pairwise mean sequence divergences
+between and within these sets.
+This is done using the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.divergence" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ts.divergence</span></code></a> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)]</span>
+<span class="n">group_div</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">divergence</span><span class="p">(</span><span class="n">sampled_nodes</span><span class="p">,</span> <span class="n">indexes</span><span class="o">=</span><span class="n">pairs</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">group_order</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">group_order</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">group_order</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">:</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">group_div</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">7</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	topleft	topright	bottomleft	bottomright	center	ancient
+topleft:	2.98e-05	4.55e-05	4.53e-05	4.72e-05	4.45e-05	4.43e-05
+topright:	4.55e-05	2.47e-05	4.98e-05	4.79e-05	4.65e-05	4.55e-05
+bottomleft:	4.53e-05	4.98e-05	3.03e-05	4.59e-05	4.5e-05	4.44e-05
+bottomright:	4.72e-05	4.79e-05	4.59e-05	2.33e-05	4.45e-05	4.49e-05
+center:	4.45e-05	4.65e-05	4.5e-05	4.45e-05	3.98e-05	4.46e-05
+ancient:	4.43e-05	4.55e-05	4.44e-05	4.49e-05	4.46e-05	3.52e-05
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s nice, but to look at isolation by distance,
+we should actually separate out the individuals.
+To do that, we need to create a list of lists of nodes
+whose j-th entry is the nodes belonging to the j-th individual,
+and to keep track of which group each one belongs to.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ind_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ind_group</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ind_ids</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">group_order</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">[</span><span class="n">group</span><span class="p">]:</span>
+     <span class="n">ind_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+     <span class="n">ind_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+     <span class="n">ind_group</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">group_order</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="n">nind</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ind_ids</span><span class="p">)</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nind</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">nind</span><span class="p">)]</span>
+<span class="n">ind_div</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">divergence</span><span class="p">(</span><span class="n">ind_nodes</span><span class="p">,</span> <span class="n">indexes</span><span class="o">=</span><span class="n">pairs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we’ve only computed divergences in the <em>upper triangle</em> of the pairwise divergence matrix,
+with heterozygosities on the diagonal.
+We’ll also need pairwise geographic distances:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geog_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pairs</span><span class="p">))</span>
+<span class="n">locs</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individuals_location</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
+  <span class="n">geog_dist</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                    <span class="p">(</span><span class="n">locs</span><span class="p">[</span><span class="n">ind_ids</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">:]</span>
+                     <span class="o">-</span> <span class="n">locs</span><span class="p">[</span><span class="n">ind_ids</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="p">:])</span><span class="o">**</span><span class="mi">2</span>
+                 <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check that makes sense: distances of individuals from themselves should be zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="n">geog_dist</span><span class="p">):</span>
+ <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+   <span class="k">assert</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python does not complain, which is good.
+Now let’s plot genetic distance against geographic distance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pair_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pairs</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">ind_group</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;ancient&quot;</span> <span class="ow">or</span> <span class="n">ind_group</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;ancient&quot;</span><span class="p">:</span>
+     <span class="n">pair_colors</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">geog_dist</span><span class="p">,</span> <span class="mf">1e3</span> <span class="o">*</span> <span class="n">ind_div</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+          <span class="n">c</span><span class="o">=</span><span class="n">pair_colors</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;geographic distance&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;genetic distance (diffs/Kb)&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/vignette_space_37_0.png" src="_images/vignette_space_37_0.png" />
+</div>
+</div>
+<p>Since we multiplied <code class="docutils literal notranslate"><span class="pre">ind_div</span></code> by 1,000,
+the units of genetic distance are in mean number of nucleotide differences per kilobase.
+It is clear that closer samples are more closely related,
+and the distinct clusters corresponding to the five sampled boxes are visible.
+Furthermore, ancient samples are generally more distantly diverged.</p>
+</div>
+<div class="section" id="vcf-output">
+<h2>VCF output<a class="headerlink" href="#vcf-output" title="Permalink to this headline">¶</a></h2>
+<p>Now we want to write out these data for analysis with other programs.
+To do this, and make sure that everything stays nicely cross-referenced,
+we’re going to loop through the sampled individuals, writing their information to a file,
+while at the same time constructing a list of individual IDs,
+whose genomes we will write out to a VCF file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indivlist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">indivnames</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;spatial_sim_individuals.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">indfile</span><span class="p">:</span>
+    <span class="n">indfile</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;vcf_label&quot;</span><span class="p">,</span> <span class="s2">&quot;tskit_id&quot;</span><span class="p">,</span> <span class="s2">&quot;slim_id&quot;</span><span class="p">]</span>
+                                 <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;birth_time_ago&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">group_order</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">[</span><span class="n">group</span><span class="p">]:</span>
+           <span class="n">indivlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+           <span class="n">ind</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+           <span class="n">vcf_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;tsk_</span><span class="si">{</span><span class="n">ind</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span>
+           <span class="n">indivnames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vcf_label</span><span class="p">)</span>
+           <span class="n">time</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">time</span>
+           <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">vcf_label</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">id</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;pedigree_id&quot;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="p">),</span>
+                   <span class="nb">str</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">location</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">location</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+           <span class="n">indfile</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;spatial_sim_genotypes.vcf&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">vcffile</span><span class="p">:</span>
+   <span class="n">ts</span><span class="o">.</span><span class="n">write_vcf</span><span class="p">(</span><span class="n">vcffile</span><span class="p">,</span> <span class="n">individuals</span><span class="o">=</span><span class="n">indivlist</span><span class="p">,</span> <span class="n">individual_names</span><span class="o">=</span><span class="n">indivnames</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="more-information">
+<h2>More information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>The distinction between “nodes” (i.e., genomes) and “individuals” can be confusing,
+as well as the idea of “samples”.
+Please see the
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/data-model.html#sec-data-model" title="(in Python)"><span class="xref myst">tskit documentation</span></a>
+for more explanation about these concepts.</p></li>
+<li><p>The general interface for computing statistics (explaining, for instance, the “indexes”
+argument above) is described in <a class="reference external" href="https://tskit.dev/tskit/docs/stable/stats.html#sec-stats" title="(in Python)"><span class="xref myst">tskit documentation</span></a> also.</p></li>
+</ol>
+</div>
+<div class="section" id="what-about-simplification">
+<h2>What about simplification?<a class="headerlink" href="#what-about-simplification" title="Permalink to this headline">¶</a></h2>
+<p>The tree sequence we worked with here contains more information than we need,
+including the first generation individuals.
+If we wanted to remove this, we could have used the
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simplify</span></code></a> method,
+which reduced the tree sequence to the minimal required to record the information
+about a provided set of nodes.
+In the workflow above we didn’t ever <em>simplify</em> the tree sequence,
+because we didn’t need to.
+Because simplify reorders nodes and removes unused individuals and populations,
+it requires an extra layer of bookkeeping.
+Such relabeling also makes it harder to compare results across different analyses
+of the same data.</p>
+<p>Simplifying the tree sequence down to the nodes of the individuals
+in our “groups” would not change any subsequent analysis (except perhaps
+removing monomorphic sites in the VCF output),
+and would speed up computation of diversity.
+Since the calculation was fast already, it wasn’t worth it in this case,
+but for much larger tree sequences it could be worth the extra code complexity.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="tutorial.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tutorial</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="vignette_continuing.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Vignette: Following up with more coalescent simulation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tskit Developers<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        pyslim 1.0.1
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

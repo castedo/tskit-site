@@ -1,0 +1,816 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switching from other simulators &#8212; Msprime manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development" href="development.html" />
+    <link rel="prev" title="Legacy (version 0.x) APIs" href="legacy.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Msprime manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Quickstart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Running simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ancestry.html">
+   Ancestry simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mutations.html">
+   Mutation simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="demography.html">
+   Demographic models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="replication.html">
+   Randomness and replication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Utilities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rate_maps.html">
+   Rate Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pedigrees.html">
+   Pedigrees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="likelihoods.html">
+   Computing likelihoods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logging.html">
+   Logging
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="legacy.html">
+   Legacy (version 0.x) APIs
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Switching from other simulators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CITATION.html">
+   Citing msprime
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            msprime 1.2.0
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right"><label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notes-for-ms-users">
+   Notes for ms users
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notes-for-discoal-msms-and-macs-users">
+   Notes for discoal, msms and macs users
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scaled-parameters">
+     Scaled parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1">
+     Example 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#msprime">
+       Msprime
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#discoal">
+       Discoal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#msms">
+       Msms
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#macs">
+       MaCS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2">
+     Example 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Msprime
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Discoal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Msms
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Switching from other simulators</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notes-for-ms-users">
+   Notes for ms users
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notes-for-discoal-msms-and-macs-users">
+   Notes for discoal, msms and macs users
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scaled-parameters">
+     Scaled parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1">
+     Example 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#msprime">
+       Msprime
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#discoal">
+       Discoal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#msms">
+       Msms
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#macs">
+       MaCS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2">
+     Example 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Msprime
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Discoal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Msms
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="switching-from-other-simulators">
+<span id="sec-switch-from-other-simulators"></span><h1>Switching from other simulators<a class="headerlink" href="#switching-from-other-simulators" title="Permalink to this headline">#</a></h1>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Msprime outputs results as a succinct tree sequence using
+the  <a class="reference external" href="https://tskit.dev">tskit</a> library.
+Please see <a class="reference external" href="https://tskit.dev/tutorials/getting_started.html#sec-tskit-getting-started" title="(in Python)"><span>Getting started with tskit</span></a> for information
+on how to use this data structure to compute statistics and
+(if necessary) export to other formats.</p>
+</div>
+<div class="section" id="notes-for-ms-users">
+<h2>Notes for ms users<a class="headerlink" href="#notes-for-ms-users" title="Permalink to this headline">#</a></h2>
+<p>Msprime began as an efficient reimplementation of the classical <code class="docutils literal notranslate"><span class="pre">ms</span></code>
+program, and therefore largely follows the same underlying models
+as <code class="docutils literal notranslate"><span class="pre">ms</span></code>. If you wish to use <code class="docutils literal notranslate"><span class="pre">msprime</span></code> as a direct replacement
+for <code class="docutils literal notranslate"><span class="pre">ms</span></code>, please use the <a class="reference internal" href="cli.html#sec-mspms"><span class="std std-ref">mspms</span></a> program. This
+aims to be 100% compatible with <code class="docutils literal notranslate"><span class="pre">ms</span></code>, and should be substantially
+faster when simulating large regions.</p>
+<p>However, simulations using <code class="docutils literal notranslate"><span class="pre">mspms</span></code> will still be hampered by the
+text output of <code class="docutils literal notranslate"><span class="pre">ms</span></code>, which is very inefficient for large
+simulations. For larger simulations the <a class="reference external" href="https://tskit.dev/tskit">tskit</a>
+output produced by <code class="docutils literal notranslate"><span class="pre">msprime</span></code>’s Python API will be many times
+smaller and faster to process than text based formats.</p>
+<p>The Python APIs for <a class="reference internal" href="demography.html#sec-demography"><span class="std std-ref">describing demographic models</span></a>,
+running <a class="reference internal" href="ancestry.html#sec-ancestry"><span class="std std-ref">ancestry</span></a> and
+<a class="reference internal" href="mutations.html#sec-mutations"><span class="std std-ref">mutation</span></a> simulations are extensively documented.
+There are a few basic differences to <code class="docutils literal notranslate"><span class="pre">ms</span></code> that are worth keeping
+in mind:</p>
+<ul class="simple">
+<li><p>Time is measured in generations rather than coalescent units.</p></li>
+<li><p>Population sizes are defined as absolute values, not scaled relative to Ne.</p></li>
+<li><p>All rates are absolute rates per generation (i.e., not scaled)</p></li>
+<li><p>Recombination rates are per unit of sequence length (not total rates
+along the genome)</p></li>
+<li><p>Gene conversion rates are absolute, and do not depend on the recombination
+rate.</p></li>
+<li><p>Mutations are at finite discrete sites by default, following the Jukes-Cantor
+nucleotide model (but infinite sites 0/1 mutations at continuous locations
+can be produced, if required).</p></li>
+</ul>
+</div>
+<div class="section" id="notes-for-discoal-msms-and-macs-users">
+<h2>Notes for discoal, msms and macs users<a class="headerlink" href="#notes-for-discoal-msms-and-macs-users" title="Permalink to this headline">#</a></h2>
+<p>Different coalescent simulators may use different scaling factors for
+simulation parameters, making it confusing to users who would like to switch
+from simulators such as <code class="docutils literal notranslate"><span class="pre">discoal</span></code> (<a class="reference external" href="https://academic.oup.com/bioinformatics/article/32/24/3839/2525668">Kern,
+2016</a>),
+<code class="docutils literal notranslate"><span class="pre">msms</span></code> (<a class="reference external" href="https://academic.oup.com/bioinformatics/article/26/16/2064/216505">Ewing,
+2010</a>),
+and <code class="docutils literal notranslate"><span class="pre">macs</span></code> (<a class="reference external" href="https://genome.cshlp.org/content/19/1/136.long">Chen, 2009</a>)
+to <code class="docutils literal notranslate"><span class="pre">msprime</span></code>. Here, we compared a few parameters and arguments commonly
+used in these simulators to mitigate this pain. As <code class="docutils literal notranslate"><span class="pre">msprime</span></code> python API is
+more efficient and expressive than <code class="docutils literal notranslate"><span class="pre">mspms</span></code> interface, the following
+comparisons is done between the <a class="reference internal" href="api.html#msprime.sim_ancestry" title="msprime.sim_ancestry"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_ancestry()</span></code></a> and
+<a class="reference internal" href="api.html#msprime.sim_mutations" title="msprime.sim_mutations"><code class="xref py py-func docutils literal notranslate"><span class="pre">sim_mutations()</span></code></a> interface of <code class="docutils literal notranslate"><span class="pre">msprime</span></code>, and the command-line options
+of the other simulators.</p>
+<p>To better compare them, let us define a few terms:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span></code>: the recombination rate per generation per base pair.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code>: the mutation rate per generation per base pair.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g</span></code>: time in generations before present.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nsam</span></code>: sample size or the number of chromosomes simulated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">N</span></code>: the effective population size (of diploids).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code>: the length of the simulated chromosome in base pairs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>: the selection coefficient is <code class="docutils literal notranslate"><span class="pre">s</span></code> for genotype homozygous for the
+selected allele (<code class="docutils literal notranslate"><span class="pre">AA</span></code>), <code class="docutils literal notranslate"><span class="pre">hs</span></code> for (<code class="docutils literal notranslate"><span class="pre">Aa</span></code>). Currently, <code class="docutils literal notranslate"><span class="pre">h</span></code> is always 0.5 in
+<code class="docutils literal notranslate"><span class="pre">msprime</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">selpos</span></code>: the position (in base pairs) of the site under selection.</p></li>
+</ul>
+<div class="section" id="scaled-parameters">
+<h3>Scaled parameters<a class="headerlink" href="#scaled-parameters" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p></p></th>
+<th class="text-align:left head"><p>Msprime</p></th>
+<th class="text-align:left head"><p>Discoal</p></th>
+<th class="text-align:left head"><p>Msms</p></th>
+<th class="text-align:left head"><p>Macs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Sample size</p></td>
+<td class="text-align:left"><p>nsam/2</p></td>
+<td class="text-align:left"><p>nsam</p></td>
+<td class="text-align:left"><p>nsam</p></td>
+<td class="text-align:left"><p>nsam</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Recombination rate</p></td>
+<td class="text-align:left"><p>r</p></td>
+<td class="text-align:left"><p>4Nr(L-1)</p></td>
+<td class="text-align:left"><p>4Nr(L-1)</p></td>
+<td class="text-align:left"><p>4Nr</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>mutation rate</p></td>
+<td class="text-align:left"><p>u</p></td>
+<td class="text-align:left"><p>4NuL</p></td>
+<td class="text-align:left"><p>4NuL</p></td>
+<td class="text-align:left"><p>4Nu</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Selection coefficient</p></td>
+<td class="text-align:left"><p>AA: s</p></td>
+<td class="text-align:left"><p>AA: 2Ns</p></td>
+<td class="text-align:left"><p>AA: 2Ns</p></td>
+<td class="text-align:left"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>Aa: 0.5s</p></td>
+<td class="text-align:left"><p>Aa:  Ns</p></td>
+<td class="text-align:left"><p>Aa: 2Nhs</p></td>
+<td class="text-align:left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Selection position</p></td>
+<td class="text-align:left"><p>selpos</p></td>
+<td class="text-align:left"><p>selopos/L</p></td>
+<td class="text-align:left"><p>selpos/L</p></td>
+<td class="text-align:left"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Time</p></td>
+<td class="text-align:left"><p>g</p></td>
+<td class="text-align:left"><p>g/(4N)</p></td>
+<td class="text-align:left"><p>g/(4N)</p></td>
+<td class="text-align:left"><p>g/(2N)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Additional comments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">msprime</span></code> can directly use <code class="docutils literal notranslate"><span class="pre">nsam</span></code> as sample size parameter if <code class="docutils literal notranslate"><span class="pre">ploidy</span></code> is
+specified to 1. See <a class="reference internal" href="ancestry.html#sec-ancestry-ploidy"><span class="std std-ref">Ploidy</span></a> section for detailed
+explanation about <code class="docutils literal notranslate"><span class="pre">ploidy</span></code>.</p></li>
+<li><p>Time in <code class="docutils literal notranslate"><span class="pre">macs</span></code> is also calculated as g/(4N), see
+<a class="reference external" href="https://www.cell.com/ajhg/fulltext/S0002-9297(15)00288-8">Browning, 2015</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">#</a></h3>
+<p>In <strong>Example 1</strong>, we simulate 100 samples with a sample size of 300
+(chromosomes), a chromosome length of 1000,000 bp, recombination and mutation
+rates of 1e-8 per generation per base pair, and an effective population size
+of 1000.</p>
+<div class="section" id="msprime">
+<h4>Msprime<a class="headerlink" href="#msprime" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">msprime</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span>
+    <span class="n">samples</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>  <span class="c1"># Default ploidy is 2, so 300 sampled chromosomes</span>
+    <span class="n">population_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+    <span class="n">sequence_length</span><span class="o">=</span><span class="mf">1e6</span><span class="p">,</span>
+    <span class="n">discrete_genome</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s1">&#39;Hudson&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">mutated_ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span>
+    <span class="n">ts</span><span class="p">,</span>
+    <span class="n">rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+    <span class="n">discrete_genome</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">msprime</span><span class="o">.</span><span class="n">BinaryMutationModel</span><span class="p">(),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">msprime</span></code> separates <a class="reference internal" href="ancestry.html#sec-ancestry"><span class="std std-ref">ancestry</span></a> and <a class="reference internal" href="mutations.html#sec-mutations"><span class="std std-ref">mutation</span></a>
+simulations, although the two steps are usually run together in other
+simulators. See the <a class="reference internal" href="quickstart.html#sec-quickstart"><span class="std std-ref">Quickstart</span></a> section for an introduction to
+simulating ancestry and mutations in <code class="docutils literal notranslate"><span class="pre">msprime</span></code>.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>We run a single replicate simulation here. Please
+see the <a class="reference internal" href="replication.html#sec-randomness"><span class="std std-ref">Randomness and replication</span></a> section for more information on
+how to run replicate simulations in msprime.</p>
+</div>
+</div>
+<div class="section" id="discoal">
+<h4>Discoal<a class="headerlink" href="#discoal" title="Permalink to this headline">#</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># discoal {nsam} {num_repeats} {L} -t {4*N*u*L} -r {4*N*r*(L-1)}</span>
+
+$ discoal <span class="m">300</span> <span class="m">100</span> <span class="m">1000000</span> -t <span class="m">40</span> -r <span class="m">40</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="msms">
+<h4>Msms<a class="headerlink" href="#msms" title="Permalink to this headline">#</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># java -jar msms.jar {nsam} {num_repeats} \</span>
+<span class="c1">#   -t {4*N*u*L} -r {4*N*r*(L-1)} {L}</span>
+
+$ java -Xmx1G -jar msms.jar <span class="m">300</span> <span class="m">100</span> -t <span class="m">40</span> -r <span class="m">40</span> <span class="m">1000000</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="macs">
+<h4>MaCS<a class="headerlink" href="#macs" title="Permalink to this headline">#</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># macs {nsam} {L} -t {4*N*u} -r {4*N*r}</span>
+
+$ macs <span class="m">300</span> <span class="m">1000000</span> -t <span class="m">0</span>.00004 -r <span class="m">0</span>.00004
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">#</a></h3>
+<p>In <strong>Example 2</strong>, we add a selective sweep at the midpoint of the chromosome
+(position 500,000) ended at 80 generations ago. The end frequency of the
+selected allele is 0.9; the selection coefficient is 0.2 for genotype <code class="docutils literal notranslate"><span class="pre">AA</span></code> and
+0.1 for <code class="docutils literal notranslate"><span class="pre">Aa</span></code>. This type of simulation can be done in <code class="docutils literal notranslate"><span class="pre">msprime</span></code>, <code class="docutils literal notranslate"><span class="pre">discoal</span></code>
+and <code class="docutils literal notranslate"><span class="pre">msms</span></code>.</p>
+<div class="section" id="id1">
+<h4>Msprime<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">msprime</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># effective population size</span>
+
+<span class="n">model_list</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">msprime</span><span class="o">.</span><span class="n">StandardCoalescent</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mi">80</span><span class="p">),</span>  <span class="c1"># From generation 0 to 80</span>
+    <span class="n">msprime</span><span class="o">.</span><span class="n">SweepGenicSelection</span><span class="p">(</span>              <span class="c1"># From generation 80 to</span>
+        <span class="n">position</span><span class="o">=</span><span class="mi">500000</span><span class="p">,</span>  <span class="c1"># selpos            # selection start time (random)</span>
+        <span class="n">start_frequency</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">N</span><span class="p">),</span>
+        <span class="n">end_frequency</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+        <span class="n">s</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># s for AA</span>
+        <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">40</span> <span class="o">*</span> <span class="n">N</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">msprime</span><span class="o">.</span><span class="n">StandardCoalescent</span><span class="p">()</span>  <span class="c1"># From selection start time to coalescence</span>
+<span class="p">]</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span>
+    <span class="n">samples</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>  <span class="c1"># Default ploidy is 2, so 300 sampled chromosomes</span>
+    <span class="n">population_size</span><span class="o">=</span><span class="n">N</span><span class="p">,</span>
+    <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+    <span class="n">sequence_length</span><span class="o">=</span><span class="mf">1e6</span><span class="p">,</span>
+    <span class="n">discrete_genome</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model_list</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">mutated_ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span>
+    <span class="n">ts</span><span class="p">,</span>
+    <span class="n">rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+    <span class="n">discrete_genome</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">msprime</span><span class="o">.</span><span class="n">BinaryMutationModel</span><span class="p">(),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="api.html#msprime.SweepGenicSelection" title="msprime.SweepGenicSelection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SweepGenicSelection</span></code></a> class provides an interface to define the
+selective sweep model. More examples can be found in the
+<a class="reference internal" href="ancestry.html#sec-ancestry-models-selective-sweeps"><span class="std std-ref">Selective sweeps</span></a> section.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">msprime</span></code> ancestry <code class="docutils literal notranslate"><span class="pre">model</span></code> parameters can be specified as a single model
+(<strong>Example 1</strong>), or a list of models (<strong>Example 2</strong>). Please
+see the <a class="reference internal" href="ancestry.html#sec-ancestry-models"><span class="std std-ref">Models</span></a> section for more details.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>We run a single replicate simulation here. Please
+see the <a class="reference internal" href="replication.html#sec-randomness"><span class="std std-ref">Randomness and replication</span></a> section for more information on
+how to run replicate simulations in msprime.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Discoal<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># discoal {nsam} {num_repeats} {L} -t {4*N*u*L} -r {4*N*r*(L-1)} \</span>
+<span class="c1">#   -ws {sel_end_time/(4N)} -a {s * 0.5} \</span>
+<span class="c1">#   -x {selpos/L} -c {end_frequency} -N {N}</span>
+
+$ discoal <span class="m">300</span> <span class="m">100</span> <span class="m">1000000</span> -t <span class="m">40</span> -r <span class="m">40</span> <span class="se">\</span>
+   -ws <span class="m">0</span>.02 -a <span class="m">200</span> -x <span class="m">0</span>.5 -c <span class="m">0</span>.9 -N <span class="m">1000</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Msms<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># java -jar msms.jar {nsam} {num_repeats} -t {4*N*u*L} -r {4*N*r*(L-1)} {L} \</span>
+<span class="c1">#   -SaA {2*N*(s*0.5)} -SAA {2*N*s} \</span>
+<span class="c1">#   -SF {sel_end_time/(4N)} {end_frequency} \</span>
+<span class="c1">#   -Sp {selpos/L} -N {N}</span>
+
+$ java -Xmx1G -jar msms.jar <span class="m">300</span> <span class="m">100</span> -t <span class="m">40</span> -r <span class="m">40</span> <span class="m">1000000</span> <span class="se">\</span>
+  -SaA <span class="m">200</span> -SAA <span class="m">400</span> -SF <span class="m">0</span>.02 <span class="m">0</span>.9 -Sp <span class="m">0</span>.5 -N <span class="m">1000</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="legacy.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Legacy (version 0.x) APIs</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="development.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Development</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      msprime 1.2.0
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

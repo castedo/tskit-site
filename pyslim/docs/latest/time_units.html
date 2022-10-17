@@ -1,0 +1,1329 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time units &#8212; PySLiM manual</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Metadata" href="metadata.html" />
+    <link rel="prev" title="Vignette: Parallelizing SLiM simulations in a phylogenetic tree" href="vignette_parallel_phylo.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">PySLiM manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Using pyslim
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorial.html">
+   Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_space.html">
+   Vignette: A spatial simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_continuing.html">
+   Vignette: Following up with more coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_coalescent_diversity.html">
+   Vignette: Starting with diversity generated by coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_parallel_phylo.html">
+   Vignette: Parallelizing SLiM simulations in a phylogenetic tree
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Time units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="previous_versions.html">
+   Migrating from previous versions of pyslim
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  pyslim reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_api.html">
+   Python API
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  pyslim 1.0.1
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/time_units.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/time_units.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/tskit-dev/pyslim"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/tskit-dev/pyslim/issues/new?title=Issue%20on%20page%20%2Ftime_units.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/tskit-dev/pyslim/edit/main/docs/time_units.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/tskit-dev/pyslim/main?urlpath=tree/docs/time_units.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutation-rates-with-msprime">
+   Mutation rates with msprime
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coalescence-recombination-and-migration-rates-in-recapitation">
+   Coalescence, recombination, and migration rates in recapitation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#timeunitsmismatchwarning">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TimeUnitsMismatchWarning
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-calculating-generation-times-in-a-slim-simulation">
+   Example: calculating generation times in a SLiM simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#converting-from-slim-time-to-tskit-time-and-back">
+   Converting from SLiM time to tskit time and back
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detailed-description-of-conversion">
+     Detailed description of conversion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Time units</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutation-rates-with-msprime">
+   Mutation rates with msprime
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coalescence-recombination-and-migration-rates-in-recapitation">
+   Coalescence, recombination, and migration rates in recapitation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#timeunitsmismatchwarning">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TimeUnitsMismatchWarning
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-calculating-generation-times-in-a-slim-simulation">
+   Example: calculating generation times in a SLiM simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#converting-from-slim-time-to-tskit-time-and-back">
+   Converting from SLiM time to tskit time and back
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detailed-description-of-conversion">
+     Detailed description of conversion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="time-units">
+<h1>Time units<a class="headerlink" href="#time-units" title="Permalink to this headline">¶</a></h1>
+<p>There are a number of subtle ways that time units can trip up the user;
+below are explanations of how to deal with most of these topics.
+At issue is the fact that tree sequences produced by SLiM
+have times in units of “ticks”, rather than generations.
+If we query such a tree sequence for its time units we see
+its return value</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">time_units</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ticks&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>In general this mean it can be conceptually tricky to make sure that time units
+are consistent across different stages of simulation.</p>
+<p>(Note: it <em>is</em> possible to set the time units to whatever you want,
+using the <code class="docutils literal notranslate"><span class="pre">timeUnit</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">initializeTreeSeq(</span> <span class="pre">)</span></code>,
+but this only affects this label in metadata (i.e., the output of
+<code class="docutils literal notranslate"><span class="pre">ts.time_units</span></code>, and does not actually change how times are recorded
+in the tree sequence.)</p>
+<div class="section" id="mutation-rates-with-msprime">
+<h2>Mutation rates with msprime<a class="headerlink" href="#mutation-rates-with-msprime" title="Permalink to this headline">¶</a></h2>
+<p>Only you really know how much time in the real world
+corresponds to one spin around SLiM’s life cycle.
+one spin around SLiM’s life cycle corresponds to.
+So, SLiM does not specify what its time units actually are,
+and refers to them as “ticks”.
+Previous versions of SLiM called these “generations”,
+but this is only correct for simulations in which all organisms die every tick.
+Converting these times into real-world times is usually not too hard:
+maybe in your simulation one tick = one year,
+or maybe you need to multiply by a (mean) generation time known from empirical data.</p>
+<p>However, it becomes important to know what the time units are
+when interfacing with msprime.
+For instance, suppose you’ve done a WF simulation for an organism whose mean generation time
+in the real world is 30 years, and you want to overlay neutral mutations using msprime.
+The mutation rate passed to msprime is in units of mutations per unit-of-time-in-the-tree-sequence,
+so since you did a WF simulation, the units of time in the tree sequence are in generations,
+and you should give it mutation rate in mutations per generation.
+The rate in units of mutations per year would be 30 times smaller,
+and so would give you 30 times fewer neutral mutations than you want.
+Conversely, if you did a nonWF simulation where one tick = one year,
+then you’d want the mutation rate in units of mutations per year.</p>
+</div>
+<div class="section" id="coalescence-recombination-and-migration-rates-in-recapitation">
+<h2>Coalescence, recombination, and migration rates in recapitation<a class="headerlink" href="#coalescence-recombination-and-migration-rates-in-recapitation" title="Permalink to this headline">¶</a></h2>
+<p>If you recapitate with msprime, then the same issue occurs for coalescence rates.
+This is less obvious, because “coalescence rate” is not an argument to msprime;
+rather, the coalescence rate in a given population
+is <span class="math notranslate nohighlight">\(1/2N\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is the (effective) size of that population.
+(The 2 in the denominator is actually the ‘ploidy’ argument to msprime, which defaults to 2.)
+This is the correct rate, <em>in units of coalescences per generation</em>.
+Since it’s “per generation”, this means that if you want to recapitate a tree sequence
+generated by SLiM in which one tick is not one generation,
+then <strong>you need to adjust the effective population sizes accordingly</strong>.
+For instance, suppose as above that we did a nonWF simulation
+in which one tick = one year, for a species with generation time 30 years,
+and we want to recapitate with an effective size of 10,000 diploids.
+An effective size of 10,000 diploids means one coalescence per pair of lineages
+every 20,000 generations;
+since one unit of time in the tree sequence equals 1/30th of a generation,
+this is one coalescence per pair of lineages every 600,000 time units,
+which we can get msprime to do by asking for an effective population size of 300,000.
+In other words, if a generation in our tree sequence is <span class="math notranslate nohighlight">\(T\)</span> units of time,
+then we need to divide the coalescence rate by <span class="math notranslate nohighlight">\(T,\)</span>
+which we do by multiplying effective population sizes by <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p>(A better way of thinking about this could be to say that since the mean time to coalescence
+is twice the effective population size,
+actually effective population size is in units of <em>time</em>, rather than individuals.)</p>
+<p>To recapitate we need to also pick recombination and (possibly) migration rates.
+Since these are rates, they are also in units of something “per time”,
+and so just as for mutation rates, we need to ensure they are in the correct units.
+Recombination rates in particular come in units of “per generation”
+(since a Morgan is in units of recombinations per generation),
+and so a rate of <span class="math notranslate nohighlight">\(r\)</span> Morgans would need to be divided by <span class="math notranslate nohighlight">\(T\)</span>
+before it’s passed to msprime for recapitation.
+Since msprime (by default) runs a continuous-time simulation,
+there is no harm in adjusting time units in msprime this way,
+but it is confusing.</p>
+<div class="section" id="timeunitsmismatchwarning">
+<h3><code class="docutils literal notranslate"><span class="pre">TimeUnitsMismatchWarning</span></code><a class="headerlink" href="#timeunitsmismatchwarning" title="Permalink to this headline">¶</a></h3>
+<p>Above we saw that if we want msprime to simulate coalescence in a population of size 10,000
+to recapitate our tree sequence whose times are given in units of 1/30th of a generation,
+then we need to ask it for a population of (effective) size 300,000.
+In other words, the “population sizes” of msprime are <em>only</em> in units of individuals
+(as one would expect a population size to be)
+<em>if</em> times are being measured in units of generations.
+For this reason, although it’s not strictly true,
+sometimes we say that “msprime times are in units of generations”.
+Also, msprime will produce a warning if it is handed a tree sequence
+whose time units are not “generations”:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rts</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">recapitate</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span>
+            <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+            <span class="n">ancestral_Ne</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeUnitsMismatchWarning: The initial_state has time_units=ticks but time is measured in
+generations in msprime. This may lead to significant discrepancies between the timescales.
+If you wish to suppress this warning, you can use, e.g., warnings.simplefilter(&#39;ignore&#39;,
+msprime.TimeUnitsMismatchWarning)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Think of this warning as a friendly reminder to pay attention to your time units.
+To make this warning disappear, the easiest option is to do as the warning suggests
+and just ask python to ignore it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">msprime</span><span class="o">.</span><span class="n">TimeUnitsMismatchWarning</span><span class="p">)</span>
+<span class="n">rts</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">recapitate</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span>
+            <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+            <span class="n">ancestral_Ne</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To re-label the time units on your tree sequence
+as being in “generations” (but! only do this if it’s true!),
+you must convert to a TableCollection and back (since the tables are mutable
+but the tree sequence is not):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time units before: </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">time_units</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">dump_tables</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">time_units</span> <span class="o">=</span> <span class="s1">&#39;generations&#39;</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">tree_sequence</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time units after: </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">time_units</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time units before: ticks
+Time units after: generations
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-calculating-generation-times-in-a-slim-simulation">
+<h2>Example: calculating generation times in a SLiM simulation<a class="headerlink" href="#example-calculating-generation-times-in-a-slim-simulation" title="Permalink to this headline">¶</a></h2>
+<p>In a nonWF simulation, the generation time is not something that you get to explicitly set:
+rather, like population size it is an emergent property of the rules of the simulation.
+So, it’s important to be able to calculate what the (average) generation time actually is
+in a given simulation (keeping in mind that the answer may vary across time and space).
+This is not really a pyslim operation at all,
+but since it’s important to the considerations above,
+here’s an easy way to do this.
+The definition of generation time appropriate for comparison to a coalescent simulation
+is “average amount of time between birth of parent and birth of child”.
+(Note that this is the birth of the <em>average</em> child in some sense,
+not the average time to each parent’s first child!)
+Therefore,
+an easy and convenient way to measure this is to
+record for each individual their parents’ ages at the times of their births,
+and then take the average across all individuals alive at a given time.
+(This is only one possible choice,
+and other choices are usually but not always equivalent,
+but a discussion of the options and distinctions
+would make this tutorial lengthy and confusing.</p>
+<p>Here is a script that computes this.
+In the simulation, females’ fecundity increases with their age,
+and so we expect “generation time” to be larger than the mean age of individuals
+alive at a given time.
+In the script, we store the average of the mean parent ages across all
+extant individuals every tick using SLiM Individuals’ <code class="docutils literal notranslate"><span class="pre">meanParentAge</span></code> property,
+and store the vector in top-level metadata when we write out the tree sequence.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">initialize</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">initializeSLiMModelType</span><span class="p">(</span><span class="s2">&quot;nonWF&quot;</span><span class="p">);</span>
+	<span class="n">initializeSex</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">);</span>
+	<span class="n">initializeTreeSeq</span><span class="p">();</span>
+	<span class="n">initializeMutationRate</span><span class="p">(</span><span class="mf">2e-8</span><span class="p">);</span>
+	<span class="n">initializeMutationType</span><span class="p">(</span><span class="s2">&quot;m1&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+	<span class="n">initializeGenomicElementType</span><span class="p">(</span><span class="s2">&quot;g1&quot;</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+	<span class="n">initializeGenomicElement</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1e8</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+	<span class="n">initializeRecombinationRate</span><span class="p">(</span><span class="mf">1e-8</span><span class="p">);</span>
+	<span class="n">defineConstant</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+	<span class="n">defineGlobal</span><span class="p">(</span><span class="s2">&quot;GENTIME&quot;</span><span class="p">,</span> <span class="n">rep</span><span class="p">(</span><span class="n">NAN</span><span class="p">,</span> <span class="mi">100</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="n">reproduction</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">k</span> <span class="ow">in</span> <span class="n">seqLen</span><span class="p">(</span><span class="n">rpois</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">individual</span><span class="o">.</span><span class="n">age</span><span class="p">)))</span> <span class="p">{</span>
+		<span class="n">mate</span> <span class="o">=</span> <span class="n">subpop</span><span class="o">.</span><span class="n">sampleIndividuals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">);</span>
+		<span class="n">offspring</span> <span class="o">=</span> <span class="n">subpop</span><span class="o">.</span><span class="n">addCrossed</span><span class="p">(</span><span class="n">individual</span><span class="p">,</span> <span class="n">mate</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="mi">1</span> <span class="n">early</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">sim</span><span class="o">.</span><span class="n">addSubpop</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span> <span class="n">K</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">early</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">p1</span><span class="o">.</span><span class="n">fitnessScaling</span> <span class="o">=</span> <span class="n">K</span> <span class="o">/</span> <span class="n">p1</span><span class="o">.</span><span class="n">individualCount</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="mi">1</span><span class="p">:</span> <span class="n">late</span><span class="p">()</span> <span class="p">{</span>
+	<span class="o">//</span> <span class="n">this</span> <span class="n">should</span> <span class="n">happen</span> <span class="o">*</span><span class="n">after</span><span class="o">*</span> <span class="n">mortality</span> <span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="ow">in</span> <span class="n">late</span><span class="p">())</span>
+	<span class="n">GENTIME</span><span class="p">[</span><span class="n">community</span><span class="o">.</span><span class="n">tick</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">meanParentAge</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="mi">100</span> <span class="n">late</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">sim</span><span class="o">.</span><span class="n">treeSeqOutput</span><span class="p">(</span>
+		<span class="s2">&quot;generation_time.trees&quot;</span><span class="p">,</span>
+		<span class="n">metadata</span><span class="o">=</span><span class="n">Dictionary</span><span class="p">(</span><span class="s2">&quot;generation_times&quot;</span><span class="p">,</span> <span class="n">GENTIME</span><span class="p">)</span>
+		<span class="p">);</span>
+	<span class="n">catn</span><span class="p">(</span><span class="s2">&quot;Done! Mean generation time &quot;</span> <span class="o">+</span> <span class="n">mean</span><span class="p">(</span><span class="n">GENTIME</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">99</span><span class="p">]));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+slim -s 23 generation_time.slim | tail -n1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#WARNING (Species::RunInitializeCallbacks): with tree-sequence recording enabled and a non-zero mutation rate, a neutral mutation type was defined and used; this is legal, but usually undesirable, since neutral mutations can be overlaid later using the tree-sequence information.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done! Mean generation time 2.49543
+</pre></div>
+</div>
+</div>
+</div>
+<p>(About the warning: we turned on mutations for a good reason; see below.)
+Now we can look at our empirical calculation of generation time.
+Note that the first generation individuals have a mean parent age of 0.0,
+so we expect generation time to go up at first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gts</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;generation_time.trees&quot;</span><span class="p">)</span>
+<span class="n">gentimes</span> <span class="o">=</span> <span class="n">gts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;SLiM&quot;</span><span class="p">][</span><span class="s2">&quot;user_metadata&quot;</span><span class="p">][</span><span class="s2">&quot;generation_times&quot;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;tick&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;generation time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">gentimes</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">gentimes</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/time_units_13_0.png" src="_images/time_units_13_0.png" />
+</div>
+</div>
+<p>In the script above we added mutations during the SLiM simulation to do a simple check
+to verify the <code class="docutils literal notranslate"><span class="pre">meanParentAge</span></code> property correctly estimates mean generation time.
+If it does, then the mean sequence divergence calculated from the mutations introduced by SLiM
+should (approximately) match the mean length of branches in the tree sequence separating two samples
+multiplied by the expected number of mutations per unit time.
+(We get the mean branch length using the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.diversity" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ts.diversity</span></code></a> method with <code class="docutils literal notranslate"><span class="pre">mode=&quot;branch&quot;</span></code>;
+see the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/stats.html#sec-stats" title="(in Python)"><span class="xref myst">tskit documentation</span></a> for details.)
+This involves the generation time because “mutations per unit time” is equal to
+“mutations per generation” (here, the mutation rate per bp, <span class="math notranslate nohighlight">\(10^{-8}\)</span>)
+divided by “time per generation” (i.e., mean generation time).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slim_diversity</span> <span class="o">=</span> <span class="n">gts</span><span class="o">.</span><span class="n">diversity</span><span class="p">(</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;site&#39;</span><span class="p">)</span>
+<span class="n">ts_diversity</span> <span class="o">=</span> <span class="n">gts</span><span class="o">.</span><span class="n">diversity</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;branch&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-8</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gentimes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;slim diversity: </span><span class="si">{</span><span class="n">slim_diversity</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;scaled tree sequence diversity: </span><span class="si">{</span><span class="n">ts_diversity</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;error: </span><span class="si">{</span><span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">slim_diversity</span> <span class="o">-</span> <span class="n">ts_diversity</span><span class="p">)</span><span class="o">/</span><span class="n">slim_diversity</span><span class="si">:</span><span class="s2">0.3f</span><span class="si">}</span><span class="s2">%&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>slim diversity: 1.5383378037734143e-06
+scaled tree sequence diversity: 7.966231965147045e-07
+error: 48.215%
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, to recapitate this simulation
+in a population with effective size 1000,
+and using the recombination rate from the SLiM script of <span class="math notranslate nohighlight">\(10^{-8}\)</span>
+crossovers per generation
+and <span class="math notranslate nohighlight">\(2 \times 10^{-8}\)</span> mutations per generation,
+we need to scale <span class="math notranslate nohighlight">\(N_e\)</span> and both rates by the generation time.
+Furthermore, since we already have mutations up until 100 time units ago,
+we need to put mutations on only previous to that time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gentimes</span> <span class="o">=</span> <span class="n">gts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;SLiM&quot;</span><span class="p">][</span><span class="s2">&quot;user_metadata&quot;</span><span class="p">][</span><span class="s2">&quot;generation_times&quot;</span><span class="p">]</span>
+<span class="n">gt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gentimes</span><span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">:])</span>
+<span class="n">recomb_rate</span> <span class="o">=</span> <span class="mf">1e-8</span> <span class="c1"># per generation</span>
+<span class="n">Ne</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># generations</span>
+<span class="n">mut_rate</span> <span class="o">=</span> <span class="mf">2e-8</span> <span class="c1"># per generation</span>
+<span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">(</span><span class="n">record</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
+    <span class="n">rts</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">recapitate</span><span class="p">(</span><span class="n">gts</span><span class="p">,</span>
+                <span class="n">recombination_rate</span><span class="o">=</span><span class="n">recomb_rate</span> <span class="o">/</span> <span class="n">gt</span><span class="p">,</span>
+                <span class="n">ancestral_Ne</span><span class="o">=</span><span class="n">Ne</span> <span class="o">*</span> <span class="n">gt</span><span class="p">,</span>
+                <span class="n">random_seed</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">mts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span>
+               <span class="n">rts</span><span class="p">,</span>
+               <span class="n">rate</span><span class="o">=</span><span class="n">mut_rate</span> <span class="o">/</span> <span class="n">gt</span><span class="p">,</span>
+               <span class="n">model</span><span class="o">=</span><span class="n">msprime</span><span class="o">.</span><span class="n">SLiMMutationModel</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+               <span class="n">keep</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+               <span class="n">start_time</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean genetic diversity is now </span><span class="si">{</span><span class="n">mts</span><span class="o">.</span><span class="n">diversity</span><span class="p">()</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;  and the expected value under a WF model is &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;4 * N * mu = </span><span class="si">{</span><span class="mi">4</span> <span class="o">*</span> <span class="n">Ne</span> <span class="o">*</span> <span class="n">mut_rate</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean genetic diversity is now 5.30e-05,
+  and the expected value under a WF model is 4 * N * mu = 8.00e-05
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get a lower value of genetic diversity than expected under a WF model,
+but that’s expected because both fluctuating population sizes
+and age-associated variability in fecundity will decrease the effective population size.</p>
+</div>
+<div class="section" id="converting-from-slim-time-to-tskit-time-and-back">
+<span id="sec-metadata-converting-times"></span><h2>Converting from SLiM time to tskit time and back<a class="headerlink" href="#converting-from-slim-time-to-tskit-time-and-back" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a nitpicky, document-the-details section.
+Hopefully, you don’t have to deal with the specifics of converting between tskit and SLiM time,
+but this page is here for you if you do.</p>
+</div>
+<p>SLiM is a forwards simulator, while the tree sequence format thinks about things
+<em>retrospectively</em>, and so works with times in units of <em>time ago</em>.
+Mostly, you don’t have to convert between the two,
+unless you want to match up information in a tree sequence
+with information written out by SLiM itself.
+In other words, SLiM’s time counter measures the number of time steps
+(“ticks”) since the start of the simulation,
+and times in the tree sequence record how long before the end of the simulation.
+However, there are quite a few details, and off-by-one errors are easy to make,
+so we’ll spell it out here.
+Hopefully, you can just use pyslim’s methods
+<a class="reference internal" href="python_api.html#pyslim.slim_time" title="pyslim.slim_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">slim_time()</span></code></a>, <a class="reference internal" href="python_api.html#pyslim.individuals_alive_at" title="pyslim.individuals_alive_at"><code class="xref py py-func docutils literal notranslate"><span class="pre">individuals_alive_at()</span></code></a>,
+and <a class="reference internal" href="python_api.html#pyslim.individual_ages_at" title="pyslim.individual_ages_at"><code class="xref py py-func docutils literal notranslate"><span class="pre">individual_ages_at()</span></code></a>
+without needing to actually do any conversions yourself.</p>
+<p>SLiM’s time counter is called the “tick”.
+The SLiM tick starts at 1, and records which round of the life cycle the simulation is in.
+However, the order of the life cycle differs between WF and nonWF models:
+in a WF model, it is <em>first</em> <span class="math notranslate nohighlight">\(\to\)</span> <em>early</em> <span class="math notranslate nohighlight">\(\to\)</span> <em>birth</em> <span class="math notranslate nohighlight">\(\to\)</span> <em>late</em>”,
+while in a nonWF model, it is <em>first</em> <span class="math notranslate nohighlight">\(\to\)</span> <em>birth</em> <span class="math notranslate nohighlight">\(\to\)</span> <em>early</em> <span class="math notranslate nohighlight">\(\to\)</span> <em>late</em>.
+Often, the first set of individuals are created in the <em>early()</em> phase of tick 1,
+and so in a WF model reproduce immediately, in the same tick they were “born”.
+Parents and offspring cannot have the same birth time in the tree sequence,
+and so some clever bookkeeping was required.
+You’ll want to refer to the tables below to see what’s going on.
+“Time” in a tree sequence is actually <em>time ago</em>,
+or <em>time before the tree sequence was recorded</em>.
+To obtain this number, and ensure that offspring cannot have the same birth time-ago
+in the tree sequence as their parents,
+SLiM also keeps track of “how many birth phases of the life cycle have happened so far”
+(the column “# births” in the tables).
+As the simulation goes along,
+tskit time ago is recorded as minus one times the number of birth phases so far.
+(We multiply by -1 because as we move forward in time,
+we accumulate a negative number of “time-ago” units.)
+When the tree sequence is output, the current cumulative number of birth phases
+is added to this,
+so “tskit time ago” is, equivalently, “how many birth phases happened since this time”.
+In a nonWF model, the two counters (“tick” and “number of birth phases”)
+are always in sync; but in a WF model they are not (during <em>first</em> and <em>early</em>).
+The extra wrinkle this introduces is that the correspondence between “tskit time ago”
+and “SLiM time” depends on <em>which phase the tree sequence was recorded in</em>.</p>
+<p>When the tree sequence is written out, SLiM records the value of its current tick
+and the current stage,
+which can be found in the metadata: <code class="docutils literal notranslate"><span class="pre">ts.metadata['SLiM']['tick']</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">ts.metadata['SLiM']['stage']</span></code>.
+The “SLiM time” referred to by a <code class="docutils literal notranslate"><span class="pre">time</span></code> in the tree sequence
+(i.e., the value that would be reported by <code class="docutils literal notranslate"><span class="pre">community.tick</span></code>
+within SLiM at the point in time thus referenced)
+can be obtained by subtracting <code class="docutils literal notranslate"><span class="pre">time</span></code> from <code class="docutils literal notranslate"><span class="pre">ts.metadata['SLiM']['tick']</span></code>
+and possibly adding or subtracting one depending on the current stage.
+The fiddly details are worked out by the <a class="reference internal" href="python_api.html#pyslim.slim_time" title="pyslim.slim_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">slim_time()</span></code></a> method,
+which takes a <code class="docutils literal notranslate"><span class="pre">stage</span></code> argument.</p>
+<p>Some of the other methods in pyslim – those that depend on <a class="reference internal" href="python_api.html#pyslim.individuals_alive_at" title="pyslim.individuals_alive_at"><code class="xref py py-func docutils literal notranslate"><span class="pre">individuals_alive_at()</span></code></a>
+– need you to tell them during which stage the tree sequence was saved with <code class="docutils literal notranslate"><span class="pre">sim.treeSeqOutput</span></code>,
+and need this to be the same as the stage that any individuals were saved with <code class="docutils literal notranslate"><span class="pre">sim.treeSeqRememberIndividuals</span></code>.
+(This can add another factor of plus or minus one to the calculations.)
+This argument, <code class="docutils literal notranslate"><span class="pre">remembered_stage</span></code>, defaults to <em>late()</em>;
+we recommend that you also default to always Remembering individuals, and saving out the tree sequence,
+during <em>late()</em> as well, unless you have good reason not to.</p>
+<div class="section" id="detailed-description-of-conversion">
+<h3>Detailed description of conversion<a class="headerlink" href="#detailed-description-of-conversion" title="Permalink to this headline">¶</a></h3>
+<p>To help keep all this straight, here are schematics for WF and nonWF models.
+(To see the nonWF model schematic, click on the “nonWF” tab.)</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="2e2155ba-06c6-431c-8d5a-f2fae2abd9eb" name="3c832b78-09fc-42d2-8376-62292a3c0bf1" type="radio">
+</input><label class="tabbed-label" for="2e2155ba-06c6-431c-8d5a-f2fae2abd9eb">
+WF model</label><div class="tabbed-content docutils">
+<p>For a WF model, the SLiM tick (first column) can be obtained by subtracting the
+tskit time ago from the SLiM tick at time of output only during the same stage that output occured in.
+Suppose that we want to know what tick counter in SLiM corresponds to a given tskit time ago.
+The answer to this depends on what stage, unfortunately.
+Let <span class="math notranslate nohighlight">\(k\)</span> be the value of the tick counter, <span class="math notranslate nohighlight">\(n\)</span> be the total number of ticks,
+i.e., the value of <code class="docutils literal notranslate"><span class="pre">ts.metadata[&quot;SLiM&quot;][&quot;tick&quot;]</span></code>,
+<span class="math notranslate nohighlight">\(t\)</span> be the tskit time,
+<span class="math notranslate nohighlight">\(x=1\)</span> if the stage is <em>first()</em> or <em>early()</em> and 0 otherwise,
+and <span class="math notranslate nohighlight">\(y=1\)</span> if the tree sequence was output in <em>late()</em>.
+Then, as can be verified from the table below, <span class="math notranslate nohighlight">\(k + t = n + x + y - 1\)</span>.
+The right-hand columns show <span class="math notranslate nohighlight">\(t\)</span>, i.e.,
+what the <strong>tskit time ago</strong> is at the corresponding point in the SLiM simulation.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>tick</p></th>
+<th class="head"><p>stage</p></th>
+<th class="head"><p># births</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">first</span></code> output</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">early</span></code> output</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">late</span></code> output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>first</p></td>
+<td><p>0</p></td>
+<td><p><span class="math notranslate nohighlight">\(\leftarrow\)</span> add subpops</p></td>
+<td><p>n-1</p></td>
+<td><p>n-1</p></td>
+<td><p>n</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>early</p></td>
+<td><p>0</p></td>
+<td><p></p></td>
+<td><p>n-1</p></td>
+<td><p>n-1</p></td>
+<td><p>n</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>birth</p></td>
+<td><p>1</p></td>
+<td><p></p></td>
+<td><p>n-2</p></td>
+<td><p>n-2</p></td>
+<td><p>n-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>late</p></td>
+<td><p>1</p></td>
+<td><p></p></td>
+<td><p>n-2</p></td>
+<td><p>n-2</p></td>
+<td><p>n-1</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>first</p></td>
+<td><p>1</p></td>
+<td><p></p></td>
+<td><p>n-2</p></td>
+<td><p>n-2</p></td>
+<td><p>n-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>early</p></td>
+<td><p>1</p></td>
+<td><p></p></td>
+<td><p>n-2</p></td>
+<td><p>n-2</p></td>
+<td><p>n-1</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>birth</p></td>
+<td><p>2</p></td>
+<td><p></p></td>
+<td><p>n-3</p></td>
+<td><p>n-3</p></td>
+<td><p>n-2</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>late</p></td>
+<td><p>2</p></td>
+<td><p></p></td>
+<td><p>n-3</p></td>
+<td><p>n-3</p></td>
+<td><p>n-2</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>first</p></td>
+<td><p>2</p></td>
+<td><p></p></td>
+<td><p>n-3</p></td>
+<td><p>n-3</p></td>
+<td><p>n-2</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>early</p></td>
+<td><p>2</p></td>
+<td><p></p></td>
+<td><p>n-3</p></td>
+<td><p>n-3</p></td>
+<td><p>n-2</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>birth</p></td>
+<td><p>3</p></td>
+<td><p></p></td>
+<td><p>n-4</p></td>
+<td><p>n-4</p></td>
+<td><p>n-3</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>late</p></td>
+<td><p>3</p></td>
+<td><p></p></td>
+<td><p>n-4</p></td>
+<td><p>n-4</p></td>
+<td><p>n-3</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\downarrow\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\downarrow\)</span></p></td>
+<td><p></p></td>
+<td><p><span class="math notranslate nohighlight">\(\uparrow\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\uparrow\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\uparrow\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>n-2</p></td>
+<td><p>first</p></td>
+<td><p>n-3</p></td>
+<td><p></p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>n-2</p></td>
+<td><p>early</p></td>
+<td><p>n-3</p></td>
+<td><p></p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>n-2</p></td>
+<td><p>birth</p></td>
+<td><p>n-2</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>n-2</p></td>
+<td><p>late</p></td>
+<td><p>n-2</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>n-1</p></td>
+<td><p>first</p></td>
+<td><p>n-2</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>n-1</p></td>
+<td><p>early</p></td>
+<td><p>n-2</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>n-1</p></td>
+<td><p>birth</p></td>
+<td><p>n-1</p></td>
+<td><p></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>n-1</p></td>
+<td><p>late</p></td>
+<td><p>n-1</p></td>
+<td><p></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>first</p></td>
+<td><p>n-1</p></td>
+<td><p>treeSeqOutput <span class="math notranslate nohighlight">\(\to\)</span></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>early</p></td>
+<td><p>n-1</p></td>
+<td><p></p></td>
+<td><p>treeSeqOutput <span class="math notranslate nohighlight">\(\to\)</span></p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>birth</p></td>
+<td><p>n</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>late</p></td>
+<td><p>n</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>treeSeqOutput <span class="math notranslate nohighlight">\(\to\)</span></p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="6364f84d-1e49-47ce-91f8-000237d49a8e" name="3c832b78-09fc-42d2-8376-62292a3c0bf1" type="radio">
+</input><label class="tabbed-label" for="6364f84d-1e49-47ce-91f8-000237d49a8e">
+nonWF model</label><div class="tabbed-content docutils">
+<p>Note that for nonWF models the SLiM time (first column) can always be obtained by subtracting the
+tskit time ago from the SLiM time at time of output.
+Suppose that we want to know what tick counter in SLiM corresponds to a given tskit time ago.
+The answer to this depends on what stage, unfortunately.
+Let <span class="math notranslate nohighlight">\(k\)</span> be the value of the tick counter, <span class="math notranslate nohighlight">\(n\)</span> be the total number of ticks,
+i.e., the value of <code class="docutils literal notranslate"><span class="pre">ts.metadata[&quot;SLiM&quot;][&quot;tick&quot;]</span></code>,
+let <span class="math notranslate nohighlight">\(t\)</span> be the tskit time,
+<span class="math notranslate nohighlight">\(x=1\)</span> if the stage is “first” and 0 otherwise,
+and <span class="math notranslate nohighlight">\(y=1\)</span> if the tree sequence was output in <em>early()</em> or <em>late()</em>.
+Then, as can be verified from the table below, <span class="math notranslate nohighlight">\(k + t = n + x + y - 1\)</span>.
+The right-hand columns show <span class="math notranslate nohighlight">\(t\)</span>, i.e.,
+what the <strong>tskit time ago</strong> is at the corresponding point in the SLiM simulation.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>tick</p></th>
+<th class="head"><p>stage</p></th>
+<th class="head"><p># births</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p>first output</p></th>
+<th class="head"><p>early output</p></th>
+<th class="head"><p>late output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>first</p></td>
+<td><p>0</p></td>
+<td><p><span class="math notranslate nohighlight">\(\leftarrow\)</span> add subpops</p></td>
+<td><p>n-1</p></td>
+<td><p>n</p></td>
+<td><p>n</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>birth</p></td>
+<td><p>1</p></td>
+<td><p></p></td>
+<td><p>n-2</p></td>
+<td><p>n-1</p></td>
+<td><p>n-1</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>early</p></td>
+<td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\(\leftarrow\)</span> add subpops</p></td>
+<td><p>n-2</p></td>
+<td><p>n-1</p></td>
+<td><p>n-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>late</p></td>
+<td><p>1</p></td>
+<td><p></p></td>
+<td><p>n-2</p></td>
+<td><p>n-1</p></td>
+<td><p>n-1</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>first</p></td>
+<td><p>1</p></td>
+<td><p></p></td>
+<td><p>n-2</p></td>
+<td><p>n-1</p></td>
+<td><p>n-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>birth</p></td>
+<td><p>2</p></td>
+<td><p></p></td>
+<td><p>n-3</p></td>
+<td><p>n-2</p></td>
+<td><p>n-2</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>early</p></td>
+<td><p>2</p></td>
+<td><p></p></td>
+<td><p>n-3</p></td>
+<td><p>n-2</p></td>
+<td><p>n-2</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>late</p></td>
+<td><p>2</p></td>
+<td><p></p></td>
+<td><p>n-3</p></td>
+<td><p>n-2</p></td>
+<td><p>n-2</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>first</p></td>
+<td><p>2</p></td>
+<td><p></p></td>
+<td><p>n-3</p></td>
+<td><p>n-2</p></td>
+<td><p>n-2</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>birth</p></td>
+<td><p>3</p></td>
+<td><p></p></td>
+<td><p>n-4</p></td>
+<td><p>n-3</p></td>
+<td><p>n-3</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>early</p></td>
+<td><p>3</p></td>
+<td><p></p></td>
+<td><p>n-4</p></td>
+<td><p>n-3</p></td>
+<td><p>n-3</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>late</p></td>
+<td><p>3</p></td>
+<td><p></p></td>
+<td><p>n-4</p></td>
+<td><p>n-3</p></td>
+<td><p>n-3</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\downarrow\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\downarrow\)</span></p></td>
+<td><p></p></td>
+<td><p><span class="math notranslate nohighlight">\(\uparrow\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\uparrow\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\uparrow\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>n-2</p></td>
+<td><p>first</p></td>
+<td><p>n-3</p></td>
+<td><p></p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>n-2</p></td>
+<td><p>birth</p></td>
+<td><p>n-2</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>n-2</p></td>
+<td><p>early</p></td>
+<td><p>n-2</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>n-2</p></td>
+<td><p>late</p></td>
+<td><p>n-2</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>n-1</p></td>
+<td><p>first</p></td>
+<td><p>n-2</p></td>
+<td><p></p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>n-1</p></td>
+<td><p>birth</p></td>
+<td><p>n-1</p></td>
+<td><p></p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>n-1</p></td>
+<td><p>early</p></td>
+<td><p>n-1</p></td>
+<td><p></p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>n-1</p></td>
+<td><p>late</p></td>
+<td><p>n-1</p></td>
+<td><p></p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>first</p></td>
+<td><p>n-1</p></td>
+<td><p>treeSeqOutput <span class="math notranslate nohighlight">\(\to\)</span></p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>birth</p></td>
+<td><p>n</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>early</p></td>
+<td><p>n</p></td>
+<td><p></p></td>
+<td><p>treeSeqOutput <span class="math notranslate nohighlight">\(\to\)</span></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>late</p></td>
+<td><p>n</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>treeSeqOutput <span class="math notranslate nohighlight">\(\to\)</span></p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="vignette_parallel_phylo.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Vignette: Parallelizing SLiM simulations in a phylogenetic tree</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="metadata.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Metadata</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tskit Developers<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        pyslim 1.0.1
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

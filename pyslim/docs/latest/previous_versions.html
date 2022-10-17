@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Migrating from previous versions of pyslim &#8212; PySLiM manual</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python API" href="python_api.html" />
+    <link rel="prev" title="Metadata" href="metadata.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">PySLiM manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Using pyslim
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorial.html">
+   Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_space.html">
+   Vignette: A spatial simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_continuing.html">
+   Vignette: Following up with more coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_coalescent_diversity.html">
+   Vignette: Starting with diversity generated by coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_parallel_phylo.html">
+   Vignette: Parallelizing SLiM simulations in a phylogenetic tree
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="time_units.html">
+   Time units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Migrating from previous versions of pyslim
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  pyslim reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_api.html">
+   Python API
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  pyslim 1.0.1
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/previous_versions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/previous_versions.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/tskit-dev/pyslim"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/tskit-dev/pyslim/issues/new?title=Issue%20on%20page%20%2Fprevious_versions.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/tskit-dev/pyslim/edit/main/docs/previous_versions.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/tskit-dev/pyslim/main?urlpath=tree/docs/previous_versions.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   1.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   0.700
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#legacy-metadata">
+   Legacy metadata
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Migrating from previous versions of pyslim</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   1.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   0.700
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#legacy-metadata">
+   Legacy metadata
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="migrating-from-previous-versions-of-pyslim">
+<span id="sec-previous-versions"></span><h1>Migrating from previous versions of pyslim<a class="headerlink" href="#migrating-from-previous-versions-of-pyslim" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>1.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>The pyslim 1.0 release coincides with that of SLiM v4,
+which introduced a number of changes to SLiM.
+pyslim remains backwards compatible, in that pyslim 1.0
+will happily read tree sequences produced by previous versions of SLiM or pyslim,
+and will convert them to the current version.
+However, previous pyslim code may not work, due to two sets of changes:
+(1) much of the functionality originally in pyslim has moved to tskit
+(e.g., metadata processing), and (2) minor changes to terminology in SLiM v4
+(“generation” is now “tick”).</p>
+<p>Converting previous code should be straightforward, as there are exact replacements.
+The most important changes are to remove calls to <code class="docutils literal notranslate"><span class="pre">pyslim.load(</span> <span class="pre">)</span></code> or <code class="docutils literal notranslate"><span class="pre">SlimTreeSequence(</span> <span class="pre">)</span></code>,
+and change “generation=” arguments to “tick=”.</p>
+<p>In more detail, to upgrade code you should:</p>
+<ol class="simple">
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">pyslim.load(</span> <span class="pre">)</span></code> to <code class="docutils literal notranslate"><span class="pre">tskit.load(</span> <span class="pre">)</span></code>.</p></li>
+<li><p>Remove calls to <code class="docutils literal notranslate"><span class="pre">SlimTreeSequence(</span> <span class="pre">)</span></code>. They are not needed.</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">generation</span></code> to <code class="docutils literal notranslate"><span class="pre">tick</span></code> in any arguments to functions, or in metadata.</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">pyslim.annotate_defaults(</span> <span class="pre">)</span></code> to <code class="docutils literal notranslate"><span class="pre">pyslim.annotate(</span> <span class="pre">)</span></code>.
+and <code class="docutils literal notranslate"><span class="pre">pyslim.annotate_defaults_tables(</span> <span class="pre">)</span></code> to <code class="docutils literal notranslate"><span class="pre">pyslim.annotate_tables(</span> <span class="pre">)</span></code>.</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">pyslim.update_tables(</span> <span class="pre">)</span></code> to <code class="docutils literal notranslate"><span class="pre">pyslim.update(</span> <span class="pre">)</span></code>.</p></li>
+</ol>
+<p>Some methods of SlimTreeSequence are now methods of pyslim that take a tree sequence
+as their first argument:</p>
+<ol class="simple">
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">ts.recapitate(...)</span></code> to <code class="docutils literal notranslate"><span class="pre">pyslim.recapitate(ts,</span> <span class="pre">...)</span></code>.</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">ts.individuals_alive_at(t)</span></code> to <code class="docutils literal notranslate"><span class="pre">pyslim.individuals_alive_at(ts,</span> <span class="pre">t)</span></code>.</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">ts.has_individual_parents()</span></code> to <code class="docutils literal notranslate"><span class="pre">pyslim.has_individual_parents(ts)</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">ts.individual_parents()</span></code> to <code class="docutils literal notranslate"><span class="pre">pyslim.individual_parents(ts)</span></code>.</p></li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">ts.first_generation_individuals()</span></code> with
+an appropriate call to <code class="docutils literal notranslate"><span class="pre">pyslim.individuals_alive_at(</span> <span class="pre">)</span></code>.</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">ts.mutation_at(...)</span></code> to <code class="docutils literal notranslate"><span class="pre">pyslim.mutation_at(ts,</span> <span class="pre">...)</span></code>.
+and <code class="docutils literal notranslate"><span class="pre">ts.nucleotide_at(...)</span></code> to <code class="docutils literal notranslate"><span class="pre">pyslim.nucleotide_at(ts,</span> <span class="pre">...)</span></code>.</p></li>
+</ol>
+<p>Several properties previously provided by SlimTreeSequence are now provided
+by TreeSequence (e.g., <code class="docutils literal notranslate"><span class="pre">ts.individual_times</span></code>); so these need no change.
+However, these were briefly available as pyslim methods, so would need changing:</p>
+<ol class="simple">
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">pyslim.individual_times(ts)</span></code> to <code class="docutils literal notranslate"><span class="pre">ts.individuals_time</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pyslim.individual_populations(ts)</span></code> to <code class="docutils literal notranslate"><span class="pre">ts.individuals_population</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">pyslim.individual_locations(ts)</span></code> to <code class="docutils literal notranslate"><span class="pre">ts.individuals_location</span></code></p></li>
+</ol>
+<p>The change from <code class="docutils literal notranslate"><span class="pre">pyslim.annotate_defaults(</span> <span class="pre">)</span></code> to <code class="docutils literal notranslate"><span class="pre">pyslim.annotate(</span> <span class="pre">)</span></code>
+also entailed some small changes in behavior. Most notably,
+since msprime.sim_ancestry() now simulates individuals
+by default, annotation does not set up individuals: if you have a tree
+sequence without individuals (e.g., produced by msprime.simulate()) then you
+need to set up those individuals yourself.</p>
+<p>To update a tree sequence produced by an old version of SLiM to the current one,
+use <code class="docutils literal notranslate"><span class="pre">pyslim.update(</span> <span class="pre">)</span></code>. (However, note that reading it in to SLiM and
+writing it out again might be even easier.)</p>
+<p>Also see notes below for 0.700.</p>
+</div>
+<div class="section" id="id2">
+<h2>0.700<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>A number of features that were first introduced in pyslim have been made part of core
+tskit functionality. For instance, reference sequence support was provided (although
+loosely) inpyslim to support SLiM’s nucleotide models, but is now part of a standard
+tskit <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a>. Similarly, metadata processing in tskit made
+code to do this within pyslim obsolete; this “legacy metadata” code has been removed
+and instructions for how to migrate your code are <a class="reference internal" href="#sec-legacy-metadata"><span class="std std-ref">below</span></a>.</p>
+<p>In fact, we are now at the (very good) place where we don’t really need
+the <code class="docutils literal notranslate"><span class="pre">pyslim.SlimTreeSequence</span></code> class any longer,
+and it will soon be deprecated.
+So, pyslim is migrating to be purely functional: instead of providing the SlimTreeSequence
+class with specialized methods, all methods will be functions of TreeSequences,
+that take in a tree sequence and return something
+(a modified tree sequence or some summary of it).
+Backwards compatibility will be maintained for some time, but we request that you
+switch over sooner, as your code will be cleaner and faster.</p>
+<p>To migrate, you should:</p>
+<ol class="simple">
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">ts.slim_generation</span></code> with <code class="docutils literal notranslate"><span class="pre">ts.metadata['SLiM']['generation']</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">ts.model_type</span></code> with <code class="docutils literal notranslate"><span class="pre">ts.metadata['SLiM']['model_type']</span></code>.</p></li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">ts.reference_sequence</span></code> with <code class="docutils literal notranslate"><span class="pre">ts.reference_sequence.data</span></code>.</p></li>
+<li><p>Replace calls to <code class="docutils literal notranslate"><span class="pre">ts.recapitate(...)</span></code> with <code class="docutils literal notranslate"><span class="pre">pyslim.recapitate(ts,</span> <span class="pre">...)</span></code>,
+and similarly with other SlimTreeSequence methods.</p></li>
+</ol>
+<p>If you encounter difficulties, please post an
+<a class="reference external" href="https://github.com/tskit-dev/pyslim/issues">issue</a>
+or <a class="reference external" href="https://github.com/tskit-dev/pyslim/discussions">discussion</a> on github.</p>
+</div>
+<div class="section" id="legacy-metadata">
+<span id="sec-legacy-metadata"></span><h2>Legacy metadata<a class="headerlink" href="#legacy-metadata" title="Permalink to this headline">¶</a></h2>
+<p>In previous versions of pyslim,
+SLiM-specific metadata was provided as customized objects:
+for instance, for a node <code class="docutils literal notranslate"><span class="pre">n</span></code> provided by a <code class="docutils literal notranslate"><span class="pre">SlimTreeSequence</span></code>,
+we’d have <code class="docutils literal notranslate"><span class="pre">n.metadata</span></code> as a <code class="docutils literal notranslate"><span class="pre">NodeMetadata</span></code> object,
+with attributes <code class="docutils literal notranslate"><span class="pre">n.metadata.slim_id</span></code> and <code class="docutils literal notranslate"><span class="pre">n.metadata.is_null</span></code> and <code class="docutils literal notranslate"><span class="pre">n.metadata.genome_type</span></code>.
+However, with tskit 0.3,
+the capacity to deal with structured metadata
+was implemented in <a class="reference external" href="https://tskit.dev/tskit/docs/stable/metadata.html#sec-metadata" title="(in Python)"><span class="xref myst">tskit itself</span></a>,
+and so pyslim shifted to using the tskit-native metadata tools.
+As a result, parsed metadata is provided as a dictionary instead of an object,
+so that now <code class="docutils literal notranslate"><span class="pre">n.metadata</span></code> would be a dict,
+with entries <code class="docutils literal notranslate"><span class="pre">n.metadata[&quot;slim_id&quot;]</span></code> and <code class="docutils literal notranslate"><span class="pre">n.metadata[&quot;is_null&quot;]</span></code> and <code class="docutils literal notranslate"><span class="pre">n.metadata[&quot;genome_type&quot;]</span></code>.
+Annotation should be done with tskit methods (e.g., <code class="docutils literal notranslate"><span class="pre">packset_metadata</span></code>).</p>
+<p>.. note::</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Until pyslim version 0.600, the old-style metadata was still available,
+but this functionality has been removed.
+</pre></div>
+</div>
+<p>Here are more detailed notes on how to migrate a script from the legacy
+metadata handling. If you run into issues, please ask (open a discussion on github).</p>
+<p><strong>1.</strong> Use top-level metadata instead of <code class="docutils literal notranslate"><span class="pre">slim_provenance</span></code>:
+previously, information about the model type and the time counter (generation)
+in SLiM was provided in the Provenances table, made available through
+the <code class="docutils literal notranslate"><span class="pre">ts.slim_provenance</span></code> object.  This is still available but deprecated,
+and should be obtained from the <em>top-level</em> metadata object, <code class="docutils literal notranslate"><span class="pre">ts.metadata[&quot;SLiM&quot;]</span></code>.
+So, in your scripts <code class="docutils literal notranslate"><span class="pre">ts.slim_provenance.model_type</span></code> should be replaced with
+<code class="docutils literal notranslate"><span class="pre">ts.metadata[&quot;SLiM&quot;][&quot;model_type&quot;]</span></code>,
+and (although it’s not deprecated), probably <code class="docutils literal notranslate"><span class="pre">ts.slim_generation</span></code> should
+probably be replaced with
+<code class="docutils literal notranslate"><span class="pre">ts.metadata[&quot;SLiM&quot;][&quot;generation&quot;]</span></code>.</p>
+<p><strong>2.</strong> Switch metadata objects to dicts:
+if <code class="docutils literal notranslate"><span class="pre">md</span></code> is the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property of a population, individual, or node,
+this means replacing <code class="docutils literal notranslate"><span class="pre">md.X</span></code> with <code class="docutils literal notranslate"><span class="pre">md[&quot;X&quot;]</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">migration_records</span></code> property of population metadata is similarly
+a list of dicts rather than a list of objects, so instead of
+<code class="docutils literal notranslate"><span class="pre">ts.population(1).metadata.migration_records[0].source_subpop</span></code>
+we would write
+<code class="docutils literal notranslate"><span class="pre">ts.population(1).metadata[&quot;migration_records&quot;][0][&quot;source_subpop&quot;]</span></code>.</p>
+<p>Mutations were previously a bit different - if <code class="docutils literal notranslate"><span class="pre">mut</span></code> is a mutation
+(e.g., <code class="docutils literal notranslate"><span class="pre">mut</span> <span class="pre">=</span> <span class="pre">ts.mutation(0)</span></code>)
+then <code class="docutils literal notranslate"><span class="pre">mut.metadata</span></code> was previously a list of MutationMetadata objects.
+Now, <code class="docutils literal notranslate"><span class="pre">mut.metadata</span></code> is a dict, with a single entry:
+<code class="docutils literal notranslate"><span class="pre">mut.metadata[&quot;mutation_list&quot;]</span></code> is a list of dicts, each containing the information
+that was previously in the MutationMetadata objects.
+So, for instance, instead of <code class="docutils literal notranslate"><span class="pre">mut.metadata[0].selection_coeff</span></code>
+we would write <code class="docutils literal notranslate"><span class="pre">mut.metadata[&quot;mutation_list&quot;][0][&quot;selection_coeff&quot;]</span></code>.</p>
+<p><strong>3.</strong> The <code class="docutils literal notranslate"><span class="pre">decode_X</span></code> and <code class="docutils literal notranslate"><span class="pre">encode_X</span></code> methods are now deprecated,
+as this is handled by tskit itself.
+For instance, <code class="docutils literal notranslate"><span class="pre">encode_node</span></code> would take a NodeMetadata object
+and produce the raw bytes necessary to encode it in a Node table,
+and <code class="docutils literal notranslate"><span class="pre">decode_node</span></code> would do the inverse operation.
+This is now handled by the relevant MetadataSchema object:
+for nodes one can obtain this as <code class="docutils literal notranslate"><span class="pre">nms</span> <span class="pre">=</span> <span class="pre">ts.tables.nodes.metadata_schema</span></code>,
+which has the methods <code class="docutils literal notranslate"><span class="pre">nms.validate_and_encode_row</span></code> and <code class="docutils literal notranslate"><span class="pre">nms.decode_row</span></code>.
+Decoding is for the most part not necessary,
+since the metadata is automatically decoded,
+but <code class="docutils literal notranslate"><span class="pre">pyslim.decode_node(raw_md)</span></code> could be replaced by <code class="docutils literal notranslate"><span class="pre">nms.decode_row(raw_md)</span></code>.
+Encoding is necessary to modify tables,
+and <code class="docutils literal notranslate"><span class="pre">pyslim.encode_node(md)</span></code> can be replaced by <code class="docutils literal notranslate"><span class="pre">nms.validate_and_encode_row(md)</span></code>
+(where furthermore <code class="docutils literal notranslate"><span class="pre">md</span></code> should now be a dict rather than a NodeMetadata object).</p>
+<p><strong>4.</strong> The <code class="docutils literal notranslate"><span class="pre">annotate_X_metadata</span></code> methods are deprecated,
+as again tskit has tools to do this.
+These methods would set the metadata column of a table -
+for instance, if <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is a list of NodeMetadata objects, then
+<code class="docutils literal notranslate"><span class="pre">annotate_node_metadata(tables,</span> <span class="pre">metadata)</span></code> would modify <code class="docutils literal notranslate"><span class="pre">tables.nodes</span></code> in place
+to contain the (encoded) metadata in the list <code class="docutils literal notranslate"><span class="pre">metadata</span></code>.
+Now, this could be done as follows (where now <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is a list of metadata dicts):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span><span class="s1">&#39;slim_id&#39;</span><span class="p">:</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;is_null&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;genome_type&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">num_rows</span><span class="p">)</span> <span class="p">]</span>
+<span class="n">nms</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">metadata_schema</span>
+<span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">packset_metadata</span><span class="p">(</span>
+  <span class="p">[</span><span class="n">nms</span><span class="o">.</span><span class="n">validate_and_encode_row</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If speed is an issue, then <code class="docutils literal notranslate"><span class="pre">encode_row</span></code> can be substituted for <code class="docutils literal notranslate"><span class="pre">validate_and_encode_row</span></code>,
+but at the risk of missing errors in metadata.</p>
+<p><strong>5.</strong> the <code class="docutils literal notranslate"><span class="pre">extract_X_metadata</span></code> methods are not necessary,
+since the metadata in the tables of a TableCollection are automatically decoded.
+For instance, <code class="docutils literal notranslate"><span class="pre">[ind.metadata[&quot;sex&quot;]</span> <span class="pre">for</span> <span class="pre">ind</span> <span class="pre">in</span> <span class="pre">tables.individuals]</span></code> will obtain
+a list of sexes of the individuals in the IndividualTable.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is our intention to remain backwards-compatible for a time.
+However, the legacy code will disappear at some point in the future,
+so please migrate over scripts you intend to rely on.</p>
+</div>
+<p>=======</p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>483184a (deprecation start)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="metadata.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Metadata</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="python_api.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python API</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tskit Developers<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        pyslim 1.0.1
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

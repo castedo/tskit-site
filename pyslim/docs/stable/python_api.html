@@ -1,0 +1,969 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python API &#8212; PySLiM manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development" href="development.html" />
+    <link rel="prev" title="Migrating from previous versions of pyslim" href="previous_versions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">PySLiM manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Using pyslim
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorial.html">
+   Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_space.html">
+   Vignette: A spatial simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_continuing.html">
+   Vignette: Following up with more coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_coalescent_diversity.html">
+   Vignette: Starting with diversity generated by coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_parallel_phylo.html">
+   Vignette: Parallelizing SLiM simulations in a phylogenetic tree
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="time_units.html">
+   Time units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="previous_versions.html">
+   Migrating from previous versions of pyslim
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  pyslim reference
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Python API
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            pyslim 1.0.1
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right"><label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#editing-or-adding-to-tree-sequences">
+   Editing or adding to tree sequences
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summarizing-tree-sequences">
+   Summarizing tree sequences
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metadata">
+   Metadata
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#annotation">
+     Annotation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constants-and-flags">
+   Constants and flags
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Python API</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#editing-or-adding-to-tree-sequences">
+   Editing or adding to tree sequences
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summarizing-tree-sequences">
+   Summarizing tree sequences
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metadata">
+   Metadata
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#annotation">
+     Annotation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constants-and-flags">
+   Constants and flags
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-api">
+<span id="sec-python-api"></span><h1>Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">#</a></h1>
+<p>This page provides detailed documentation for the methods and classes
+available in pyslim.
+Here is a quick reference to some of the methods:</p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyslim.recapitate" title="pyslim.recapitate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recapitate</span></code></a>(ts[, ancestral_Ne])</p></td>
+<td><p>Returns a &quot;recapitated&quot; tree sequence, by using msprime to run a coalescent simulation from the &quot;top&quot; of this tree sequence, i.e., allowing any uncoalesced lineages to coalesce.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyslim.annotate" title="pyslim.annotate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">annotate</span></code></a>(ts, **kwargs)</p></td>
+<td><p>Takes a tree sequence (as produced by msprime, for instance), and adds in the information necessary for SLiM to use it as an initial state, filling in mostly default values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyslim.individuals_alive_at" title="pyslim.individuals_alive_at"><code class="xref py py-obj docutils literal notranslate"><span class="pre">individuals_alive_at</span></code></a>(ts, time[, stage, ...])</p></td>
+<td><p>Returns an array giving the IDs of all individuals that are known to be alive at the given time ago.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyslim.individual_ages_at" title="pyslim.individual_ages_at"><code class="xref py py-obj docutils literal notranslate"><span class="pre">individual_ages_at</span></code></a>(ts, time[, stage, ...])</p></td>
+<td><p>Returns the <cite>ages</cite> of each individual at the corresponding time ago, which will be <code class="docutils literal notranslate"><span class="pre">nan</span></code> if the individual is either not born yet or dead.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyslim.slim_time" title="pyslim.slim_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slim_time</span></code></a>(ts, time[, stage])</p></td>
+<td><p>Converts the given &quot;tskit times&quot; (i.e., in units of time before the end of the simulation) to SLiM times (those recorded by SLiM, usually in units of ticks since the start of the simulation).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyslim.convert_alleles" title="pyslim.convert_alleles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_alleles</span></code></a>(ts)</p></td>
+<td><p>Returns a modified tree sequence in which alleles have been replaced by their corresponding nucleotides.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyslim.generate_nucleotides" title="pyslim.generate_nucleotides"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_nucleotides</span></code></a>(ts[, ...])</p></td>
+<td><p>Returns a modified tree sequence in which mutations have been randomly assigned nucleotides and (optionally) a reference sequence has been randomly generated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyslim.population_size" title="pyslim.population_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">population_size</span></code></a>(ts, x_bins, y_bins, time_bins)</p></td>
+<td><p>Calculates the population size in each of the spatial bins defined by grid lines at <code class="docutils literal notranslate"><span class="pre">x_bins</span></code> and <code class="docutils literal notranslate"><span class="pre">y_bins</span></code>, averaged over each of the time intervals separated by <code class="docutils literal notranslate"><span class="pre">time_bins</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="metadata.html#pyslim.default_slim_metadata" title="pyslim.default_slim_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_slim_metadata</span></code></a>(name)</p></td>
+<td><p>Returns default metadata of type <code class="docutils literal notranslate"><span class="pre">name</span></code>, where <code class="docutils literal notranslate"><span class="pre">name</span></code> is one of &quot;tree_sequence&quot;, &quot;edge&quot;, &quot;site&quot;, &quot;mutation&quot;, &quot;mutation_list_entry&quot;, &quot;node&quot;, &quot;individual&quot;, or &quot;population&quot;.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyslim.update" title="pyslim.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(ts)</p></td>
+<td><p>Update a tree sequence produced by a previous verion of SLiM to the current file version.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="editing-or-adding-to-tree-sequences">
+<h2>Editing or adding to tree sequences<a class="headerlink" href="#editing-or-adding-to-tree-sequences" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pyslim</span></code> provides tools for transforming tree sequences:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslim.recapitate">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">recapitate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancestral_Ne</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyslim/methods.html#recapitate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslim.recapitate" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a “recapitated” tree sequence, by using msprime to run a
+coalescent simulation from the “top” of this tree sequence, i.e.,
+allowing any uncoalesced lineages to coalesce.</p>
+<p>To allow recapitation to be done correctly, the nodes of the
+first generation of the SLiM simulation from whom all samples inherit
+are still present in the tree sequence, but are not marked as samples.
+If you simplify the tree sequence before recapitating you must ensure
+these are not removed, which you do by passing the argument
+<code class="docutils literal notranslate"><span class="pre">keep_input_roots=True</span></code> to <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simplify</span></code></a>.</p>
+<p>If you specify an <code class="docutils literal notranslate"><span class="pre">ancestral_Ne</span></code>, then the recapitated portion of the
+tree sequence will be simulated in a single population with this
+(diploid) size. In other words, all lineages are moved to a single
+population of this size (named “ancestral” if this name is not already
+taken), and coalescence is allowed to happen.</p>
+<p>You may control the ancestral demography by passing in a <code class="docutils literal notranslate"><span class="pre">demography</span></code>
+argument: see <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.sim_ancestry" title="(in Python)"><code class="xref py py-func docutils literal notranslate"><span class="pre">msprime.sim_ancestry()</span></code></a>.</p>
+<p>In general, all defaults are whatever the defaults of
+{meth}`msprime.sim_ancestry` are; this includes recombination rate, so
+that if neither <code class="docutils literal notranslate"><span class="pre">recombination_rate</span></code> or a <code class="docutils literal notranslate"><span class="pre">recombination_map</span></code> are
+provided, there will be <em>no</em> recombination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong> (<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><em>tskit.TreeSequence</em></a>) – The tree sequence to transform.</p></li>
+<li><p><strong>ancestral_Ne</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – If specified, then will simulate from a single
+ancestral population of this size. It is an error to specify this
+as well as <code class="docutils literal notranslate"><span class="pre">demography</span></code>.</p></li>
+<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – Any other arguments to <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.sim_ancestry" title="(in Python)"><code class="xref py py-func docutils literal notranslate"><span class="pre">msprime.sim_ancestry()</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslim.convert_alleles">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">convert_alleles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyslim/methods.html#convert_alleles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslim.convert_alleles" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a modified tree sequence in which alleles have been replaced by
+their corresponding nucleotides. For sites, SLiM-produced tree sequences
+have “” (the empty string) for the ancestral state at each site; this method
+will replace this with the corresponding nucleotide from the reference sequence.
+For mutations, SLiM records the ‘derived state’ as a SLiM mutation ID; this
+method will this with the nucleotide from the mutation’s metadata.</p>
+<p>This operation is not reversible: since SLiM mutation IDs are lost, the tree
+sequence will not be able to be read back into SLiM.</p>
+<p>The main purpose of this method is for output: for instance, this code will produce
+a VCF file with nucleotide alleles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nts</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">convert_alleles</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;nucs.vcf&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">nts</span><span class="o">.</span><span class="n">write_vcf</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This method will produce an error if the tree sequence does not have a
+valid reference sequence or if any mutations do not have nucleotides: to first
+generate these, see <a class="reference internal" href="#pyslim.generate_nucleotides" title="pyslim.generate_nucleotides"><code class="xref py py-func docutils literal notranslate"><span class="pre">generate_nucleotides()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ts</strong> (<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><em>tskit.TreeSequence</em></a>) – The tree sequence to transform.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslim.generate_nucleotides">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">generate_nucleotides</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_sequence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyslim/methods.html#generate_nucleotides"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslim.generate_nucleotides" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a modified tree sequence in which mutations have been randomly assigned nucleotides
+and (optionally) a reference sequence has been randomly generated.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">reference_sequence</span></code> is a string of nucleotides (A, C, G, and T) of
+length equal to the sequence length, this is used for the reference
+sequence. If no reference sequence is given, the reference_sequence property
+of ts is used if present; if not then a sequence of independent and
+uniformly random nucleotides is generated.</p>
+<p>SLiM stores the nucleotide as an integer in the mutation metadata, with -1 meaning “not
+a nucleotide mutation”. This method assigns nucleotides by stepping through
+each mutation and picking a random nucleotide uniformly out of the three
+possible nucleotides that differ from the parental state (i.e., the derived
+state of the parental mutation, or the ancestral state if the mutation has
+no parent). If <code class="docutils literal notranslate"><span class="pre">keep=True</span></code> (the default), the mutations that already have a 
+nucleotide (i.e., an integer 0-3 in metadata) will not be modified.</p>
+<p>Technical note: in the case of stacked mutations, the SLiM mutation that
+determines the nucleotide state of the (tskit) mutation is the one with the largest
+slim_time attribute. This method tries to assign nucleotides so that each mutation
+differs from the previous state, but this is not always possible in certain
+unlikely cases.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong> (<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><em>tskit.TreeSequence</em></a>) – The tree sequence to transform.</p></li>
+<li><p><strong>reference_sequence</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – A reference sequence, or None to use an existing reference,
+or to randomly generate one.</p></li>
+<li><p><strong>keep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to leave existing nucleotides in mutations that already have one.</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The random seed for generating new alleles.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslim.update">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyslim/slim_metadata.html#update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslim.update" title="Permalink to this definition">#</a></dt>
+<dd><p>Update a tree sequence produced by a previous verion of SLiM
+to the current file version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return TreeSequence</dt>
+<dd class="field-odd"><p>The updated tree sequence.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="summarizing-tree-sequences">
+<h2>Summarizing tree sequences<a class="headerlink" href="#summarizing-tree-sequences" title="Permalink to this headline">#</a></h2>
+<p>Additionally, <code class="docutils literal notranslate"><span class="pre">pyslim</span></code> contains the following methods:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslim.individuals_alive_at">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">individuals_alive_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'late'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remembered_stage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyslim/methods.html#individuals_alive_at"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslim.individuals_alive_at" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an array giving the IDs of all individuals that are known to be
+alive at the given time ago.  This is determined using their birth time
+ago (given by their <cite>time</cite> attribute) and, for nonWF models,
+their <cite>age</cite> attribute (which is equal to their age at the last time
+they were Remembered). See also {func}`.individual_ages_at`.</p>
+<p>In WF models, birth occurs after “early()”, so that individuals are only
+alive during “late()” for the time step when they have age zero,
+while in nonWF models, birth occurs before “early()”, so they are alive
+for both stages.</p>
+<p>In both WF and nonWF models, mortality occurs between
+“early()” and “late()”, so that individuals are last alive during the
+“early()” stage of the time step of their final age, and if individuals
+are alive during “late()” they will also be alive during “first()” and
+“early()” of the next time step. This means it is important to know during
+which stage individuals were Remembered - for instance, if the call to
+sim.treeSeqRememberIndividuals() was made during “early()” of a given time step,
+then those individuals might not have survived until “late()” of that
+time step. Since SLiM does not record the stage at which individuals
+were Remembered, you can specify this by setting <code class="docutils literal notranslate"><span class="pre">remembered_stages</span></code>:
+it should be the stage during which <em>all</em> calls to
+<code class="docutils literal notranslate"><span class="pre">sim.treeSeqRememberIndividuals()</span></code>,  as well as to <code class="docutils literal notranslate"><span class="pre">sim.treeSeqOutput()</span></code>,
+were made.</p>
+<p>Note also that in nonWF models, birth occurs between “first()” and
+“early()”, so the possible parents in a given time step are those that are
+alive in “early()” and have age greater than zero, or, equivalently, are
+alive in “late()” during the previous time step.
+In WF models, birth occurs after “early()”, so possible parents in a
+given time step are those that are alive during “early()” of that time
+step or are alive during “late()” of the previous time step.</p>
+<p>Since individuals may be created not during the usual ‘birth’ stage
+by <cite>addSubPop( )</cite>, and the stage at which they are created is not stored,
+results may be unreliable for the first-generation individuals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong> (<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><em>tskit.TreeSequence</em></a>) – A tree sequence.</p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – The number of ticks (i.e., time steps) ago.</p></li>
+<li><p><strong>stage</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The stage in the SLiM life cycle that we are inquiring
+about (either “first”, “early” or “late”; defaults to “late”).</p></li>
+<li><p><strong>remembered_stage</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The stage in the SLiM life cycle
+during which individuals were Remembered (defaults to the stage the
+tree sequence was recorded at, stored in metadata).</p></li>
+<li><p><strong>population</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If given, return only individuals in the
+population(s) with these population ID(s).</p></li>
+<li><p><strong>samples_only</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to return only individuals who have at
+least one node marked as samples.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslim.individual_ages_at">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">individual_ages_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'late'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remembered_stage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'late'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyslim/methods.html#individual_ages_at"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslim.individual_ages_at" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the <cite>ages</cite> of each individual at the corresponding time ago,
+which will be <code class="docutils literal notranslate"><span class="pre">nan</span></code> if the individual is either not born yet or dead.
+This is computed as the time ago the individual was born (found by the
+<cite>time</cite> associated with the the individual’s nodes) minus the <cite>time</cite>
+argument; while “death” is inferred from the individual’s <code class="docutils literal notranslate"><span class="pre">age</span></code>,
+recorded in metadata. These values are the same as what would be shown
+in SLiM during the corresponding time step and stage.</p>
+<p>Since age increments at the end of each time step,
+the age is the number of time steps ends the individual has lived
+through, so if they were born in time step <cite>time</cite>, then their age
+will be zero.</p>
+<p>In a WF model, this method does not provide any more information than
+does {func}`.individuals_alive_at`, but for consistency, non-nan ages
+will be 0 in “late” and 1 in “first” and “early”.
+See {func}`.individuals_alive_at` for further discussion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong> (<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><em>tskit.TreeSequence</em></a>) – A tree sequence.</p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – The reference time ago.</p></li>
+<li><p><strong>stage</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The stage in the SLiM life cycle used to determine who
+is alive (either “early” or “late”; defaults to “late”).</p></li>
+<li><p><strong>remembered_stage</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The stage in the SLiM life cycle during which
+individuals were Remembered.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslim.slim_time">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">slim_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'late'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyslim/methods.html#slim_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslim.slim_time" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts the given “tskit times” (i.e., in units of time before the end
+of the simulation) to SLiM times (those recorded by SLiM, usually in units
+of ticks since the start of the simulation). Although the latter are
+always integers, these will not be if the provided times are not integers.</p>
+<p>When the tree sequence is written out, SLiM records the current
+current tick in the metadata:
+<code class="docutils literal notranslate"><span class="pre">ts.metadata['SLiM']['tick']</span></code>. In most cases, the “SLiM time”
+referred to by a time ago in the tree sequence (i.e., the value that would
+be reported by community.tick within SLiM at the point in time thus
+referenced) can be obtained by subtracting that time ago from
+<code class="docutils literal notranslate"><span class="pre">ts.metadata['SLiM']['tick']</span></code>. However, in WF models, birth
+happens between the “early()” and “late()” stages, so if the tree
+sequence was written out using sim.treeSeqOutput() during “early()” in
+a WF model, the tree sequence’s times measure time before the last set
+of individuals are born, i.e., before SLiM time step
+<code class="docutils literal notranslate"><span class="pre">ts.metadata['SLiM']['tick']</span> <span class="pre">-</span> <span class="pre">1</span></code>. The same thing applies to
+the “first” stage for both WF and nonWF models.</p>
+<p>In some situations (e.g., mutations added during early() in WF models)
+this may not return what you expect. See <a class="reference internal" href="time_units.html#sec-metadata-converting-times"><span class="std std-ref">Converting from SLiM time to tskit time and back</span></a>
+for more discussion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong> (<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><em>tskit.TreeSequence</em></a>) – A SLiM-compatible TreeSequence.</p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – An array of times to be converted.</p></li>
+<li><p><strong>stage</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The stage of the SLiM life cycle that the SLiM time
+should be computed for.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslim.population_size">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">population_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'late'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remembered_stage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyslim/spatial.html#population_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslim.population_size" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculates the population size in each of the spatial bins defined by grid lines
+at <code class="docutils literal notranslate"><span class="pre">x_bins</span></code> and <code class="docutils literal notranslate"><span class="pre">y_bins</span></code>, averaged over each of the time intervals separated by
+<code class="docutils literal notranslate"><span class="pre">time_bins</span></code>. To obtain actual (census) sizes, the tree sequence must contain
+all individuals alive, e.g., from a SLiM simulation with all individuals
+permanently remembered.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">nx</span></code>, <code class="docutils literal notranslate"><span class="pre">ny</span></code> and <code class="docutils literal notranslate"><span class="pre">nt</span></code> the number of bins in the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and time directions
+(so, <code class="docutils literal notranslate"><span class="pre">nx</span></code> is one less than the length of <code class="docutils literal notranslate"><span class="pre">x_bins</span></code>),
+returns a 3-d array with dimensions <code class="docutils literal notranslate"><span class="pre">(nx,</span> <span class="pre">ny,</span> <span class="pre">nt)</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">(i,j,k)``th</span> <span class="pre">element</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">array</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">average</span> <span class="pre">number</span> <span class="pre">of</span>
+<span class="pre">individuals</span> <span class="pre">with</span> <span class="pre">``x</span></code> coordinate in the half-open interval <code class="docutils literal notranslate"><span class="pre">[x_bins[i],</span> <span class="pre">x_bins[i</span> <span class="pre">+</span> <span class="pre">1])</span></code>
+and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinate in the half-open interval <code class="docutils literal notranslate"><span class="pre">[y_bins[i],</span> <span class="pre">y_bins[i</span> <span class="pre">+</span> <span class="pre">1])</span></code>,
+averaged across all times in the half-open interval <code class="docutils literal notranslate"><span class="pre">[time_bins[k],</span> <span class="pre">time_bins[k</span> <span class="pre">+</span> <span class="pre">1])</span></code>.</p>
+<p>For integer endpoints of the time bins, this average is equivalent to
+recording the number of indivduals that are alive at each time in the time
+interval and have location in the relevant location bin, then taking the
+mean of these recorded population sizes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong> (<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><em>tskit.TreeSequence</em></a>) – The tree sequence to calculate population size from.</p></li>
+<li><p><strong>x_bins</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The x-coordinates of the boundaries of the location bins.</p></li>
+<li><p><strong>y_bins</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The y-coordinates of the boundaries of the location bins.</p></li>
+<li><p><strong>time_bins</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><em>numpy.ndarray</em></a>) – The endpoints of the time bins.</p></li>
+<li><p><strong>stage</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The stage in the SLiM life cycle that the endpoints of
+the time bins refer to (either “early” or “late”; defaults to “late”).</p></li>
+<li><p><strong>remembered_stage</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The stage in the SLiM life cycle during which
+individuals were Remembered (defaults to the stage the tree sequence was
+recorded at, stored in metadata).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="metadata">
+<h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">#</a></h2>
+<p>SLiM-specific metadata is made visible to the user by <code class="docutils literal notranslate"><span class="pre">.metadata</span></code> properties.
+For instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">metadata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;slim_id&#39;: 991122, &#39;is_null&#39;: False, &#39;genome_type&#39;: 0}
+</pre></div>
+</div>
+</div>
+</div>
+<p>shows that the fifth node in the tree sequence was given pedigree ID <code class="docutils literal notranslate"><span class="pre">982740</span></code> by SLiM,
+is <em>not</em> a null genome, and has <code class="docutils literal notranslate"><span class="pre">genome_type</span></code> zero, which corresponds to an autosome
+(see below).</p>
+<div class="section" id="annotation">
+<h3>Annotation<a class="headerlink" href="#annotation" title="Permalink to this headline">#</a></h3>
+<p>These two functions will add default SLiM metadata to a tree sequence (or the
+underlying tables), which can then be modified and loaded into SLiM.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslim.annotate">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">annotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyslim/methods.html#annotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslim.annotate" title="Permalink to this definition">#</a></dt>
+<dd><p>Takes a tree sequence (as produced by msprime, for instance), and adds in the
+information necessary for SLiM to use it as an initial state, filling in
+mostly default values. Returns a <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong> (<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><em>tskit.TreeSequence</em></a>) – A <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tskit.TreeSequence</span></code></a>.</p></li>
+<li><p><strong>model_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – SLiM model type: either “WF” or “nonWF”.</p></li>
+<li><p><strong>tick</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – What tick number in SLiM correponds to
+<code class="docutils literal notranslate"><span class="pre">time=0</span></code> in the tree sequence.</p></li>
+<li><p><strong>cycle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – What cycle number in SLiM correponds to
+<code class="docutils literal notranslate"><span class="pre">time=0</span></code> in the tree sequence (default: equal to <code class="docutils literal notranslate"><span class="pre">tick</span></code>).</p></li>
+<li><p><strong>stage</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – What stage in SLiM’s cycle has the tree sequence
+been written out in (defaults to “early”; must be “early” or “late”).</p></li>
+<li><p><strong>reference_sequence</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – A reference sequence of length
+equal to ts.sequence_length.</p></li>
+<li><p><strong>annotate_mutations</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether to replace mutation metadata
+with defaults. (If False, the mutation table is unchanged.)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyslim.annotate_tables">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">annotate_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cycle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'early'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_sequence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotate_mutations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyslim/methods.html#annotate_tables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyslim.annotate_tables" title="Permalink to this definition">#</a></dt>
+<dd><p>Does the work of <a class="reference internal" href="#pyslim.annotate" title="pyslim.annotate"><code class="xref py py-func docutils literal notranslate"><span class="pre">annotate()</span></code></a>, but modifies the tables in place: so,
+takes tables as produced by <code class="docutils literal notranslate"><span class="pre">msprime</span></code>, and makes them look like the
+tables as output by SLiM. See <a class="reference internal" href="#pyslim.annotate" title="pyslim.annotate"><code class="xref py py-func docutils literal notranslate"><span class="pre">annotate()</span></code></a> for details.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="constants-and-flags">
+<span id="sec-constants-and-flags"></span><h2>Constants and flags<a class="headerlink" href="#constants-and-flags" title="Permalink to this headline">#</a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyslim.NUCLEOTIDES">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">NUCLEOTIDES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['A',</span> <span class="pre">'C',</span> <span class="pre">'G',</span> <span class="pre">'T']</span></em><a class="headerlink" href="#pyslim.NUCLEOTIDES" title="Permalink to this definition">#</a></dt>
+<dd><p>Built-in mutable sequence.</p>
+<p>If no argument is given, the constructor creates a new empty list.
+The argument must be an iterable if specified.</p>
+</dd></dl>
+
+<p>These flags are the possible values for <code class="docutils literal notranslate"><span class="pre">node.metadata[&quot;genome_type&quot;]</span></code>:</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyslim.GENOME_TYPE_AUTOSOME">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">GENOME_TYPE_AUTOSOME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pyslim.GENOME_TYPE_AUTOSOME" title="Permalink to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-‘ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyslim.GENOME_TYPE_X">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">GENOME_TYPE_X</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pyslim.GENOME_TYPE_X" title="Permalink to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-‘ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyslim.GENOME_TYPE_Y">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">GENOME_TYPE_Y</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pyslim.GENOME_TYPE_Y" title="Permalink to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-‘ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<p>These flags are the possible values for <code class="docutils literal notranslate"><span class="pre">individual.metadata[&quot;sex&quot;]</span></code>:</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyslim.INDIVIDUAL_TYPE_HERMAPHRODITE">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">INDIVIDUAL_TYPE_HERMAPHRODITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></em><a class="headerlink" href="#pyslim.INDIVIDUAL_TYPE_HERMAPHRODITE" title="Permalink to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-‘ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyslim.INDIVIDUAL_TYPE_FEMALE">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">INDIVIDUAL_TYPE_FEMALE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pyslim.INDIVIDUAL_TYPE_FEMALE" title="Permalink to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-‘ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyslim.INDIVIDUAL_TYPE_MALE">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">INDIVIDUAL_TYPE_MALE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pyslim.INDIVIDUAL_TYPE_MALE" title="Permalink to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-‘ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<p>This is a flag used in <code class="docutils literal notranslate"><span class="pre">individual.metadata[&quot;flags&quot;]</span></code>:</p>
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">INDIVIDUAL_FLAG_MIGRATED</span> <span class="pre">==</span> <span class="pre">0x01</span></span></dt>
+<dd></dd></dl>
+
+<p>Finally, these are used in <code class="docutils literal notranslate"><span class="pre">individual.flags</span></code>:</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyslim.INDIVIDUAL_ALIVE">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">INDIVIDUAL_ALIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">65536</span></em><a class="headerlink" href="#pyslim.INDIVIDUAL_ALIVE" title="Permalink to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-‘ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyslim.INDIVIDUAL_REMEMBERED">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">INDIVIDUAL_REMEMBERED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">131072</span></em><a class="headerlink" href="#pyslim.INDIVIDUAL_REMEMBERED" title="Permalink to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-‘ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyslim.INDIVIDUAL_RETAINED">
+<span class="sig-prename descclassname"><span class="pre">pyslim.</span></span><span class="sig-name descname"><span class="pre">INDIVIDUAL_RETAINED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">262144</span></em><a class="headerlink" href="#pyslim.INDIVIDUAL_RETAINED" title="Permalink to this definition">#</a></dt>
+<dd><p>int([x]) -&gt; integer
+int(x, base=10) -&gt; integer</p>
+<p>Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.</p>
+<p>If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by ‘+’ or ‘-‘ and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int(‘0b100’, base=0)
+4</p>
+</dd></dl>
+
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="previous_versions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Migrating from previous versions of pyslim</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="development.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Development</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      pyslim 1.0.1
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

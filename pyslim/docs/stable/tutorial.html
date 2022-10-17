@@ -1,0 +1,2261 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial &#8212; PySLiM manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vignette: A spatial simulation" href="vignette_space.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">PySLiM manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Using pyslim
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_space.html">
+   Vignette: A spatial simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_continuing.html">
+   Vignette: Following up with more coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_coalescent_diversity.html">
+   Vignette: Starting with diversity generated by coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vignette_parallel_phylo.html">
+   Vignette: Parallelizing SLiM simulations in a phylogenetic tree
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="time_units.html">
+   Time units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="previous_versions.html">
+   Migrating from previous versions of pyslim
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  pyslim reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_api.html">
+   Python API
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            pyslim 1.0.1
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right"><label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recapitation-simplification-and-mutation">
+   Recapitation, simplification, and mutation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recapitation">
+     Recapitation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#recapitation-with-a-nonuniform-recombination-map">
+       Recapitation with a nonuniform recombination map
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simplification">
+     Simplification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-neutral-mutations-to-a-slim-simulation">
+     Adding neutral mutations to a SLiM simulation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-slim-individuals">
+   Extracting SLiM individuals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-a-sample-of-individuals">
+     Extracting a sample of individuals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-individuals-after-simplification">
+     Extracting individuals after simplification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-particular-individuals">
+     Extracting particular individuals
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recapitation-with-migration-between-more-than-one-population">
+   Recapitation with migration between more than one population
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#individual-metadata">
+   Individual metadata
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#historical-individuals">
+   Historical individuals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permanently-remembering-individuals">
+     Permanently remembering individuals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retaining-individuals">
+     Retaining individuals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remembering-everyone">
+     Remembering everyone
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#individual-flags">
+     Individual flags
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-intial-diversity-with-msprime">
+   Generating intial diversity with msprime
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-information-about-selected-mutations">
+   Extracting information about selected mutations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#possibly-important-technical-notes">
+   Possibly important technical notes
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tutorial</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recapitation-simplification-and-mutation">
+   Recapitation, simplification, and mutation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recapitation">
+     Recapitation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#recapitation-with-a-nonuniform-recombination-map">
+       Recapitation with a nonuniform recombination map
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simplification">
+     Simplification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-neutral-mutations-to-a-slim-simulation">
+     Adding neutral mutations to a SLiM simulation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-slim-individuals">
+   Extracting SLiM individuals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-a-sample-of-individuals">
+     Extracting a sample of individuals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-individuals-after-simplification">
+     Extracting individuals after simplification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-particular-individuals">
+     Extracting particular individuals
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recapitation-with-migration-between-more-than-one-population">
+   Recapitation with migration between more than one population
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#individual-metadata">
+   Individual metadata
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#historical-individuals">
+   Historical individuals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permanently-remembering-individuals">
+     Permanently remembering individuals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retaining-individuals">
+     Retaining individuals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remembering-everyone">
+     Remembering everyone
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#individual-flags">
+     Individual flags
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-intial-diversity-with-msprime">
+   Generating intial diversity with msprime
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-information-about-selected-mutations">
+   Extracting information about selected mutations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#possibly-important-technical-notes">
+   Possibly important technical notes
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">#</a></h1>
+<p>This tutorial covers the most common uses of tree sequences in SLiM/pyslim.</p>
+<div class="section" id="recapitation-simplification-and-mutation">
+<h2>Recapitation, simplification, and mutation<a class="headerlink" href="#recapitation-simplification-and-mutation" title="Permalink to this headline">#</a></h2>
+<p>Perhaps the most common pyslim operations involve <a class="reference internal" href="#sec-tutorial-recapitation"><span class="std std-ref">Recapitation</span></a>,
+<a class="reference internal" href="#sec-tutorial-simplification"><span class="std std-ref">Simplification</span></a>,  and/or <a class="reference internal" href="#sec-tutorial-adding-neutral-mutations"><span class="std std-ref">Adding neutral mutations to a SLiM simulation</span></a>.
+Below we illustrate all three in the context of running a “hybrid” simulation, combining
+both forwards and backwards (coalescent) methods. This hybrid approach is a popular
+application of pyslim because coalescent algorithms, although more limited in the degree
+of biological realism they can attain, can be much faster than the forwards algorithms
+implemented in SLiM.</p>
+<p>A typical use-case is to take an existing SLiM simulation and endow
+it with a history derived from a coalescent simulation: this is known as <em>recapitation</em>.
+For instance, suppose we have a SLiM simulation of a population of 100,000 individuals
+that we have run for 10,000 generations without neutral mutations. Now, we wish to
+extract whole-genome genotype data for only 1,000 individuals. Here’s one way to do it:</p>
+<ol class="simple">
+<li><p><a class="reference internal" href="python_api.html#pyslim.recapitate" title="pyslim.recapitate"><code class="xref py py-func docutils literal notranslate"><span class="pre">recapitate()</span></code></a> :
+The simulation has likely not reached demographic equilibrium - it has not
+<em>coalesced</em> entirely; recapitation uses coalescent simulation to provide
+a “prior history” for the initial generation of the simulation.</p></li>
+<li><p><a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simplify()</span></code></a> : For efficiency, subset the tree
+sequence to only the information relevant for those 1,000 individuals
+we wish to sample.</p></li>
+<li><p><a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.sim_mutations" title="(in Python)"><code class="xref py py-func docutils literal notranslate"><span class="pre">msprime.sim_mutations()</span></code></a> : Add neutral mutations to the tree sequence.</p></li>
+</ol>
+<p>These steps are described below. First, to get something to work with,
+you can run this simple SLiM script of a single population of sexual organisms,
+fluctuating around 1000 individuals, for 1000 generations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">initialize</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">initializeSLiMModelType</span><span class="p">(</span><span class="s2">&quot;nonWF&quot;</span><span class="p">);</span>
+   <span class="n">initializeSex</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">);</span>
+   <span class="n">initializeTreeSeq</span><span class="p">();</span>
+   <span class="n">initializeMutationRate</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+   <span class="n">initializeMutationType</span><span class="p">(</span><span class="s2">&quot;m1&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+   <span class="n">initializeGenomicElementType</span><span class="p">(</span><span class="s2">&quot;g1&quot;</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+   <span class="n">initializeGenomicElement</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1e8</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">initializeRecombinationRate</span><span class="p">(</span><span class="mf">1e-8</span><span class="p">);</span>    
+   <span class="n">defineConstant</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">reproduction</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">subpop</span><span class="o">.</span><span class="n">addCrossed</span><span class="p">(</span><span class="n">individual</span><span class="p">,</span>
+                     <span class="n">subpop</span><span class="o">.</span><span class="n">sampleIndividuals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="mi">1</span> <span class="n">early</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">addSubpop</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span> <span class="n">K</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">early</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">p1</span><span class="o">.</span><span class="n">fitnessScaling</span> <span class="o">=</span> <span class="n">K</span> <span class="o">/</span> <span class="n">p1</span><span class="o">.</span><span class="n">individualCount</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="mi">1000</span> <span class="n">late</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">treeSeqOutput</span><span class="p">(</span><span class="s2">&quot;example_sim.trees&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can run this in the shell,
+setting the random seed so you get exactly the same results
+as in the code below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+slim -s 23 example_sim.slim
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// Initial random seed:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// RunInitializeCallbacks():
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeSLiMModelType(modelType = &#39;nonWF&#39;);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeSex(&quot;A&quot;);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeTreeSeq();
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeMutationRate(0);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeMutationType(1, 0.5, &quot;f&quot;, 0);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeGenomicElementType(1, m1, 1);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeGenomicElement(g1, 0, 99999999);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeRecombinationRate(1e-08);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// Starting run at tick &lt;start&gt;:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="recapitation">
+<span id="sec-tutorial-recapitation"></span><h3>Recapitation<a class="headerlink" href="#recapitation" title="Permalink to this headline">#</a></h3>
+<div class="figure align-right" id="pedigree-recapitate">
+<a class="reference internal image-reference" href="_images/pedigree_recapitate.png"><img alt="_images/pedigree_recapitate.png" src="_images/pedigree_recapitate.png" style="width: 287.28px; height: 634.1999999999999px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Recapitation adds the green nodes by coalescent simulation.
+(See <a class="reference internal" href="introduction.html#sec-left-in-tree-sequence"><span class="std std-ref">the introduction</span></a>
+for a diagram of the previous state.)</span><a class="headerlink" href="#pedigree-recapitate" title="Permalink to this image">#</a></p>
+</div>
+<p>Although we can initialize a SLiM simulation with the results of a coalescent simulation,
+if during the simulation we don’t actually use the genotypes for anything, it
+can be much more efficient to do this afterwards, hence only doing a coalescent
+simulation for the portions of the first-generation ancestors that have
+not yet coalesced. (See the SLiM manual for more explanation.)
+This is depicted in <a class="reference internal" href="#pedigree-recapitate"><span class="std std-numref">figure 3</span></a>:
+imagine that at some sites, some of the samples
+don’t share a common ancestor within the SLiMulated portion of history (shown in blue).
+Recapitation starts at the <em>top</em> of the genealogies,
+and runs a coalescent simulation back through time
+to fill out the rest of genealogical history relevant to the samples.
+The green chromosomes are new ancestral nodes that have been added to the tree sequence.
+This is important - if we did not do this,
+then effectively we are assuming the initial population would be genetically homogeneous,
+and so our simulation would have less genetic variation than it should have
+(since the component of variation from the initial population would be omitted).</p>
+<p>Doing this is as simple as:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orig_ts</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;example_sim.trees&quot;</span><span class="p">)</span>
+<span class="n">rts</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">recapitate</span><span class="p">(</span><span class="n">orig_ts</span><span class="p">,</span>
+            <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+            <span class="n">ancestral_Ne</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The warning is harmless; it is reminding us to think about generation time
+when recapitating a nonWF simulation (a topic we’ll deal with later).</p>
+<p>We can check that this worked as expected, by verifying that after recapitation
+all trees have only one root:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orig_max_roots</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">num_roots</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">orig_ts</span><span class="o">.</span><span class="n">trees</span><span class="p">())</span>
+<span class="n">recap_max_roots</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">num_roots</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">rts</span><span class="o">.</span><span class="n">trees</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum number of roots before recapitation: </span><span class="si">{</span><span class="n">orig_max_roots</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;After recapitation: </span><span class="si">{</span><span class="n">recap_max_roots</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum number of roots before recapitation: 13
+After recapitation: 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <a class="reference internal" href="python_api.html#pyslim.recapitate" title="pyslim.recapitate"><code class="xref py py-func docutils literal notranslate"><span class="pre">recapitate()</span></code></a> method
+is just a thin wrapper around <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.sim_ancestry" title="(in Python)"><code class="xref py py-func docutils literal notranslate"><span class="pre">msprime.sim_ancestry()</span></code></a>,
+and you need to set up demography explicitly - for instance, in the example above
+we’ve simulated from an ancestral population of <code class="docutils literal notranslate"><span class="pre">Ne=200</span></code> diploids.
+If you have more than one population,
+you must set migration rates or else coalescence will never happen
+(see <a class="reference internal" href="#sec-recapitate-with-migration"><span class="std std-ref">Recapitation with migration between more than one population</span></a> for an example,
+and <a class="reference internal" href="python_api.html#pyslim.recapitate" title="pyslim.recapitate"><code class="xref py py-func docutils literal notranslate"><span class="pre">recapitate()</span></code></a> for more).</p>
+<div class="section" id="recapitation-with-a-nonuniform-recombination-map">
+<h4>Recapitation with a nonuniform recombination map<a class="headerlink" href="#recapitation-with-a-nonuniform-recombination-map" title="Permalink to this headline">#</a></h4>
+<p>Above, we recapitated using a uniform genetic map.
+But, msprime - like SLiM - can simulate with recombination drawn from an arbitrary genetic map.
+Let’s say we’ve already got a recombination map as specified by SLiM,
+as a vector of “positions” and a vector of “rates”.
+msprime also needs vectors of positions and rates, but the format is slightly different.
+To use the SLiM values for msprime, we need to do three things:</p>
+<ol class="simple">
+<li><p>Add a 0 at the beginning of the positions,</p></li>
+<li><p>add 1 to the last position.</p></li>
+</ol>
+<p>The reason why msprime “positions” must start with 0 (step 1) is that in SLiM,
+a position or “end” indicates the end of a recombination block such that its associated
+“rate” applies to everything to the left of that end (see <code class="docutils literal notranslate"><span class="pre">initializeRecombinationRate</span></code>).
+In msprime, we will pass in a <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.RateMap" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">msprime.RateMap</span></code></a>,
+which requires two things:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">position</span></code>: A list of n+1 positions, starting at 0, and ending in the sequence length over which the RateMap will apply.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rate</span></code>: A list of n positive rates that apply between each position.</p></li>
+</ul>
+<p>So, msprime needs a vector of positions that is 1 longer than what you give SLiM,
+but one fewer rate values than positions.</p>
+<p>The reason for step 2 is that intervals for tskit (which msprime uses)
+are “closed on the left and open on the right”,
+which means that the genomic interval from 0.0 to 100.0 includes 0.0 but does not include 100.0.
+If SLiM has a final genomic position of 99, then it could have mutations occurring at position 99.
+Such mutations would <em>not</em> be legal, on the other hand, if we set the tskit sequence length to 99,
+since the position 99 would be outside of the interval from 0 to 99.
+Said another way, if SLiM’s final position is 99, the total sequence length is 100,
+and so we need to set the end of the genome to 100.
+The upshot is that we need to use SLiM’s last position plus one - i.e.,
+the length of the genome - as the rightmost coordinate.</p>
+<p>For instance, suppose that we have a recombination map file in the following (tab-separated) format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">end_position</span>	<span class="n">rate</span><span class="p">(</span><span class="n">cM</span><span class="o">/</span><span class="n">Mb</span><span class="p">)</span>
+<span class="mi">15000000</span>	<span class="mf">3.2</span>
+<span class="mi">50000000</span>	<span class="mf">2.5</span>
+<span class="mi">85000000</span>	<span class="mf">0.25</span>
+<span class="mi">99999999</span>	<span class="mf">2.8</span>
+</pre></div>
+</div>
+<p>This describes recombination rates across a 100Mb genome with higher rates on the ends
+(for instance, 3.2 and 2.8 cM/Mb in the first and last 15Mb respectively)
+and lower rates in the middle (0.25 cM/Mb between 50Mb and 85Mb).
+The first column gives the starting position, in bp,
+for the window whose recombination rate is given in the second column.
+(<em>Note:</em> this is <em>not</em> a standard format for recombination maps -
+it is more usual for the <em>starting</em> position to be listed!)</p>
+<p>Here is SLiM code to read this file and set the recombination rates:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lines</span> <span class="o">=</span> <span class="n">readFile</span><span class="p">(</span><span class="s2">&quot;recomb_rates.tsv&quot;</span><span class="p">);</span>
+<span class="n">header</span> <span class="o">=</span> <span class="n">strsplit</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;end_position&quot;</span>
+    <span class="o">|</span> <span class="n">header</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;rate(cM/Mb)&quot;</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">stop</span><span class="p">(</span><span class="s2">&quot;Unexpected format!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">rates</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+<span class="n">ends</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+<span class="n">nwindows</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">nwindows</span><span class="p">])</span> <span class="p">{</span>
+  <span class="n">components</span> <span class="o">=</span> <span class="n">strsplit</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">);</span>
+  <span class="n">ends</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">ends</span><span class="p">,</span> <span class="n">asInteger</span><span class="p">(</span><span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+  <span class="n">rates</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">rates</span><span class="p">,</span> <span class="n">asFloat</span><span class="p">(</span><span class="n">components</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span>
+<span class="p">}</span>
+<span class="n">initializeRecombinationRate</span><span class="p">(</span><span class="n">rates</span> <span class="o">*</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">ends</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, here’s code to take the same recombination map used in SLiM,
+and use it for recapitation in msprime:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">positions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">rates</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;_static/recomb_rates.tsv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+  <span class="n">header</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="k">assert</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;end_position&quot;</span> <span class="ow">and</span> <span class="n">header</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;rate(cM/Mb)&quot;</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+     <span class="n">components</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+     <span class="n">positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+     <span class="n">rates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1e-8</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">components</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="c1"># step 1</span>
+<span class="n">positions</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># step 2</span>
+<span class="n">positions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">positions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">orig_ts</span><span class="o">.</span><span class="n">sequence_length</span>
+
+<span class="n">recomb_map</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">RateMap</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">positions</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">rates</span><span class="p">)</span>
+<span class="n">rts</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">recapitate</span><span class="p">(</span><span class="n">orig_ts</span><span class="p">,</span>
+                <span class="n">recombination_rate</span><span class="o">=</span><span class="n">recomb_map</span><span class="p">,</span>
+                <span class="n">ancestral_Ne</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="nb">max</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">num_roots</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">rts</span><span class="o">.</span><span class="n">trees</span><span class="p">()])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(As before, you should <em>not</em> usually explicitly set
+the random seed in your scripts; we set it here so
+the content of this document does not change.)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting from msprime 1.0, the default model of recombination
+in msprime is <em>discrete</em> - recombinations only occur at integer
+locations - which matches SLiM’s model of recombination.</p>
+</div>
+</div>
+</div>
+<div class="section" id="simplification">
+<span id="sec-tutorial-simplification"></span><h3>Simplification<a class="headerlink" href="#simplification" title="Permalink to this headline">#</a></h3>
+<div class="figure align-right" id="pedigree-simplify">
+<a class="reference internal image-reference" href="_images/pedigree_simplify.png"><img alt="_images/pedigree_simplify.png" src="_images/pedigree_simplify.png" style="width: 268.38px; height: 634.1999999999999px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The result of simplifying the tree sequence
+in figure <a class="reference internal" href="#pedigree-recapitate"><span class="std std-numref">figure 3</span></a>.</span><a class="headerlink" href="#pedigree-simplify" title="Permalink to this image">#</a></p>
+</div>
+<p>Probably, your simulations have produced many more fictitious genomes
+than you will be lucky enough to have in real life,
+so at some point you may want to reduce your dataset to a realistic sample size.
+We can get rid of unneeded samples and any extra information from them by using
+an operation called <em>simplification</em> (this is the same basic approach that SLiM
+implements under the hood when outputting a tree sequence, as described in
+<a class="reference internal" href="introduction.html#sec-left-in-tree-sequence"><span class="std std-ref">the introduction</span></a>).</p>
+<p>Depicted in the figure at the right is the result of applying an explicit call to
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.simplify()</span></code></a> to our example tree sequence.
+In the call we asked to keep only 4
+genomes (contained in 2 of the individuals in the current generation). This has
+substantially simplified the tree sequence, because only information relevant to the
+genealogies of the 4 sample nodes has been kept. (Precisely, simplification retains only
+nodes of the tree sequence that are branching points of some marginal genealogy – see
+<a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1006581">Kelleher et al 2018</a> for details.)
+While simplification sounds very appealing - it makes things simpler after all -
+it is often not necessary in practice, because tree sequences are very compact,
+and many operations with them are quite fast.
+(It will, however, speed up many operations, so if you plan to do a large number of simulations,
+your workflow could benefit from early simplification.)
+So, you should probably not make simplification a standard step in your workflow,
+only using it if necessary.</p>
+<p>It is important that simplification - if it happens at all -
+either (a) comes after recapitation, or (b) is done with the
+<code class="docutils literal notranslate"><span class="pre">keep_input_roots=True</span></code> option (see <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.simplify()</span></code></a>).
+This is because simplification removes some of the
+ancestral genomes in the first generation,
+which are necessary for recapitation,
+unless it is asked to “keep the input roots”.
+If we simplify without this option before recapitating,
+some of the first-generation blue chromosomes in the figure on the right
+would not be present, so the coalescent simulation would start from a more recent point in time
+than it really should.
+As an extreme example, suppose our SLiM simulation has a single diploid who has reproduced
+by clonal reproduction for 1,000 generations,
+so that the final tree sequence is just two vertical lines of descent going back
+to the two chromosomes in the initial individual alive 1,000 generations ago.
+Recapitation would produce a shared history for these two chromosomes,
+that would coalesce some time longer ago than 1,000 generations.
+However, if we simplified first, then those two branches going back 1,000 generations would be removed,
+since they don’t convey any information about the shape of the tree;
+and so recapitation might produce a common ancestor more recently than 1,000 generations,
+which would be inconsistent with the SLiM simulation.</p>
+<p>After recapitation,
+simplification to the history of 100 individuals alive today
+can be done with the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.simplify()</span></code></a> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">alive_inds</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">individuals_alive_at</span><span class="p">(</span><span class="n">rts</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">keep_indivs</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">alive_inds</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">keep_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">keep_indivs</span><span class="p">:</span>
+  <span class="n">keep_nodes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">rts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+
+<span class="n">sts</span> <span class="o">=</span> <span class="n">rts</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">keep_nodes</span><span class="p">,</span> <span class="n">keep_input_roots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Before, there were </span><span class="si">{</span><span class="n">rts</span><span class="o">.</span><span class="n">num_samples</span><span class="si">}</span><span class="s2"> sample nodes (and </span><span class="si">{</span><span class="n">rts</span><span class="o">.</span><span class="n">num_individuals</span><span class="si">}</span><span class="s2"> individuals)</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;in the tree sequence, and now there are </span><span class="si">{</span><span class="n">sts</span><span class="o">.</span><span class="n">num_samples</span><span class="si">}</span><span class="s2"> sample nodes</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;(and </span><span class="si">{</span><span class="n">sts</span><span class="o">.</span><span class="n">num_individuals</span><span class="si">}</span><span class="s2"> individuals).&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before, there were 1960 sample nodes (and 980 individuals)
+in the tree sequence, and now there are 200 sample nodes
+(and 118 individuals).
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Note</strong> that you must pass simplify a list of <em>node IDs</em>, not individual IDs.
+Here, we used the <a class="reference internal" href="python_api.html#pyslim.individuals_alive_at" title="pyslim.individuals_alive_at"><code class="xref py py-func docutils literal notranslate"><span class="pre">individuals_alive_at()</span></code></a> method to obtain the list
+of individuals alive today.
+Also note that there are <em>still</em> more than 100 individuals remaining - 15 non-sample individuals
+have not been simplified away,
+because they have nodes that are required to describe the genealogies of the samples.
+(Since this is a non-Wright-Fisher simulation,
+parents and children can be both alive at the same time in the final generation.)</p>
+</div>
+<div class="section" id="adding-neutral-mutations-to-a-slim-simulation">
+<span id="sec-tutorial-adding-neutral-mutations"></span><h3>Adding neutral mutations to a SLiM simulation<a class="headerlink" href="#adding-neutral-mutations-to-a-slim-simulation" title="Permalink to this headline">#</a></h3>
+<div class="figure align-right" id="pedigree-mutate">
+<a class="reference internal image-reference" href="_images/pedigree_mutate.png"><img alt="_images/pedigree_mutate.png" src="_images/pedigree_mutate.png" style="width: 268.8px; height: 634.1999999999999px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">The tree sequence, with mutations added.</span><a class="headerlink" href="#pedigree-mutate" title="Permalink to this image">#</a></p>
+</div>
+<p>If you have recorded a tree sequence in SLiM, likely you have not included any neutral mutations,
+since it is much more efficient to simply add these on afterwards.
+To add these (in a completely equivalent way to having included them during the simulation),
+you can use the <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.sim_mutations" title="(in Python)"><code class="xref py py-func docutils literal notranslate"><span class="pre">msprime.sim_mutations()</span></code></a> function, which returns a new tree sequence with additional mutations.
+Continuing with the cartoons from above, these are added to each branch of the tree sequence
+at the rate per unit time that you request.
+We’ll add these using the <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.SLiMMutationModel" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">msprime.SLiMMutationModel</span></code></a>, so that the file can be read back into SLiM,
+but any of the other mutation models in msprime could be used.
+This works as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">next_id</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">next_slim_mutation_id</span><span class="p">(</span><span class="n">sts</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span>
+           <span class="n">sts</span><span class="p">,</span>
+           <span class="n">rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+           <span class="n">model</span><span class="o">=</span><span class="n">msprime</span><span class="o">.</span><span class="n">SLiMMutationModel</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">next_id</span><span class="o">=</span><span class="n">next_id</span><span class="p">),</span>
+           <span class="n">keep</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The tree sequence now has </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_mutations</span><span class="si">}</span><span class="s2"> mutations,</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;and mean pairwise nucleotide diversity is </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">diversity</span><span class="p">()</span><span class="si">:</span><span class="s2">0.3e</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The tree sequence now has 25922 mutations,
+and mean pairwise nucleotide diversity is 1.904e-05.
+</pre></div>
+</div>
+</div>
+</div>
+<p>What’s going on here? Let’s step through the code.</p>
+<ol class="simple">
+<li><p>The mutation <code class="docutils literal notranslate"><span class="pre">rate</span> <span class="pre">=</span> <span class="pre">1e-8</span></code>, which adds mutations at a rate of <span class="math notranslate nohighlight">\(10^{-8}\)</span> per bp.
+Unlike previous versions of msprime, this adds mutations using a discrete-sites model,
+i.e., only at integer locations (like SLiM).</p></li>
+<li><p>We’re passing <code class="docutils literal notranslate"><span class="pre">type=0</span></code> to the mutation model.
+This is because SLiM mutations need a “mutation type”,
+and it makes the most sense if we add a type that was unused in the simulation.
+In this example we don’t have any existing mutation types, so we can safely use <code class="docutils literal notranslate"><span class="pre">type=0</span></code>.</p></li>
+<li><p>We also add <code class="docutils literal notranslate"><span class="pre">keep</span> <span class="pre">=</span> <span class="pre">True</span></code>, to keep any existing mutations.
+In this example there aren’t any, so this isn’t strictly necessary,
+but this is a good default.</p></li>
+<li><p>If there are existing SLiM mutations on the tree sequence we need to
+make sure any newly added mutations have distinct SLiM IDs,
+so we use :meth:<code class="docutils literal notranslate"><span class="pre">.next_slim_mutation_id</span></code> to figure out
+what the next available ID is, and pass it in.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="extracting-slim-individuals">
+<span id="sec-extracting-individuals"></span><h2>Extracting SLiM individuals<a class="headerlink" href="#extracting-slim-individuals" title="Permalink to this headline">#</a></h2>
+<p>Another important thing to be able to do is to extract
+individuals from a simulation,
+for analysis or for outputting their genotypes, for instance.
+This section demonstrates some basic manipulations of individuals.</p>
+<div class="section" id="extracting-a-sample-of-individuals">
+<h3>Extracting a sample of individuals<a class="headerlink" href="#extracting-a-sample-of-individuals" title="Permalink to this headline">#</a></h3>
+<p>The first, most common method to extract individuals is simply to get all
+those that were alive at a particular time,
+using <a class="reference internal" href="python_api.html#pyslim.individuals_alive_at" title="pyslim.individuals_alive_at"><code class="xref py py-func docutils literal notranslate"><span class="pre">individuals_alive_at()</span></code></a>. For instance, to get
+the list of individual IDs of all those alive at the end of the
+simulation (i.e., zero time units ago), we could do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orig_ts</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;example_sim.trees&quot;</span><span class="p">)</span>
+<span class="n">alive</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">individuals_alive_at</span><span class="p">(</span><span class="n">orig_ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">alive</span><span class="p">)</span><span class="si">}</span><span class="s2"> individuals alive in the final generation.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 980 individuals alive in the final generation.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">alive</span></code> is a vector of <em>individual</em> IDs,
+so one way to take a sample of living individuals
+and write their SNPs to a VCF is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">keep_indivs</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">alive</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">orig_ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example_snps.vcf&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">vcffile</span><span class="p">:</span>
+    <span class="n">ts</span><span class="o">.</span><span class="n">write_vcf</span><span class="p">(</span><span class="n">vcffile</span><span class="p">,</span> <span class="n">individuals</span><span class="o">=</span><span class="n">keep_indivs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you’ve done nothing else to the output from SLiM,
+then this code will work,
+but it does requires all alive individuals to be <em>samples</em>.
+A situation in which this isn’t the case is shown in the next section.</p>
+</div>
+<div class="section" id="extracting-individuals-after-simplification">
+<h3>Extracting individuals after simplification<a class="headerlink" href="#extracting-individuals-after-simplification" title="Permalink to this headline">#</a></h3>
+<p>If the tree sequence has been simplified to retain only information
+about a set of focal individuals,
+then knowing an individual is alive at the end of the simulation
+isn’t enough to guarantee we have their entire genome sequence:
+there are often individuals retained after simplification with
+one or more non-sample nodes.
+So, to output genotypes after simplification, we need to also check
+that the individuals’ nodes are also <em>samples</em>.
+As mentioned earlier, <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.simplify()</span></code></a> takes a list
+of nodes as input:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keep_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">keep_indivs</span><span class="p">:</span>
+    <span class="n">keep_nodes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">orig_ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+<span class="n">sts</span> <span class="o">=</span> <span class="n">rts</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">keep_nodes</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span><span class="n">sts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Individuals are retained by simplify if any of their nodes are,
+so we would get an alive individual without sample nodes if, for instance,
+a parent and two offspring are all alive, and we happen to keep the offspring
+but not the parent.
+For this reason, if at this point we try to extract genotypes for all of the
+alive individuals, we encounter a (somewhat confusing) error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">alive</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">individuals_alive_at</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example_snps.vcf&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">vcffile</span><span class="p">:</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">write_vcf</span><span class="p">(</span><span class="n">vcffile</span><span class="p">,</span> <span class="n">individuals</span><span class="o">=</span><span class="n">alive</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error:
+Cannot generate genotypes for non-samples when isolated nodes are considered as missing. (TSK_ERR_MUST_IMPUTE_NON_SAMPLES)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is just telling us that some of the individuals we’re trying
+to write to the VCF have nodes that are not samples.
+The reference to “missing” is a red herring:
+see <a class="reference external" href="https://tskit.dev/tskit/docs/stable/data-model.html#sec-data-model-missing-data" title="(in Python)"><span class="xref myst">the tskit documentation</span></a>
+for what it’s talking about.
+So, instead of writing out genotypes of everyone alive,
+we need to get the list of alive individuals <em>whose nodes are samples</em>,
+using <a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.Node.is_sample" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_sample()</span></code></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indivlist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">individuals_alive_at</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">is_sample</span><span class="p">():</span>
+       <span class="n">indivlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+       <span class="c1"># if one node is a sample, the other should be also:</span>
+       <span class="k">assert</span> <span class="n">ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">is_sample</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example_snps.vcf&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">vcffile</span><span class="p">:</span>
+    <span class="n">ts</span><span class="o">.</span><span class="n">write_vcf</span><span class="p">(</span><span class="n">vcffile</span><span class="p">,</span> <span class="n">individuals</span><span class="o">=</span><span class="n">indivlist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="extracting-particular-individuals">
+<h3>Extracting particular individuals<a class="headerlink" href="#extracting-particular-individuals" title="Permalink to this headline">#</a></h3>
+<p>Now let’s see how to examine other attributes of individuals,
+e.g., which subpopulation they’re in.
+To get another example with discrete subpopulations,
+let’s run another SLiM simulation, similar to the above
+but with two populations exchanging migrants:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">initialize</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">initializeSLiMModelType</span><span class="p">(</span><span class="s2">&quot;nonWF&quot;</span><span class="p">);</span>
+   <span class="n">initializeSex</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">);</span>
+   <span class="n">initializeTreeSeq</span><span class="p">();</span>
+   <span class="n">initializeMutationRate</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+   <span class="n">initializeMutationType</span><span class="p">(</span><span class="s2">&quot;m1&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+   <span class="n">initializeGenomicElementType</span><span class="p">(</span><span class="s2">&quot;g1&quot;</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+   <span class="n">initializeGenomicElement</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1e8</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">initializeRecombinationRate</span><span class="p">(</span><span class="mf">1e-8</span><span class="p">);</span>    
+   <span class="n">defineConstant</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">reproduction</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">subpop</span><span class="o">.</span><span class="n">addCrossed</span><span class="p">(</span><span class="n">individual</span><span class="p">,</span>
+                     <span class="n">subpop</span><span class="o">.</span><span class="n">sampleIndividuals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">));</span>
+<span class="p">}</span>
+
+
+<span class="mi">1</span> <span class="n">early</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">addSubpop</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span> <span class="n">K</span><span class="p">);</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">addSubpop</span><span class="p">(</span><span class="s2">&quot;p2&quot;</span><span class="p">,</span> <span class="n">K</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">early</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">num_migrants</span> <span class="o">=</span> <span class="n">rpois</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">c</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">individualCount</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">individualCount</span><span class="p">));</span>
+   <span class="n">migrants1</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">individuals</span><span class="p">,</span> <span class="n">num_migrants</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+   <span class="n">migrants2</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">individuals</span><span class="p">,</span> <span class="n">num_migrants</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+   <span class="n">p2</span><span class="o">.</span><span class="n">takeMigrants</span><span class="p">(</span><span class="n">migrants1</span><span class="p">);</span>
+   <span class="n">p1</span><span class="o">.</span><span class="n">takeMigrants</span><span class="p">(</span><span class="n">migrants2</span><span class="p">);</span>
+   <span class="n">p1</span><span class="o">.</span><span class="n">fitnessScaling</span> <span class="o">=</span> <span class="n">K</span> <span class="o">/</span> <span class="n">p1</span><span class="o">.</span><span class="n">individualCount</span><span class="p">;</span>
+   <span class="n">p2</span><span class="o">.</span><span class="n">fitnessScaling</span> <span class="o">=</span> <span class="n">K</span> <span class="o">/</span> <span class="n">p2</span><span class="o">.</span><span class="n">individualCount</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="mi">1000</span> <span class="n">late</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">treeSeqOutput</span><span class="p">(</span><span class="s2">&quot;migrants.trees&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let’s run it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+slim -s 32 migrants.slim
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// Initial random seed:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// RunInitializeCallbacks():
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeSLiMModelType(modelType = &#39;nonWF&#39;);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeSex(&quot;A&quot;);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeTreeSeq();
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeMutationRate(0);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeMutationType(1, 0.5, &quot;f&quot;, 0);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeGenomicElementType(1, m1, 1);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeGenomicElement(g1, 0, 99999999);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeRecombinationRate(1e-08);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// Starting run at tick &lt;start&gt;:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To count up how many individuals are in each population,
+we could do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orig_ts</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;migrants.trees&quot;</span><span class="p">)</span>
+<span class="n">alive</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">individuals_alive_at</span><span class="p">(</span><span class="n">orig_ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">num_alive</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">orig_ts</span><span class="o">.</span><span class="n">num_populations</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alive</span><span class="p">:</span>
+  <span class="n">ind</span> <span class="o">=</span> <span class="n">orig_ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">ind_population</span> <span class="o">=</span> <span class="n">orig_ts</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">population</span>
+  <span class="n">num_alive</span><span class="p">[</span><span class="n">ind_population</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">pop</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">num_alive</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of individuals in population </span><span class="si">{</span><span class="n">pop</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of individuals in population 0: 0
+Number of individuals in population 1: 1008
+Number of individuals in population 2: 1015
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Our SLiM script started numbering populations at 1, while tskit starts counting at 0,
+so there is an empty “population 0” in a SLiM-produced tree sequence.</p>
+</div>
+</div>
+</div>
+<div class="section" id="recapitation-with-migration-between-more-than-one-population">
+<span id="sec-recapitate-with-migration"></span><h2>Recapitation with migration between more than one population<a class="headerlink" href="#recapitation-with-migration-between-more-than-one-population" title="Permalink to this headline">#</a></h2>
+<p>Following on the last example,
+let’s recapitate and mutate the tree sequence.
+Recall that this recipe had two populations, <code class="docutils literal notranslate"><span class="pre">p1</span></code> and <code class="docutils literal notranslate"><span class="pre">p2</span></code>,
+each of size 1000.
+Recapitation takes a bit more thought, because if the two populations stay separate,
+it will run forever, unable to coalesce.
+By default, :func:<code class="docutils literal notranslate"><span class="pre">.recapitate</span></code> <em>merges</em> the two populations into a single
+one of size <code class="docutils literal notranslate"><span class="pre">ancestral_Ne</span></code>.
+But, if we’d like them to stay separate, we need to inclue migration between them.
+Here’s how we set up the demography using msprime’s tools:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demography</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">Demography</span><span class="o">.</span><span class="n">from_tree_sequence</span><span class="p">(</span><span class="n">orig_ts</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">pop</span> <span class="ow">in</span> <span class="n">demography</span><span class="o">.</span><span class="n">populations</span><span class="p">:</span>
+    <span class="c1"># must set their effective population sizes</span>
+    <span class="n">pop</span><span class="o">.</span><span class="n">initial_size</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">demography</span><span class="o">.</span><span class="n">add_migration_rate_change</span><span class="p">(</span>
+    <span class="n">time</span><span class="o">=</span><span class="n">orig_ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;tick&#39;</span><span class="p">],</span>
+    <span class="n">rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;p2&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">demography</span><span class="o">.</span><span class="n">add_migration_rate_change</span><span class="p">(</span>
+    <span class="n">time</span><span class="o">=</span><span class="n">orig_ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;tick&#39;</span><span class="p">],</span>
+    <span class="n">rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;p2&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">rts</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">recapitate</span><span class="p">(</span>
+        <span class="n">orig_ts</span><span class="p">,</span> <span class="n">demography</span><span class="o">=</span><span class="n">demography</span><span class="p">,</span>
+        <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+        <span class="n">random_seed</span><span class="o">=</span><span class="mi">4</span>
+<span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span>
+                    <span class="n">rts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+                    <span class="n">model</span><span class="o">=</span><span class="n">msprime</span><span class="o">.</span><span class="n">SLiMMutationModel</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                    <span class="n">random_seed</span><span class="o">=</span><span class="mi">7</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, there are <em>three</em> populations because SLiM starts counting at 1;
+the first population is unused (no migrants can go to it).
+Let’s compute genetic diversity within and between each of the two populations
+(we compute the mean density of pairwise nucleotide differences,
+often denoted <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(d_{xy}\)</span>).
+To do this, we need to extract the node IDs from the individuals of the two populations
+that are alive at the end of the simulation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">num_populations</span><span class="p">)]</span>
+<span class="n">diversity</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">diversity</span><span class="p">(</span><span class="n">pop_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="n">divergence</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">divergence</span><span class="p">(</span><span class="n">pop_nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_mutations</span><span class="si">}</span><span class="s2"> mutations across </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_trees</span><span class="si">}</span><span class="s2"> distinct</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;genealogical trees describing relationships among </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_samples</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;sampled genomes, with a mean genetic diversity of </span><span class="si">{</span><span class="n">diversity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">0.3e</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;and </span><span class="si">{</span><span class="n">diversity</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">0.3e</span><span class="si">}</span><span class="s2"> within the two populations,</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;and a mean divergence of </span><span class="si">{</span><span class="n">divergence</span><span class="si">:</span><span class="s2">0.3e</span><span class="si">}</span><span class="s2"> between them.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 115030 mutations across 51441 distinct
+genealogical trees describing relationships among 4046
+sampled genomes, with a mean genetic diversity of 8.919e-05
+and 8.915e-05 within the two populations,
+and a mean divergence of 8.984e-05 between them.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="individual-metadata">
+<h2>Individual metadata<a class="headerlink" href="#individual-metadata" title="Permalink to this headline">#</a></h2>
+<p>Each <code class="docutils literal notranslate"><span class="pre">Mutation</span></code>, <code class="docutils literal notranslate"><span class="pre">Population</span></code>, <code class="docutils literal notranslate"><span class="pre">Node</span></code>, and <code class="docutils literal notranslate"><span class="pre">Individual</span></code>, as well as the tree
+sequence as a whole, carries additional information stored by SLiM in its <code class="docutils literal notranslate"><span class="pre">metadata</span></code>
+property. A fuller description of metadata in general is given in <a class="reference internal" href="metadata.html#sec-metadata"><span class="std std-ref">Metadata</span></a>,
+but as a quick introduction, here is the information available
+about an individual in the previous example:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ind</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Individual(id=0, flags=65536, location=array([0., 0., 0.]), parents=array([-1, -1], dtype=int32), nodes=array([0, 1], dtype=int32), metadata={
+    &#39;pedigree_id&#39;: 980494,
+    &#39;pedigree_p1&#39;: 974787,
+    &#39;pedigree_p2&#39;: 966513,
+    &#39;age&#39;: 21,
+    &#39;subpopulation&#39;: 1,
+    &#39;sex&#39;: 0,
+    &#39;flags&#39;: 0
+   })
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some information is generic to individuals in tree sequences of any format:
+<code class="docutils literal notranslate"><span class="pre">id</span></code> (the ID internal to the tree sequence),
+<code class="docutils literal notranslate"><span class="pre">flags</span></code> (described <a class="reference internal" href="#sec-individual-flags"><span class="std std-ref">below</span></a>),
+<code class="docutils literal notranslate"><span class="pre">location</span></code> (the [x,y,z] coordinates of the individual),
+<code class="docutils literal notranslate"><span class="pre">nodes</span></code> (an array of the node IDs that represent the genomes of this individual),
+and <code class="docutils literal notranslate"><span class="pre">time</span></code> (the time, in units of “time ago” that the individual was born).</p>
+<p>Other information, contained in the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> field, is specific to tree sequences
+produced by SLiM. This is described in more detail in the SLiM manual, but briefly:</p>
+<ul class="simple">
+<li><p>the  <code class="docutils literal notranslate"><span class="pre">pedigree_id</span></code> is SLiM’s internal ID for the individual,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code> and <code class="docutils literal notranslate"><span class="pre">subpopulation</span></code> are their age and population at the time they
+were recorded, or at the time
+the simulation stopped if they were still alive  (NB: SLiM uses the word
+“subpopulation” for what is simply called a “population” in tree-sequence parlance)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sex</span></code> is their sex (as an integer, one of <a class="reference internal" href="python_api.html#pyslim.INDIVIDUAL_TYPE_FEMALE" title="pyslim.INDIVIDUAL_TYPE_FEMALE"><code class="xref py py-data docutils literal notranslate"><span class="pre">INDIVIDUAL_TYPE_FEMALE</span></code></a>,
+<a class="reference internal" href="python_api.html#pyslim.INDIVIDUAL_TYPE_MALE" title="pyslim.INDIVIDUAL_TYPE_MALE"><code class="xref py py-data docutils literal notranslate"><span class="pre">INDIVIDUAL_TYPE_MALE</span></code></a>, or <a class="reference internal" href="python_api.html#pyslim.INDIVIDUAL_TYPE_HERMAPHRODITE" title="pyslim.INDIVIDUAL_TYPE_HERMAPHRODITE"><code class="xref py py-data docutils literal notranslate"><span class="pre">INDIVIDUAL_TYPE_HERMAPHRODITE</span></code></a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flags</span></code> holds additional information about the individual recorded by SLiM
+(currently, only whether the individual has migrated or not:
+see <a class="reference internal" href="python_api.html#sec-constants-and-flags"><span class="std std-ref">Constants and flags</span></a>).</p></li>
+</ul>
+<p>We can use this metadata in many ways, for example, to create an age distribution by sex:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">max_age</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">ind</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">individuals</span><span class="p">()])</span>
+<span class="n">age_table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">max_age</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">age_labels</span> <span class="o">=</span> <span class="p">{</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">INDIVIDUAL_TYPE_FEMALE</span><span class="p">:</span> <span class="s1">&#39;females&#39;</span><span class="p">,</span>
+               <span class="n">pyslim</span><span class="o">.</span><span class="n">INDIVIDUAL_TYPE_MALE</span><span class="p">:</span> <span class="s1">&#39;males&#39;</span> <span class="p">}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">individuals_alive_at</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">age_table</span><span class="p">[</span><span class="n">ind</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],</span> <span class="n">ind</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;number</span><span class="se">\t</span><span class="si">{</span><span class="n">age_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">age_labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">age</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">age_table</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number	females	males
+0	325.0	356.0
+1	232.0	206.0
+2	123.0	156.0
+3	106.0	106.0
+4	79.0	78.0
+5	40.0	39.0
+6	35.0	26.0
+7	13.0	22.0
+8	12.0	12.0
+9	8.0	16.0
+10	7.0	2.0
+11	7.0	3.0
+12	3.0	3.0
+13	0.0	1.0
+14	3.0	1.0
+15	1.0	1.0
+16	0.0	0.0
+17	0.0	0.0
+18	0.0	0.0
+19	0.0	0.0
+20	0.0	0.0
+21	1.0	0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have looked up how to interpret the <code class="docutils literal notranslate"><span class="pre">sex</span></code> attribute
+by using the values of <a class="reference internal" href="python_api.html#pyslim.INDIVIDUAL_TYPE_FEMALE" title="pyslim.INDIVIDUAL_TYPE_FEMALE"><code class="xref py py-data docutils literal notranslate"><span class="pre">INDIVIDUAL_TYPE_FEMALE</span></code></a> (which is 0)
+and <a class="reference internal" href="python_api.html#pyslim.INDIVIDUAL_TYPE_MALE" title="pyslim.INDIVIDUAL_TYPE_MALE"><code class="xref py py-data docutils literal notranslate"><span class="pre">INDIVIDUAL_TYPE_MALE</span></code></a> (which is 1).
+In a simulation without separate sexes,
+all individuals would have sex equal to <a class="reference internal" href="python_api.html#pyslim.INDIVIDUAL_TYPE_HERMAPHRODITE" title="pyslim.INDIVIDUAL_TYPE_HERMAPHRODITE"><code class="xref py py-data docutils literal notranslate"><span class="pre">INDIVIDUAL_TYPE_HERMAPHRODITE</span></code></a>
+(which is -1).</p>
+<p>Several fields associated with individuals are also available as numpy arrays,
+across all individuals at once:
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.individuals_location" title="(in Python)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">tskit.TreeSequence.individuals_location</span></code></a>,
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.individuals_population" title="(in Python)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">tskit.TreeSequence.individuals_population</span></code></a>,
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.individuals_time" title="(in Python)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">tskit.TreeSequence.individuals_time</span></code></a> (also see
+<code class="xref py py-func docutils literal notranslate"><span class="pre">individual_ages()</span></code> and <a class="reference internal" href="python_api.html#pyslim.individual_ages_at" title="pyslim.individual_ages_at"><code class="xref py py-func docutils literal notranslate"><span class="pre">individual_ages_at()</span></code></a>).
+Using these can sometimes be easier than
+iterating over individuals as above. For example,
+suppose that we want to randomly sample 10 individuals alive and older than 2 time steps
+from each of the populations at the end of the simulation,
+and simplify the tree sequence to retain only those individuals.
+This can be done using the numpy arrays returned by <code class="xref py py-func docutils literal notranslate"><span class="pre">individual_ages()</span></code>
+and <code class="docutils literal notranslate"><span class="pre">.individuals_population</span></code> as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alive</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">individuals_alive_at</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">adults</span> <span class="o">=</span> <span class="n">alive</span><span class="p">[</span><span class="n">pyslim</span><span class="o">.</span><span class="n">individual_ages</span><span class="p">(</span><span class="n">ts</span><span class="p">)[</span><span class="n">alive</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">pops</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">adults</span> <span class="k">if</span> <span class="n">ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;subpopulation&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">k</span><span class="p">]</span>
+   <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="n">sample_inds</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">pop</span> <span class="ow">in</span> <span class="n">pops</span><span class="p">]</span>
+<span class="n">sample_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">samp</span> <span class="ow">in</span> <span class="n">sample_inds</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">samp</span><span class="p">:</span>
+     <span class="n">sample_nodes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+<span class="n">sub_ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">sample_nodes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that here we have used the <em>subpopulation</em> attribute that SLiM places in metadata
+to find out where each individual lives at the end of the simulation.
+We might alternatively have used the <em>population</em> attribute of Nodes -
+but, this would give each individual’s <em>birth</em> location.</p>
+<p>The resulting tree sequence does indeed have fewer individuals and fewer trees:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">sub_ts</span><span class="o">.</span><span class="n">num_mutations</span><span class="si">}</span><span class="s2"> mutations across </span><span class="si">{</span><span class="n">sub_ts</span><span class="o">.</span><span class="n">num_trees</span><span class="si">}</span><span class="s2"> distinct</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;genealogical trees describing relationships among </span><span class="si">{</span><span class="n">sub_ts</span><span class="o">.</span><span class="n">num_samples</span><span class="si">}</span><span class="s2"> sampled genomes,</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;with a mean overall genetic diversity of </span><span class="si">{</span><span class="n">sub_ts</span><span class="o">.</span><span class="n">diversity</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 44726 mutations across 25846 distinct
+genealogical trees describing relationships among 40 sampled genomes,
+with a mean overall genetic diversity of 8.960978205129913e-05.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="historical-individuals">
+<h2>Historical individuals<a class="headerlink" href="#historical-individuals" title="Permalink to this headline">#</a></h2>
+<p>As we’ve seen, a basic tree sequence output by SLiM only contains the currently alive
+individuals and the ancestral nodes (genomes) required to reconstruct their genetic
+relationships. But you might want more than that. For example, there may be individuals
+who are not alive any more, but whose complete ancestry you would like to know. Or
+perhaps you’d like to know how the final generation relates to particular individuals in
+the past. Or it may be that you want to access the spatial location of historical genomes
+(which, for technical reasons is linked to individuals, not to genomes). The solution is
+to <em>remember</em> an individual during the simulation, using the SLiM function
+<code class="docutils literal notranslate"><span class="pre">treeSeqRememberIndividuals()</span></code>. Individuals can be Remembered in two ways, as
+described below.</p>
+<div class="figure align-right" id="pedigree-remember">
+<a class="reference internal image-reference" href="_images/pedigree_remember.png"><img alt="_images/pedigree_remember.png" src="_images/pedigree_remember.png" style="width: 310.8px; height: 488.0px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">CAPTION TODO</span><a class="headerlink" href="#pedigree-remember" title="Permalink to this image">#</a></p>
+</div>
+<div class="section" id="permanently-remembering-individuals">
+<span id="sec-remembering-individuals"></span><h3>Permanently remembering individuals<a class="headerlink" href="#permanently-remembering-individuals" title="Permalink to this headline">#</a></h3>
+<p>By default, a call to <code class="docutils literal notranslate"><span class="pre">treeSeqRememberIndividuals()</span></code> will permanently remember one or
+more individuals, by marking their nodes as actual samples: the simulated equivalent of
+ancient DNA dug out of permafrost, or stored
+in an old collecting tube. This means any tree sequence subsequently recorded will always
+contain this individual, its nodes (now marked as samples), and its full ancestry. As
+with any other sample nodes, any permanently remembered individuals can be removed from
+the tree sequence by <a class="reference internal" href="#sec-tutorial-simplification"><span class="std std-ref">Simplification</span></a>. The result of remembering an
+individual in the <a class="reference internal" href="introduction.html#sec-left-in-tree-sequence"><span class="std std-ref">introductory example</span></a> is pictured on the right.</p>
+</div>
+<div class="section" id="retaining-individuals">
+<span id="sec-retaining-individuals"></span><h3>Retaining individuals<a class="headerlink" href="#retaining-individuals" title="Permalink to this headline">#</a></h3>
+<p>Alternatively, you may want to avoid treating historical individuals and their genomes as
+actual samples, but temporarily <em>retain</em> them as long as they are still relevant to
+reconstructing the genetic ancestry of the sample nodes. This can save some computational
+burden, as not only will nodes and individuals be removed once they are no longer
+ancestral, but also the full ancestry of the retained individuals does not need to be
+kept. You can retain individuals in this way by using
+<code class="docutils literal notranslate"><span class="pre">treeSeqRememberIndividuals(...,</span> <span class="pre">permanent=F)</span></code>.</p>
+<p>Since a retained individual’s nodes are not marked as samples, they are subject to the
+<a class="reference internal" href="introduction.html#sec-left-in-tree-sequence"><span class="std std-ref">normal removal process</span></a>, and it is possible to end up
+with an individual containing only one genome, as shown in the diagram. However, as soon
+as <em>both</em> nodes of a retained individual have been lost, the individual itself is deleted
+too.</p>
+<p>Note that by default, nodes are only kept if they mark a coalescent point (MRCA or branch
+point) in one or more of the trees in a tree sequence. This can be changed by
+initialising tree sequence recording in SLiM using
+<code class="docutils literal notranslate"><span class="pre">treeSeqInitialize(retainCoalescentOnly=F)</span></code>. SLiM will then
+preserve all retained individuals while they remain in the genealogy, even if their nodes
+are not coalescent points in a tree (so-called “unary nodes”). Similarly, if you later
+decide to reduce the number of samples via <a class="reference internal" href="#sec-tutorial-simplification"><span class="std std-ref">Simplification</span></a>,
+retained individuals will be kept only if they are still MRCAs in the ancestry of the
+selected samples. To preserve them even if their nodes are not coalescent points, you
+can specify <code class="docutils literal notranslate"><span class="pre">ts.simplify(selected_samples,</span> <span class="pre">keep_unary_in_individuals=True)</span></code>.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Add SLiM code which includes retaining and remembering, and perhaps some python code
+to show them.</p>
+</div>
+</div>
+<div class="section" id="remembering-everyone">
+<span id="sec-remembering-everyone"></span><h3>Remembering everyone<a class="headerlink" href="#remembering-everyone" title="Permalink to this headline">#</a></h3>
+<p>Although not needed to reconstruct full genomic history, it is perfectly possible to
+apply <code class="docutils literal notranslate"><span class="pre">treeSeqRememberIndividuals()</span></code> to every individual in every generation of a
+simulation (i.e. everyone who has ever lived). If you simply mark everyone for temporary
+retention, it should not increase the memory burden of your simulation much: most
+individuals will be removed as the simulation progresses, since they will not contain
+coalescent nodes. However, if you use <code class="docutils literal notranslate"><span class="pre">treeSeqInitialize(retainCoalescentOnly=F)</span></code>,
+the number of individuals in the resulting tree sequence is likely to become very large,
+and the efficiencies provided by tree sequence recording will be substantially reduced.
+Indeed in this case, retaining will be much the same as permanently remembering everyone
+who has ever lived. Nevertheless, if you are willing to sacrifice enough computer memory,
+either of these is (perhaps surprisingly) possible, even for medium-sized simulations.</p>
+</div>
+<div class="section" id="individual-flags">
+<span id="sec-individual-flags"></span><h3>Individual flags<a class="headerlink" href="#individual-flags" title="Permalink to this headline">#</a></h3>
+<p>We have seen that an individual can appear in the tree sequence because it was
+Remembered, Retained, or alive at the end of the simulation (note these
+are not mutually exclusive). The <code class="docutils literal notranslate"><span class="pre">Individual.flags</span></code> value stores this information.
+For example, to count up the different individual types, we could do this:</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Update this code with the simulation above so that we have some remembered and
+retained individuals present</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indiv_types</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;remembered&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+              <span class="s2">&quot;retained&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+              <span class="s2">&quot;alive&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">individuals</span><span class="p">():</span>
+  <span class="k">if</span> <span class="n">ind</span><span class="o">.</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">INDIVIDUAL_REMEMBERED</span><span class="p">:</span>
+     <span class="n">indiv_types</span><span class="p">[</span><span class="s1">&#39;remembered&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">if</span> <span class="n">ind</span><span class="o">.</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">INDIVIDUAL_RETAINED</span><span class="p">:</span>
+     <span class="n">indiv_types</span><span class="p">[</span><span class="s1">&#39;retained&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">if</span> <span class="n">ind</span><span class="o">.</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">INDIVIDUAL_ALIVE</span><span class="p">:</span>
+     <span class="n">indiv_types</span><span class="p">[</span><span class="s1">&#39;alive&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">indiv_types</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of individuals that are </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">indiv_types</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of individuals that are remembered: 0
+Number of individuals that are retained: 0
+Number of individuals that are alive: 2023
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In previous versions of SLiM/pyslim, the first generation of individuals were
+kept in the tree sequence, to allow <a class="reference internal" href="#sec-tutorial-recapitation"><span class="std std-ref">Recapitation</span></a>. With the
+addition of the <code class="docutils literal notranslate"><span class="pre">keep_input_roots=True</span></code> option to the
+<a class="reference internal" href="#sec-tutorial-simplification"><span class="std std-ref">Simplification</span></a> process, this is no longer necessary,
+so these are no longer present, unless you specifically Remember them.</p>
+</div>
+</div>
+</div>
+<div class="section" id="generating-intial-diversity-with-msprime">
+<h2>Generating intial diversity with msprime<a class="headerlink" href="#generating-intial-diversity-with-msprime" title="Permalink to this headline">#</a></h2>
+<p>Suppose now that we’d like to <em>start</em> a SLiM simulation
+with the result of a coalescent simulation.
+For instance, we might want to do this instead of recapitating
+if we wanted to use msprime to generate genetic diversity that
+would then be selected on during the SLiM simulation.
+To do this, we’ll:</p>
+<ol class="simple">
+<li><p>simulate a tree sequence with msprime,</p></li>
+<li><p>add SLiM information to the nodes and individuals,</p></li>
+<li><p>add SLiM mutations, and</p></li>
+<li><p>write it out to a <code class="docutils literal notranslate"><span class="pre">.trees</span></code> file.</p></li>
+</ol>
+<p>First, we’ll (1) run a simulation of 1 Mb of genome sampled in 200 diploids
+in a population of 1000 diploids,
+and (2) use the <a class="reference internal" href="python_api.html#pyslim.annotate" title="pyslim.annotate"><code class="xref py py-func docutils literal notranslate"><span class="pre">annotate()</span></code></a> function to add default SLiM metadata to the result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demog</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">Demography</span><span class="p">()</span>
+<span class="n">demog</span><span class="o">.</span><span class="n">add_population</span><span class="p">(</span><span class="n">initial_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span>
+            <span class="n">samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+            <span class="n">demography</span><span class="o">=</span><span class="n">demog</span><span class="p">,</span>
+            <span class="n">recombination_rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+            <span class="n">sequence_length</span><span class="o">=</span><span class="mf">1e6</span><span class="p">,</span>
+            <span class="n">random_seed</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">pyslim</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;nonWF&quot;</span><span class="p">,</span> <span class="n">tick</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">ts</span><span class="o">.</span><span class="n">num_individuals</span> <span class="o">==</span> <span class="mi">200</span>
+<span class="k">assert</span> <span class="n">ts</span><span class="o">.</span><span class="n">num_samples</span> <span class="o">==</span> <span class="mi">400</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have set <code class="docutils literal notranslate"><span class="pre">tick</span></code> to 1;
+this means that as soon as we load the tree sequence into SLiM,
+SLiM will set the current time counter to 1.
+(If we set <code class="docutils literal notranslate"><span class="pre">tick</span></code> to 100, then any script blocks scheduled to happen before 100
+would not execute after loading the tree sequence.)</p>
+<p>We now have 200 diploids (so, 400 sampled nodes).
+Here’s individual 199, which hsa SLiM metadata:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ind</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individual</span><span class="p">(</span><span class="mi">199</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Individual(id=199, flags=65536, location=array([0., 0., 0.]), parents=array([], dtype=int32), nodes=array([398, 399], dtype=int32), metadata={
+    &#39;pedigree_id&#39;: 199,
+    &#39;pedigree_p1&#39;: -1,
+    &#39;pedigree_p2&#39;: -1,
+    &#39;age&#39;: 0,
+    &#39;subpopulation&#39;: 0,
+    &#39;sex&#39;: -1,
+    &#39;flags&#39;: 0
+   })
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> above, we see the default values are <code class="docutils literal notranslate"><span class="pre">age=0</span></code>
+hermaphrodites (<code class="docutils literal notranslate"><span class="pre">sex=-1</span></code>), for instance.</p>
+<p>Now let’s add SLiM mutations.
+These will be neutral, as <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.sim_mutations" title="(in Python)"><code class="xref py py-func docutils literal notranslate"><span class="pre">msprime.sim_mutations()</span></code></a>
+doesn’t have the ability to dynamically modify the selection coefficients
+stored in the mutation metadata.
+To modify the mutations to be under selection,
+see <a class="reference internal" href="vignette_coalescent_diversity.html#sec-vignette-coalescent-diversity"><span class="std std-ref">Vignette: Starting with diversity generated by coalescent simulation</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_mutations</span><span class="p">(</span>
+                <span class="n">ts</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+                <span class="n">model</span><span class="o">=</span><span class="n">msprime</span><span class="o">.</span><span class="n">SLiMMutationModel</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                <span class="n">random_seed</span><span class="o">=</span><span class="mi">9</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the mutations have SLiM metadata.
+For instance, here’s the first mutation:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">mutation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mutation(id=0, site=0, node=88, derived_state=&#39;0&#39;, parent=-1, metadata={
+    &#39;mutation_list&#39;: [{
+        &#39;mutation_type&#39;: 0,
+        &#39;selection_coeff&#39;: 0.0,
+        &#39;subpopulation&#39;: -1,
+        &#39;slim_time&#39;: -42,
+        &#39;nucleotide&#39;: -1
+       }]
+   },
+time=43.9737541056882, edge=876)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we write this out to a file that can be loaded in to SLiM:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">&quot;initialize_nonWF.trees&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a minimal SLiM script that reads in the tree sequence file
+and runs it for a bit longer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">initialize</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">initializeSLiMModelType</span><span class="p">(</span><span class="s2">&quot;nonWF&quot;</span><span class="p">);</span>
+   <span class="n">initializeTreeSeq</span><span class="p">();</span>
+   <span class="n">initializeMutationRate</span><span class="p">(</span><span class="mf">1e-8</span><span class="p">);</span>
+   <span class="n">initializeMutationType</span><span class="p">(</span><span class="s2">&quot;m0&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+   <span class="n">initializeGenomicElementType</span><span class="p">(</span><span class="s2">&quot;g1&quot;</span><span class="p">,</span> <span class="n">m0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+   <span class="n">initializeGenomicElement</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1e6</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">initializeRecombinationRate</span><span class="p">(</span><span class="mf">1e-8</span><span class="p">);</span>
+   <span class="n">defineConstant</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">reproduction</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">subpop</span><span class="o">.</span><span class="n">addCrossed</span><span class="p">(</span><span class="n">individual</span><span class="p">,</span>
+                     <span class="n">subpop</span><span class="o">.</span><span class="n">sampleIndividuals</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="mi">1</span> <span class="n">early</span><span class="p">()</span> <span class="p">{</span> 
+   <span class="n">sim</span><span class="o">.</span><span class="n">readFromPopulationFile</span><span class="p">(</span><span class="s2">&quot;initialize_nonWF.trees&quot;</span><span class="p">);</span>
+   <span class="n">catn</span><span class="p">(</span><span class="s2">&quot;Loaded &quot;</span> <span class="o">+</span> <span class="n">length</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">subpopulations</span><span class="p">)</span>
+        <span class="o">+</span> <span class="s2">&quot; populations from a file; now in generation &quot;</span> <span class="o">+</span> <span class="n">sim</span><span class="o">.</span><span class="n">cycle</span><span class="p">);</span>
+   <span class="n">catn</span><span class="p">(</span><span class="s2">&quot;Population sizes: &quot;</span> <span class="o">+</span> <span class="n">paste</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">subpopulations</span><span class="o">.</span><span class="n">individualCount</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="mi">2</span><span class="p">:</span> <span class="n">early</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">p0</span><span class="o">.</span><span class="n">fitnessScaling</span> <span class="o">=</span> <span class="n">K</span> <span class="o">/</span> <span class="n">p0</span><span class="o">.</span><span class="n">individualCount</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="mi">10</span> <span class="n">early</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">treeSeqOutput</span><span class="p">(</span><span class="s2">&quot;nonWF_restart.trees&quot;</span><span class="p">);</span>
+   <span class="n">catn</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">);</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">simulationFinished</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+slim -s 123 neutral_restart.slim
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// Initial random seed:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// RunInitializeCallbacks():
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeSLiMModelType(modelType = &#39;nonWF&#39;);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeTreeSeq();
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeMutationRate(1e-08);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeMutationType(0, 0.5, &quot;f&quot;, 0);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeGenomicElementType(1, m0, 1);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeGenomicElement(g1, 0, 999999);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeRecombinationRate(1e-08);
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#WARNING (Species::RunInitializeCallbacks): with tree-sequence recording enabled and a non-zero mutation rate, a neutral mutation type was defined and used; this is legal, but usually undesirable, since neutral mutations can be overlaid later using the tree-sequence information.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// Starting run at tick &lt;start&gt;:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded 1 populations from a file; now in generation 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Population sizes: 200
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done.
+</pre></div>
+</div>
+</div>
+</div>
+<p>A more in-depth example is provided at <a class="reference internal" href="vignette_coalescent_diversity.html#sec-vignette-coalescent-diversity"><span class="std std-ref">Vignette: Starting with diversity generated by coalescent simulation</span></a>.
+See the SLiM manual for more about this operation.</p>
+</div>
+<div class="section" id="extracting-information-about-selected-mutations">
+<h2>Extracting information about selected mutations<a class="headerlink" href="#extracting-information-about-selected-mutations" title="Permalink to this headline">#</a></h2>
+<p>Here is a simple SLiM simulation with two types of mutation:
+<code class="docutils literal notranslate"><span class="pre">m1</span></code> are deleterious, and <code class="docutils literal notranslate"><span class="pre">m2</span></code> are beneficial.
+Let’s see how to extract information about these mutations.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">initialize</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="n">initializeSLiMModelType</span><span class="p">(</span><span class="s2">&quot;WF&quot;</span><span class="p">);</span>
+   <span class="n">initializeTreeSeq</span><span class="p">();</span>
+   <span class="n">initializeMutationRate</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">);</span>
+   <span class="n">initializeMutationType</span><span class="p">(</span><span class="s2">&quot;m1&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">);</span>
+   <span class="n">initializeMutationType</span><span class="p">(</span><span class="s2">&quot;m2&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+   <span class="n">initializeGenomicElementType</span><span class="p">(</span><span class="s2">&quot;g1&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">));</span>
+   <span class="n">initializeGenomicElement</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1e6</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">initializeRecombinationRate</span><span class="p">(</span><span class="mf">1e-8</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="mi">1</span> <span class="n">early</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">addSubpop</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="mi">1000</span> <span class="n">early</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">sim</span><span class="o">.</span><span class="n">treeSeqOutput</span><span class="p">(</span><span class="s2">&quot;selection.trees&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+slim -s 23 selection.slim
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// Initial random seed:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// RunInitializeCallbacks():
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeSLiMModelType(modelType = &#39;WF&#39;);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeTreeSeq();
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeMutationRate(1e-06);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeMutationType(1, 0.5, &quot;e&quot;, -0.1);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeMutationType(2, 0.5, &quot;e&quot;, 0.5);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeGenomicElementType(1, c(m1, m2), c(0.9, 0.1));
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeGenomicElement(g1, 0, 999999);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>initializeRecombinationRate(1e-08);
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>// Starting run at tick &lt;start&gt;:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, let’s see how many mutations there are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;selection.trees&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of sites: </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_sites</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;Number of mutations: </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_mutations</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of sites: 6020
+Number of mutations: 6044
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that there are more mutations than sites;
+that’s because some sites (looks like 24 of them) have multiple mutations.
+The information about the mutation is put in the mutation’s metadata.
+Here’s the first mutation:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">mutation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mutation(id=0, site=0, node=3010, derived_state=&#39;1653896&#39;, parent=-1, metadata={
+    &#39;mutation_list&#39;: [{
+        &#39;mutation_type&#39;: 2,
+        &#39;selection_coeff&#39;: 1.5596729516983032,
+        &#39;subpopulation&#39;: 1,
+        &#39;slim_time&#39;: 827,
+        &#39;nucleotide&#39;: -1
+       }]
+   },
+time=172.0, edge=3100)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">m.site</span></code> tells us the ID of the <em>site</em> on the genome that the mutation occurred at,
+and we can pull up information about that with the <code class="docutils literal notranslate"><span class="pre">ts.site(</span> <span class="pre">)</span></code> method:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">site</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">site</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Site(id=0, position=54.0, ancestral_state=&#39;&#39;, mutations=[Mutation(id=0, site=0, node=3010, derived_state=&#39;1653896&#39;, parent=-1, metadata={
+    &#39;mutation_list&#39;: [{
+        &#39;mutation_type&#39;: 2,
+        &#39;selection_coeff&#39;: 1.5596729516983032,
+        &#39;subpopulation&#39;: 1,
+        &#39;slim_time&#39;: 827,
+        &#39;nucleotide&#39;: -1
+       }]
+   },
+time=172.0, edge=3100)], metadata=b&#39;&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This mutation occurred at position 54 along the genome (from <code class="docutils literal notranslate"><span class="pre">site.position</span></code>)
+which previously had no mutations (since <code class="docutils literal notranslate"><span class="pre">site.ancestral_state</span></code> is the empty string, <code class="docutils literal notranslate"><span class="pre">''</span></code>)
+and was given SLiM mutation ID 1653896 (<code class="docutils literal notranslate"><span class="pre">m.derived_state</span></code>).
+The metadata (<code class="docutils literal notranslate"><span class="pre">m.metadata</span></code>, a dict) tells us that
+the mutation has selection coefficient 1.5597 and occurred in population 1 in generation 827,
+which was 172 generations ago.
+This is not a nucleotide model, so the nucleotide entry is <code class="docutils literal notranslate"><span class="pre">-1</span></code>.
+Note that <code class="docutils literal notranslate"><span class="pre">m.time</span></code> and <code class="docutils literal notranslate"><span class="pre">m.metadata['mutation_list'][0]['slim_time']</span></code> are in this case redundant:
+they contain the same information, but the first is in tskit time
+(i.e., number of steps before the tree sequence was written out)
+and the second is using SLiM’s internal “tick” counter.</p>
+<p>Also note that the mutation’s metadata is a <em>list</em> of metadata entries.
+That’s because of SLiM’s mutation stacking feature.
+We know that some sites have more than one mutation,
+so to get an example let’s pull out one such mutation.
+In this case,
+<code class="docutils literal notranslate"><span class="pre">m.metadata['mutation_list']</span></code> is a list of length one,
+so the mutation was not stacked on top of previous ones.</p>
+<p>Let’s pull out a mutation that was stacked on top of another one:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">mutations</span><span class="p">():</span>
+  <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">parent</span> <span class="o">!=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">:</span>
+     <span class="k">break</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">mutation</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">parent</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mutation(id=1020, site=1017, node=573, derived_state=&#39;1998096,547531&#39;, parent=1019, metadata={
+    &#39;mutation_list&#39;: [{
+        &#39;mutation_type&#39;: 1,
+        &#39;selection_coeff&#39;: -0.0032227179035544395,
+        &#39;subpopulation&#39;: 1,
+        &#39;slim_time&#39;: 999,
+        &#39;nucleotide&#39;: -1
+       },
+    {
+     &#39;mutation_type&#39;: 2,
+     &#39;selection_coeff&#39;: 0.3085740804672241,
+     &#39;subpopulation&#39;: 1,
+     &#39;slim_time&#39;: 274,
+     &#39;nucleotide&#39;: -1
+    }]
+   },
+time=0.0, edge=1213)
+Mutation(id=1019, site=1017, node=3010, derived_state=&#39;547531&#39;, parent=-1, metadata={
+    &#39;mutation_list&#39;: [{
+        &#39;mutation_type&#39;: 2,
+        &#39;selection_coeff&#39;: 0.3085740804672241,
+        &#39;subpopulation&#39;: 1,
+        &#39;slim_time&#39;: 274,
+        &#39;nucleotide&#39;: -1
+       }]
+   },
+time=725.0, edge=3100)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This mutation (which is <code class="docutils literal notranslate"><span class="pre">ts.mutation(1020)</span></code> in the tree sequence)
+was the result of SLiM adding a new mutation of type <code class="docutils literal notranslate"><span class="pre">m1</span></code> and selection coefficient -0.0032
+on top of an existing mutation, also of type <code class="docutils literal notranslate"><span class="pre">m1</span></code> and with selection coefficient 0.3086.
+This happened at generation 999 (i.e., at tskit time 0.0 time units ago),
+and the older mutation occurred at generation 274 (at tskit time 725 time units ago).
+The older mutation has SLiM mutation ID 547531,
+and the newer mutation had SLiM mutation ID 1998096,
+so the resulting “derived state” is <code class="docutils literal notranslate"><span class="pre">'1998096,547531'</span></code>.</p>
+<p>Now that we understand how SLiM mutations are stored in a tree sequence,
+let’s look at the allele frequencies.
+The allele frequency spectrum for <em>all</em> mutations can be obtained using the
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.allele_frequency_spectrum" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.TreeSequence.allele_frequency_spectrum()</span></code></a> method,
+shown here for a sample of size 10 to make the output easy to see:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">(),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">afs</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">allele_frequency_spectrum</span><span class="p">([</span><span class="n">samps</span><span class="p">],</span> <span class="n">span_normalise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">polarised</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">afs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4173   91    6   19  438    1  493   20    0    0    2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>(The <code class="docutils literal notranslate"><span class="pre">span_normalise=False</span></code> argument gives us counts rather than a density per unit length.)
+This shows us that there are 4169 alleles that are found among the tree sequence’s samples
+that are not present in any of our 10 samples, 96 that are present in just one, etcetera.
+The surprisingly large number that are near 50% frequency are perhaps positively selected
+and on their way to fixation: we can check if that’s true next.
+You may have noticed that the sum of the allele frequency spectrum is 5243,
+which is not obviously related to the number of mutations (6044) <em>or</em> the number of sites (6020).
+That’s because each derived allele that is inherited by some but not all of the samples
+in the tree sequence is counted in the polarised allele frequency spectrum:
+Fixed mutations, or mutations that were entirely “overwritten” by subsequent mutations,
+do not contribute.
+Here’s how we can check this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">afs_total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">variants</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">genotypes</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">afs_total</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">genotypes</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">([</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">afs_total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5243
+</pre></div>
+</div>
+</div>
+</div>
+<p>At time of writing, we don’t have a built-in <code class="docutils literal notranslate"><span class="pre">allele_frequency</span></code> method,
+so we’ll use the following snippet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">allele_counts</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">sample_sets</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">sample_sets</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="n">sample_sets</span> <span class="o">=</span> <span class="p">[</span><span class="n">ts</span><span class="o">.</span><span class="n">samples</span><span class="p">()]</span>
+   <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+      <span class="k">return</span> <span class="n">x</span>
+   <span class="k">return</span> <span class="n">ts</span><span class="o">.</span><span class="n">sample_count_stat</span><span class="p">(</span><span class="n">sample_sets</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_sets</span><span class="p">),</span>
+              <span class="n">span_normalise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">windows</span><span class="o">=</span><span class="s1">&#39;sites&#39;</span><span class="p">,</span>
+              <span class="n">polarised</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;site&#39;</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This will return an array of counts, one for each site in the tree sequence,
+giving the number of <em>all</em> nonancestral alleles at that site found in the sample set
+(so, lumping together any of the various derived alleles we were looking at above).
+Then, we’ll separate out the counts in this array to get the derived frequency spectra
+separately for sites with (a) only <code class="docutils literal notranslate"><span class="pre">m1</span></code> mutations, (b) only <code class="docutils literal notranslate"><span class="pre">m2</span></code> mutations,
+and (c) both (for completeness, if there are any).
+First, we need to know which site has which of these three mutation types (m1, m2, or both):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mut_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">num_sites</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">sites</span><span class="p">()):</span>
+  <span class="n">mt</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">mutations</span><span class="p">:</span>
+     <span class="k">for</span> <span class="n">md</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;mutation_list&quot;</span><span class="p">]:</span>
+        <span class="n">mt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">md</span><span class="p">[</span><span class="s2">&quot;mutation_type&quot;</span><span class="p">])</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">mt</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+     <span class="n">mut_type</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+  <span class="k">else</span><span class="p">:</span>
+     <span class="n">mut_type</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">mt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we compute the frequency spectrum, and aggregate it
+to produce the allele frequency spectrum separately by mutation type.
+We’ll use the function <code class="docutils literal notranslate"><span class="pre">np.bincount</span></code> to do this efficiently:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freqs</span> <span class="o">=</span> <span class="n">allele_counts</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="p">[</span><span class="n">samps</span><span class="p">])</span>
+<span class="c1"># convert the n x 1 array of floats to a vector of integers</span>
+<span class="n">freqs</span> <span class="o">=</span> <span class="n">freqs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">mut_afs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">samps</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+  <span class="n">mut_afs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">freqs</span><span class="p">[</span><span class="n">mut_type</span> <span class="o">==</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">minlength</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">samps</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mut_afs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3663  484    4]
+ [  72   19    0]
+ [   4    2    0]
+ [  12    7    0]
+ [ 251  185    1]
+ [   0    1    0]
+ [ 285  207    0]
+ [  11    9    0]
+ [   0    0    0]
+ [   0    0    0]
+ [ 383  418    2]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first column gives the AFS among these 10 samples for the deleterious alleles,
+the second for the beneficial mutations;
+the third column for the seven sites that had both types of mutation.
+Interestingly, there are similar numbers of both types of mutation at intermediate frequency:
+perhaps because beneficial mutations are sweeping linked deleterious alleles along with them.
+Many fewer benefical alleles are at low frequency:
+3,666 deleterious alleles are not found in our sample of 10 genomes,
+while only 486 beneficial alleles are.</p>
+<p>Finally, let’s pull out information on the allele with the largest selection coefficient.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="nb">sum</span><span class="p">(</span><span class="n">md</span><span class="p">[</span><span class="s2">&quot;selection_coeff&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">md</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;mutation_list&quot;</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">mutations</span><span class="p">()</span>
+<span class="p">])</span>
+<span class="n">which_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">sel_coeffs</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">mutation</span><span class="p">(</span><span class="n">which_max</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">site</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">site</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Site(id=2514, position=450121.0, ancestral_state=&#39;&#39;, mutations=[Mutation(id=2522, site=2514, node=3009, derived_state=&#39;1616148&#39;, parent=-1, metadata={
+    &#39;mutation_list&#39;: [{
+        &#39;mutation_type&#39;: 2,
+        &#39;selection_coeff&#39;: 4.935262680053711,
+        &#39;subpopulation&#39;: 1,
+        &#39;slim_time&#39;: 808,
+        &#39;nucleotide&#39;: -1
+       }]
+   },
+time=191.0, edge=3088)], metadata=b&#39;&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This allele had a whopping selection coefficient of 4.94
+and appeared about halfway through the simulation.
+Let’s find its frequency in the full population:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">full_freqs</span> <span class="o">=</span> <span class="n">allele_counts</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The allele is found in </span><span class="si">{</span><span class="n">full_freqs</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">site</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> copies</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;out of </span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_nodes</span><span class="si">}</span><span class="s2"> genomes.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The allele is found in 2000.0 copies
+out of 3024 genomes.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The allele is above 50% in the population, so it is probably on its way to fixation.
+Using its SLiM ID (which is shown in its derived state, <code class="docutils literal notranslate"><span class="pre">1616148</span></code>),
+we could reload the tree sequence into SLiM,
+restart the simulation, and use its ID to track its subsequent progression.</p>
+</div>
+<div class="section" id="possibly-important-technical-notes">
+<h2>Possibly important technical notes<a class="headerlink" href="#possibly-important-technical-notes" title="Permalink to this headline">#</a></h2>
+<p>Also known as “gotchas”.</p>
+<ol class="simple">
+<li><p>If you use msprime to simulate a tree sequence, and then use that to initialize a SLiM simulation,
+you have to specify the same sequence length in both: as in the examples above,
+the <code class="docutils literal notranslate"><span class="pre">sequence_length</span></code> argument to <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.sim_ancestry" title="(in Python)"><code class="xref py py-func docutils literal notranslate"><span class="pre">msprime.sim_ancestry()</span></code></a> should be equal to the SLiM sequence length
+<em>plus 1.0</em> (e.g., if the base positions in SLiM are 0 to 99, then there are 100 bases in all,
+so the sequence length should be 100).</p></li>
+<li><p>Make sure to distinguish <em>individuals</em> and <em>nodes</em>!
+<code class="docutils literal notranslate"><span class="pre">tskit</span></code> “nodes” correspond to SLiM “genomes”.
+Individuals in SLiM are diploid, so normally, each has two nodes (but retained
+individuals may have nodes removed by simplification: see below).</p></li>
+<li><p>As described above, the Individual table contains entries for</p>
+<ol class="simple">
+<li><p>the currently alive individuals,</p></li>
+<li><p>any individuals that have been permanently remembered with
+<code class="docutils literal notranslate"><span class="pre">treeSeqRememberIndividuals()</span></code>, and</p></li>
+<li><p>any individuals that have been temporarily retained with
+<code class="docutils literal notranslate"><span class="pre">treeSeqRememberIndividuals(permanent=F)</span></code>. Importantly, the nodes in these
+individuals are <em>not</em> marked as sample nodes, so they can be lost during
+simplification. This means that a retained individual may only have one node (but
+if both nodes are lost due to simplification, the individual is removed too, and
+will not appear in the Individual table).</p></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="installation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Installation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="vignette_space.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Vignette: A spatial simulation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      pyslim 1.0.1
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

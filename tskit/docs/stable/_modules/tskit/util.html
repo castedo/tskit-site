@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tskit.util &#8212; Tskit manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bespoke.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tskit manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../quickstart.html">
+   Quickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-model.html">
+   Data model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../provenance.html">
+   Provenance
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../stats.html">
+   Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../topological-analysis.html">
+   Topological analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ibd.html">
+   Identity by descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../export.html">
+   Data export
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../python-api.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../c-api.html">
+   C API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../cli.html">
+   Command line interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../file-formats.html">
+   File formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  For developers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../changelogs.html">
+   Changelogs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            0.5.3
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/tskit"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tskit/issues/new?title=Issue%20on%20page%20%2F_modules/tskit/util.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for tskit.util</h1><div class="highlight"><pre>
+<span></span><span class="c1"># MIT License</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018-2022 Tskit Developers</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
+<span class="c1"># copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="c1"># SOFTWARE.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module responsible for various utility functions used in other modules.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">dataclasses</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">numbers</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">tskit</span>
+<span class="kn">from</span> <span class="nn">tskit</span> <span class="kn">import</span> <span class="n">UNKNOWN_TIME</span>
+
+
+<span class="c1"># Extra methods for dataclasses</span>
+<span class="k">class</span> <span class="nc">Dataclass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a new instance of this dataclass, with the specified attributes</span>
+<span class="sd">        overwritten by new values.</span>
+
+<span class="sd">        :return: A new instance of the same type</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">canonical_json</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns string of encoded JSON with keys sorted and whitespace removed to enable</span>
+<span class="sd">    byte-level comparison of encoded data.</span>
+
+<span class="sd">    :param Any obj: Python object to encode</span>
+<span class="sd">    :return: The encoded string</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="is_unknown_time"><a class="viewcode-back" href="../../python-api.html#tskit.is_unknown_time">[docs]</a><span class="k">def</span> <span class="nf">is_unknown_time</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    As the default unknown mutation time (:const:`UNKNOWN_TIME`) is a specific NAN value,</span>
+<span class="sd">    equality always fails (A NAN value is not equal to itself by definition).</span>
+<span class="sd">    This method compares the bitfield such that unknown times can be detected. Either</span>
+<span class="sd">    single floats can be passed or lists/arrays.</span>
+
+<span class="sd">    Note that NANs are a set of floating-point values. `tskit.UNKNOWN_TIME` is a specific</span>
+<span class="sd">    value in this set. `np.nan` is a differing value, but both are NAN.</span>
+<span class="sd">    See https://en.wikipedia.org/wiki/NaN</span>
+
+<span class="sd">    This function only returns true for ``tskit.is_unknown_time(tskit.UNKNOWN_TIME)``</span>
+<span class="sd">    and will return false for ``tskit.is_unknown_time(np.nan)`` or any other NAN or</span>
+<span class="sd">    non-NAN value.</span>
+
+<span class="sd">    :param time: Value or array to check.</span>
+<span class="sd">    :type time: Union[float, array-like]</span>
+<span class="sd">    :return: A single boolean or array of booleans the same shape as ``time``.</span>
+<span class="sd">    :rtype: Union[bool, numpy.ndarray[bool]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint64</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span>
+        <span class="n">UNKNOWN_TIME</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint64</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">safe_np_int_cast</span><span class="p">(</span><span class="n">int_array</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A few functions require arrays of certain dtypes (e.g. node indices are np.int32,</span>
+<span class="sd">    genotypes are np.int8, etc. Standard numpy integer arrays are of (dtype=np.int64),</span>
+<span class="sd">    so need casting. This function casts but checks bounds to avoid wrap-around</span>
+<span class="sd">    conversion errors. Strangely, numpy seems not to have this functionality built-in.</span>
+
+<span class="sd">    If copy=False, and the original array is a numpy array of exactly the same dtype</span>
+<span class="sd">    required, simply return the original rather than making a copy (same as the numpy</span>
+<span class="sd">    .astype(copy=...) function)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">int_array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="n">int_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">int_array</span><span class="p">)</span>
+        <span class="c1"># Since this is a new numpy array anyway, it&#39;s always a copy, so economize by</span>
+        <span class="c1"># setting copy=False</span>
+        <span class="n">copy</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">int_array</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">int_array</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>  <span class="c1"># Allow empty arrays of any type</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">int_array</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">casting</span><span class="o">=</span><span class="s2">&quot;safe&quot;</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">int_array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s2">&quot;O&quot;</span><span class="p">):</span>
+            <span class="c1"># this occurs e.g. if we&#39;re passed a list of lists of different lengths</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cannot convert to a rectangular array.&quot;</span><span class="p">)</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">int_array</span> <span class="o">&lt;</span> <span class="n">bounds</span><span class="o">.</span><span class="n">min</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">int_array</span> <span class="o">&gt;</span> <span class="n">bounds</span><span class="o">.</span><span class="n">max</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">OverflowError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot convert safely to </span><span class="si">{</span><span class="n">dtype</span><span class="si">}</span><span class="s2"> type&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">int_array</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;i&quot;</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;u&quot;</span><span class="p">:</span>
+            <span class="c1"># Allow casting from int to unsigned int, since we have checked bounds</span>
+            <span class="n">casting</span> <span class="o">=</span> <span class="s2">&quot;unsafe&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Raise a TypeError when we try to convert from, e.g., a float.</span>
+            <span class="n">casting</span> <span class="o">=</span> <span class="s2">&quot;same_kind&quot;</span>
+        <span class="k">return</span> <span class="n">int_array</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">casting</span><span class="o">=</span><span class="n">casting</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span>
+
+
+<span class="c1">#</span>
+<span class="c1"># Pack/unpack lists of data into flattened numpy arrays.</span>
+<span class="c1">#</span>
+
+
+<div class="viewcode-block" id="pack_bytes"><a class="viewcode-back" href="../../python-api.html#tskit.pack_bytes">[docs]</a><span class="k">def</span> <span class="nf">pack_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Packs the specified list of bytes into a flattened numpy array of 8 bit integers</span>
+<span class="sd">    and corresponding offsets. See :ref:`sec_encoding_ragged_columns` for details</span>
+<span class="sd">    of this encoding.</span>
+
+<span class="sd">    :param list[bytes] data: The list of bytes values to encode.</span>
+<span class="sd">    :return: The tuple (packed, offset) of numpy arrays representing the flattened</span>
+<span class="sd">        input data and offsets.</span>
+<span class="sd">    :rtype: numpy.ndarray (dtype=np.int8), numpy.ndarray (dtype=np.uint32)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">offsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">offsets</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">offsets</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+    <span class="n">column</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">offsets</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">column</span><span class="p">[</span><span class="n">offsets</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">:</span> <span class="n">offsets</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">column</span><span class="p">,</span> <span class="n">offsets</span></div>
+
+
+<div class="viewcode-block" id="unpack_bytes"><a class="viewcode-back" href="../../python-api.html#tskit.unpack_bytes">[docs]</a><span class="k">def</span> <span class="nf">unpack_bytes</span><span class="p">(</span><span class="n">packed</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Unpacks a list of bytes from the specified numpy arrays of packed byte</span>
+<span class="sd">    data and corresponding offsets. See :ref:`sec_encoding_ragged_columns` for details</span>
+<span class="sd">    of this encoding.</span>
+
+<span class="sd">    :param numpy.ndarray packed: The flattened array of byte values.</span>
+<span class="sd">    :param numpy.ndarray offset: The array of offsets into the ``packed`` array.</span>
+<span class="sd">    :return: The list of bytes values unpacked from the parameter arrays.</span>
+<span class="sd">    :rtype: list[bytes]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># This could be done a lot more efficiently...</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">offset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">raw</span> <span class="o">=</span> <span class="n">packed</span><span class="p">[</span><span class="n">offset</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">:</span> <span class="n">offset</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="pack_strings"><a class="viewcode-back" href="../../python-api.html#tskit.pack_strings">[docs]</a><span class="k">def</span> <span class="nf">pack_strings</span><span class="p">(</span><span class="n">strings</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Packs the specified list of strings into a flattened numpy array of 8 bit integers</span>
+<span class="sd">    and corresponding offsets using the specified text encoding.</span>
+<span class="sd">    See :ref:`sec_encoding_ragged_columns` for details of this encoding of</span>
+<span class="sd">    columns of variable length data.</span>
+
+<span class="sd">    :param list[str] data: The list of strings to encode.</span>
+<span class="sd">    :param str encoding: The text encoding to use when converting string data</span>
+<span class="sd">        to bytes. See the :mod:`codecs` module for information on available</span>
+<span class="sd">        string encodings.</span>
+<span class="sd">    :return: The tuple (packed, offset) of numpy arrays representing the flattened</span>
+<span class="sd">        input data and offsets.</span>
+<span class="sd">    :rtype: numpy.ndarray (dtype=np.int8), numpy.ndarray (dtype=np.uint32)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">pack_bytes</span><span class="p">([</span><span class="nb">bytearray</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span><span class="p">))</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">strings</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="unpack_strings"><a class="viewcode-back" href="../../python-api.html#tskit.unpack_strings">[docs]</a><span class="k">def</span> <span class="nf">unpack_strings</span><span class="p">(</span><span class="n">packed</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Unpacks a list of strings from the specified numpy arrays of packed byte</span>
+<span class="sd">    data and corresponding offsets using the specified text encoding.</span>
+<span class="sd">    See :ref:`sec_encoding_ragged_columns` for details of this encoding of</span>
+<span class="sd">    columns of variable length data.</span>
+
+<span class="sd">    :param numpy.ndarray packed: The flattened array of byte values.</span>
+<span class="sd">    :param numpy.ndarray offset: The array of offsets into the ``packed`` array.</span>
+<span class="sd">    :param str encoding: The text encoding to use when converting string data</span>
+<span class="sd">        to bytes. See the :mod:`codecs` module for information on available</span>
+<span class="sd">        string encodings.</span>
+<span class="sd">    :return: The list of strings unpacked from the parameter arrays.</span>
+<span class="sd">    :rtype: list[str]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">b</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">unpack_bytes</span><span class="p">(</span><span class="n">packed</span><span class="p">,</span> <span class="n">offset</span><span class="p">)]</span></div>
+
+
+<span class="k">def</span> <span class="nf">pack_arrays</span><span class="p">(</span><span class="n">list_of_lists</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Packs the specified list of numberic lists into a flattened numpy array of</span>
+<span class="sd">    numpy float64 and corresponding offsets. See</span>
+<span class="sd">    :ref:`sec_encoding_ragged_columns` for details of this encoding of columns</span>
+<span class="sd">    of variable length data.</span>
+
+<span class="sd">    :param list[list] list_of_lists: The list of numeric lists to encode.</span>
+<span class="sd">    :param dtype: The dtype for the packed array, defualts to float64</span>
+<span class="sd">    :return: The tuple (packed, offset) of numpy arrays representing the flattened</span>
+<span class="sd">        input data and offsets.</span>
+<span class="sd">    :rtype: numpy.array (dtype=dtype), numpy.array (dtype=np.uint32)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO must be possible to do this more efficiently with numpy</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_lists</span><span class="p">)</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">offset</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">offset</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_lists</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">offset</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">offset</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">:</span> <span class="n">offset</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">list_of_lists</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">offset</span>
+
+
+<span class="k">def</span> <span class="nf">unpack_arrays</span><span class="p">(</span><span class="n">packed</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Unpacks a list of arrays from the specified numpy arrays of packed</span>
+<span class="sd">    data and corresponding offsets. See</span>
+<span class="sd">    :ref:`sec_encoding_ragged_columns` for details of this encoding of columns</span>
+<span class="sd">    of variable length data.</span>
+
+<span class="sd">    :param numpy.ndarray packed: The flattened array of data.</span>
+<span class="sd">    :param numpy.ndarray offset: The array of offsets into the ``packed`` array.</span>
+<span class="sd">    :return: The list numpy arrays unpacked from the parameter arrays.</span>
+<span class="sd">    :rtype: list[numpy.ndarray]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">offset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">packed</span><span class="p">[</span><span class="n">offset</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">:</span> <span class="n">offset</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+
+<span class="c1">#</span>
+<span class="c1"># Interval utilities</span>
+<span class="c1">#</span>
+
+
+<span class="k">def</span> <span class="nf">intervals_to_np_array</span><span class="p">(</span><span class="n">intervals</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts the specified intervals to a numpy array and checks for</span>
+<span class="sd">    errors.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">intervals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">intervals</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="c1"># Special case the empty list of intervals</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">intervals</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">intervals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">intervals</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Intervals must be a 2D numpy array&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">intervals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Intervals array shape must be (N, 2)&quot;</span><span class="p">)</span>
+    <span class="c1"># TODO do this with numpy operations.</span>
+    <span class="n">last_right</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="k">for</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="ow">in</span> <span class="n">intervals</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">start</span> <span class="ow">or</span> <span class="n">right</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Intervals must be within </span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">right</span> <span class="o">&lt;=</span> <span class="n">left</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Bad interval: right &lt;= left&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">last_right</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Intervals must be disjoint.&quot;</span><span class="p">)</span>
+        <span class="n">last_right</span> <span class="o">=</span> <span class="n">right</span>
+    <span class="k">return</span> <span class="n">intervals</span>
+
+
+<span class="k">def</span> <span class="nf">negate_intervals</span><span class="p">(</span><span class="n">intervals</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the set of intervals *not* covered by the specified set of</span>
+<span class="sd">    disjoint intervals in the specified range.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">intervals</span> <span class="o">=</span> <span class="n">intervals_to_np_array</span><span class="p">(</span><span class="n">intervals</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+    <span class="n">other_intervals</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">last_right</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="k">for</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="ow">in</span> <span class="n">intervals</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">left</span> <span class="o">!=</span> <span class="n">last_right</span><span class="p">:</span>
+            <span class="n">other_intervals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">last_right</span><span class="p">,</span> <span class="n">left</span><span class="p">))</span>
+        <span class="n">last_right</span> <span class="o">=</span> <span class="n">right</span>
+    <span class="k">if</span> <span class="n">last_right</span> <span class="o">!=</span> <span class="n">end</span><span class="p">:</span>
+        <span class="n">other_intervals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">last_right</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">other_intervals</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">naturalsize</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Format a number of bytes like a human readable filesize (e.g. 10 kiB)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Taken from https://github.com/jmoiron/humanize</span>
+    <span class="n">suffix</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;KiB&quot;</span><span class="p">,</span> <span class="s2">&quot;MiB&quot;</span><span class="p">,</span> <span class="s2">&quot;GiB&quot;</span><span class="p">,</span> <span class="s2">&quot;TiB&quot;</span><span class="p">,</span> <span class="s2">&quot;PiB&quot;</span><span class="p">,</span> <span class="s2">&quot;EiB&quot;</span><span class="p">,</span> <span class="s2">&quot;ZiB&quot;</span><span class="p">,</span> <span class="s2">&quot;YiB&quot;</span><span class="p">)</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="mi">1024</span>
+    <span class="n">format_</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">&quot;</span>
+
+    <span class="n">bytes_</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">abs_bytes</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">bytes_</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">abs_bytes</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> Byte&quot;</span> <span class="o">%</span> <span class="n">bytes_</span>
+    <span class="k">elif</span> <span class="n">abs_bytes</span> <span class="o">&lt;</span> <span class="n">base</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> Bytes&quot;</span> <span class="o">%</span> <span class="n">bytes_</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
+        <span class="n">unit</span> <span class="o">=</span> <span class="n">base</span> <span class="o">**</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">abs_bytes</span> <span class="o">&lt;</span> <span class="n">unit</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">format_</span> <span class="o">+</span> <span class="s2">&quot; </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="p">((</span><span class="n">base</span> <span class="o">*</span> <span class="n">bytes_</span> <span class="o">/</span> <span class="n">unit</span><span class="p">),</span> <span class="n">s</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">format_</span> <span class="o">+</span> <span class="s2">&quot; </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="p">((</span><span class="n">base</span> <span class="o">*</span> <span class="n">bytes_</span> <span class="o">/</span> <span class="n">unit</span><span class="p">),</span> <span class="n">s</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">obj_to_collapsed_html</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">open_depth</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Recursively make an HTML representation of python objects.</span>
+
+<span class="sd">    :param str name: Name for this object</span>
+<span class="sd">    :param int open_depth: By default sub-sections are collapsed. If this number is</span>
+<span class="sd">    non-zero the first layers up to open_depth will be opened.</span>
+<span class="sd">    :return: The HTML as a string</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">opened</span> <span class="o">=</span> <span class="s2">&quot;open&quot;</span> <span class="k">if</span> <span class="n">open_depth</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">open_depth</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                &lt;div&gt;</span>
+<span class="s2">                  &lt;span class=&quot;tskit-details-label&quot;&gt;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&lt;/span&gt;</span>
+<span class="s2">                  &lt;details </span><span class="si">{</span><span class="n">opened</span><span class="si">}</span><span class="s2">&gt;</span>
+<span class="s2">                    &lt;summary&gt;dict&lt;/summary&gt;</span>
+<span class="s2">                    </span><span class="si">{</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">obj_to_collapsed_html</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">open_depth</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;br/&gt;&quot;</span>
+                             <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">())</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                  &lt;/details&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                &lt;div&gt;</span>
+<span class="s2">                  &lt;span class=&quot;tskit-details-label&quot;&gt;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&lt;/span&gt;</span>
+<span class="s2">                  &lt;details </span><span class="si">{</span><span class="n">opened</span><span class="si">}</span><span class="s2">&gt;</span>
+<span class="s2">                    &lt;summary&gt;list&lt;/summary&gt;</span>
+<span class="s2">                    </span><span class="si">{</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">obj_to_collapsed_html</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">open_depth</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;br/&gt;&quot;</span>
+                             <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                  &lt;/details&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">truncate_string_end</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    If a string is longer than &quot;length&quot; then snip out the middle and replace with an</span>
+<span class="sd">    ellipsis.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">length</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">string</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">string</span><span class="p">[:</span><span class="n">length</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">render_metadata</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">md</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">truncate_string_end</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">md</span><span class="p">),</span> <span class="n">length</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">unicode_table</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">row_separator</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a table (list of lists) of strings to a unicode table. If a row contains</span>
+<span class="sd">    the string &quot;__skipped__NNN&quot; then &quot;skipped N rows&quot; is displayed.</span>
+
+<span class="sd">    :param list[list[str]] rows: List of rows, each of which is a list of strings for</span>
+<span class="sd">    each cell. The first column will be left justified, the others right. Each row must</span>
+<span class="sd">    have the same number of cells.</span>
+<span class="sd">    :param str title: If specified the first output row will be a single cell</span>
+<span class="sd">    containing this string, left-justified. [optional]</span>
+<span class="sd">    :param list[str] header: Specifies a row above the main rows which will be in double</span>
+<span class="sd">    lined borders and left justified. Must be same length as each row. [optional]</span>
+<span class="sd">    :param boolean row_separator: If True add lines between each row. [Default: True]</span>
+<span class="sd">    :return: The table as a string</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">header</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">all_rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">header</span><span class="p">]</span> <span class="o">+</span> <span class="n">rows</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">all_rows</span> <span class="o">=</span> <span class="n">rows</span>
+    <span class="n">widths</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i_col</span><span class="p">])</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">all_rows</span><span class="p">)</span> <span class="k">for</span> <span class="n">i_col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_rows</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="p">]</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">inner_width</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">widths</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span> <span class="ow">or</span> <span class="n">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">+=</span> <span class="p">[</span>
+            <span class="sa">f</span><span class="s2">&quot;╔</span><span class="si">{</span><span class="s1">&#39;═&#39;</span> <span class="o">*</span> <span class="n">inner_width</span><span class="si">}</span><span class="s2">╗</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="sa">f</span><span class="s2">&quot;║</span><span class="si">{</span><span class="n">title</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">inner_width</span><span class="p">)</span><span class="si">}</span><span class="s2">║</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;╠</span><span class="si">{</span><span class="s1">&#39;╤&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;═&#39;</span> <span class="o">*</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">widths</span><span class="p">)</span><span class="si">}</span><span class="s2">╣</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="k">if</span> <span class="n">header</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">+=</span> <span class="p">[</span>
+            <span class="sa">f</span><span class="s2">&quot;╔</span><span class="si">{</span><span class="s1">&#39;╤&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;═&#39;</span> <span class="o">*</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">widths</span><span class="p">)</span><span class="si">}</span><span class="s2">╗</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;║</span><span class="si">{</span><span class="s1">&#39;│&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">cell</span><span class="p">,</span><span class="n">w</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">header</span><span class="p">,</span><span class="n">widths</span><span class="p">))</span><span class="si">}</span><span class="s2">║</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;╠</span><span class="si">{</span><span class="s1">&#39;╪&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;═&#39;</span> <span class="o">*</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">widths</span><span class="p">)</span><span class="si">}</span><span class="s2">╣</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="n">last_skipped</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">&quot;__skipped__&quot;</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="mi">11</span><span class="p">:]</span><span class="si">}</span><span class="s2"> rows skipped (tskit.set_print_options)&quot;</span><span class="p">[</span>
+                <span class="p">:</span><span class="n">inner_width</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">inner_width</span><span class="p">)</span>
+            <span class="n">row_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;║</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">║</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">if</span> <span class="n">row_separator</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">+=</span> <span class="p">[</span>
+                    <span class="sa">f</span><span class="s2">&quot;╟</span><span class="si">{</span><span class="s1">&#39;┴&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;─&#39;</span> <span class="o">*</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">widths</span><span class="p">)</span><span class="si">}</span><span class="s2">╢</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">row_str</span><span class="p">,</span>
+                    <span class="sa">f</span><span class="s2">&quot;╟</span><span class="si">{</span><span class="s1">&#39;┬&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;─&#39;</span> <span class="o">*</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">widths</span><span class="p">)</span><span class="si">}</span><span class="s2">╢</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row_str</span><span class="p">)</span>
+            <span class="n">last_skipped</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">last_skipped</span> <span class="ow">and</span> <span class="n">row_separator</span><span class="p">:</span>
+                <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;╟</span><span class="si">{</span><span class="s1">&#39;┼&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;─&#39;</span> <span class="o">*</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">widths</span><span class="p">)</span><span class="si">}</span><span class="s2">╢</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;║</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">widths</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">│&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;│&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">cell</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">widths</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span><span class="si">}</span><span class="s2">║</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="n">last_skipped</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;╚</span><span class="si">{</span><span class="s1">&#39;╧&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;═&#39;</span> <span class="o">*</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">widths</span><span class="p">)</span><span class="si">}</span><span class="s2">╝</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">tree_sequence_html</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
+    <span class="n">table_rows</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                  &lt;tr&gt;</span>
+<span class="s2">                    &lt;td&gt;</span><span class="si">{</span><span class="n">name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2">&lt;/td&gt;</span>
+<span class="s2">                      &lt;td&gt;</span><span class="si">{</span><span class="n">table</span><span class="o">.</span><span class="n">num_rows</span><span class="si">}</span><span class="s2">&lt;/td&gt;</span>
+<span class="s2">                      &lt;td&gt;</span><span class="si">{</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">nbytes</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/td&gt;</span>
+<span class="s2">                      &lt;td style=&quot;text-align: center;&quot;&gt;</span>
+<span class="s2">                        </span><span class="si">{</span><span class="s1">&#39;✅&#39;</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                      &lt;/td&gt;</span>
+<span class="s2">                    &lt;/tr&gt;</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">table_name_map</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            &lt;div&gt;</span>
+<span class="s2">              &lt;style&gt;</span>
+<span class="s2">                .tskit-table thead tr th </span><span class="se">{{</span><span class="s2">text-align: left;padding: 0.5em 0.5em;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table tbody tr td </span><span class="se">{{</span><span class="s2">padding: 0.5em 0.5em;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table tbody tr td:first-of-type </span><span class="se">{{</span><span class="s2">text-align: left;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-details-label </span><span class="se">{{</span><span class="s2">vertical-align: top; padding-right:5px;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table-set </span><span class="se">{{</span><span class="s2">display: inline-flex;flex-wrap: wrap;margin: -12px 0 0 -12px;width: calc(100% + 12px);</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table-set-table </span><span class="se">{{</span><span class="s2">margin: 12px 0 0 12px;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                details </span><span class="se">{{</span><span class="s2">display: inline-block;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                summary </span><span class="se">{{</span><span class="s2">cursor: pointer; outline: 0; display: list-item;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">              &lt;/style&gt;</span>
+<span class="s2">              &lt;div class=&quot;tskit-table-set&quot;&gt;</span>
+<span class="s2">                &lt;div class=&quot;tskit-table-set-table&quot;&gt;</span>
+<span class="s2">                  &lt;table class=&quot;tskit-table&quot;&gt;</span>
+<span class="s2">                    &lt;thead&gt;</span>
+<span class="s2">                      &lt;tr&gt;</span>
+<span class="s2">                        &lt;th style=&quot;padding:0;line-height:21px;&quot;&gt;</span>
+<span class="s2">                          &lt;img style=&quot;height: 32px;display: inline-block;padding: 3px 5px 3px 0;&quot; src=&quot;https://raw.githubusercontent.com/tskit-dev/administrative/main/tskit_logo.svg&quot;/&gt;</span>
+<span class="s2">                          &lt;a target=&quot;_blank&quot; href=&quot;https://tskit.dev/tskit/docs/latest/python-api.html#the-treesequence-class&quot;&gt; Tree Sequence &lt;/a&gt;</span>
+<span class="s2">                        &lt;/th&gt;</span>
+<span class="s2">                      &lt;/tr&gt;</span>
+<span class="s2">                    &lt;/thead&gt;</span>
+<span class="s2">                    &lt;tbody&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Trees&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_trees</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Sequence Length&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">sequence_length</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Time Units&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">time_units</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Sample Nodes&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">num_samples</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Total Size&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">nbytes</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                      &lt;tr&gt;</span>
+<span class="s2">                        &lt;td&gt;Metadata&lt;/td&gt;&lt;td style=&quot;text-align: left;&quot;&gt;</span><span class="si">{</span><span class="n">obj_to_collapsed_html</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">metadata_bytes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;No Metadata&quot;</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                    &lt;/tbody&gt;</span>
+<span class="s2">                  &lt;/table&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">                &lt;div class=&quot;tskit-table-set-table&quot;&gt;</span>
+<span class="s2">                  &lt;table class=&quot;tskit-table&quot;&gt;</span>
+<span class="s2">                    &lt;thead&gt;</span>
+<span class="s2">                      &lt;tr&gt;</span>
+<span class="s2">                        &lt;th style=&quot;line-height:21px;&quot;&gt;Table&lt;/th&gt;</span>
+<span class="s2">                        &lt;th&gt;Rows&lt;/th&gt;</span>
+<span class="s2">                        &lt;th&gt;Size&lt;/th&gt;</span>
+<span class="s2">                        &lt;th&gt;Has Metadata&lt;/th&gt;</span>
+<span class="s2">                      &lt;/tr&gt;</span>
+<span class="s2">                    &lt;/thead&gt;</span>
+<span class="s2">                    &lt;tbody&gt;</span>
+<span class="s2">                    </span><span class="si">{</span><span class="n">table_rows</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                    &lt;/tbody&gt;</span>
+<span class="s2">                  &lt;/table&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">              &lt;/div&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &quot;&quot;&quot;</span>  <span class="c1"># noqa: B950</span>
+
+
+<span class="k">def</span> <span class="nf">tree_html</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            &lt;div&gt;</span>
+<span class="s2">              &lt;style&gt;</span>
+<span class="s2">                .tskit-table thead tr th </span><span class="se">{{</span><span class="s2">text-align: left;padding: 0.5em 0.5em;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table tbody tr td </span><span class="se">{{</span><span class="s2">padding: 0.5em 0.5em;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table tbody tr td:first-of-type </span><span class="se">{{</span><span class="s2">text-align: left;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-details-label </span><span class="se">{{</span><span class="s2">vertical-align: top; padding-right:5px;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table-set </span><span class="se">{{</span><span class="s2">display: inline-flex;flex-wrap: wrap;margin: -12px 0 0 -12px;width: calc(100% + 12px);</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table-set-table </span><span class="se">{{</span><span class="s2">margin: 12px 0 0 12px;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                details </span><span class="se">{{</span><span class="s2">display: inline-block;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                summary </span><span class="se">{{</span><span class="s2">cursor: pointer; outline: 0; display: list-item;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">              &lt;/style&gt;</span>
+<span class="s2">              &lt;div class=&quot;tskit-table-set&quot;&gt;</span>
+<span class="s2">                &lt;div class=&quot;tskit-table-set-table&quot;&gt;</span>
+<span class="s2">                  &lt;table class=&quot;tskit-table&quot;&gt;</span>
+<span class="s2">                    &lt;thead&gt;</span>
+<span class="s2">                      &lt;tr&gt;</span>
+<span class="s2">                        &lt;th style=&quot;padding:0;line-height:21px;&quot;&gt;</span>
+<span class="s2">                          &lt;img style=&quot;height: 32px;display: inline-block;padding: 3px 5px 3px 0;&quot; src=&quot;https://raw.githubusercontent.com/tskit-dev/administrative/main/tskit_logo.svg&quot;/&gt;</span>
+<span class="s2">                          &lt;a target=&quot;_blank&quot; href=&quot;https://tskit.dev/tskit/docs/latest/python-api.html#the-tree-class&quot;&gt; Tree &lt;/a&gt;</span>
+<span class="s2">                        &lt;/th&gt;</span>
+<span class="s2">                      &lt;/tr&gt;</span>
+<span class="s2">                    &lt;/thead&gt;</span>
+<span class="s2">                    &lt;tbody&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Index&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">tree</span><span class="o">.</span><span class="n">index</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Interval&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">tree</span><span class="o">.</span><span class="n">interval</span><span class="o">.</span><span class="n">left</span><span class="si">:</span><span class="s2">.8g</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">tree</span><span class="o">.</span><span class="n">interval</span><span class="o">.</span><span class="n">right</span><span class="si">:</span><span class="s2">.8g</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">tree</span><span class="o">.</span><span class="n">span</span><span class="si">:</span><span class="s2">.8g</span><span class="si">}</span><span class="s2">)&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Roots&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">tree</span><span class="o">.</span><span class="n">num_roots</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Nodes&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">preorder</span><span class="p">())</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Sites&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">tree</span><span class="o">.</span><span class="n">num_sites</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Mutations&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">tree</span><span class="o">.</span><span class="n">num_mutations</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                      &lt;tr&gt;&lt;td&gt;Total Branch Length&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">tree</span><span class="o">.</span><span class="n">total_branch_length</span><span class="si">:</span><span class="s2">.8g</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                    &lt;/tbody&gt;</span>
+<span class="s2">                  &lt;/table&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">              &lt;/div&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &quot;&quot;&quot;</span>  <span class="c1"># noqa: B950</span>
+
+
+<span class="k">def</span> <span class="nf">variant_html</span><span class="p">(</span><span class="n">variant</span><span class="p">):</span>
+    <span class="n">class_type</span> <span class="o">=</span> <span class="s2">&quot;Variant&quot;</span>
+
+    <span class="n">url_tskit_logo</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;https://raw.githubusercontent.com/tskit-dev/administrative/main/tskit_logo.svg&quot;</span>
+    <span class="p">)</span>
+    <span class="n">url_variant_class_doc</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;https://tskit.dev/tskit/docs/latest/python-api.html#the-variant-class&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">html_body_head</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        &lt;div&gt;</span>
+<span class="s2">            &lt;style&gt;</span>
+<span class="s2">                .tskit-table thead tr th </span><span class="se">{{</span><span class="s2">text-align: left;padding: 0.5em 0.5em;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table tbody tr td </span><span class="se">{{</span><span class="s2">padding: 0.5em 0.5em;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table tbody tr td:first-of-type </span><span class="se">{{</span><span class="s2">text-align: left;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-details-label </span><span class="se">{{</span><span class="s2">vertical-align: top; padding-right:5px;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table-set </span><span class="se">{{</span><span class="s2">display: inline-flex;flex-wrap: wrap;margin: -12px 0 0 -12px;width: calc(100% + 12px);</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                .tskit-table-set-table </span><span class="se">{{</span><span class="s2">margin: 12px 0 0 12px;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                details </span><span class="se">{{</span><span class="s2">display: inline-block;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">                summary </span><span class="se">{{</span><span class="s2">cursor: pointer; outline: 0; display: list-item;</span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">            &lt;/style&gt;</span>
+<span class="s2">            &lt;div class=&quot;tskit-table-set&quot;&gt;</span>
+<span class="s2">                &lt;div class=&quot;tskit-table-set-table&quot;&gt;</span>
+<span class="s2">                &lt;table class=&quot;tskit-table&quot;&gt;</span>
+<span class="s2">                    &lt;thead&gt;</span>
+<span class="s2">                    &lt;tr&gt;</span>
+<span class="s2">                        &lt;th style=&quot;padding:0;line-height:21px;&quot;&gt;</span>
+<span class="s2">                        &lt;img style=&quot;height: 32px;display: inline-block;padding: 3px 5px 3px 0;&quot; src=&quot;</span><span class="si">{</span><span class="n">url_tskit_logo</span><span class="si">}</span><span class="s2">&quot;/&gt;</span>
+<span class="s2">                        &lt;a target=&quot;_blank&quot; href=&quot;</span><span class="si">{</span><span class="n">url_variant_class_doc</span><span class="si">}</span><span class="s2">&quot;&gt; </span><span class="si">{</span><span class="n">class_type</span><span class="si">}</span><span class="s2"> &lt;/a&gt;</span>
+<span class="s2">                        &lt;/th&gt;</span>
+<span class="s2">                    &lt;/tr&gt;</span>
+<span class="s2">                    &lt;/thead&gt;</span>
+<span class="s2">                    &lt;tbody&gt;</span>
+<span class="s2">        &quot;&quot;&quot;</span>  <span class="c1"># noqa: B950</span>
+
+    <span class="n">html_body_tail</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                    &lt;/tbody&gt;</span>
+<span class="s2">            &lt;/table&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">variant</span><span class="o">.</span><span class="n">site</span>
+
+        <span class="n">site_id</span> <span class="o">=</span> <span class="n">variant</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">site_position</span> <span class="o">=</span> <span class="n">variant</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">position</span>
+        <span class="n">num_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">variant</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
+        <span class="n">num_alleles</span> <span class="o">=</span> <span class="n">variant</span><span class="o">.</span><span class="n">num_alleles</span>
+        <span class="n">has_missing_data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">variant</span><span class="o">.</span><span class="n">has_missing_data</span><span class="p">)</span>
+        <span class="n">isolated_as_missing</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">variant</span><span class="o">.</span><span class="n">isolated_as_missing</span><span class="p">))</span>
+
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">variant</span><span class="o">.</span><span class="n">counts</span><span class="p">()</span>
+        <span class="n">freqs</span> <span class="o">=</span> <span class="n">variant</span><span class="o">.</span><span class="n">frequencies</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">html_body_head</span>
+            <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                &lt;tr&gt;&lt;td&gt;Site Id&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">site_id</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                &lt;tr&gt;&lt;td&gt;Site Position&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">site_position</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                &lt;tr&gt;&lt;td&gt;Number of Samples&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">num_samples</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                &lt;tr&gt;&lt;td&gt;Number of Alleles&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">num_alleles</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">            &quot;&quot;&quot;</span>
+            <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="sa">f</span><span class="s2">&quot;&quot;&quot;&lt;tr&gt;&lt;td&gt;Samples with Allele </span><span class="si">{</span><span class="s1">&#39;missing&#39;</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">is</span> <span class="kc">None</span>
+                        <span class="k">else</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;&quot;&quot;&quot;</span>
+                    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">counts</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+                    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">freqs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="si">:</span><span class="s2">.2g</span><span class="si">}</span><span class="s2">%)&quot;</span>
+                    <span class="o">+</span> <span class="s2">&quot;&lt;/td&gt;&lt;/tr&gt;&quot;</span>
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">variant</span><span class="o">.</span><span class="n">alleles</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+            <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                &lt;tr&gt;&lt;td&gt;Has Missing Data&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">has_missing_data</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">                &lt;tr&gt;&lt;td&gt;Isolated as Missing&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="n">isolated_as_missing</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">            &quot;&quot;&quot;</span>
+            <span class="o">+</span> <span class="n">html_body_tail</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">html_body_head</span>
+            <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                        &lt;tr&gt;&lt;td&gt;Error&lt;/td&gt;&lt;td&gt;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="s2">            &quot;&quot;&quot;</span>
+            <span class="o">+</span> <span class="n">html_body_tail</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">convert_file_like_to_open_file</span><span class="p">(</span><span class="n">file_like</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+    <span class="c1"># Get ourselves a local version of the file. The semantics here are complex</span>
+    <span class="c1"># because need to support a range of inputs and the free behaviour is</span>
+    <span class="c1"># slightly different on each.</span>
+    <span class="n">_file</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">local_file</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># First, see if we can interpret the argument as a pathlike object.</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fspath</span><span class="p">(</span><span class="n">file_like</span><span class="p">)</span>
+        <span class="n">_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">if</span> <span class="n">_file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Now we try to open file. If it&#39;s not a pathlike object, it could be</span>
+        <span class="c1"># an integer fd or object with a fileno method. In this case we</span>
+        <span class="c1"># must make sure that close is **not** called on the fd.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_like</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">closefd</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">buffering</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">if</span> <span class="n">_file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Assume that this is a file **but** we haven&#39;t opened it, so we must</span>
+        <span class="c1"># not close it.</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;wb&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">file_like</span><span class="p">,</span> <span class="s2">&quot;write&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;file object must have a write method&quot;</span><span class="p">)</span>
+        <span class="n">_file</span> <span class="o">=</span> <span class="n">file_like</span>
+        <span class="n">local_file</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="n">_file</span><span class="p">,</span> <span class="n">local_file</span>
+
+
+<span class="k">def</span> <span class="nf">set_print_options</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">max_lines</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set the options for printing to strings and HTML</span>
+
+<span class="sd">    :param integer max_lines: The maximum number of lines to print from a table, beyond</span>
+<span class="sd">    this number the middle of the table will be skipped.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tskit</span><span class="o">.</span><span class="n">_print_options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;max_lines&quot;</span><span class="p">:</span> <span class="n">max_lines</span><span class="p">}</span>
+
+
+<div class="viewcode-block" id="random_nucleotides"><a class="viewcode-back" href="../../python-api.html#tskit.random_nucleotides">[docs]</a><span class="k">def</span> <span class="nf">random_nucleotides</span><span class="p">(</span><span class="n">length</span><span class="p">:</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a random string of nucleotides of the specified length. Characters</span>
+<span class="sd">    are drawn uniformly from the alphabet &quot;ACTG&quot;.</span>
+
+<span class="sd">    :param int length: The length of the random sequence.</span>
+<span class="sd">    :return: A string of the specified length consisting of random nucleotide</span>
+<span class="sd">       characters.</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">length</span><span class="p">)</span> <span class="o">!=</span> <span class="n">length</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;length must be an integer&quot;</span><span class="p">)</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">encoded_nucleotides</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="s2">&quot;ACTG&quot;</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">encoded_nucleotides</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span></div>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      0.5.3
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

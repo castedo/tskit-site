@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>msprime.likelihood &#8212; Msprime manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/msprime_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Msprime manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../quickstart.html">
+   Quickstart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Running simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ancestry.html">
+   Ancestry simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../mutations.html">
+   Mutation simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../demography.html">
+   Demographic models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../replication.html">
+   Randomness and replication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../api.html">
+   API Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Utilities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../rate_maps.html">
+   Rate Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../pedigrees.html">
+   Pedigrees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../likelihoods.html">
+   Computing likelihoods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../logging.html">
+   Logging
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../legacy.html">
+   Legacy (version 0.x) APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../switch_from_other_simulators.html">
+   Switching from other simulators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../CITATION.html">
+   Citing msprime
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            msprime 1.2.1.dev16
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/msprime"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/msprime/issues/new?title=Issue%20on%20page%20%2F_modules/msprime/likelihood.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for msprime.likelihood</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (C) 2019 University of Oxford</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of msprime.</span>
+<span class="c1">#</span>
+<span class="c1"># msprime is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU General Public License as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># msprime is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with msprime.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c1">#</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module responsible for computing likelihoods.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">from</span> <span class="nn">msprime</span> <span class="kn">import</span> <span class="n">_msprime</span>
+
+
+<div class="viewcode-block" id="log_mutation_likelihood"><a class="viewcode-back" href="../../api.html#msprime.log_mutation_likelihood">[docs]</a><span class="k">def</span> <span class="nf">log_mutation_likelihood</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">mutation_rate</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the unnormalised log probability of the stored pattern of mutations</span>
+<span class="sd">    on the stored tree sequence, assuming infinite sites mutation. In particular,</span>
+<span class="sd">    each stored site must only contain a single mutation, and all mutant alleles</span>
+<span class="sd">    are treated interchangeably as having arisen from a single mutation rate.</span>
+<span class="sd">    This is automatically true for some msprime mutation models, such as JC69.</span>
+<span class="sd">    The omitted normalising constant depends on the pattern of mutations, but not</span>
+<span class="sd">    on the tree sequence or the mutation rate.</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">        The infinite sites assumption means that this method is only valid for</span>
+<span class="sd">        continuous genomes. It can also be run on discrete genomes, for which it</span>
+<span class="sd">        may provide a reasonable approximation when the number of sites is large</span>
+<span class="sd">        and the mutation rate is low. See :ref:`sec_ancestry_discrete_genome`</span>
+<span class="sd">        for how continuous genomes can be specified when simulating tree sequences</span>
+<span class="sd">        using msprime.</span>
+
+<span class="sd">    The function first computes the probability of the overall number of mutations</span>
+<span class="sd">    :math:`M` from the Poisson probability mass function</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        e^{-T \\mu / 2} \\frac{(T \\mu / 2)^M}{M!},</span>
+
+<span class="sd">    where :math:`T` is the total area of ancestral material in the tree sequence</span>
+<span class="sd">    stored in units of generations, and :math:`\\mu` is the per-site, per-generation</span>
+<span class="sd">    mutation probability. Each mutation then contributes an individual factor of</span>
+<span class="sd">    :math:`l / T`, where :math:`l` is the total branch length on which the mutation</span>
+<span class="sd">    could have arisen while appearing on all of the required lineages, again stored</span>
+<span class="sd">    in generations.</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">        If a tree at the site of a mutation contains unary nodes, then :math:`l` could</span>
+<span class="sd">        span more than one edge. In particular, we do not constrain mutations to take</span>
+<span class="sd">        place on the edge directly above the node on which they have been recorded,</span>
+<span class="sd">        but rather on any edge which would yield the same configuration of SNPs at the</span>
+<span class="sd">        leaves of the tree sequence.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: The tree sequence object with mutations.</span>
+<span class="sd">    :param float mutation_rate: The per-site, per-generation mutation probability.</span>
+<span class="sd">        Must be non-negative.</span>
+<span class="sd">    :return: The unnormalised log probability of the observed SNPs given the tree</span>
+<span class="sd">        sequence. If the mutation rate is set to zero and the tree sequence contains</span>
+<span class="sd">        at least one mutation, then returns `-float(&quot;inf&quot;)`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">tables</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">time</span>
+    <span class="n">total_material</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">tables</span><span class="o">.</span><span class="n">edges</span><span class="p">:</span>
+        <span class="n">total_material</span> <span class="o">+=</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">right</span> <span class="o">-</span> <span class="n">e</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">parent</span><span class="p">]</span> <span class="o">-</span> <span class="n">time</span><span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">child</span><span class="p">])</span>
+    <span class="n">number_of_mutations</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mutation_rate</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">number_of_mutations</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">number_of_mutations</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">total_material</span> <span class="o">*</span> <span class="n">mutation_rate</span><span class="p">)</span>
+            <span class="o">-</span> <span class="n">total_material</span> <span class="o">*</span> <span class="n">mutation_rate</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">tree</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">trees</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">sites</span><span class="p">():</span>
+                <span class="n">mutation</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">mutations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">child</span> <span class="o">=</span> <span class="n">mutation</span><span class="o">.</span><span class="n">node</span>
+                <span class="n">parent</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+                <span class="n">potential_branch_length</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">branch_length</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+                <span class="k">while</span> <span class="p">(</span>
+                    <span class="n">tree</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">children</span><span class="p">(</span><span class="n">parent</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span>
+                <span class="p">):</span>
+                    <span class="n">child</span> <span class="o">=</span> <span class="n">parent</span>
+                    <span class="n">parent</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+                    <span class="n">potential_branch_length</span> <span class="o">+=</span> <span class="n">tree</span><span class="o">.</span><span class="n">branch_length</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+                <span class="n">child</span> <span class="o">=</span> <span class="n">mutation</span><span class="o">.</span><span class="n">node</span>
+                <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">children</span><span class="p">(</span><span class="n">child</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">child</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">children</span><span class="p">(</span><span class="n">child</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">potential_branch_length</span> <span class="o">+=</span> <span class="n">tree</span><span class="o">.</span><span class="n">branch_length</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+                <span class="n">ret</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">potential_branch_length</span> <span class="o">/</span> <span class="n">total_material</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="log_arg_likelihood"><a class="viewcode-back" href="../../api.html#msprime.log_arg_likelihood">[docs]</a><span class="k">def</span> <span class="nf">log_arg_likelihood</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">recombination_rate</span><span class="p">,</span> <span class="n">Ne</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the log probability of the stored tree sequence under the Hudson ARG.</span>
+<span class="sd">    An exact expression for this probability is given in equation (1) of</span>
+<span class="sd">    `Kuhner et al. (2000) &lt;https://www.genetics.org/content/156/3/1393&gt;`_.</span>
+
+<span class="sd">    We assume branch lengths stored in generations, resulting in a coalescence</span>
+<span class="sd">    rate of :math:`1 / (2 N_e)` per pair of lineages.</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">        The stored tree sequence must store the full realisation of the ARG,</span>
+<span class="sd">        including all recombination events and all common ancestor events,</span>
+<span class="sd">        regardless of whether the recombinations cause a change in the ancestral</span>
+<span class="sd">        tree or whether the common ancestor events cause coalescence of ancestral</span>
+<span class="sd">        material. See :ref:`sec_ancestry_full_arg` for details of this</span>
+<span class="sd">        data structure, and how to generate them using ``msprime``.</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">        This method only supports continuous genomes.</span>
+<span class="sd">        See :ref:`sec_ancestry_discrete_genome` for how these can be specified</span>
+<span class="sd">        when simulating tree sequences using ``msprime``.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: The tree sequence object.</span>
+<span class="sd">    :param float recombination_rate: The per-link, per-generation recombination</span>
+<span class="sd">        probability. Must be non-negative.</span>
+<span class="sd">    :param float Ne: The diploid effective population size.</span>
+<span class="sd">    :return: The log probability of the tree sequence under the Hudson ancestral</span>
+<span class="sd">        recombination graph model. If the recombination rate is zero and the tree</span>
+<span class="sd">        sequence contains at least one recombination event, then returns</span>
+<span class="sd">        `-DBL_MAX`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get the tables into the format we need to interchange with the low-level code.</span>
+    <span class="n">lw_tables</span> <span class="o">=</span> <span class="n">_msprime</span><span class="o">.</span><span class="n">LightweightTableCollection</span><span class="p">()</span>
+    <span class="n">lw_tables</span><span class="o">.</span><span class="n">fromdict</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">asdict</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">_msprime</span><span class="o">.</span><span class="n">log_likelihood_arg</span><span class="p">(</span>
+        <span class="n">lw_tables</span><span class="p">,</span> <span class="n">Ne</span><span class="o">=</span><span class="n">Ne</span><span class="p">,</span> <span class="n">recombination_rate</span><span class="o">=</span><span class="n">recombination_rate</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      msprime 1.2.1.dev16
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

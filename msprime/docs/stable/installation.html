@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Installation &#8212; Msprime manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Ancestry simulations" href="ancestry.html" />
+    <link rel="prev" title="Quickstart" href="quickstart.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Msprime manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Quickstart
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Running simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ancestry.html">
+   Ancestry simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mutations.html">
+   Mutation simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="demography.html">
+   Demographic models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="replication.html">
+   Randomness and replication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Utilities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rate_maps.html">
+   Rate Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pedigrees.html">
+   Pedigrees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="likelihoods.html">
+   Computing likelihoods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logging.html">
+   Logging
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="legacy.html">
+   Legacy (version 0.x) APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="switch_from_other_simulators.html">
+   Switching from other simulators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CITATION.html">
+   Citing msprime
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            msprime 1.2.0
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right"><label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#via-conda">
+   Via Conda
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-start">
+     Quick Start
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#full-example">
+     Full example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#via-pip">
+   Via Pip
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-system-requirements">
+     check system requirements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-pip-install">
+     run pip install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pip-install-from-source">
+     pip install from source
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#via-container">
+   Via Container
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker">
+     docker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#podman">
+     podman
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#singularity">
+     Singularity
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Installation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#via-conda">
+   Via Conda
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-start">
+     Quick Start
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#full-example">
+     Full example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#via-pip">
+   Via Pip
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-system-requirements">
+     check system requirements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-pip-install">
+     run pip install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pip-install-from-source">
+     pip install from source
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#via-container">
+   Via Container
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker">
+     docker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#podman">
+     podman
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#singularity">
+     Singularity
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="installation">
+<span id="sec-installation"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h1>
+<p>There are three options for installing <code class="docutils literal notranslate"><span class="pre">msprime</span></code>:</p>
+<ol class="simple">
+<li><p><a class="reference internal" href="#sec-installation-conda"><span class="std std-ref">Via Conda</span></a>: the recommended options for most users</p></li>
+<li><p><a class="reference internal" href="#sec-installation-pip"><span class="std std-ref">Via Pip</span></a>: more flexibility and control for advanced users</p></li>
+<li><p><a class="reference internal" href="#sec-installation-container"><span class="std std-ref">Via Container</span></a>: to use
+<code class="docutils literal notranslate"><span class="pre">msprime</span></code> inside an extremely isolated environment</p></li>
+</ol>
+<div class="section" id="via-conda">
+<span id="sec-installation-conda"></span><h2>Via Conda<a class="headerlink" href="#via-conda" title="Permalink to this headline">#</a></h2>
+<p>Convenient <a class="reference external" href="https://conda.io/docs/">conda</a> packages are available for Python
+3.7+ on Linux, OSX and Windows.
+These pre-built binary packages are built using
+<a class="reference external" href="https://conda-forge.org/">conda-forge</a>.</p>
+<div class="section" id="quick-start">
+<h3>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">conda</span></code> using <a class="reference external" href="https://conda.io/miniconda.html">miniconda</a>.
+Make sure you follow the instructions to fully activate your <code class="docutils literal notranslate"><span class="pre">conda</span></code>
+installation!</p></li>
+<li><p>Set up the <a class="reference external" href="https://conda-forge.org/">conda-forge channel</a> using
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--add</span> <span class="pre">channels</span> <span class="pre">conda-forge</span></code>.</p></li>
+<li><p>Install msprime: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">msprime</span></code>.</p></li>
+<li><p>Try it out: <code class="docutils literal notranslate"><span class="pre">msp</span> <span class="pre">--version</span></code>.</p></li>
+</ol>
+<p>There are several different ways to obtain <code class="docutils literal notranslate"><span class="pre">conda</span></code>. Please see the
+<a class="reference external" href="https://docs.anaconda.com/anaconda/install/">anaconda installation documentation</a>
+for full details.</p>
+</div>
+<div class="section" id="full-example">
+<h3>Full example<a class="headerlink" href="#full-example" title="Permalink to this headline">#</a></h3>
+<p>In this example we create a
+<a class="reference external" href="https://conda.io/docs/user-guide/tasks/manage-environments.html">conda environment</a>
+and install <code class="docutils literal notranslate"><span class="pre">msprime</span></code> into it on an OSX machine.
+We assume that <code class="docutils literal notranslate"><span class="pre">conda</span></code> has been installed  and bash shell is being used (Windows users will need to modify the
+commands slightly).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda create --name msprime-env
+...
+
+  environment location: /home/jean/miniconda3/envs/msprime-env
+
+Proceed ([y]/n)? y
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+#
+# To activate this environment, use
+#
+#     $ conda activate msprime-env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+$ conda activate msprime-env
+(msprime-env) $ conda install -c conda-forge msprime
+...
+
+  added / updated specs:
+    - msprime
+
+The following NEW packages will be INSTALLED:
+...
+
+Proceed ([y]/n)? y
+
+Downloading and Extracting Packages
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+
+(msprime-env) $ python
+Python 3.8.5
+[GCC 7.3.0] :: Anaconda, Inc. on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; import msprime
+&gt;&gt;&gt; ts = msprime.sim_ancestry(3)
+&gt;&gt;&gt; print(ts.draw_text())
+3.18┊      10     ┊  
+    ┊    ┏━━┻━━┓  ┊  
+2.08┊    9     ┃  ┊  
+    ┊  ┏━┻━┓   ┃  ┊  
+0.80┊  ┃   ┃   8  ┊  
+    ┊  ┃   ┃  ┏┻┓ ┊  
+0.42┊  ┃   7  ┃ ┃ ┊  
+    ┊  ┃  ┏┻┓ ┃ ┃ ┊  
+0.34┊  6  ┃ ┃ ┃ ┃ ┊  
+    ┊ ┏┻┓ ┃ ┃ ┃ ┃ ┊  
+0.00┊ 0 4 1 3 2 5 ┊  
+  0.00          1.00 
+</pre></div>
+</div>
+<p>Please see the <a class="reference external" href="https://conda.io/docs/index.html">conda documentation</a> for
+more details on managing packages and environments.</p>
+</div>
+</div>
+<div class="section" id="via-pip">
+<span id="sec-installation-pip"></span><h2>Via Pip<a class="headerlink" href="#via-pip" title="Permalink to this headline">#</a></h2>
+<p>Installing using <code class="docutils literal notranslate"><span class="pre">pip</span></code> is more flexible than <code class="docutils literal notranslate"><span class="pre">conda</span></code> as it
+can support more versions of Python and dependencies can be customised.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you installed Python using anaconda/miniconda, please install
+msprime using <code class="docutils literal notranslate"><span class="pre">conda</span></code>. Link/load time errors will occur if you mix
+a conda installed Python with system libraries.</p>
+</div>
+<p>To install msprime via pip, first
+<a class="reference internal" href="#sec-installation-system-requirements"><span class="std std-ref">check system requirements</span></a>, then <a class="reference internal" href="#sec-run-pip"><span class="std std-ref">run pip install</span></a>.</p>
+<div class="section" id="check-system-requirements">
+<span id="sec-installation-system-requirements"></span><h3>check system requirements<a class="headerlink" href="#check-system-requirements" title="Permalink to this headline">#</a></h3>
+<p>Msprime requires Python 3.7+ and pip. Run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip --version
+</pre></div>
+</div>
+<p>to make sure you see Python 3.7 or greater.
+If you do not, do installation <a class="reference internal" href="#sec-installation-conda"><span class="std std-ref">via conda</span></a>.</p>
+<p>On most platforms, pip will install <code class="docutils literal notranslate"><span class="pre">msprime</span></code> pre-built binaries
+without any additional requirements.
+Follow <a class="reference internal" href="#sec-pip-install-source"><span class="std std-ref">pip install from source</span></a> to install from sources instead pre-built
+binaries.</p>
+</div>
+<div class="section" id="run-pip-install">
+<span id="sec-run-pip"></span><h3>run pip install<a class="headerlink" href="#run-pip-install" title="Permalink to this headline">#</a></h3>
+<p>We can install <code class="docutils literal notranslate"><span class="pre">msprime</span></code> easily using pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip install msprime
+</pre></div>
+</div>
+<p>(It is generally better to use <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">pip</span></code> rather than call <code class="docutils literal notranslate"><span class="pre">pip</span></code>
+directly since this allows you to control which installation of Python the
+package is installed to.)</p>
+<p>If you do not have root access to your machine, you can install
+<code class="docutils literal notranslate"><span class="pre">msprime</span></code> into your local Python installation as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip install msprime --user
+</pre></div>
+</div>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">mspms</span></code> program you must ensure
+that the <code class="docutils literal notranslate"><span class="pre">~/.local/bin</span></code> directory is in your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, or
+simply run it using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ~/.local/bin/mspms
+</pre></div>
+</div>
+<p>To uninstall <code class="docutils literal notranslate"><span class="pre">msprime</span></code>, simply run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip uninstall msprime
+</pre></div>
+</div>
+</div>
+<div class="section" id="pip-install-from-source">
+<span id="sec-pip-install-source"></span><h3>pip install from source<a class="headerlink" href="#pip-install-from-source" title="Permalink to this headline">#</a></h3>
+<p>Install from source if <a class="reference internal" href="#sec-run-pip"><span class="std std-ref">run pip install</span></a>  fails or you do
+not want to use pre-built binaries.</p>
+<p>There may be additional requirements depending on the specific platform.
+In particular, installation of <a class="reference external" href="http://www.gnu.org/software/gsl/">GNU Scientific
+Library</a> (GSL) is sometimes needed:</p>
+<dl class="glossary">
+<dt id="term-Debian-Ubuntu">Debian/Ubuntu<a class="headerlink" href="#term-Debian-Ubuntu" title="Permalink to this term">#</a></dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apt-get install python-dev libgsl0-dev
+</pre></div>
+</div>
+</dd>
+<dt id="term-Redhat-Fedora">Redhat/Fedora<a class="headerlink" href="#term-Redhat-Fedora" title="Permalink to this term">#</a></dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ yum install gsl-devel
+</pre></div>
+</div>
+</dd>
+<dt id="term-FreeBSD">FreeBSD<a class="headerlink" href="#term-FreeBSD" title="Permalink to this term">#</a></dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pkg install gsl
+</pre></div>
+</div>
+</dd>
+<dt id="term-OS-X">OS X<a class="headerlink" href="#term-OS-X" title="Permalink to this term">#</a></dt><dd><p>We recommend using <a class="reference internal" href="#sec-installation-conda"><span class="std std-ref">Via Conda</span></a> to install <code class="docutils literal notranslate"><span class="pre">msprime</span></code> on OS X.
+However, it is also possible to install using <a class="reference external" href="http://brew.sh/">Homebrew</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ brew update
+$ brew install gsl
+</pre></div>
+</div>
+</dd>
+<dt id="term-Windows">Windows<a class="headerlink" href="#term-Windows" title="Permalink to this term">#</a></dt><dd><p>Use <a class="reference internal" href="#sec-installation-conda"><span class="std std-ref">Via Conda</span></a>, do not install via <code class="docutils literal notranslate"><span class="pre">pip</span></code> on Windows.</p>
+</dd>
+</dl>
+<p>With GSL installed, install from source by doing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">msprime</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">binary</span> <span class="n">msprime</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="via-container">
+<span id="sec-installation-container"></span><h2>Via Container<a class="headerlink" href="#via-container" title="Permalink to this headline">#</a></h2>
+<p>An <a class="reference external" href="https://opencontainers.org/">open container</a> image (aka docker image) is built on
+<a class="reference external" href="https://hub.docker.com/r/tskit/msprime">Dockerhub</a> for each release of
+msprime. Each image is <a class="reference external" href="https://hub.docker.com/r/tskit/msprime/tags">tagged</a>
+with the corresponding release. For example, for msprime release 0.7.5, the
+corresponding image tag is <code class="docutils literal notranslate"><span class="pre">tskit/msprime:0.7.5</span></code>.</p>
+<p>To run a container, you can use <a class="reference external" href="https://www.docker.com/">docker</a>,
+<a class="reference external" href="https://sylabs.io/singularity/">Singularity</a>,
+<a class="reference external" href="https://podman.io/">podman</a> or similar tools supporting docker images.</p>
+<div class="section" id="docker">
+<h3>docker<a class="headerlink" href="#docker" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span></code> requires root privilege to run a container:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo docker run -it tskit/msprime:&lt;release&gt; mspms <span class="m">10</span> <span class="m">1</span> -T
+</pre></div>
+</div>
+</div>
+<div class="section" id="podman">
+<h3>podman<a class="headerlink" href="#podman" title="Permalink to this headline">#</a></h3>
+<p>podman can run an msprime container without root privilege:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ podman run -it docker.io/tskit/msprime:&lt;release&gt; mspms <span class="m">10</span> <span class="m">1</span> -T
+</pre></div>
+</div>
+</div>
+<div class="section" id="singularity">
+<h3>Singularity<a class="headerlink" href="#singularity" title="Permalink to this headline">#</a></h3>
+<p>A docker image can also be converted to a Singularity container and
+then run without root privilege:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity pull docker://tskit/msprime:&lt;release&gt; msprime-&lt;release&gt;.simg
+$ singularity <span class="nb">exec</span> msprime-&lt;release&gt;.simg mspms <span class="m">10</span> <span class="m">1</span> -T
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is possible that your current environment may conflict with the environment in the singularity container.
+There are two workarounds:</p>
+<ol class="simple">
+<li><p>Ignore your home with the conflicting environment with <code class="docutils literal notranslate"><span class="pre">--contain</span></code> or <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">&lt;/new/path/to/home&gt;</span> <span class="pre">-e</span></code></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity shell --contain msprime-release-0.7.3.simg
+Singularity: Invoking an interactive shell within container...
+
+Singularity msprime-release-0.7.3.simg:~&gt; python3
+Python <span class="m">3</span>.6.8 <span class="o">(</span>default, Jan <span class="m">14</span> <span class="m">2019</span>, <span class="m">11</span>:02:34<span class="o">)</span>
+<span class="o">[</span>GCC <span class="m">8</span>.0.1 <span class="m">20180414</span> <span class="o">(</span>experimental<span class="o">)</span> <span class="o">[</span>trunk revision <span class="m">259383</span><span class="o">]]</span> on linux
+Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt; import msprime
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>or use a different path as your home that does not have a conflicting environment</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity shell -H &lt;/new/path/to/home&gt; -e msprime-release-0.7.3.simg
+Singularity: Invoking an interactive shell within container...
+
+Singularity msprime-release-0.7.3.simg:~/cnn_classify_demography&gt; python3
+Python <span class="m">3</span>.6.8 <span class="o">(</span>default, Jan <span class="m">14</span> <span class="m">2019</span>, <span class="m">11</span>:02:34<span class="o">)</span>
+<span class="o">[</span>GCC <span class="m">8</span>.0.1 <span class="m">20180414</span> <span class="o">(</span>experimental<span class="o">)</span> <span class="o">[</span>trunk revision <span class="m">259383</span><span class="o">]]</span> on linux
+Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt; import msprime
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>In python get rid of your local path</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ singularity shell msprime-release-0.7.3.simg
+Singularity: Invoking an interactive shell within container...
+
+Singularity msprime-release-0.7.3.simg:~&gt; python3
+Python <span class="m">3</span>.6.8 <span class="o">(</span>default, Jan <span class="m">14</span> <span class="m">2019</span>, <span class="m">11</span>:02:34<span class="o">)</span>
+<span class="o">[</span>GCC <span class="m">8</span>.0.1 <span class="m">20180414</span> <span class="o">(</span>experimental<span class="o">)</span> <span class="o">[</span>trunk revision <span class="m">259383</span><span class="o">]]</span> on linux
+Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt; import sys
+&gt;&gt;&gt; <span class="k">for</span> _path <span class="k">in</span> sys.path:
+...     <span class="k">if</span> <span class="s2">&quot;.local&quot;</span> <span class="k">in</span> _path:
+...             sys.path.remove<span class="o">(</span>_path<span class="o">)</span>
+...
+&gt;&gt;&gt; import msprime
+&gt;&gt;&gt;
+</pre></div>
+</div>
+</div>
+<p>For more information on Singularity, see <a class="reference external" href="https://www.sylabs.io/guides/3.6/user-guide/">https://www.sylabs.io/guides/3.6/user-guide/</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="quickstart.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Quickstart</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ancestry.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ancestry simulations</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      msprime 1.2.0
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

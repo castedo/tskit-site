@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; tsinfer 0.2.3 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> tsinfer
+          </a>
+              <div class="version">
+                0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#binary-packages">Binary packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-from-source">Installing from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#potential-issues">Potential issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inference.html">Inference overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_formats.html">File formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Developer documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tsinfer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<span id="sec-installation"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
+<p>Python 3.6 or newer is required for <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code>. Any Unix-like platform should
+work (<code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> is tested on Linux, OS X, and Windows).</p>
+<section id="binary-packages">
+<h2>Binary packages<a class="headerlink" href="#binary-packages" title="Permalink to this headline"></a></h2>
+<p>The most reliable way to install <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> is to install the binary conda package:
+e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda -c conda-forge install tsinfer
+</pre></div>
+</div>
+<p>you can then <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">tsinfer</span></code> in python or use the <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> executable directly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tsinfer --help
+</pre></div>
+</div>
+</section>
+<section id="installing-from-source">
+<h2>Installing from source<a class="headerlink" href="#installing-from-source" title="Permalink to this headline"></a></h2>
+<p>It is also possible to install from source via <code class="docutils literal notranslate"><span class="pre">pip</span></code> (although see the issues below):</p>
+<blockquote>
+<div><p>$ python3 -m pip install tsinfer –user</p>
+</div></blockquote>
+<p>which will install <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> to the Python installation corresponding to your
+<code class="docutils literal notranslate"><span class="pre">python3</span></code> executable. All requirements should be installed automatically.</p>
+<p>To run the command line interface to <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> you can then use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m tsinfer --help
+</pre></div>
+</div>
+<p>If your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> is set up to point at the corresponding <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory
+you can also use the <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> executable directly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tsinfer --help
+</pre></div>
+</div>
+<p>You may wish to install into a virtual environment
+first using <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv tsinfer-venv
+$ source tsinfer-venv/bin/activate
+(tsinfer-venv) $ python3 -m pip install tsinfer
+(tsinfer-venv) $ tsinfer --help
+</pre></div>
+</div>
+</section>
+<section id="potential-issues">
+<h2>Potential issues<a class="headerlink" href="#potential-issues" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>One of the dependencies of <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code>,
+<a class="reference external" href="https://numcodecs.readthedocs.io/">numcodecs</a>, is compiled to
+use AVX2 instructions (where available) when installed using pip. This can lead to
+issues when <code class="docutils literal notranslate"><span class="pre">numcodecs</span></code> is compiled on a machine that supports AVX2
+and subsequently run on older machines that do not. To resolve this, <code class="docutils literal notranslate"><span class="pre">numcodecs</span></code>
+has a <code class="docutils literal notranslate"><span class="pre">DISABLE_NUMCODECS_AVX2</span></code> variable which can be turned on before calling
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>, see
+<a class="reference external" href="https://numcodecs.readthedocs.io/en/stable/#installation">these instructions</a>
+for details.</p></li>
+<li><p>There can be problems compiling from source using the default compilers under Mac OS
+(see <a class="reference external" href="https://github.com/tskit-dev/tsinfer/issues/376">https://github.com/tskit-dev/tsinfer/issues/376</a>). The current workaround is
+either to compile from source by installing alternative python and C compilers via
+conda (<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">c-compiler</span></code>) or to install the binary
+packages via conda as recommended at the top of this page.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2018, Jerome Kelleher.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

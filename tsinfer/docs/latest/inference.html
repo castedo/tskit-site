@@ -1,0 +1,850 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Inference overview &#8212; Tsinfer manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Documentation" href="api.html" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/tsinfer_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tsinfer manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome to tsinfer’s documentation!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorial
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorial.html">
+   Tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inference
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Inference overview
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Documentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  File Formats
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="file_formats.html">
+   File formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Developer documentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CITATION.html">
+   Citing tsinfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            tsinfer undefined
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/tsinfer"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tsinfer/issues/new?title=Issue%20on%20page%20%2Finference.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tsinfer/edit/main/docs/inference.rst"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/inference.rst"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-requirements">
+   Data requirements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-model">
+   Data model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#individual">
+     Individual
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sample">
+     Sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#population">
+     Population
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metadata">
+     Metadata
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-samples-data">
+   Import samples data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-ancestors">
+   Generate ancestors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matching-ancestors-samples">
+   Matching ancestors &amp; samples
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#match-ancestors">
+     Match ancestors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#match-samples">
+     Match samples
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Inference overview</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-requirements">
+   Data requirements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-model">
+   Data model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#individual">
+     Individual
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sample">
+     Sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#population">
+     Population
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metadata">
+     Metadata
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-samples-data">
+   Import samples data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-ancestors">
+   Generate ancestors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matching-ancestors-samples">
+   Matching ancestors &amp; samples
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#match-ancestors">
+     Match ancestors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#match-samples">
+     Match samples
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="inference-overview">
+<span id="sec-inference"></span><h1>Inference overview<a class="headerlink" href="#inference-overview" title="Permalink to this headline">#</a></h1>
+<p>The process of inferring a tree sequence from variation data is split into a
+number of different steps. We first review the
+<a class="reference internal" href="#sec-inference-data-requirements"><span class="std std-ref">requirements</span></a> for input data
+and discuss how such data is <a class="reference internal" href="#sec-inference-import-samples"><span class="std std-ref">imported</span></a>
+into <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code>’s sample data format. We then outline the three
+basic steps for inference:
+<a class="reference internal" href="#sec-inference-generate-ancestors"><span class="std std-ref">generating ancestors</span></a>,
+<a class="reference internal" href="#sec-inference-match-ancestors"><span class="std std-ref">matching ancestors</span></a> and
+<a class="reference internal" href="#sec-inference-match-samples"><span class="std std-ref">matching samples</span></a>.</p>
+<section id="data-requirements">
+<span id="sec-inference-data-requirements"></span><h2>Data requirements<a class="headerlink" href="#data-requirements" title="Permalink to this headline">#</a></h2>
+<p>Input haplotype data for tskit must satisfy the following requirements:</p>
+<ul class="simple">
+<li><p>Data must be <em>phased</em>.</p></li>
+<li><p>For each site used for inference we must know the <em>ancestral state</em>. Note that
+this is not necessarily the same as the REF column from VCF, and ancestral
+states must be computed using some other method.</p></li>
+<li><p>Only biallelic sites can be used for inference.</p></li>
+<li><p>Missing data can be included in the haplotypes using the value
+<code class="docutils literal notranslate"><span class="pre">tskit.MISSING_DATA</span></code> (-1). The inferred tree sequence will have values
+imputed for the haplotypes at these sites.</p></li>
+</ul>
+</section>
+<section id="data-model">
+<span id="sec-inference-data-model"></span><h2>Data model<a class="headerlink" href="#data-model" title="Permalink to this headline">#</a></h2>
+<p>The data model for <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> is tightly integrated with
+<code class="docutils literal notranslate"><span class="pre">tskit</span></code>’s <a class="reference external" href="https://tskit.dev/tskit/docs/stable/data-model.html#sec-data-model" title="(in Python)"><span class="xref std std-ref">data model</span></a>
+and uses the same concepts throughout. The intermediate file formats and APIs
+described here provide a bridge between this model and existing data sources. For
+convenience, we provide a brief description of concepts needed for importing
+data into <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> here. Please see the <a class="reference external" href="https://tskit.dev/tskit/docs/stable/">tskit documentation</a> for more detailed information.</p>
+<section id="individual">
+<span id="sec-inference-data-model-individual"></span><h3>Individual<a class="headerlink" href="#individual" title="Permalink to this headline">#</a></h3>
+<p>In <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> an individual defines one of the subjects for which we have
+genotype data. Individuals may have arbitrary ploidy levels (i.e. haploid,
+diploid, tetraploid, etc.). Different individuals within a dataset can have
+different ploidy levels. You can add an individual, and specify arbitrary
+<a class="reference internal" href="#sec-inference-data-model-metadata"><span class="std std-ref">Metadata</span></a> for it, using the
+<a class="reference internal" href="api.html#tsinfer.SampleData.add_individual" title="tsinfer.SampleData.add_individual"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SampleData.add_individual()</span></code></a> method; if you do not do so <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code>
+will create a default set of haploid individuals, one for each sampled genome.</p>
+<p>The tree sequence that you infer from your data will contain sample nodes
+(i.e. genomes) that are linked to these individuals: the <code class="docutils literal notranslate"><span class="pre">tskit</span></code>
+documentation provides more detail on the
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/glossary.html#sec-nodes-or-individuals" title="(in Python)"><span class="xref std std-ref">distinction between individuals and the genomes they contain</span></a>.</p>
+</section>
+<section id="sample">
+<span id="sec-inference-data-model-sample"></span><h3>Sample<a class="headerlink" href="#sample" title="Permalink to this headline">#</a></h3>
+<p>Each individual is composed of one or more <code class="docutils literal notranslate"><span class="pre">sample</span></code> genomes, depending on their
+ploidy. If an individual is diploid they have two samples, one each for the
+maternal and paternal chromosome copies. More generally, a <code class="docutils literal notranslate"><span class="pre">node</span></code> refers
+to a maternal or paternal chromosome that is either a sample, or an
+ancestor of our samples.</p>
+<p>When we add an individual with ploidy <code class="docutils literal notranslate"><span class="pre">k</span></code> using
+<a class="reference internal" href="api.html#tsinfer.SampleData.add_individual" title="tsinfer.SampleData.add_individual"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SampleData.add_individual()</span></code></a>, <code class="docutils literal notranslate"><span class="pre">k</span></code> new samples are also added
+which refer to this new individual. When adding genotype information using the
+<a class="reference internal" href="api.html#tsinfer.SampleData.add_site" title="tsinfer.SampleData.add_site"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SampleData.add_site()</span></code></a> method, the user must ensure that the observed
+genotypes are in this same order.</p>
+</section>
+<section id="population">
+<span id="sec-inference-data-model-population"></span><h3>Population<a class="headerlink" href="#population" title="Permalink to this headline">#</a></h3>
+<p>A population is some grouping of individuals. Populations principally
+exist to allow us define metadata for groups of individuals (although
+technically, population IDs are associated with samples).
+Populations are added using the <a class="reference internal" href="api.html#tsinfer.SampleData.add_population" title="tsinfer.SampleData.add_population"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SampleData.add_population()</span></code></a>
+method.</p>
+</section>
+<section id="metadata">
+<span id="sec-inference-data-model-metadata"></span><h3>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">#</a></h3>
+<p>Metadata can be associated with populations and individuals in <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code>,
+which results in this information being available in the final tree
+sequence. Metadata allows us to incorporate extra information
+that is not part of the basic data model; for example, we can record
+the upstream ID of a given individual and their family relationships
+with other individuals.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code>, metadata can be stored by providing a JSON encodable
+mapping. This information is then stored as JSON, and embedded in the
+final tree sequence object and can be recovered using the <code class="docutils literal notranslate"><span class="pre">tskit</span></code>
+APIs.</p>
+</section>
+</section>
+<section id="import-samples-data">
+<span id="sec-inference-import-samples"></span><h2>Import samples data<a class="headerlink" href="#import-samples-data" title="Permalink to this headline">#</a></h2>
+<p>In <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> we make several passes through the input sample haplotypes
+in order to construct ancestors and to find copying paths for samples. To
+do this efficiently we store the data using the <a class="reference external" href="http://zarr.readthedocs.io">zarr library</a>, which provides very fast access to
+large arrays of numerical data compressed using cutting-edge
+<a class="reference external" href="http://numcodecs.readthedocs.io">compression methods</a>. As a result, we
+can store the input sample haplotypes and related metadata in a
+fraction of the size of a compressed VCF as well as process it efficiently.</p>
+<p>Rather than require the user to understand the internal structure of this
+file format, we provide a simple <a class="reference internal" href="api.html#sec-api-file-formats"><span class="std std-ref">Python API</span></a>
+to allow the user to efficiently construct it from their own data.
+An example of how to use this API is given in the <a class="reference internal" href="tutorial.html#sec-tutorial"><span class="std std-ref">Tutorial</span></a>.</p>
+<p>We do not provide an automatic means of importing data from VCF (or any
+other format) intentionally, as we believe that this would be extremely difficult to do.
+As there is no universally accepted way of encoding ancestral state
+information in VCF, in practise the user would most often have to write
+a new VCF file with ancestral state and metadata information in a specific
+form that we would require. Thus, it is more efficient to skip this intermediate
+step and to directly produce a <a class="reference internal" href="file_formats.html#sec-file-formats-samples"><span class="std std-ref">format</span></a>
+that is both compact and very efficient to process.</p>
+</section>
+<section id="generate-ancestors">
+<span id="sec-inference-generate-ancestors"></span><h2>Generate ancestors<a class="headerlink" href="#generate-ancestors" title="Permalink to this headline">#</a></h2>
+<p>The first step in a <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> inference process is to generate a large
+number of potential ancestors and to store these in an
+<a class="reference internal" href="file_formats.html#sec-file-formats-ancestors"><span class="std std-ref">ancestors file</span></a>. The ancestors
+file conventionally ends with <code class="docutils literal notranslate"><span class="pre">.ancestors</span></code>.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Describe the ancestor generation algorithm.</p>
+</div>
+</section>
+<section id="matching-ancestors-samples">
+<span id="sec-inference-match-ancestors-and-samples"></span><h2>Matching ancestors &amp; samples<a class="headerlink" href="#matching-ancestors-samples" title="Permalink to this headline">#</a></h2>
+<p>After we have generated a set of potential ancestors and stored them in
+an <a class="reference internal" href="file_formats.html#sec-file-formats-ancestors"><span class="std std-ref">ancestors file</span></a>, we then
+run two matching steps. First we match the ancestors against each
+other to generate an “ancestors tree sequence”, then we match the samples
+against this ancestors tree sequence to generate the final result.</p>
+<p>In both matching stages, we can set parameters that adjust the
+behaviour of the matching algorithm, in particular the <code class="docutils literal notranslate"><span class="pre">path_compression</span></code>
+setting, and the <code class="docutils literal notranslate"><span class="pre">recombination_rate</span></code> and <code class="docutils literal notranslate"><span class="pre">mismatch_ratio</span></code> parameters.
+The latter two only need to be specified if you wish to allow multiple
+mutations to occur at a single site (i.e. breaking the infinite sites model
+of mutation). Note, however, that multiple mutations are useful not only to
+show true recurrent or back mutations in the evolutionary history of a
+site, but also to represent errors in sequencing etc. which cause the
+distribution of variation to fit poorly to the marginal tree at that site.
+Hence, if there is error in your dataset, you may wish to experiment with
+these settings to obtain optimal results.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">recombination_rate</span></code> parameter is either a floating point value giving a
+single rate (<span class="math notranslate nohighlight">\(\rho\)</span>) per unit length of genome, used to calculate the
+genetic distance between adjacent sites, or an <a class="reference external" href="https://tskit.dev/msprime/docs/stable/api.html#msprime.RateMap" title="(in Python)"><code class="xref py py-class docutils literal notranslate"><span class="pre">msprime.RateMap</span></code></a> object
+(whose <code class="docutils literal notranslate"><span class="pre">.get_cumulative_mass</span></code> method provides the genetic distances instead).
+The genetic distances are then used to derive an array of probabilities of
+recombination between adjacent sites, (<span class="math notranslate nohighlight">\(r\)</span>) used when assessing the relative
+likelihood that a mismatch (and hence an extra mutation) may be responsible
+for some patterns of variation at a site.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">mismatch_ratio</span></code> parameter is only relevant if a recombination rate has
+been provided. It is used to adjust the balance of recombination to multiple
+mutations at a site. More specifically, a single probability of mismatch is
+used for all sites, which is calculated from the median genetic distance between
+inference sites, such that for conventional (small) distances, the probability of
+a mismatch is approximately equal to the probability of recombination multiplied
+by the <code class="docutils literal notranslate"><span class="pre">mismatch_ratio</span></code>. In other words, a mismatch ratio of 2 makes a recurrent
+mutation two times more likely than a recombination event to explain why an
+otherwise closely matching ancestral haplotype does not match at a particular site.
+Setting a high <code class="docutils literal notranslate"><span class="pre">mismatch_ratio</span></code> therefore results in tree sequences with more
+recurrent mutations and fewer recombinations (and edges). Setting a low value
+results in tree sequences with more recombination events and edges, and fewer
+mutations. In the limit, as the mismatch_ratio tends to zero, only one mutation
+will be inferred per variable site. This is the default behaviour if no
+<code class="docutils literal notranslate"><span class="pre">recombination_rate</span></code> is given or if there is only one inference site.
+Alternatively, if <code class="docutils literal notranslate"><span class="pre">recombination_rate</span></code> is set, <code class="docutils literal notranslate"><span class="pre">mismatch_ratio</span></code> defaults to
+1, which has been shown to give reasonable results in simulated inference of
+human-like data with error.  As a rough guide, such simulations recommend
+mismatch ratios between 1e-3 and 1e3.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">path_compression</span></code> setting is used to further minimise recombination events
+by looking for <em>shared recombination breakpoints</em>. A shared
+breakpoint exists if a set of children share a breakpoint in the same position,
+and they also have identical parents to the left of the breakpoint and identical
+parents to the right of the breakpoint. Rather than supposing that these
+children experienced multiple identical recombination events in parallel, we can
+reduce the number of ancestral recombination events by postulating a “synthetic
+ancestor” with this breakpoint, existing at a slightly older point
+in time, from whom all the children are descended at this genomic position. We
+call the algorithm used to implement this addition to the ancestral copying
+paths, “path compression”.</p>
+<section id="match-ancestors">
+<span id="sec-inference-match-ancestors"></span><h3>Match ancestors<a class="headerlink" href="#match-ancestors" title="Permalink to this headline">#</a></h3>
+<p>Matching ancestors is dependent on the time allocated to each ancestor; an
+ancestor can only copy from any older ancestor. For each ancestor,
+we find the most likely path through older ancestors: that is the path that
+maximises the product of the probabilities of recombination and mismatch
+over all sites.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Schematic of the ancestors copying process.</p>
+</div>
+<p>The copying path for each ancestor then describes its ancestry at every
+point in the sequence: from a genealogical perspective, we know its
+parent node. This information is encoded precisely as an <a class="reference external" href="https://tskit.dev/tskit/docs/stable/data-model.html#sec-edge-table-definition" title="(in Python)"><span class="xref std std-ref">edge</span></a> in a <a class="reference external" href="https://tskit.dev/tskit/docs/stable/data-model.html#sec-data-model" title="(in Python)"><span class="xref std std-ref">tree sequence</span></a>.
+Thus, we refer to the output of this step as the “ancestors tree sequence”,
+which is conventionally stored in a file ending with <code class="docutils literal notranslate"><span class="pre">.ancestors.trees</span></code>.</p>
+</section>
+<section id="match-samples">
+<span id="sec-inference-match-samples"></span><h3>Match samples<a class="headerlink" href="#match-samples" title="Permalink to this headline">#</a></h3>
+<p>The final phase of a <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> inference consists of a number steps:</p>
+<ol class="arabic simple">
+<li><p>The first (and usually most time-consuming) is to find copying paths
+for our sample haplotypes through the ancestors. Each copying path
+corresponds to a set of tree sequence edges in precisely the same
+way as for ancestors, and the path compression algorithm can be equally
+applied here.</p></li>
+<li><p>As we only use a subset of the available sites for inference
+(excluding by default any sites that are fixed or singletons)
+we then place mutations on the inferred trees in order to
+represent the information at these sites. This is done using
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.Tree.map_mutations" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tskit.Tree.map_mutations()</span></code></a>.</p></li>
+<li><p>Remove ancestral paths that do not lead to any of the samples by
+<a class="reference external" href="https://tskit.dev/tskit/docs/stable/python-api.html#tskit.TreeSequence.simplify" title="(in Python)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simplifying</span></code></a>
+the final tree sequence. When simplifying, we keep non-branching (“unary”)
+nodes, as they indicate ancestors which we have actively inferred, and
+for technical reasons keeping unary ancestors can also lead to better
+compression. Note that this means that not every internal node in the
+inferred tree sequence will correspond to a coalescent event.</p></li>
+</ol>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<ol class="arabic simple">
+<li><p>Describe path compression here and above in the ancestors
+section</p></li>
+<li><p>Describe the structure of the output tree sequences; how the
+nodes are mapped, what the time values mean, etc.</p></li>
+</ol>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="tutorial.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tutorial</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="api.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API Documentation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2018.<br/>
+    <div class="extra_footer">
+      tsinfer undefined
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

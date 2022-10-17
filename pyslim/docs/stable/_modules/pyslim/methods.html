@@ -1,0 +1,1088 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyslim.methods &#8212; PySLiM manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">PySLiM manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Using pyslim
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorial.html">
+   Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_space.html">
+   Vignette: A spatial simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_continuing.html">
+   Vignette: Following up with more coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_coalescent_diversity.html">
+   Vignette: Starting with diversity generated by coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_parallel_phylo.html">
+   Vignette: Parallelizing SLiM simulations in a phylogenetic tree
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time_units.html">
+   Time units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../previous_versions.html">
+   Migrating from previous versions of pyslim
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  pyslim reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../python_api.html">
+   Python API
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../development.html">
+   Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            pyslim 1.0.1
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for pyslim.methods</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">msprime</span>
+<span class="kn">import</span> <span class="nn">tskit</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">.slim_tree_sequence</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.slim_metadata</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.provenance</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.util</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="recapitate"><a class="viewcode-back" href="../../python_api.html#pyslim.recapitate">[docs]</a><span class="k">def</span> <span class="nf">recapitate</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span>
+               <span class="n">ancestral_Ne</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns a &quot;recapitated&quot; tree sequence, by using msprime to run a</span>
+<span class="sd">    coalescent simulation from the &quot;top&quot; of this tree sequence, i.e.,</span>
+<span class="sd">    allowing any uncoalesced lineages to coalesce.</span>
+
+<span class="sd">    To allow recapitation to be done correctly, the nodes of the</span>
+<span class="sd">    first generation of the SLiM simulation from whom all samples inherit</span>
+<span class="sd">    are still present in the tree sequence, but are not marked as samples.</span>
+<span class="sd">    If you simplify the tree sequence before recapitating you must ensure</span>
+<span class="sd">    these are not removed, which you do by passing the argument</span>
+<span class="sd">    ``keep_input_roots=True`` to :meth:`simplify &lt;tskit.TreeSequence.simplify&gt;`.</span>
+
+<span class="sd">    If you specify an ``ancestral_Ne``, then the recapitated portion of the</span>
+<span class="sd">    tree sequence will be simulated in a single population with this</span>
+<span class="sd">    (diploid) size. In other words, all lineages are moved to a single</span>
+<span class="sd">    population of this size (named &quot;ancestral&quot; if this name is not already</span>
+<span class="sd">    taken), and coalescence is allowed to happen.</span>
+
+<span class="sd">    You may control the ancestral demography by passing in a ``demography``</span>
+<span class="sd">    argument: see :func:`msprime.sim_ancestry`.</span>
+<span class="sd">    </span>
+<span class="sd">    In general, all defaults are whatever the defaults of</span>
+<span class="sd">    {meth}`msprime.sim_ancestry` are; this includes recombination rate, so</span>
+<span class="sd">    that if neither ``recombination_rate`` or a ``recombination_map`` are</span>
+<span class="sd">    provided, there will be *no* recombination.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: The tree sequence to transform.</span>
+<span class="sd">    :param float ancestral_Ne: If specified, then will simulate from a single</span>
+<span class="sd">        ancestral population of this size. It is an error to specify this</span>
+<span class="sd">        as well as ``demography``.</span>
+<span class="sd">    :param dict kwargs: Any other arguments to :func:`msprime.sim_ancestry`.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">is_current_version</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">_warn</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ancestral_Ne</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;demography&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;You cannot specify both `demography` and `ancestral_Ne`.&quot;</span><span class="p">)</span>
+        <span class="n">demography</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">Demography</span><span class="o">.</span><span class="n">from_tree_sequence</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="c1"># must set pop sizes to &gt;0 even though we merge immediately</span>
+        <span class="k">for</span> <span class="n">pop</span> <span class="ow">in</span> <span class="n">demography</span><span class="o">.</span><span class="n">populations</span><span class="p">:</span>
+            <span class="n">pop</span><span class="o">.</span><span class="n">initial_size</span><span class="o">=</span><span class="mf">1.0</span>
+        <span class="n">ancestral_name</span> <span class="o">=</span> <span class="s2">&quot;ancestral&quot;</span>
+        <span class="n">derived_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">pop</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">pop</span> <span class="ow">in</span> <span class="n">demography</span><span class="o">.</span><span class="n">populations</span><span class="p">]</span>
+        <span class="k">while</span> <span class="n">ancestral_name</span> <span class="ow">in</span> <span class="n">derived_names</span><span class="p">:</span>
+            <span class="n">ancestral_name</span> <span class="o">=</span> <span class="p">(</span><span class="n">ancestral_name</span> <span class="o">+</span> <span class="s2">&quot;_ancestral&quot;</span><span class="p">)</span>
+        <span class="n">demography</span><span class="o">.</span><span class="n">add_population</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">ancestral_name</span><span class="p">,</span>
+                <span class="n">description</span><span class="o">=</span><span class="s2">&quot;ancestral population simulated by msprime&quot;</span><span class="p">,</span>
+                <span class="n">initial_size</span><span class="o">=</span><span class="n">ancestral_Ne</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># the split has to come slightly longer ago than slim&#39;s tick</span>
+        <span class="c1"># since that&#39;s when all the linages are at, and otherwise the event</span>
+        <span class="c1"># won&#39;t apply to them</span>
+        <span class="n">demography</span><span class="o">.</span><span class="n">add_population_split</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">nextafter</span><span class="p">(</span>
+                    <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;tick&#39;</span><span class="p">],</span>
+                    <span class="mi">2</span> <span class="o">*</span> <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;tick&#39;</span><span class="p">],</span>
+                <span class="p">),</span>
+                <span class="n">derived</span><span class="o">=</span><span class="n">derived_names</span><span class="p">,</span>
+                <span class="n">ancestral</span><span class="o">=</span><span class="n">ancestral_name</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;demography&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">demography</span>
+
+    <span class="n">recap</span> <span class="o">=</span> <span class="n">msprime</span><span class="o">.</span><span class="n">sim_ancestry</span><span class="p">(</span>
+                <span class="n">initial_state</span> <span class="o">=</span> <span class="n">ts</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">recap</span></div>
+
+
+<div class="viewcode-block" id="convert_alleles"><a class="viewcode-back" href="../../python_api.html#pyslim.convert_alleles">[docs]</a><span class="k">def</span> <span class="nf">convert_alleles</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a modified tree sequence in which alleles have been replaced by</span>
+<span class="sd">    their corresponding nucleotides. For sites, SLiM-produced tree sequences</span>
+<span class="sd">    have &quot;&quot; (the empty string) for the ancestral state at each site; this method</span>
+<span class="sd">    will replace this with the corresponding nucleotide from the reference sequence.</span>
+<span class="sd">    For mutations, SLiM records the &#39;derived state&#39; as a SLiM mutation ID; this</span>
+<span class="sd">    method will this with the nucleotide from the mutation&#39;s metadata.</span>
+
+<span class="sd">    This operation is not reversible: since SLiM mutation IDs are lost, the tree</span>
+<span class="sd">    sequence will not be able to be read back into SLiM.</span>
+
+<span class="sd">    The main purpose of this method is for output: for instance, this code will produce</span>
+<span class="sd">    a VCF file with nucleotide alleles:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        nts = pyslim.convert_alleles(ts)</span>
+<span class="sd">        with open(&#39;nucs.vcf&#39;, &#39;w&#39;) as f:</span>
+<span class="sd">            nts.write_vcf(f)</span>
+
+<span class="sd">    This method will produce an error if the tree sequence does not have a</span>
+<span class="sd">    valid reference sequence or if any mutations do not have nucleotides: to first</span>
+<span class="sd">    generate these, see :func:`.generate_nucleotides`.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: The tree sequence to transform.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">dump_tables</span><span class="p">()</span>
+    <span class="n">has_refseq</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">ts</span><span class="o">.</span><span class="n">has_reference_sequence</span><span class="p">()</span>
+            <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">reference_sequence</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">has_refseq</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Tree sequence must have a valid reference sequence.&quot;</span><span class="p">)</span>
+    <span class="c1"># unfortunately, nucleotide mutations may be stacked (e.g., substitutions</span>
+    <span class="c1"># will appear this way) and they don&#39;t appear in any particular order;</span>
+    <span class="c1"># so we must guess which is the most recent, by choosing the one that</span>
+    <span class="c1"># has the largest SLiM time, doesn&#39;t appear in the parent list, or has</span>
+    <span class="c1"># the lagest SLiM ID.</span>
+    <span class="n">nuc_inds</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">metadata_vector</span><span class="p">([</span><span class="s1">&#39;mutation_list&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;nucleotide&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+    <span class="n">num_stacked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;mutation_list&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">mutations</span><span class="p">()])</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">num_stacked</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">mut</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">mutation</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mut</span><span class="o">.</span><span class="n">parent</span> <span class="o">==</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">:</span>
+            <span class="n">pids</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pids</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">mutation</span><span class="p">(</span><span class="n">mut</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span><span class="o">.</span><span class="n">derived_state</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span>
+                <span class="n">md</span><span class="p">[</span><span class="s1">&#39;slim_time&#39;</span><span class="p">],</span>
+                <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pids</span><span class="p">,</span>
+                <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                <span class="n">j</span>
+            <span class="p">)</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">md</span><span class="p">)</span> <span class="ow">in</span>
+            <span class="nb">enumerate</span><span class="p">(</span>
+                <span class="nb">zip</span><span class="p">(</span><span class="n">mut</span><span class="o">.</span><span class="n">derived_state</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">),</span> <span class="n">mut</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;mutation_list&#39;</span><span class="p">])</span>
+            <span class="p">)</span>
+        <span class="p">]</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">nuc_inds</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mut</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;mutation_list&#39;</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s1">&#39;nucleotide&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">nuc_inds</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All mutations must be nucleotide mutations.&quot;</span><span class="p">)</span>
+    <span class="n">da</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">NUCLEOTIDES</span><span class="p">)[</span><span class="n">nuc_inds</span><span class="p">]</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">packset_derived_state</span><span class="p">(</span><span class="n">da</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+    <span class="n">aa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">reference_sequence</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;S1&#39;</span><span class="p">)[</span><span class="n">k</span><span class="p">]</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">packset_ancestral_state</span><span class="p">(</span><span class="n">aa</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">tables</span><span class="o">.</span><span class="n">tree_sequence</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="generate_nucleotides"><a class="viewcode-back" href="../../python_api.html#pyslim.generate_nucleotides">[docs]</a><span class="k">def</span> <span class="nf">generate_nucleotides</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">reference_sequence</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a modified tree sequence in which mutations have been randomly assigned nucleotides</span>
+<span class="sd">    and (optionally) a reference sequence has been randomly generated.</span>
+
+<span class="sd">    If ``reference_sequence`` is a string of nucleotides (A, C, G, and T) of</span>
+<span class="sd">    length equal to the sequence length, this is used for the reference</span>
+<span class="sd">    sequence. If no reference sequence is given, the reference_sequence property</span>
+<span class="sd">    of ts is used if present; if not then a sequence of independent and</span>
+<span class="sd">    uniformly random nucleotides is generated.</span>
+
+<span class="sd">    SLiM stores the nucleotide as an integer in the mutation metadata, with -1 meaning &quot;not</span>
+<span class="sd">    a nucleotide mutation&quot;. This method assigns nucleotides by stepping through</span>
+<span class="sd">    each mutation and picking a random nucleotide uniformly out of the three</span>
+<span class="sd">    possible nucleotides that differ from the parental state (i.e., the derived</span>
+<span class="sd">    state of the parental mutation, or the ancestral state if the mutation has</span>
+<span class="sd">    no parent). If ``keep=True`` (the default), the mutations that already have a </span>
+<span class="sd">    nucleotide (i.e., an integer 0-3 in metadata) will not be modified.</span>
+
+<span class="sd">    Technical note: in the case of stacked mutations, the SLiM mutation that</span>
+<span class="sd">    determines the nucleotide state of the (tskit) mutation is the one with the largest</span>
+<span class="sd">    slim_time attribute. This method tries to assign nucleotides so that each mutation</span>
+<span class="sd">    differs from the previous state, but this is not always possible in certain</span>
+<span class="sd">    unlikely cases.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: The tree sequence to transform.</span>
+<span class="sd">    :param bool reference_sequence: A reference sequence, or None to use an existing reference,</span>
+<span class="sd">        or to randomly generate one.</span>
+<span class="sd">    :param bool keep: Whether to leave existing nucleotides in mutations that already have one.</span>
+<span class="sd">    :param int seed: The random seed for generating new alleles.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">reference_sequence</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ts</span><span class="o">.</span><span class="n">has_reference_sequence</span><span class="p">():</span>
+            <span class="n">reference_sequence</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">65</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">84</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">),</span>
+                    <span class="nb">int</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">),</span>
+                    <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">reference_sequence</span><span class="p">)</span> <span class="o">!=</span> <span class="n">ts</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Reference sequence must have length equal to sequence_length.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">reference_sequence</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">NUCLEOTIDES</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Reference sequence must be a string of A, C, G, and T only.&quot;</span><span class="p">)</span>
+
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">dump_tables</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">reference_sequence</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tables</span><span class="o">.</span><span class="n">reference_sequence</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">reference_sequence</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">sets</span> <span class="o">=</span> <span class="p">[[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+    <span class="n">states</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">ts</span><span class="o">.</span><span class="n">num_mutations</span><span class="p">,),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+    <span class="n">aa_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span>
+            <span class="n">NUCLEOTIDES</span><span class="p">,</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">reference_sequence</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;S1&#39;</span><span class="p">)[</span><span class="n">k</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">sites</span><span class="p">():</span>
+        <span class="n">aa</span> <span class="o">=</span> <span class="n">aa_list</span><span class="p">[</span><span class="n">site</span><span class="o">.</span><span class="n">id</span><span class="p">]</span>
+        <span class="n">muts</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">mut</span> <span class="ow">in</span> <span class="n">site</span><span class="o">.</span><span class="n">mutations</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">mut</span><span class="o">.</span><span class="n">parent</span> <span class="o">==</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">:</span>
+                <span class="n">pa</span> <span class="o">=</span> <span class="n">aa</span>
+                <span class="n">pds</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pa</span> <span class="o">=</span> <span class="n">states</span><span class="p">[</span><span class="n">mut</span><span class="o">.</span><span class="n">parent</span><span class="p">]</span>
+                <span class="n">pds</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">mutation</span><span class="p">(</span><span class="n">mut</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span><span class="o">.</span><span class="n">derived_state</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+            <span class="n">this_da</span> <span class="o">=</span> <span class="n">pa</span>
+            <span class="n">ml</span> <span class="o">=</span> <span class="n">mut</span><span class="o">.</span><span class="n">metadata</span>
+            <span class="n">max_time</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">md</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">mut</span><span class="o">.</span><span class="n">derived_state</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">),</span> <span class="n">ml</span><span class="p">[</span><span class="s1">&#39;mutation_list&#39;</span><span class="p">]):</span>
+                <span class="n">da</span> <span class="o">=</span> <span class="n">md</span><span class="p">[</span><span class="s1">&#39;nucleotide&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">da</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">keep</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">muts</span><span class="p">:</span>
+                        <span class="n">da</span> <span class="o">=</span> <span class="n">muts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">da</span> <span class="o">=</span> <span class="n">sets</span><span class="p">[</span><span class="n">pa</span><span class="p">][</span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+                    <span class="n">md</span><span class="p">[</span><span class="s1">&#39;nucleotide&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">da</span>
+                <span class="n">muts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">da</span>
+                <span class="c1"># the official nucleotide state is from the SLiM mutation with</span>
+                <span class="c1"># the largest slim_time attribute that was not present in the parent</span>
+                <span class="c1"># mutation</span>
+                <span class="k">if</span> <span class="n">md</span><span class="p">[</span><span class="s2">&quot;slim_time&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">max_time</span> <span class="ow">and</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pds</span><span class="p">:</span>
+                    <span class="n">this_da</span> <span class="o">=</span> <span class="n">da</span>
+                    <span class="n">max_time</span> <span class="o">=</span> <span class="n">md</span><span class="p">[</span><span class="s2">&quot;slim_time&quot;</span><span class="p">]</span>
+            <span class="n">states</span><span class="p">[</span><span class="n">mut</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">this_da</span>
+            <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mut</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="n">ml</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">tables</span><span class="o">.</span><span class="n">tree_sequence</span><span class="p">()</span></div>
+
+
+<span class="k">def</span> <span class="nf">individual_ages</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the ages of all individuals in the tree sequence, extracted</span>
+<span class="sd">    from metadata. The result is a array of length equal to the number of</span>
+<span class="sd">    individuals, with k-th entry equal to ``ts.individual(k).metadata[&quot;age&quot;]``.</span>
+
+<span class="sd">    :return: An array of ages of individuals.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;model_type&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;WF&quot;</span><span class="p">:</span>
+        <span class="n">ages</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">metadata_vector</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">num_individuals</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ages</span>
+
+
+<div class="viewcode-block" id="individuals_alive_at"><a class="viewcode-back" href="../../python_api.html#pyslim.individuals_alive_at">[docs]</a><span class="k">def</span> <span class="nf">individuals_alive_at</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="s1">&#39;late&#39;</span><span class="p">,</span> <span class="n">remembered_stage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                         <span class="n">population</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">samples_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns an array giving the IDs of all individuals that are known to be</span>
+<span class="sd">    alive at the given time ago.  This is determined using their birth time</span>
+<span class="sd">    ago (given by their `time` attribute) and, for nonWF models,</span>
+<span class="sd">    their `age` attribute (which is equal to their age at the last time</span>
+<span class="sd">    they were Remembered). See also {func}`.individual_ages_at`.</span>
+
+<span class="sd">    In WF models, birth occurs after &quot;early()&quot;, so that individuals are only</span>
+<span class="sd">    alive during &quot;late()&quot; for the time step when they have age zero,</span>
+<span class="sd">    while in nonWF models, birth occurs before &quot;early()&quot;, so they are alive</span>
+<span class="sd">    for both stages.</span>
+<span class="sd">    </span>
+<span class="sd">    In both WF and nonWF models, mortality occurs between</span>
+<span class="sd">    &quot;early()&quot; and &quot;late()&quot;, so that individuals are last alive during the</span>
+<span class="sd">    &quot;early()&quot; stage of the time step of their final age, and if individuals</span>
+<span class="sd">    are alive during &quot;late()&quot; they will also be alive during &quot;first()&quot; and</span>
+<span class="sd">    &quot;early()&quot; of the next time step. This means it is important to know during</span>
+<span class="sd">    which stage individuals were Remembered - for instance, if the call to</span>
+<span class="sd">    sim.treeSeqRememberIndividuals() was made during &quot;early()&quot; of a given time step,</span>
+<span class="sd">    then those individuals might not have survived until &quot;late()&quot; of that</span>
+<span class="sd">    time step. Since SLiM does not record the stage at which individuals</span>
+<span class="sd">    were Remembered, you can specify this by setting ``remembered_stages``:</span>
+<span class="sd">    it should be the stage during which *all* calls to</span>
+<span class="sd">    ``sim.treeSeqRememberIndividuals()``,  as well as to ``sim.treeSeqOutput()``,</span>
+<span class="sd">    were made.</span>
+
+<span class="sd">    Note also that in nonWF models, birth occurs between &quot;first()&quot; and</span>
+<span class="sd">    &quot;early()&quot;, so the possible parents in a given time step are those that are</span>
+<span class="sd">    alive in &quot;early()&quot; and have age greater than zero, or, equivalently, are</span>
+<span class="sd">    alive in &quot;late()&quot; during the previous time step.</span>
+<span class="sd">    In WF models, birth occurs after &quot;early()&quot;, so possible parents in a</span>
+<span class="sd">    given time step are those that are alive during &quot;early()&quot; of that time</span>
+<span class="sd">    step or are alive during &quot;late()&quot; of the previous time step.</span>
+
+<span class="sd">    Since individuals may be created not during the usual &#39;birth&#39; stage</span>
+<span class="sd">    by `addSubPop( )`, and the stage at which they are created is not stored,</span>
+<span class="sd">    results may be unreliable for the first-generation individuals.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: A tree sequence.</span>
+<span class="sd">    :param float time: The number of ticks (i.e., time steps) ago.</span>
+<span class="sd">    :param str stage: The stage in the SLiM life cycle that we are inquiring</span>
+<span class="sd">        about (either &quot;first&quot;, &quot;early&quot; or &quot;late&quot;; defaults to &quot;late&quot;).</span>
+<span class="sd">    :param str remembered_stage: The stage in the SLiM life cycle</span>
+<span class="sd">        during which individuals were Remembered (defaults to the stage the</span>
+<span class="sd">        tree sequence was recorded at, stored in metadata).</span>
+<span class="sd">    :param int population: If given, return only individuals in the</span>
+<span class="sd">        population(s) with these population ID(s).</span>
+<span class="sd">    :param bool samples_only: Whether to return only individuals who have at</span>
+<span class="sd">        least one node marked as samples.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">is_current_version</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">_warn</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">stage</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;late&quot;</span><span class="p">,</span> <span class="s2">&quot;early&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown stage &#39;</span><span class="si">{</span><span class="n">stage</span><span class="si">}</span><span class="s2">&#39;: &quot;</span>
+                          <span class="s2">&quot;should be either &#39;first&#39;, &#39;early&#39; or &#39;late&#39;.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">remembered_stage</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">remembered_stage</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;stage&#39;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">remembered_stage</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;late&quot;</span><span class="p">,</span> <span class="s2">&quot;early&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown remembered_stage &#39;</span><span class="si">{</span><span class="n">remembered_stage</span><span class="si">}</span><span class="s2">&#39;: &quot;</span>
+                          <span class="s2">&quot;should be either &#39;first&#39;, &#39;early&#39; or &#39;late&#39;.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">remembered_stage</span> <span class="o">!=</span> <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;stage&#39;</span><span class="p">]:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Provided remembered_stage &#39;</span><span class="si">{</span><span class="n">remembered_stage</span><span class="si">}</span><span class="s2">&#39; does not&quot;</span>
+                      <span class="s2">&quot; match the stage at which the tree sequence was saved&quot;</span>
+                      <span class="sa">f</span><span class="s2">&quot; (&#39;</span><span class="si">{</span><span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;stage&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;). This is not necessarily&quot;</span>
+                      <span class="s2">&quot; an error, but mismatched stages will lead to inconsistencies:&quot;</span>
+                      <span class="s2">&quot; make sure you know what you&#39;re doing.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># An individual&#39;s tskit time is the tskit counter at the time of their birth.</span>
+    <span class="c1"># The tskit counter clicks once at the start of each reproduction bout.</span>
+    <span class="c1"># In a WF model, individuals are alive for all stages with the same value</span>
+    <span class="c1"># of the tskit counter. In a nonWF model, an individual of age `a` will be</span>
+    <span class="c1"># alive for `a + 1` &#39;early&#39; events, and `a` &#39;late&#39; and &#39;first&#39; events,</span>
+    <span class="c1"># starting with the one having the same value of the tskit counter.</span>
+    <span class="c1"># Also note that if remembered_stage is &#39;late&#39;, then they are recorded</span>
+    <span class="c1"># before their age counter clicks, so they will actually have age one greater.</span>
+    <span class="c1"># Since `time` is in &quot;number of time steps ago&quot;,</span>
+    <span class="c1"># we are inquiring about SLiM tick `n - time`, where `n` is</span>
+    <span class="c1"># the value of `ts.metadata[&quot;SLiM&quot;][&quot;tick&quot;]`. To convert this along with</span>
+    <span class="c1"># our stage information into a tskit time `t`,</span>
+    <span class="c1"># let x = 1 if the stage is &#39;first&#39; or (is &#39;early&#39; and WF)</span>
+    <span class="c1"># and y = 1 if remembered stage is &#39;late&#39; or (is &#39;early&#39; and nonWF);</span>
+    <span class="c1"># then t = time + x + y - 1 .</span>
+    <span class="n">is_wf</span> <span class="o">=</span> <span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;model_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;WF&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;first&quot;</span> <span class="ow">or</span> <span class="p">(</span><span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;early&quot;</span> <span class="ow">and</span> <span class="n">is_wf</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">remembered_stage</span> <span class="o">==</span> <span class="s2">&quot;late&quot;</span> <span class="ow">or</span> <span class="p">(</span><span class="n">remembered_stage</span> <span class="o">==</span> <span class="s2">&quot;early&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_wf</span><span class="p">))</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">birth_times</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individuals_time</span>
+    <span class="n">ages</span> <span class="o">=</span> <span class="n">individual_ages</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_wf</span><span class="p">:</span>
+        <span class="n">alive_bool</span> <span class="o">=</span> <span class="p">(</span><span class="n">birth_times</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">age_offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;early&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">remembered_stage</span> <span class="o">==</span> <span class="s2">&quot;late&quot;</span><span class="p">)</span>
+        <span class="n">alive_bool</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span>
+                <span class="n">birth_times</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">,</span>
+                <span class="n">birth_times</span> <span class="o">-</span> <span class="n">ages</span> <span class="o">&lt;</span> <span class="n">t</span> <span class="o">+</span> <span class="n">age_offset</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">population</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">alive_bool</span> <span class="o">&amp;=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span>
+                <span class="n">ts</span><span class="o">.</span><span class="n">individuals_population</span><span class="p">,</span>
+                <span class="n">population</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">samples_only</span><span class="p">:</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">nodes</span>
+        <span class="n">alive_bool</span> <span class="o">&amp;=</span> <span class="p">(</span>
+                <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">nodes</span><span class="o">.</span><span class="n">individual</span><span class="p">,</span>
+                                <span class="n">nodes</span><span class="o">.</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NODE_IS_SAMPLE</span><span class="p">,</span>
+                                <span class="n">minlength</span><span class="o">=</span><span class="mi">1</span> <span class="o">+</span> <span class="n">ts</span><span class="o">.</span><span class="n">num_individuals</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">alive_bool</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="individual_ages_at"><a class="viewcode-back" href="../../python_api.html#pyslim.individual_ages_at">[docs]</a><span class="k">def</span> <span class="nf">individual_ages_at</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="s2">&quot;late&quot;</span><span class="p">,</span> <span class="n">remembered_stage</span><span class="o">=</span><span class="s2">&quot;late&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the `ages` of each individual at the corresponding time ago,</span>
+<span class="sd">    which will be ``nan`` if the individual is either not born yet or dead.</span>
+<span class="sd">    This is computed as the time ago the individual was born (found by the</span>
+<span class="sd">    `time` associated with the the individual&#39;s nodes) minus the `time`</span>
+<span class="sd">    argument; while &quot;death&quot; is inferred from the individual&#39;s ``age``,</span>
+<span class="sd">    recorded in metadata. These values are the same as what would be shown</span>
+<span class="sd">    in SLiM during the corresponding time step and stage.</span>
+
+<span class="sd">    Since age increments at the end of each time step,</span>
+<span class="sd">    the age is the number of time steps ends the individual has lived</span>
+<span class="sd">    through, so if they were born in time step `time`, then their age</span>
+<span class="sd">    will be zero.</span>
+
+<span class="sd">    In a WF model, this method does not provide any more information than</span>
+<span class="sd">    does {func}`.individuals_alive_at`, but for consistency, non-nan ages</span>
+<span class="sd">    will be 0 in &quot;late&quot; and 1 in &quot;first&quot; and &quot;early&quot;.</span>
+<span class="sd">    See {func}`.individuals_alive_at` for further discussion.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: A tree sequence.</span>
+<span class="sd">    :param float time: The reference time ago.</span>
+<span class="sd">    :param str stage: The stage in the SLiM life cycle used to determine who</span>
+<span class="sd">        is alive (either &quot;early&quot; or &quot;late&quot;; defaults to &quot;late&quot;).</span>
+<span class="sd">    :param str remembered_stage: The stage in the SLiM life cycle during which</span>
+<span class="sd">        individuals were Remembered.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">num_individuals</span><span class="p">)</span>
+    <span class="n">alive</span> <span class="o">=</span> <span class="n">individuals_alive_at</span><span class="p">(</span>
+            <span class="n">ts</span><span class="p">,</span>
+            <span class="n">time</span><span class="p">,</span>
+            <span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">,</span>
+            <span class="n">remembered_stage</span><span class="o">=</span><span class="n">remembered_stage</span>
+    <span class="p">)</span>
+    <span class="c1"># to convert individuals_time to number of ticks ago we subtract (y - 1), so</span>
+    <span class="n">is_wf</span> <span class="o">=</span> <span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;model_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;WF&quot;</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">remembered_stage</span> <span class="o">==</span> <span class="s2">&quot;late&quot;</span> <span class="ow">or</span> <span class="p">(</span><span class="n">remembered_stage</span> <span class="o">==</span> <span class="s2">&quot;early&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_wf</span><span class="p">))</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span> <span class="o">+</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">ages</span><span class="p">[</span><span class="n">alive</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individuals_time</span><span class="p">[</span><span class="n">alive</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span>
+    <span class="k">return</span> <span class="n">ages</span></div>
+
+
+<div class="viewcode-block" id="slim_time"><a class="viewcode-back" href="../../python_api.html#pyslim.slim_time">[docs]</a><span class="k">def</span> <span class="nf">slim_time</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="s2">&quot;late&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts the given &quot;tskit times&quot; (i.e., in units of time before the end</span>
+<span class="sd">    of the simulation) to SLiM times (those recorded by SLiM, usually in units</span>
+<span class="sd">    of ticks since the start of the simulation). Although the latter are</span>
+<span class="sd">    always integers, these will not be if the provided times are not integers.</span>
+
+<span class="sd">    When the tree sequence is written out, SLiM records the current</span>
+<span class="sd">    current tick in the metadata:</span>
+<span class="sd">    ``ts.metadata[&#39;SLiM&#39;][&#39;tick&#39;]``. In most cases, the &quot;SLiM time&quot;</span>
+<span class="sd">    referred to by a time ago in the tree sequence (i.e., the value that would</span>
+<span class="sd">    be reported by community.tick within SLiM at the point in time thus</span>
+<span class="sd">    referenced) can be obtained by subtracting that time ago from</span>
+<span class="sd">    ``ts.metadata[&#39;SLiM&#39;][&#39;tick&#39;]``. However, in WF models, birth</span>
+<span class="sd">    happens between the “early()” and “late()” stages, so if the tree</span>
+<span class="sd">    sequence was written out using sim.treeSeqOutput() during “early()” in</span>
+<span class="sd">    a WF model, the tree sequence’s times measure time before the last set</span>
+<span class="sd">    of individuals are born, i.e., before SLiM time step</span>
+<span class="sd">    ``ts.metadata[&#39;SLiM&#39;][&#39;tick&#39;] - 1``. The same thing applies to</span>
+<span class="sd">    the &quot;first&quot; stage for both WF and nonWF models.</span>
+
+<span class="sd">    In some situations (e.g., mutations added during early() in WF models)</span>
+<span class="sd">    this may not return what you expect. See :ref:`sec_metadata_converting_times`</span>
+<span class="sd">    for more discussion.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: A SLiM-compatible TreeSequence.</span>
+<span class="sd">    :param numpy.ndarray time: An array of times to be converted.</span>
+<span class="sd">    :param str stage: The stage of the SLiM life cycle that the SLiM time</span>
+<span class="sd">        should be computed for.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">is_current_version</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">_warn</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">is_wf</span> <span class="o">=</span> <span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;model_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;WF&quot;</span><span class="p">)</span>
+    <span class="n">remembered_stage</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;stage&#39;</span><span class="p">]</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;first&quot;</span> <span class="ow">or</span> <span class="p">(</span><span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;early&quot;</span> <span class="ow">and</span> <span class="n">is_wf</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">remembered_stage</span> <span class="o">==</span> <span class="s2">&quot;late&quot;</span> <span class="ow">or</span> <span class="p">(</span><span class="n">remembered_stage</span> <span class="o">==</span> <span class="s2">&quot;early&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_wf</span><span class="p">))</span>
+    <span class="n">slim_time</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;tick&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">time</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">slim_time</span></div>
+
+
+<span class="k">def</span> <span class="nf">_do_individual_parents_stuff</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">return_parents</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># Helper for has_individual_parents and individual_parents,</span>
+    <span class="c1"># which share a lot of machinery.</span>
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">tables</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">edges</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">nodes</span>
+    <span class="n">edge_parent_indiv</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">individual</span><span class="p">[</span><span class="n">edges</span><span class="o">.</span><span class="n">parent</span><span class="p">]</span>
+    <span class="n">edge_child_indiv</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">individual</span><span class="p">[</span><span class="n">edges</span><span class="o">.</span><span class="n">child</span><span class="p">]</span>
+    <span class="c1"># nodes whose parent nodes are all in the same individual</span>
+    <span class="n">unique_parent_nodes</span> <span class="o">=</span> <span class="n">unique_labels_by_group</span><span class="p">(</span>
+            <span class="n">edges</span><span class="o">.</span><span class="n">child</span><span class="p">,</span>
+            <span class="n">edge_parent_indiv</span><span class="p">,</span>
+            <span class="n">minlength</span><span class="o">=</span><span class="n">nodes</span><span class="o">.</span><span class="n">num_rows</span><span class="p">)</span>
+    <span class="n">unique_parent_edges</span> <span class="o">=</span> <span class="n">unique_parent_nodes</span><span class="p">[</span><span class="n">edges</span><span class="o">.</span><span class="n">child</span><span class="p">]</span>
+    <span class="c1"># edges describing relationships between individuals</span>
+    <span class="n">indiv_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">edge_parent_indiv</span> <span class="o">!=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">,</span>
+                                 <span class="n">edge_child_indiv</span> <span class="o">!=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">),</span>
+            <span class="n">unique_parent_edges</span><span class="p">)</span>
+    <span class="c1"># individual edges where the parent was alive during &quot;late&quot;</span>
+    <span class="c1"># of the time step before the child is born</span>
+    <span class="n">ind_times</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">individuals_time</span>
+    <span class="n">ind_ages</span> <span class="o">=</span> <span class="n">individual_ages</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+    <span class="n">child_births</span> <span class="o">=</span> <span class="n">ind_times</span><span class="p">[</span><span class="n">edge_child_indiv</span><span class="p">[</span><span class="n">indiv_edges</span><span class="p">]]</span>
+    <span class="n">parent_births</span> <span class="o">=</span> <span class="n">ind_times</span><span class="p">[</span><span class="n">edge_parent_indiv</span><span class="p">[</span><span class="n">indiv_edges</span><span class="p">]]</span>
+    <span class="n">alive_edges</span> <span class="o">=</span> <span class="n">indiv_edges</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;model_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;WF&quot;</span><span class="p">:</span>
+        <span class="n">alive_edges</span><span class="p">[</span><span class="n">indiv_edges</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">child_births</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">parent_births</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">parent_deaths</span> <span class="o">=</span> <span class="n">parent_births</span> <span class="o">-</span> <span class="n">ind_ages</span><span class="p">[</span><span class="n">edge_parent_indiv</span><span class="p">[</span><span class="n">indiv_edges</span><span class="p">]]</span>
+        <span class="n">alive_edges</span><span class="p">[</span><span class="n">indiv_edges</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">child_births</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">parent_deaths</span><span class="p">)</span>
+    <span class="n">edge_spans</span> <span class="o">=</span> <span class="n">edges</span><span class="o">.</span><span class="n">right</span> <span class="o">-</span> <span class="n">edges</span><span class="o">.</span><span class="n">left</span>
+    <span class="n">parental_span</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">edge_child_indiv</span><span class="p">[</span><span class="n">alive_edges</span><span class="p">],</span>
+            <span class="n">weights</span><span class="o">=</span><span class="n">edge_spans</span><span class="p">[</span><span class="n">alive_edges</span><span class="p">],</span> <span class="n">minlength</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">num_individuals</span><span class="p">)</span>
+    <span class="c1"># we could also check for edges without individual parents terminating</span>
+    <span class="c1"># in this individual, but this is unnecessary as the entire genome is</span>
+    <span class="c1"># accounted for</span>
+    <span class="n">has_all_parents</span> <span class="o">=</span> <span class="p">(</span><span class="n">parental_span</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">ts</span><span class="o">.</span><span class="n">sequence_length</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">return_parents</span><span class="p">:</span>
+        <span class="n">full_parent_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span>
+                <span class="n">alive_edges</span><span class="p">,</span>
+                <span class="n">has_all_parents</span><span class="p">[</span><span class="n">edge_child_indiv</span><span class="p">])</span>
+        <span class="n">parents</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">(</span>
+                        <span class="p">[</span><span class="n">edge_parent_indiv</span><span class="p">[</span><span class="n">full_parent_edges</span><span class="p">],</span>
+                         <span class="n">edge_child_indiv</span><span class="p">[</span><span class="n">full_parent_edges</span><span class="p">]]</span>
+                        <span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">parents</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">has_all_parents</span>
+
+
+<span class="k">def</span> <span class="nf">individual_parents</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Finds all parent-child relationships in the tree sequence (as far as we</span>
+<span class="sd">    can tell). The output will be a two-column array with row [i,j]</span>
+<span class="sd">    indicating that individual i is a parent of individual j.  See</span>
+<span class="sd">    {func}`.has_individual_parents` for exactly which parents are returned.</span>
+
+<span class="sd">    See {func}`.individuals_alive_at` for further discussion about how</span>
+<span class="sd">    this is determined based on when the individuals were Remembered.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: A :class:`tskit.TreeSequence`.</span>
+<span class="sd">    :return: An array of individual IDs, with row [i, j] if individual i is</span>
+<span class="sd">        a parent of individual j.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">_do_individual_parents_stuff</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">return_parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">has_individual_parents</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Finds which individuals have both their parent individuals also present</span>
+<span class="sd">    in the tree sequence, as far as we can tell. To do this, we return a</span>
+<span class="sd">    boolean array with True for those individuals for which:</span>
+
+<span class="sd">    - all edges terminating in that individual&#39;s nodes are in individuals,</span>
+<span class="sd">    - each of the individual&#39;s nodes inherit from a single individual only,</span>
+<span class="sd">    - those parental individuals were alive when the individual was born,</span>
+<span class="sd">    - the parental individuals account for two whole genomes.</span>
+
+<span class="sd">    This returns a boolean array indicating for each individual whether all</span>
+<span class="sd">    these are true. Note in particular that individuals with only *one*</span>
+<span class="sd">    recorded parent are *not* counted as &quot;having parents&quot;.</span>
+
+<span class="sd">    See {func}`.individuals_alive_at` for further discussion about how</span>
+<span class="sd">    this is determined based on when the individuals were Remembered.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: A :class:`tskit.TreeSequence`.</span>
+<span class="sd">    :return: A boolean array of length equal to ``targets``.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">_do_individual_parents_stuff</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">return_parents</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="annotate"><a class="viewcode-back" href="../../python_api.html#pyslim.annotate">[docs]</a><span class="k">def</span> <span class="nf">annotate</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes a tree sequence (as produced by msprime, for instance), and adds in the</span>
+<span class="sd">    information necessary for SLiM to use it as an initial state, filling in</span>
+<span class="sd">    mostly default values. Returns a :class:`tskit.TreeSequence`.</span>
+
+<span class="sd">    :param tskit.TreeSequence ts: A :class:`tskit.TreeSequence`.</span>
+<span class="sd">    :param str model_type: SLiM model type: either &quot;WF&quot; or &quot;nonWF&quot;.</span>
+<span class="sd">    :param int tick: What tick number in SLiM correponds to</span>
+<span class="sd">        ``time=0`` in the tree sequence.</span>
+<span class="sd">    :param int cycle: What cycle number in SLiM correponds to</span>
+<span class="sd">        ``time=0`` in the tree sequence (default: equal to ``tick``).</span>
+<span class="sd">    :param int stage: What stage in SLiM&#39;s cycle has the tree sequence</span>
+<span class="sd">        been written out in (defaults to &quot;early&quot;; must be &quot;early&quot; or &quot;late&quot;).</span>
+<span class="sd">    :param str reference_sequence: A reference sequence of length</span>
+<span class="sd">        equal to ts.sequence_length.</span>
+<span class="sd">    :param bool annotate_mutations: Whether to replace mutation metadata</span>
+<span class="sd">        with defaults. (If False, the mutation table is unchanged.)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">dump_tables</span><span class="p">()</span>
+    <span class="n">annotate_tables</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tables</span><span class="o">.</span><span class="n">tree_sequence</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="annotate_tables"><a class="viewcode-back" href="../../python_api.html#pyslim.annotate_tables">[docs]</a><span class="k">def</span> <span class="nf">annotate_tables</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span> <span class="n">model_type</span><span class="p">,</span> <span class="n">tick</span><span class="p">,</span> <span class="n">cycle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="s2">&quot;early&quot;</span><span class="p">,</span> <span class="n">reference_sequence</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">annotate_mutations</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Does the work of :func:`annotate`, but modifies the tables in place: so,</span>
+<span class="sd">    takes tables as produced by ``msprime``, and makes them look like the</span>
+<span class="sd">    tables as output by SLiM. See :func:`annotate` for details.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">stage</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;early&quot;</span><span class="p">,</span> <span class="s2">&quot;late&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;stage must be &#39;early&#39; or &#39;late&#39; (provided </span><span class="si">{</span><span class="n">stage</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">tick</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;tick must be an integer and at least 1.&quot;</span><span class="p">)</span>
+    <span class="c1"># set_nodes must come before set_populations</span>
+    <span class="k">if</span> <span class="n">model_type</span> <span class="o">==</span> <span class="s2">&quot;WF&quot;</span><span class="p">:</span>
+        <span class="n">default_ages</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">model_type</span> <span class="o">==</span> <span class="s2">&quot;nonWF&quot;</span><span class="p">:</span>
+        <span class="n">default_ages</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Model type must be &#39;WF&#39; or &#39;nonWF&#39;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cycle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cycle</span> <span class="o">=</span> <span class="n">tick</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">position</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Site positions in this tree sequence are not at integer values, &quot;</span>
+                <span class="s2">&quot;but must be for loading into SLiM: generate mutations with &quot;</span>
+                <span class="s2">&quot;sim_mutations(..., discrete_genome=True), not simulate().&quot;</span>
+        <span class="p">)</span>
+    <span class="n">top_metadata</span> <span class="o">=</span> <span class="n">default_slim_metadata</span><span class="p">(</span><span class="s1">&#39;tree_sequence&#39;</span><span class="p">)[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">]</span>
+    <span class="n">top_metadata</span><span class="p">[</span><span class="s1">&#39;model_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model_type</span>
+    <span class="n">top_metadata</span><span class="p">[</span><span class="s1">&#39;tick&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tick</span>
+    <span class="n">top_metadata</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cycle</span>
+    <span class="n">top_metadata</span><span class="p">[</span><span class="s1">&#39;stage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stage</span>
+    <span class="n">set_tree_sequence_metadata</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span> <span class="o">**</span><span class="n">top_metadata</span><span class="p">)</span>
+    <span class="n">set_metadata_schemas</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span>
+    <span class="n">_annotate_nodes_individuals</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="n">default_ages</span><span class="p">)</span>
+    <span class="n">_annotate_populations</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">annotate_mutations</span><span class="p">:</span>
+        <span class="n">_annotate_sites_mutations</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">reference_sequence</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tables</span><span class="o">.</span><span class="n">reference_sequence</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">reference_sequence</span></div>
+
+<span class="k">def</span> <span class="nf">next_slim_mutation_id</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns the next SLiM mutation ID for this tree sequence. This is useful </span>
+<span class="sd">    because if you want to add more mutations to your SLiM tree sequence using </span>
+<span class="sd">    :func:`msprime.sim_mutations`, you may need to specify the parameter </span>
+<span class="sd">    `next_id` in your :class:`msprime.SLiMMutationModel` to be larger than any </span>
+<span class="sd">    existing mutation IDs. Setting `next_id` equal to the output of this </span>
+<span class="sd">    function will allow the mutated tree sequence to be read in by SLiM.</span>
+<span class="sd">    To do this, recall that the &quot;derived state&quot; of SLiM&#39;s mutations are</span>
+<span class="sd">    comma-separated strings of mutation IDs; this function just parses all derived</span>
+<span class="sd">    states and returns one larger than the largest integer found. It will return an error</span>
+<span class="sd">    if it encounters derived states that are not comma-separated strings of integers.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">max_id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">mut</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">mutations</span><span class="p">():</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">mut</span><span class="o">.</span><span class="n">derived_state</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">max_id</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_id</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The derived state of a mutation (</span><span class="si">{</span><span class="n">ds</span><span class="si">}</span><span class="s2">) in the tree &quot;</span>
+                                     <span class="s2">&quot;sequence is not a comma-separated list of values &quot;</span>
+                                     <span class="s2">&quot;coercible to int. This is not a valid SLiM tree sequence.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">max_id</span> <span class="o">+</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">_annotate_nodes_individuals</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Adds to a TableCollection the information relevant to individuals required</span>
+<span class="sd">    for SLiM to load in a tree sequence, that is found in Node and Individual</span>
+<span class="sd">    tables.  This will replace the metadata in those tables. For this to work,</span>
+<span class="sd">    assumes all sample nodes are in individuals.</span>
+
+<span class="sd">    This is designed to make it easy to assign default values:</span>
+<span class="sd">    - (location) individual locations to (0, 0, 0)</span>
+<span class="sd">    - (age) individual age to 0</span>
+<span class="sd">    - (ind_id) SLiM individual pedigree IDs to sequential integers starting from 0</span>
+<span class="sd">    - (ind_population) individual populations to 0</span>
+<span class="sd">    - (node_id) SLiM genome IDs to sequential integers starting with samples from 0</span>
+<span class="sd">    - (node_is_null) genomes to be non-null</span>
+<span class="sd">    - (node_type) genome type to 0 (= autosome)</span>
+<span class="sd">    - (ind_flags) INDIVIDUAL_ALIVE</span>
+
+<span class="sd">    If you have other situations, like non-alive &quot;remembered&quot; individuals, you</span>
+<span class="sd">    will need to edit the tables by hand, afterwards.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">ind_population</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">num_rows</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+    <span class="n">ind_slim_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">num_rows</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+    <span class="n">nid</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">node_metadata</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NODE_IS_SAMPLE</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">individual</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;To annotate, samples must be in individuals.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ind_population</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">population</span>
+                <span class="n">ind_slim_id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">md</span> <span class="o">=</span> <span class="n">default_slim_metadata</span><span class="p">(</span><span class="s2">&quot;node&quot;</span><span class="p">)</span>
+            <span class="n">md</span><span class="p">[</span><span class="s2">&quot;slim_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nid</span>
+            <span class="n">nid</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">md</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">metadata</span>
+        <span class="n">node_metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">md</span><span class="p">)</span>
+
+    <span class="n">nms</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">metadata_schema</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">packset_metadata</span><span class="p">([</span>
+        <span class="n">nms</span><span class="o">.</span><span class="n">validate_and_encode_row</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">node_metadata</span>
+    <span class="p">])</span>
+
+    <span class="n">slim_ind</span> <span class="o">=</span> <span class="p">(</span><span class="n">ind_slim_id</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ind_slim_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">ind_slim_id</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="n">ind_metadata</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ind_flags</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">flags</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">ind</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">slim_ind</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+            <span class="n">md</span> <span class="o">=</span> <span class="n">default_slim_metadata</span><span class="p">(</span><span class="s2">&quot;individual&quot;</span><span class="p">)</span>
+            <span class="n">md</span><span class="p">[</span><span class="s2">&quot;pedigree_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ind_slim_id</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">md</span><span class="p">[</span><span class="s2">&quot;subpopulation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ind_population</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">md</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">age</span>
+            <span class="c1"># no packset analogue for flags, so do it here</span>
+            <span class="c1"># and we don&#39;t have to resize for flags,</span>
+            <span class="c1"># so no big deal</span>
+            <span class="n">ind_flags</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">|=</span> <span class="n">INDIVIDUAL_ALIVE</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">md</span> <span class="o">=</span> <span class="n">ind</span><span class="o">.</span><span class="n">metdadata</span>
+        <span class="n">ind_metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">md</span><span class="p">)</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">set_columns</span><span class="p">(</span>
+        <span class="n">flags</span><span class="o">=</span><span class="n">ind_flags</span><span class="p">,</span>
+        <span class="n">parents</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">parents</span><span class="p">,</span>
+        <span class="n">parents_offset</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">parents_offset</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ims</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">metadata_schema</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">packset_metadata</span><span class="p">([</span>
+            <span class="n">ims</span><span class="o">.</span><span class="n">validate_and_encode_row</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ind_metadata</span>
+    <span class="p">])</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">packset_location</span><span class="p">(</span>
+            <span class="p">[[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="k">if</span> <span class="n">si</span> <span class="k">else</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">si</span> <span class="ow">in</span> <span class="n">slim_ind</span><span class="p">]</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_annotate_populations</span><span class="p">(</span><span class="n">tables</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Adds to a TableCollection the information about populations required for SLiM</span>
+<span class="sd">    to load a tree sequence. This will replace anything already in the Population</span>
+<span class="sd">    table for populations referenced by nodes alive at time zero.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">alive_ind</span> <span class="o">=</span> <span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">INDIVIDUAL_ALIVE</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">do_pops</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span>
+        <span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">population</span><span class="p">[</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span>
+                <span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">individual</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="n">alive_ind</span><span class="p">[</span><span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">individual</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">populations</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">do_pops</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;slim_id&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span>
+                <span class="n">md</span> <span class="o">=</span> <span class="n">default_slim_metadata</span><span class="p">(</span><span class="s2">&quot;population&quot;</span><span class="p">)</span>
+                <span class="n">md</span><span class="p">[</span><span class="s2">&quot;slim_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+                <span class="n">md</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;pop_</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">tables</span><span class="o">.</span><span class="n">populations</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="n">md</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_annotate_sites_mutations</span><span class="p">(</span><span class="n">tables</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Adds to a TableCollection the information relevant to mutations required</span>
+<span class="sd">    for SLiM to load in a tree sequence. This means adding to the metadata column</span>
+<span class="sd">    of the Mutation table,  It will also</span>
+<span class="sd">    - give SLiM IDs to each mutation</span>
+<span class="sd">    - replace ancestral states with &quot;&quot;</span>
+<span class="sd">    This will replace any information already in the metadata or derived state</span>
+<span class="sd">    columns of the Mutation table. We set slim_time in metadata so that</span>
+<span class="sd">    - tick = floor(tskit time) + slim_time</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;The provided tree sequence already has some mutations with &quot;</span>
+                <span class="s2">&quot;metadata; this metadata will be overwritten.&quot;</span>
+        <span class="p">)</span>
+    <span class="n">num_mutations</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">num_rows</span>
+    <span class="n">default_mut</span> <span class="o">=</span> <span class="n">default_slim_metadata</span><span class="p">(</span><span class="s2">&quot;mutation_list_entry&quot;</span><span class="p">)</span>
+    <span class="n">dsb</span><span class="p">,</span> <span class="n">dso</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">pack_bytes</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_mutations</span><span class="p">)])</span>
+    <span class="n">slim_time</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;SLiM&quot;</span><span class="p">][</span><span class="s2">&quot;tick&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">time</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+    <span class="n">mms</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">metadata_schema</span>
+    <span class="n">mutation_metadata</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">mms</span><span class="o">.</span><span class="n">encode_row</span><span class="p">(</span>
+                <span class="p">{</span><span class="s2">&quot;mutation_list&quot;</span><span class="p">:</span> 
+                 <span class="p">[{</span><span class="s2">&quot;mutation_type&quot;</span><span class="p">:</span> <span class="n">default_mut</span><span class="p">[</span><span class="s2">&quot;mutation_type&quot;</span><span class="p">],</span>
+                  <span class="s2">&quot;selection_coeff&quot;</span><span class="p">:</span> <span class="n">default_mut</span><span class="p">[</span><span class="s2">&quot;selection_coeff&quot;</span><span class="p">],</span>
+                  <span class="s2">&quot;subpopulation&quot;</span><span class="p">:</span> <span class="n">default_mut</span><span class="p">[</span><span class="s2">&quot;subpopulation&quot;</span><span class="p">],</span>
+                  <span class="s2">&quot;slim_time&quot;</span><span class="p">:</span> <span class="n">st</span><span class="p">,</span>
+                  <span class="s2">&quot;nucleotide&quot;</span><span class="p">:</span> <span class="n">default_mut</span><span class="p">[</span><span class="s2">&quot;nucleotide&quot;</span><span class="p">]</span>
+                   <span class="p">}]</span>
+                <span class="p">})</span>
+            <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="n">slim_time</span><span class="p">]</span>
+    <span class="n">mdb</span><span class="p">,</span> <span class="n">mdo</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">pack_bytes</span><span class="p">(</span><span class="n">mutation_metadata</span><span class="p">)</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">set_columns</span><span class="p">(</span>
+            <span class="n">site</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">site</span><span class="p">,</span>
+            <span class="n">node</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">node</span><span class="p">,</span>
+            <span class="n">time</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">time</span><span class="p">,</span>
+            <span class="n">derived_state</span><span class="o">=</span><span class="n">dsb</span><span class="p">,</span>
+            <span class="n">derived_state_offset</span><span class="o">=</span><span class="n">dso</span><span class="p">,</span>
+            <span class="n">parent</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="n">mdb</span><span class="p">,</span>
+            <span class="n">metadata_offset</span><span class="o">=</span><span class="n">mdo</span><span class="p">)</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">set_columns</span><span class="p">(</span>
+            <span class="n">position</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">position</span><span class="p">,</span>
+            <span class="n">ancestral_state</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int8&#39;</span><span class="p">),</span>
+            <span class="n">ancestral_state_offset</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">num_rows</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint32&#39;</span><span class="p">))</span>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      pyslim 1.0.1
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

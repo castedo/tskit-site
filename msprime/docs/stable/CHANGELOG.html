@@ -1,0 +1,1477 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Changelog &#8212; Msprime manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Citing msprime" href="CITATION.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Msprime manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Quickstart
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Running simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ancestry.html">
+   Ancestry simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mutations.html">
+   Mutation simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="demography.html">
+   Demographic models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="replication.html">
+   Randomness and replication
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Utilities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rate_maps.html">
+   Rate Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pedigrees.html">
+   Pedigrees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="likelihoods.html">
+   Computing likelihoods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logging.html">
+   Logging
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="legacy.html">
+   Legacy (version 0.x) APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="switch_from_other_simulators.html">
+   Switching from other simulators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CITATION.html">
+   Citing msprime
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            msprime 1.2.0
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right"><label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   [1.2.0] - 2022-05-18
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   [1.1.1] - 2022-02-10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   [1.1.0] - 2021-12-14
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   [1.0.4] - 2021-12-01
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   [1.0.3] - 2021-11-12
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   [1.0.2] - 2021-06-29
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   [1.0.1] - 2021-05-10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   [1.0.0] - 2021-04-14
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   [0.7.4] - 2019-12-05
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   [0.7.3] - 2019-08-03
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   [0.7.2] - 2019-07-30
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id12">
+   [0.7.1] - 2019-06-08
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b1-2019-05-31">
+   [0.7.1b1] - 2019-05-31
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id13">
+   [0.7.0] - 2019-02-19
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a1-2019-01-14">
+   [0.7.0a1] - 2019-01-14
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id14">
+   [0.6.2] - 2018-12-04
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id15">
+   [0.6.1] - 2018-08-25
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id16">
+   [0.6.0] - 2018-06-20
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id17">
+   [0.5.0] - 2018-02-26
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id18">
+   [0.4.0] - 2016-10-16
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id19">
+   [0.3.2] - 2016-07-21
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id20">
+   [0.3.1] - 2016-06-24
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id21">
+   [0.3.0] - 2016-05-31
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id22">
+   [0.2.0] - 2016-05-05
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id23">
+   [0.1.10] - 2016-04-21
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id24">
+   [0.1.9] - 2016-04-01
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id25">
+   [0.1.8] - 2016-02-17
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes">
+     Changes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Changelog</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   [1.2.0] - 2022-05-18
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   [1.1.1] - 2022-02-10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   [1.1.0] - 2021-12-14
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   [1.0.4] - 2021-12-01
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   [1.0.3] - 2021-11-12
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   [1.0.2] - 2021-06-29
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   [1.0.1] - 2021-05-10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   [1.0.0] - 2021-04-14
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   [0.7.4] - 2019-12-05
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   [0.7.3] - 2019-08-03
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   [0.7.2] - 2019-07-30
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id12">
+   [0.7.1] - 2019-06-08
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b1-2019-05-31">
+   [0.7.1b1] - 2019-05-31
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id13">
+   [0.7.0] - 2019-02-19
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a1-2019-01-14">
+   [0.7.0a1] - 2019-01-14
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id14">
+   [0.6.2] - 2018-12-04
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id15">
+   [0.6.1] - 2018-08-25
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id16">
+   [0.6.0] - 2018-06-20
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id17">
+   [0.5.0] - 2018-02-26
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id18">
+   [0.4.0] - 2016-10-16
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id19">
+   [0.3.2] - 2016-07-21
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id20">
+   [0.3.1] - 2016-06-24
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id21">
+   [0.3.0] - 2016-05-31
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id22">
+   [0.2.0] - 2016-05-05
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id23">
+   [0.1.10] - 2016-04-21
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id24">
+   [0.1.9] - 2016-04-01
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id25">
+   [0.1.8] - 2016-02-17
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes">
+     Changes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id1">
+<h2>[1.2.0] - 2022-05-18<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p><strong>New features</strong></p>
+<ul class="simple">
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">FixedPedigree</span></code> ancestry model and various infrastructure for
+importing pedigree information into msprime.</p></li>
+</ul>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Fix rare assertion trip in the single sweep model caused by numerical jitter.
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1966">#1966</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/2038">#2038</a>, <a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>, <a class="reference external" href="https://github.com/molpopgen">&#64;molpopgen</a>)</p></li>
+<li><p>Fix edge case in <code class="docutils literal notranslate"><span class="pre">Demography.from_old_style()</span></code>
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/2047">#2047</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/2048">#2048</a>, <a class="reference external" href="https://github.com/grahamgower">&#64;grahamgower</a>)</p></li>
+</ul>
+<p><strong>Maintenance</strong>:</p>
+<ul class="simple">
+<li><p>Documentation improvements (<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/2054">#2054</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/2033">#2033</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/2011">#2011</a>
+<a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>, <a class="reference external" href="https://github.com/gregorgorjanc">&#64;gregorgorjanc</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>[1.1.1] - 2022-02-10<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Fix (very) rare assertion trip caused by underlying GSL bug.
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1997">#1997</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/2000">#2000</a>, <a class="reference external" href="https://github.com/chriscrsmith">&#64;chriscrsmith</a>, <a class="reference external" href="https://github.com/molpopgen">&#64;molpopgen</a>,
+<a class="reference external" href="https://github.com/andrewkern">&#64;andrewkern</a>)</p></li>
+</ul>
+<p><strong>Maintenance</strong>:</p>
+<ul class="simple">
+<li><p>Various documentation improvements.</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>[1.1.0] - 2021-12-14<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p><strong>New features</strong></p>
+<ul class="simple">
+<li><p>Add support for tree sequence <code class="docutils literal notranslate"><span class="pre">time_units</span></code> field. The <code class="docutils literal notranslate"><span class="pre">time_units</span></code> will
+be set to “generations” for the output of <code class="docutils literal notranslate"><span class="pre">sim_ancestry</span></code> (and <code class="docutils literal notranslate"><span class="pre">simulate</span></code>),
+unless the <code class="docutils literal notranslate"><span class="pre">initial_state</span></code> argument is used. In this case, the
+<code class="docutils literal notranslate"><span class="pre">time_units</span></code> value will be inherited from the input.
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1953">#1953</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1951">#1951</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1877">#1877</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1948">#1948</a>, <a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>).</p></li>
+</ul>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Raise an error if <code class="docutils literal notranslate"><span class="pre">Demography.from_demes()</span></code> is passed a model
+with non-zero <code class="docutils literal notranslate"><span class="pre">selfing_rate</span></code> or <code class="docutils literal notranslate"><span class="pre">cloning_rate</span></code> values (which msprime
+does not support).
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1938">#1938</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1937">#1937</a>, <a class="reference external" href="https://github.com/grahamgower">&#64;grahamgower</a>).</p></li>
+<li><p>Do not assume Population metadata schemas contain the <code class="docutils literal notranslate"><span class="pre">properties</span></code>
+and <code class="docutils literal notranslate"><span class="pre">additionalProperties</span></code> attributes (<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1947">#1947</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1954">#1954</a>,
+<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>).</p></li>
+<li><p>Read the population name from PopulationConfiguration <code class="docutils literal notranslate"><span class="pre">metadata</span></code> in
+<code class="docutils literal notranslate"><span class="pre">Demography.from_old_style</span></code> (<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1950">#1950</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1954">#1954</a>,
+<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>)</p></li>
+</ul>
+<p><strong>Maintenance</strong>:</p>
+<ul class="simple">
+<li><p>Update tskit to Python 0.4.0 and C 0.99.15.</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>[1.0.4] - 2021-12-01<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p><strong>New features</strong>:</p>
+<ul class="simple">
+<li><p>Support for Demes 0.2.0, which introduces a change to how pulse
+sources and proportions are specified.
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1936">#1936</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1930">#1930</a>, <a class="reference external" href="https://github.com/apragsdale">&#64;apragsdale</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>[1.0.3] - 2021-11-12<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>This is a bugfix release recommended for all users.</p>
+<p><strong>New features</strong>:</p>
+<ul class="simple">
+<li><p>Support for running full ARG simulations with gene conversion
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1801">#1801</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1773">#1773</a>, <a class="reference external" href="https://github.com/JereKoskela">&#64;JereKoskela</a>).</p></li>
+<li><p>Improved performance when running many small simulations
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1909">#1909</a>, <a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>.)</p></li>
+<li><p>Update to tskit C API 0.99.14 (<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1829">#1829</a>).</p></li>
+</ul>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Fix bug in full ARG simulation with missing regions of the genome,
+where ARG nodes were not correctly returned. (<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1893">#1893</a>,
+<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>, <a class="reference external" href="https://github.com/hyl317">&#64;hyl317</a>)</p></li>
+<li><p>Fix memory leak when running <code class="docutils literal notranslate"><span class="pre">sim_ancestry</span></code> in a loop
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1904">#1904</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1899">#1899</a>, <a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>, <a class="reference external" href="https://github.com/grahamgower">&#64;grahamgower</a>).</p></li>
+<li><p>Fix printing small values in rate maps (<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1906">#1906</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1905">#1905</a>,
+<a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>[1.0.2] - 2021-06-29<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>Improved Demes support and minor bugfixes.</p>
+<p><strong>New features</strong>:</p>
+<ul class="simple">
+<li><p>Support for Demes input and logging in the msp simulate CLI
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1716">#1716</a>, <a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Demography.to_demes</span></code> method for creating a Demes demographic model
+from an msprime demography (<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1724">#1724</a>, <a class="reference external" href="https://github.com/grahamgower">&#64;grahamgower</a>).</p></li>
+<li><p>Improved mapping of Demes models to Demography objects
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1758">#1758</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1757">#1757</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1756">#1756</a> <a class="reference external" href="https://github.com/apragsdale">&#64;apragsdale</a>).</p></li>
+<li><p>Improved numerical algorithms in DemographyDebugger (<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1788">#1788</a>,
+<a class="reference external" href="https://github.com/grahamgower">&#64;grahamgower</a>, <a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>).</p></li>
+</ul>
+<p><strong>Bugfixes</strong>:</p>
+<ul class="simple">
+<li><p>Raise an error if running full ARG simulations with gene conversion
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1774">#1774</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>[1.0.1] - 2021-05-10<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p>Minor feature release with experimental Demes support.</p>
+<ul class="simple">
+<li><p>Change the semantics of Admixture events slightly so that ancestral
+populations that are inactive, are marked as active (<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1662">#1662</a>,
+<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1657">#1657</a>, <a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>, <a class="reference external" href="https://github.com/apragsdale">&#64;apragsdale</a>)</p></li>
+<li><p>Initial support for Demes via the <code class="docutils literal notranslate"><span class="pre">Demography.from_demes</span></code> method.
+(<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1662">#1662</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1675">#1675</a>, <a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>, <a class="reference external" href="https://github.com/apragsdale">&#64;apragsdale</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>[1.0.0] - 2021-04-14<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<p>Msprime 1.0 is a major update, recommended for all users. It introduces
+new APIs and many new features, which still retaining compatibility
+with nearly all existing code.</p>
+<p><strong>New features</strong>:</p>
+<ul class="simple">
+<li><p>Add new top-level functions <code class="docutils literal notranslate"><span class="pre">sim_ancestry</span></code> and <code class="docutils literal notranslate"><span class="pre">sim_mutations</span></code>, intended
+as long term replacements for <code class="docutils literal notranslate"><span class="pre">simulate</span></code> and <code class="docutils literal notranslate"><span class="pre">mutate</span></code>.</p></li>
+<li><p>Add new <code class="docutils literal notranslate"><span class="pre">Demography</span></code> class as a replacement for the 0.x
+<code class="docutils literal notranslate"><span class="pre">population_configurations</span></code>, <code class="docutils literal notranslate"><span class="pre">migration_matrix</span></code> and <code class="docutils literal notranslate"><span class="pre">demographic_events</span></code>
+parameters to simulate. Many new features to improve ease of use and to
+help avoid errors.</p></li>
+<li><p>Change the underlying simulation from working in discrete genetic coordinates
+and translating to physical coordinates, to simulating directly in physical
+coordinates. This fixes some long standing bugs and makes it far simpler
+to add features such as gene conversion. (<a class="reference external" href="https://github.com/daniel-goldstein">&#64;daniel-goldstein</a>)</p></li>
+<li><p>Support discrete or continuous genomes in simulations directly.</p></li>
+<li><p>Gene conversion (<a class="reference external" href="https://github.com/fbaumdicker">&#64;fbaumdicker</a>)</p></li>
+<li><p>Selective sweeps and low-level infrastructure for the structured coalescent
+(<a class="reference external" href="https://github.com/andrewkern">&#64;andrewkern</a>, <a class="reference external" href="https://github.com/gbinux">&#64;gbinux</a>)</p></li>
+<li><p>Multiple merger coalescent models (<a class="reference external" href="https://github.com/jerekoskela">&#64;jerekoskela</a>, <a class="reference external" href="https://github.com/shajoezhu">&#64;shajoezhu</a>,
+<a class="reference external" href="https://github.com/TPPSellinger">&#64;TPPSellinger</a>)</p></li>
+<li><p>Different ploidy levels for coalescent models (<a class="reference external" href="https://github.com/jerekoskela">&#64;jerekoskela</a>)</p></li>
+<li><p>Functions to parse species trees and set up simulation models according
+to the species tree. (<a class="reference external" href="https://github.com/mmatschiner">&#64;mmatschiner</a> <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/893">#893</a> <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/929">#929</a> <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/931">#931</a>)</p></li>
+<li><p>Add an modern array oriented RateMap class as to replace the RecombinationMap
+class (<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>, <a class="reference external" href="https://github.com/grahamgower">&#64;grahamgower</a>, <a class="reference external" href="https://github.com/hyanwong">&#64;hyanwong</a>).</p></li>
+<li><p>Functions to compute the likelihood of a particular ARG realisation
+under the coalescent with recombination (<a class="reference external" href="https://github.com/jerekoskela">&#64;jerekoskela</a>).</p></li>
+<li><p>Mutations are assigned times (<a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>)</p></li>
+<li><p>Finite sites mutations (<a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>)</p></li>
+<li><p>Several instances of matrix mutation models: JC69, GTR, HKY, F84, BLOSUM62,
+PAM. (<a class="reference external" href="https://github.com/GertjanBisschop">&#64;GertjanBisschop</a>, <a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>).</p></li>
+<li><p>An implementation of the SLiM mutation model (<a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>)</p></li>
+<li><p>An infinite alleles mutation model (<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>)</p></li>
+<li><p>Methods to track the possible location of lineages, and compute the
+coalescence rates over time (<a class="reference external" href="https://github.com/apragsdale">&#64;apragsdale</a>, <a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>
+<a class="reference external" href="https://github.com/grahamgower">&#64;grahamgower</a>).</p></li>
+<li><p>Two new CLI commands, <code class="docutils literal notranslate"><span class="pre">msp</span> <span class="pre">ancestry</span></code> and <code class="docutils literal notranslate"><span class="pre">msp</span> <span class="pre">mutations</span></code> which correspond
+to the <code class="docutils literal notranslate"><span class="pre">sim_ancestry</span></code> and <code class="docutils literal notranslate"><span class="pre">sim_mutations</span></code> functions. These can be pipelined
+using stdin/stdout. (<a class="reference external" href="https://github.com/winni2k">&#64;winni2k</a>, <a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>)</p></li>
+<li><p>Complete provenance recording of all arguments to simulate and mutate.
+Adds argument record_provenance to simulate, which allows recording of
+provenances to be disabled, for example when they are large.
+(<a class="reference external" href="https://github.com/benjeffery">&#64;benjeffery</a> <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/914">#914</a>).</p></li>
+<li><p>Add replicate_index to simulate, allowing output of a single tree sequence
+from a set of replicates. (<a class="reference external" href="https://github.com/benjeffery">&#64;benjeffery</a> <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/914">#914</a>).</p></li>
+<li><p>Details of the simulation are written to the DEBUG log periodically.
+This can help debug long-running simulations. (<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>,
+<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1080">#1080</a>).</p></li>
+<li><p>Binary wheels for PyPI (<a class="reference external" href="https://github.com/benjeffery">&#64;benjeffery</a>)</p></li>
+</ul>
+<p><strong>Breaking changes</strong>:</p>
+<ul class="simple">
+<li><p>Require Python 3.7+.</p></li>
+<li><p>The class form for specifying models (e.g., <code class="docutils literal notranslate"><span class="pre">msprime.StandardCoalescent()</span></code>)
+no longer take a <code class="docutils literal notranslate"><span class="pre">reference_size</span></code> argument. (<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>,
+<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1028">#1028</a>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">simulate</span></code> function only takes one positional argument, and all other
+arguments are keyword-only.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">msp</span></code> CLI has been stripped of all existing sub-commands except for
+<code class="docutils literal notranslate"><span class="pre">simulate</span></code>. The old sub-commands are provided by the <code class="docutils literal notranslate"><span class="pre">tskit</span></code>
+CLI or the <code class="docutils literal notranslate"><span class="pre">TreeSequence</span></code> API in <code class="docutils literal notranslate"><span class="pre">tskit</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">end_time</span></code> option now allows events up to and including the specified
+max time. Previously, events occurred strictly before the max time.
+(<a class="reference external" href="https://github.com/apragsdale">&#64;apragsdale</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/1304">#1304</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1521">#1521</a>)</p></li>
+<li><p>The class msprime.Population now refers to the new demography API. This
+may break old code that depends on the tskit table entities being
+exported from msprime (other classes are now formally deprecated and
+will raise a warning; see the deprecations section).</p></li>
+<li><p>The semantics of <code class="docutils literal notranslate"><span class="pre">start_time</span></code> and exponential growth models has changed;
+previously, exponential population size changes would be calculated starting
+at the simulation <code class="docutils literal notranslate"><span class="pre">start_time</span></code> at the beginning of the simulation. Now
+population growth rates are always computed from time 0 (unless other
+events occur). The old semantics, if needed, can be recovered by setting
+the <code class="docutils literal notranslate"><span class="pre">growth_rate</span></code> to 0 in the initial population declaration and adding
+a population parameters change event at the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> to change the
+<code class="docutils literal notranslate"><span class="pre">growth_rate</span></code> to the desired value.</p></li>
+</ul>
+<p><strong>Performance improvements</strong></p>
+<ul class="simple">
+<li><p>Much better simulation performance for models with large numbers
+of populations (<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1069">#1069</a>).</p></li>
+<li><p>Significant performance improvements for simulating from recombination
+maps (<a class="reference external" href="https://github.com/ivan-krukov">&#64;ivan-krukov</a>, <a class="reference external" href="https://github.com/castedo">&#64;castedo</a>)</p></li>
+</ul>
+<p><strong>Deprecations</strong>:</p>
+<ul class="simple">
+<li><p>Deprecate module attributes that were moved to tskit.
+(<a class="reference external" href="https://github.com/benjeffery">&#64;benjeffery</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/991">#991</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/1158">#1158</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>[0.7.4] - 2019-12-05<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Fix error in mspms output of tree spans. In previous versions, the length of
+genome spanned by trees in the newick output was incorrect in certain situations
+(specifically, when “invisible” recombinations are present so that two or more
+identical trees are printed out). Thanks to <a class="reference external" href="https://github.com/fbaumdicker">&#64;fbaumdicker</a> for spotting
+the problem. (<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/837">#837</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/836">#836</a>)</p></li>
+<li><p>Fix assertion tripped when we have very low recombination rates in the DTWF
+model. Thanks to <a class="reference external" href="https://github.com/terhorst">&#64;terhorst</a> for the bug report.
+(<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/833">#833</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/831">#831</a>).</p></li>
+<li><p>Fix bug in memory allocation when simulating mutations on a tree sequence
+that already contains many mutations. Thanks to <a class="reference external" href="https://github.com/santaci">&#64;santaci</a> for the
+bug report. (<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>, <a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/838">#838</a>,
+<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/806">#806</a>)</p></li>
+</ul>
+<p><strong>New features</strong>:</p>
+<ul class="simple">
+<li><p>Add the new Census event, which allows us to place nodes on all extant
+branches at a given time (<a class="reference external" href="https://github.com/gtsambos">&#64;gtsambos</a> <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/799">#799</a>).</p></li>
+<li><p>Improved error reporting for input parameters, in particular
+demographic events (<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/829">#829</a>).</p></li>
+</ul>
+<p><strong>Documentation</strong>:</p>
+<ul class="simple">
+<li><p>Improved container documentation (<a class="reference external" href="https://github.com/agladstein">&#64;agladstein</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/822">#822</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/809">#809</a>).</p></li>
+<li><p>Improved developer docs for macs (<a class="reference external" href="https://github.com/gtsambos">&#64;gtsambos</a>, <a class="reference external" href="https://github.com/molpopgen">&#64;molpopgen</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/805">#805</a>).</p></li>
+<li><p>Clarify meaning of migration matrix (<a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/830">#830</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>[0.7.3] - 2019-08-03<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Support for SMC models coupled with the record_full_arg feature was
+erroneously removed in a previous version (<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/795">#795</a>). The feature
+has been reinstated (<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/796">#796</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>[0.7.2] - 2019-07-30<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<p><strong>Breaking changes</strong></p>
+<ul class="simple">
+<li><p>The random trajectory has been changed slightly to improve handling
+of ancient sampling events (<a class="reference external" href="https://github.com/tskit-dev/msprime/pull/782">#782</a>). Thus, simulations for a given
+random seed will not be identical to previous versions, if ancient
+samples are used.</p></li>
+</ul>
+<p><strong>New features</strong></p>
+<ul class="simple">
+<li><p>Automated Docker builds (<a class="reference external" href="https://github.com/agladstein">&#64;agladstein</a>; <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/661">#661</a>)</p></li>
+<li><p>Add mean coalescence time to DemographyDebugger (<a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>; <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/779">#779</a>).</p></li>
+<li><p>Improve MassMigration descriptions in DemographyDebugger
+(<a class="reference external" href="https://github.com/marianne-aspbury">&#64;marianne-aspbury</a>; <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/791">#791</a>).</p></li>
+</ul>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>In very, very, very rare cases it was possible to generate a
+zero waiting time until the next coalescent event, leading to
+zero branch lengths in the output tree sequence and an error
+being raised (<a class="reference external" href="https://github.com/molpopgen">&#64;molpopgen</a>, <a class="reference external" href="https://github.com/DL42">&#64;DL42</a>, <a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>;
+<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/783">#783</a>, <a class="reference external" href="https://github.com/tskit-dev/msprime/pull/785">#785</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2>[0.7.1] - 2019-06-08<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h2>
+<p><strong>New features</strong></p>
+<ul class="simple">
+<li><p>Discrete Time Wright-Fisher simulation model (<a class="reference external" href="https://github.com/DomNelson">&#64;DomNelson</a>).</p></li>
+<li><p>SMC/SMC’ simulation models (<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>).</p></li>
+<li><p>Mixed simulation models (<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>).</p></li>
+<li><p>Specify <code class="docutils literal notranslate"><span class="pre">end_time</span></code> to allow early-finish for simulations (<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>).</p></li>
+<li><p>Calculation of historical coalescence rates in the DemographyDebugger
+(<a class="reference external" href="https://github.com/jgallowa07">&#64;jgallowa07</a>, <a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>).</p></li>
+<li><p>Additional information on population sizes in DemographyDebugger
+(<a class="reference external" href="https://github.com/andrewkern">&#64;andrewkern</a>).</p></li>
+<li><p>Remove support for Python 2 (<a class="reference external" href="https://github.com/hugovk">&#64;hugovk</a>).</p></li>
+<li><p>Allow specifying metadata for populations (<a class="reference external" href="https://github.com/jeromekelleher">&#64;jeromekelleher</a>).</p></li>
+</ul>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Various minor bug and doc fixes from <a class="reference external" href="https://github.com/hyanwong">&#64;hyanwong</a>, <a class="reference external" href="https://github.com/petrelharp">&#64;petrelharp</a>,
+<a class="reference external" href="https://github.com/brianzhang01">&#64;brianzhang01</a>, <a class="reference external" href="https://github.com/mufernando">&#64;mufernando</a> and <a class="reference external" href="https://github.com/andrewkern">&#64;andrewkern</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="b1-2019-05-31">
+<h2>[0.7.1b1] - 2019-05-31<a class="headerlink" href="#b1-2019-05-31" title="Permalink to this headline">#</a></h2>
+<p>Early release making DTWF code available to beta testers.</p>
+</div>
+<div class="section" id="id13">
+<h2>[0.7.0] - 2019-02-19<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h2>
+<p>Separation of tskit from msprime. Msprime is now solely dedicated to simulating
+the coalescent, and all infrastructure for working with succinct tree sequences
+is now provided by tskit. To ensure compatibility, msprime now imports code
+from tskit under the old names, which should ensure that all code continues
+to work without changes.</p>
+<p><strong>New features</strong></p>
+<ul class="simple">
+<li><p>Ability to record the full ARG (<a class="reference external" href="https://github.com/jerekoskela">&#64;jerekoskela</a>; <a class="reference external" href="https://github.com/tskit-dev/msprime/issues/665">#665</a>)</p></li>
+</ul>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Fix deprecation warning (<a class="reference external" href="https://github.com/tskit-dev/msprime/issues/695">#695</a>).</p></li>
+</ul>
+</div>
+<div class="section" id="a1-2019-01-14">
+<h2>[0.7.0a1] - 2019-01-14<a class="headerlink" href="#a1-2019-01-14" title="Permalink to this headline">#</a></h2>
+<p>Alpha release for testing the tskit/msprime split.</p>
+</div>
+<div class="section" id="id14">
+<h2>[0.6.2] - 2018-12-04<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
+<p>Minor bugfix release.</p>
+<p><strong>New features</strong>:</p>
+<ul class="simple">
+<li><p>Add provenance recording option to simplify (#601)</p></li>
+<li><p>Minor performance improvement (#598)</p></li>
+</ul>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Fix performance regression in replication (#608)</p></li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h2>[0.6.1] - 2018-08-25<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h2>
+<p>Significant features for integration with forwards-time simulators plus
+improvements and bugfixes.</p>
+<p><strong>Breaking changes</strong>:</p>
+<ul class="simple">
+<li><p>Change in the semantics of how populations are treated by simplify. By
+default, populations that are not referenced will now be removed from the
+data model. This can be avoided by setting <code class="docutils literal notranslate"><span class="pre">filter_populations=False</span></code>.</p></li>
+<li><p>Simplify now raises an error if called on a set of tables that contain
+one or more migrations.</p></li>
+</ul>
+<p><strong>New features</strong>:</p>
+<ul class="simple">
+<li><p>The simulate() function now supports a <code class="docutils literal notranslate"><span class="pre">from_ts</span></code> argument allowing
+msprime to complete the ancestry in tree sequences generated by
+forward simulations (#503, #541, #572, #581).</p></li>
+<li><p>Add start_time and end_time parameters to the <code class="docutils literal notranslate"><span class="pre">mutate</span></code> function (#508).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">reduce_to_site_topology</span></code> argument to simplify. This allows us to
+find the minimal tree sequence that would be visible from a given set
+of sites, and is also a useful compression method if we are only interested
+in the observed sequences. (#545, #307).</p></li>
+<li><p>Simplify generalised to support individuals, and the <code class="docutils literal notranslate"><span class="pre">filter_populations</span></code>,
+<code class="docutils literal notranslate"><span class="pre">filter_individuals</span></code> and <code class="docutils literal notranslate"><span class="pre">filter_sites</span></code> parameters added to allow
+filtering of unreferenced objects from the data model. (#567).</p></li>
+<li><p>Default random seeds are now generated from a sequence initialised by
+a system source of randomness (#534). Random seeds should also be safely generated
+across multiple processes.</p></li>
+<li><p>Full text I/0 support for Individuals and Populations (#498, #555)</p></li>
+<li><p>Substantially improved performance in <code class="docutils literal notranslate"><span class="pre">msprime.load</span></code> for large tables
+and significant refactoring of C code (#559, #567, #569).</p></li>
+<li><p>Improved performance of generating genotypes (#580).</p></li>
+<li><p>Formal schema for tree sequence provenance (#566, #583).</p></li>
+<li><p>Many updates to documentation.</p></li>
+</ul>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Throw a more intelligible error during simulation if a topology is produced
+where the time of a parent is equal to the time of the child. (#570, #87).</p></li>
+<li><p>Pickle supported in the TableCollection object. (#574, #577).</p></li>
+</ul>
+<p><strong>Deprecated</strong>:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">filter_zero_mutation_sites</span></code> parameter for simplify has been deprecated
+in favour of <code class="docutils literal notranslate"><span class="pre">filter_sites</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h2>[0.6.0] - 2018-06-20<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h2>
+<p>This release is focused on ensuring interoperability with the forthcoming SLiM
+3.0 release, which has support for outputting tree sequences in msprime’s
+.trees format. The release represents a substantial step towards the goal of
+separating the <code class="docutils literal notranslate"><span class="pre">tskit</span></code> code from <code class="docutils literal notranslate"><span class="pre">msprime</span></code>. It removes the troublesome HDF5
+dependency in favour of the much simpler <code class="docutils literal notranslate"><span class="pre">kastore</span></code> library.</p>
+<p>The principle new features are the mutate() function which allows us to easily
+add mutations to any tree sequence, preliminary support for Individuals and
+Populations within the data model, and the addition of the new TableCollection
+object as the central structure in the Tables API.</p>
+<p><strong>Breaking changes</strong>:</p>
+<ul class="simple">
+<li><p>Files stored in the HDF5 format will need to upgraded using the
+<code class="docutils literal notranslate"><span class="pre">msp</span> <span class="pre">upgrade</span></code> command.</p></li>
+</ul>
+<p><strong>New features</strong>:</p>
+<ul class="simple">
+<li><p>The mutate function (#507).</p></li>
+<li><p>Removed HDF5 library dependency. Now use the embedded kastore library
+for storing data.</p></li>
+<li><p>Numpy and h5py are now install time dependencies, solving some installation
+headaches.</p></li>
+<li><p>The new TableCollection type  gives much tighter integration with the
+low-level library. Functions like sort_tables and simplify_tables are
+now methods of this class. The load_tables function has been replaced
+by TableCollection.tree_sequence. These functions still work, but are
+deprecated.</p></li>
+<li><p>Preliminary support for Individual and Population types in the Tables
+API and for TreeSequences.</p></li>
+<li><p>Add ‘root’ argument to SparseTree.newick and support for arbitrary
+node labels (#510).</p></li>
+<li><p>Larger numbers of alleles now supported via 16-bit genotypes (#466).</p></li>
+<li><p>Substantially improved simplify performance when there is a large
+number of sites (#453).</p></li>
+</ul>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Fix bug in tree drawing with many roots (#486)</p></li>
+<li><p>Fix segfault in accessing trees with zero roots (#515)</p></li>
+<li><p>Fix bug where DemographyDebugger was modifying the input sample sizes (#407)</p></li>
+</ul>
+<p><strong>Deprecated</strong>:</p>
+<ul class="simple">
+<li><p>sort_tables is deprecated in favour of TableCollection.sort().</p></li>
+<li><p>simplify_tables is deprecated in favour of TableCollection.simplify().</p></li>
+<li><p>load_tables is deprecated in favour of TableCollection.tree_sequence().</p></li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h2>[0.5.0] - 2018-02-26<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h2>
+<p>This is a major update to the underlying data structures in msprime to
+generalise the information that can be modelled, and allow
+for data from external sources to be efficiently processed. The
+new Tables API enables efficient interchange of tree sequence data using
+numpy arrays. Many updates have also been made to the tree sequence
+API to make it more Pythonic and general. Most changes are backwards
+compatible, however.</p>
+<p><strong>Breaking changes</strong>:</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">SparseTree.mutations()</span></code> and <code class="docutils literal notranslate"><span class="pre">TreeSequence.mutations()</span></code> iterators no
+longer support tuple-like access to values. For example, code like</p>
+<blockquote>
+<div><blockquote>
+<div><p>for x, u, j in ts.mutations():</p>
+</div></blockquote>
+<p>: print(“mutation at position”, x, “node = “, u)</p>
+</div></blockquote>
+<p>will no longer work. Code using the old <code class="docutils literal notranslate"><span class="pre">Mutation.position</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Mutation.index</span></code> will still work through deprecated aliases,
+but new code should access these values through <code class="docutils literal notranslate"><span class="pre">Site.position</span></code>
+and <code class="docutils literal notranslate"><span class="pre">Site.id</span></code>, respectively.</p>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">TreeSequence.diffs()</span></code> method no longer works. Please use
+the <code class="docutils literal notranslate"><span class="pre">TreeSequence.edge_diffs()</span></code> method instead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TreeSequence.get_num_records()</span></code> no longer works. Any code using
+this or the <code class="docutils literal notranslate"><span class="pre">records()</span></code> iterator should be rewritten to work with
+the <code class="docutils literal notranslate"><span class="pre">edges()</span></code> iterator and num_edges instead.</p></li>
+<li><p>Files stored in the HDF5 format will need to upgraded using the
+<code class="docutils literal notranslate"><span class="pre">msp</span> <span class="pre">upgrade</span></code> command.</p></li>
+</ul>
+<p><strong>New features</strong>:</p>
+<ul class="simple">
+<li><p>The API has been made more Pythonic by replacing (e.g.)
+<code class="docutils literal notranslate"><span class="pre">tree.get_parent(u)</span></code> with <code class="docutils literal notranslate"><span class="pre">tree.parent(u)</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">tree.get_total_branch_length()</span></code> with <code class="docutils literal notranslate"><span class="pre">tree.total_branch_length</span></code>.
+The old forms have been maintained as deprecated aliases. (#64)</p></li>
+<li><p>Efficient interchange of tree sequence data using the new Tables
+API. This consists of classes representing the various
+tables (e.g. <code class="docutils literal notranslate"><span class="pre">NodeTable</span></code>) and some utility functions (such
+as <code class="docutils literal notranslate"><span class="pre">load_tables</span></code>, <code class="docutils literal notranslate"><span class="pre">sort_tables</span></code>, etc).</p></li>
+<li><p>Support for a much more general class of tree sequence topologies.
+For example, trees with multiple roots are fully supported.</p></li>
+<li><p>Substantially generalised mutation model. Mutations now occur at
+specific sites, which can be associated with zero to many mutations.
+Each site has an ancestral state (any character string) and
+each mutation a derived state (any character string).</p></li>
+<li><p>Substantially updated documentation to rigorously define the
+underlying data model and requirements for imported data.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">variants()</span></code> method now returns a list of alleles for each
+site, and genotypes are indexes into this array. This is both
+consistent with existing usage and works with the newly generalised
+mutation model, which allows arbitrary strings of characters as
+mutational states.</p></li>
+<li><p>Add the formal concept of a sample, and distinguished from ‘leaves’.
+Change <code class="docutils literal notranslate"><span class="pre">tracked_leaves</span></code>, etc. to <code class="docutils literal notranslate"><span class="pre">tracked_samples</span></code> (#225).
+Also rename <code class="docutils literal notranslate"><span class="pre">sample_size</span></code> to <code class="docutils literal notranslate"><span class="pre">num_samples</span></code> for consistency (#227).</p></li>
+<li><p>The simplify() method returns subsets of a large tree sequence.</p></li>
+<li><p>TreeSequence.first() returns the first tree in sequence.</p></li>
+<li><p>Windows support. Msprime is now routinely tested on Windows as
+part of the suite of continuous integration tests.</p></li>
+<li><p>Newick output is not supported for more general trees. (#117)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">genotype_matrix</span></code> method allows efficient access to the
+full genotype matrix. (#306)</p></li>
+<li><p>The variants iterator no longer uses a single buffer for
+genotype data, removing a common source of error (#253).</p></li>
+<li><p>Unicode and ASCII output formats for <code class="docutils literal notranslate"><span class="pre">SparseTree.draw()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SparseTree.draw()</span></code> renders tree in the more conventional ‘square
+shoulders’ format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SparseTree.draw()</span></code> by default returns an SVG string, so it can
+be easily displayed in a Jupyter notebook. (#204)</p></li>
+<li><p>Preliminary support for a broad class of site-based statistics,
+including Patterson’s f-statistics, has been added, through
+the {}<code class="docutils literal notranslate"><span class="pre">SiteStatCalculator</span></code>, and its branch length analog,
+{}<code class="docutils literal notranslate"><span class="pre">BranchLengthStatCalculator</span></code>.  The interface is still in development,
+and is expected may change.</p></li>
+</ul>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Duplicate site no longer possible (#159)</p></li>
+<li><p>Fix for incorrect population sizes in DemographyDebugger (#66).</p></li>
+</ul>
+<p><strong>Deprecated</strong>:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">records</span></code> iterator has been deprecated, and the underlying data
+model has moved away from the concept of coalescence records. The
+structure of a tree sequence is now defined in terms of a set of nodes
+and edges, essentially a normalised version of coalescence records.</p></li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">population_id</span></code> to <code class="docutils literal notranslate"><span class="pre">population</span></code> in various DemographicEvent
+classes for consistency. The old <code class="docutils literal notranslate"><span class="pre">population_id</span></code> argument is kept as a
+deprecated alias.</p></li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">destination</span></code> to <code class="docutils literal notranslate"><span class="pre">dest</span></code> in MassMigrationEvent. The old
+<code class="docutils literal notranslate"><span class="pre">destination</span></code> argument is retained as a deprecated alias.</p></li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">sample_size</span></code> to <code class="docutils literal notranslate"><span class="pre">num_samples</span></code> in TreeSequence and
+SparseTree. The older versions are retained as deprecated aliases.</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">get_num_leaves</span></code> to <code class="docutils literal notranslate"><span class="pre">num_samples</span></code> in SparseTree. The
+<code class="docutils literal notranslate"><span class="pre">get_num_leaves</span></code> method (and other related methods) that have
+been retained for backwards compatibility are semantically incorrect,
+in that they now return the number of <strong>samples</strong>. This should have
+no effect on existing code, since samples and leaves were synonymous.
+New code should use the documented <code class="docutils literal notranslate"><span class="pre">num_samples</span></code> form.</p></li>
+<li><p>Accessing the <code class="docutils literal notranslate"><span class="pre">position</span></code> attribute on a <code class="docutils literal notranslate"><span class="pre">Mutation</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Variant</span></code> object is now deprecated, as this is a property of a <code class="docutils literal notranslate"><span class="pre">Site</span></code>.</p></li>
+<li><p>Accessing the <code class="docutils literal notranslate"><span class="pre">index</span></code> attribute on a <code class="docutils literal notranslate"><span class="pre">Mutation</span></code> or <code class="docutils literal notranslate"><span class="pre">Variant</span></code> object
+is now deprecated. Please use <code class="docutils literal notranslate"><span class="pre">variant.site.id</span></code> instead. In general,
+objects with IDs (i.e., derived from tables) now have an <code class="docutils literal notranslate"><span class="pre">id</span></code> field.</p></li>
+<li><p>Various <code class="docutils literal notranslate"><span class="pre">get_</span></code> methods in TreeSequence and SparseTree have been
+replaced by more Pythonic alternatives.</p></li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h2>[0.4.0] - 2016-10-16<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h2>
+<p>Major release providing new functionality and laying groundwork for
+upcoming functionality.</p>
+<p><strong>Breaking changes</strong>:</p>
+<ul>
+<li><p>The HDF5 file format has been changed to allow for non-binary trees
+and to improve performance. It is now both smaller and faster to
+load. However, msprime cannot directly load tree sequence files
+written by older versions. The <code class="docutils literal notranslate"><span class="pre">msp</span> <span class="pre">upgrade</span></code> utility has been
+developed to provide an upgrade path for existing users, so that
+files written by older versions of msprime can be converted to the
+newer format and read by version 0.4.x of msprime.</p></li>
+<li><p>The tuples returned by the <code class="docutils literal notranslate"><span class="pre">mutations</span></code> method contains an element.
+This will break code doing things like</p>
+<blockquote>
+<div><blockquote>
+<div><p>for pos, node in ts.mutations():</p>
+</div></blockquote>
+<p>: print(pos, node)</p>
+</div></blockquote>
+<p>For better forward compatibility, code should use named attributes
+rather than positional access:</p>
+<blockquote>
+<div><blockquote>
+<div><p>for mutation in ts.mutations():</p>
+</div></blockquote>
+<p>: print(mutation.position, mutation.node)</p>
+</div></blockquote>
+</li>
+<li><p>Similarly, the undocumented <code class="docutils literal notranslate"><span class="pre">variants</span></code> method has some major changes:</p>
+<ol class="simple">
+<li><p>The returned tuple has two new values, <code class="docutils literal notranslate"><span class="pre">node</span></code> and <code class="docutils literal notranslate"><span class="pre">index</span></code>
+in the middle of the tuple (but see the point above about using
+named attributes).</p></li>
+<li><p>The returned genotypes are by default numpy arrays. To revert
+to the old behaviour of returning Python bytes objects, use the
+<code class="docutils literal notranslate"><span class="pre">as_bytes</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">variants()</span></code> method.</p></li>
+</ol>
+</li>
+</ul>
+<p><strong>New features</strong>:</p>
+<ul class="simple">
+<li><p>Historical samples. Using the <code class="docutils literal notranslate"><span class="pre">samples</span></code> argument to <code class="docutils literal notranslate"><span class="pre">simulate</span></code>
+users can specify the location and time of all samples explicitly.</p></li>
+<li><p>HDF5 file upgrade utility <code class="docutils literal notranslate"><span class="pre">msp</span> <span class="pre">upgrade</span></code></p></li>
+<li><p>Support for non-binary trees in the tree sequence, and relaxation
+of the requirements on input tree sequences using the read_txt()
+function.</p></li>
+<li><p>Integration with numpy, with zero-copy access to the low-level C API.</p></li>
+<li><p>Documented the variants() method that provides access to the sample
+genotypes as either numpy arrays or Python bytes objects.</p></li>
+<li><p>New LdCalculator class that allows very fast calculation of r^2 values.</p></li>
+<li><p>Initial support for threading.</p></li>
+<li><p>The values returned mutations() method now also contain an <code class="docutils literal notranslate"><span class="pre">index</span></code>
+attribute. This makes many operations simpler.</p></li>
+<li><p>New TreeSequence.get_time() method that returns the time a sample
+was sampled at.</p></li>
+</ul>
+<p><strong>Performance improvements</strong>:</p>
+<ul class="simple">
+<li><p>File load times substantially reduced by pre-computing and storing
+traversal indexes.</p></li>
+<li><p>O(1) implementation of TreeSequence.get_num_trees()</p></li>
+<li><p>Improved control of enabled tree features in TreeSequence.trees()
+method using the <code class="docutils literal notranslate"><span class="pre">leaf_lists</span></code> and <code class="docutils literal notranslate"><span class="pre">leaf_counts</span></code> arguments.</p></li>
+</ul>
+<p><strong>Bug fixes</strong>:</p>
+<ul class="simple">
+<li><p>Fixed a precision problem with DemographyDebugger. #37</p></li>
+<li><p>Segfault on large haplotypes. #29</p></li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h2>[0.3.2] - 2016-07-21<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h2>
+<p>Feature release adding new import and export features to the API
+and CLI.</p>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">TreeSequence.write_records</span></code> and <code class="docutils literal notranslate"><span class="pre">TreeSequence.write_mutations</span></code>
+methods to serialise a tree sequence in a human readable text format.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">msprime.load_txt()</span></code> method that parses the above formats, and
+allows msprime to read in data from external sources.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">TreeSequence.write_vcf</span></code> method to write mutation information
+in VCF format.</p></li>
+<li><p>Miscellaneous documentation fixes.</p></li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h2>[0.3.1] - 2016-06-24<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h2>
+<p>Feature release adding population related methods to the API.</p>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">TreeSequence.get_population(sample_id)</span></code> method.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">TreeSequence.get_samples(population_id)</span></code> method.</p></li>
+<li><p>Added the optional <code class="docutils literal notranslate"><span class="pre">samples</span></code> argument to the
+<code class="docutils literal notranslate"><span class="pre">TreeSequence.get_pairwise_diversity</span></code> method.</p></li>
+<li><p>Fixed a potential low-level buffer overrun problem.</p></li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h2>[0.3.0] - 2016-05-31<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h2>
+<p>Bugfix release affecting all users of the Python API. Version 0.2.0 contained a
+confusing and inconsistent mix of times and rates being expressed in both
+coalescent units and generations. This release changes <em>all</em> times and rates
+used when describing demographic models to generations, and also changes
+all population sizes to be absolute. In the interest of consistency, the
+units of the trees output by msprime are also changed to generations. This
+is a major breaking change, and will require updates to all scripts using the
+API.</p>
+<p>This release also include some performance improvements and additional
+functionality.</p>
+<p>Mspms users are not affected, other than benefiting from performance
+improvements.</p>
+<p>Breaking changes:</p>
+<ul class="simple">
+<li><p>Time values are now rescaled into generations when a TreeSequence is
+created, and so all times associated with tree nodes are measured in
+generations. The time values in any existing HDF5 file will now be
+interpreted as being in generations, so stored simulations must be
+rerun. To minimise the chance of this happening silently, we have
+incremented the file format major version number, so that attempts
+to read older versions will fail.</p></li>
+<li><p>Growth rate values for the PopulationConfiguration class are now
+per generation, and population sizes are absolute. These were in
+coalescent units and relative to Ne previously.</p></li>
+<li><p>GrowthRateChangeEvents and SizeChangeEvents have been replaced with
+a single class, PopulationParametersChange. This new class takes
+an initial_size as the absolute population size, and growth_rate
+per generation. Since the change in units was a breaking one,
+potentially leading to subtle and confusing bugs, we decided that
+the name refactoring would at least ensure that users would need
+to be aware that the change had been made. This API should now
+be stable, and will not be changed again without an excellent
+reason.</p></li>
+<li><p>MigrationRateChangeEvent has been renamed to MigrationRateChange
+and the migration rates are now per-generation.</p></li>
+<li><p>MassMigrationEvent has been renamed to MassMigration, and the
+values of source and destination swapped, fixing the bug in
+issue #14.</p></li>
+<li><p>The TreeSequence.records() method now returns an extra value,
+potentially breaking client code.</p></li>
+</ul>
+<p>Improvements:</p>
+<ul class="simple">
+<li><p>Added tutorial for demographic events.</p></li>
+<li><p>Added DemographyDebugger class to help view the changes in populations
+over time.</p></li>
+<li><p>Added population tracking for coalescent events. We can now determine
+the population associated with every tree node. The relevant information
+has been added to the HDF5 file format.</p></li>
+<li><p>Improved performance for replication by reusing the same low-level
+simulator instance. This leads to significant improvements for large
+numbers of replicates of small simulations. Issue #8.</p></li>
+<li><p>Changed the TreeSequence.records() method to return named tuples.</p></li>
+<li><p>Added get_total_branch_length method. Issue #12.</p></li>
+<li><p>Fixed bug in reading Hapmap files. Issue #13.</p></li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h2>[0.2.0] - 2016-05-05<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h2>
+<p>Major update release, adding significant new functionality to the Python
+API and several breaking changes. All code written for the 0.1.x API
+will be affected, unfortunately.</p>
+<p>Breaking changes:</p>
+<ul class="simple">
+<li><p>Sample IDs are now zero indexed. In previous versions of msprime, the
+samples were numbered from 1 to n inclusive, which is not Pythonic.
+This change has been made to make the API more usable, but will
+cause issues for existing code.</p></li>
+<li><p>There is now an Ne parameter to simulate(), and recombination,
+mutation and migration rates are now all per-generation. The
+keyword arguments have been changed to recombination_rate
+and mutation_rate, which should mean that silent errors will
+be avoided. All rates in existing code will need to be
+divided by 4 as a result of this. This change was made to make
+working with recombination maps and per generation recombination
+rates easier.</p></li>
+<li><p>Msprime now uses continuous values to represent coordinates, and
+the num_loci parameter has been replaced with a new length parameter
+to simulate(). Internally, a discrete recombination model is still
+used, but by default the potential number of discrete sites is
+very large and effectively continuous. True discrete recombination
+models can still be specified by using the recombination_map
+argument to simulate.</p></li>
+<li><p>The population_models argument to simulate() has been removed, and
+replaced with the population_configuration and demographic_events
+parameters. This was necessary to provide the full demographic
+model.</p></li>
+<li><p>The HDF5 file format has been updated to accommodate the continuous
+coordinates, along with other minor changes. As a consequence,
+simulation results will be somewhat larger. Stored simulations will
+need to be re-run and saved.</p></li>
+<li><p>Removed the random_seed key from the provenance JSON strings.</p></li>
+<li><p>Removed the simulate_tree() function, as it seemed to offer little
+extra value.</p></li>
+</ul>
+<p>New features:</p>
+<ul class="simple">
+<li><p>Simulation of variable recombination rates via arbitrary recombination
+maps.</p></li>
+<li><p>Full support for population structure and demographic events.</p></li>
+<li><p>API support for replication via the num_replicates argument to simulate().</p></li>
+<li><p>Fully reworked random generation mechanisms, so that in the nominal
+case a single instance of gsl_rng is used throughout the entire
+simulation session.</p></li>
+<li><p>Addition of several miscellaneous methods to the TreeSequence API.</p></li>
+<li><p>Added NULL_NODE constant to make tree traversals more readable.</p></li>
+</ul>
+</div>
+<div class="section" id="id23">
+<h2>[0.1.10] - 2016-04-21<a class="headerlink" href="#id23" title="Permalink to this headline">#</a></h2>
+<p>Bugfix release. Fixes serious issue affecting simulations with small
+sample sizes.</p>
+<p><a class="reference external" href="https://github.com/jeromekelleher/msprime/issues/7">https://github.com/jeromekelleher/msprime/issues/7</a></p>
+<p>All users of mspms should update immediately and any analyses using
+a small sample size (&lt; 10) with mutations should be repeated.</p>
+<p>Many thanks to Konrad Lohse for identifying the issue.</p>
+</div>
+<div class="section" id="id24">
+<h2>[0.1.9] - 2016-04-01<a class="headerlink" href="#id24" title="Permalink to this headline">#</a></h2>
+<p>Bugfix release. Fixes serious issue affecting random seeds in mspms.</p>
+<p><a class="reference external" href="https://github.com/jeromekelleher/msprime/issues/6">https://github.com/jeromekelleher/msprime/issues/6</a></p>
+<p>All users of mspms should update immediately and any analyses using
+the <code class="docutils literal notranslate"><span class="pre">-seeds</span></code> option in mspms should be repeated.</p>
+<p>Many thanks to Derek Setter for identifying the issue.</p>
+</div>
+<div class="section" id="id25">
+<h2>[0.1.8] - 2016-02-17<a class="headerlink" href="#id25" title="Permalink to this headline">#</a></h2>
+<p>Transitional release providing population structure support for the
+ms-compatible command line interface. A considerable amount of low-level
+plumbing was required to provide the required flexibility. This is currently
+not visible from the high-level API, but will shortly be made available in the
+forthcoming 0.2.x series.</p>
+<p>The current implementation of migration should work well for small numbers of
+populations (e.g. &lt; 10), but will not scale well for large numbers of
+populations.</p>
+<div class="section" id="changes">
+<h3>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Added the -I, -m, -ma, -em, -eM, -ema, -eG, -eg, -eN, -en,
+-ej and -es options to mspms. These should provide full ms
+compatibility, except for the -es option which is currently
+limited in scope.</p></li>
+<li><p>Added some extra keys to the low-level configuration JSON in
+the HDF5 file format to describe the population structure.
+This will be documented in a future release.</p></li>
+<li><p>Added a {}<code class="docutils literal notranslate"><span class="pre">get_pairwise_diversity</span></code> method to the TreeSequence
+class to efficiently calculate the population genetics
+statistic pi.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="CITATION.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Citing msprime</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      msprime 1.2.0
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

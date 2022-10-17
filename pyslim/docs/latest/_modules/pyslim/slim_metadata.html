@@ -1,0 +1,1331 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyslim.slim_metadata &#8212; PySLiM manual</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">PySLiM manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Using pyslim
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tutorial.html">
+   Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_space.html">
+   Vignette: A spatial simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_continuing.html">
+   Vignette: Following up with more coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_coalescent_diversity.html">
+   Vignette: Starting with diversity generated by coalescent simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../vignette_parallel_phylo.html">
+   Vignette: Parallelizing SLiM simulations in a phylogenetic tree
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time_units.html">
+   Time units
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../previous_versions.html">
+   Migrating from previous versions of pyslim
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  pyslim reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../python_api.html">
+   Python API
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../development.html">
+   Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  pyslim 1.0.1
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/tskit-dev/pyslim"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/tskit-dev/pyslim/issues/new?title=Issue%20on%20page%20%2F_modules/pyslim/slim_metadata.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <h1>Source code for pyslim.slim_metadata</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">tskit</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">._version</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.provenance</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">GENOME_TYPE_AUTOSOME</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A value used in node metadata (&quot;genome_type&quot;) to indicate the node is an autosome.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">GENOME_TYPE_X</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A value used in node metadata (&quot;genome_type&quot;) to indicate the node is an X chromosome.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">GENOME_TYPE_Y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A value used in node metadata (&quot;genome_type&quot;) to indicate the node is a Y chromosome.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">INDIVIDUAL_TYPE_HERMAPHRODITE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A value used in individual metadata (&quot;sex&quot;) to indicate the individual is a hermaphrodite.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">INDIVIDUAL_TYPE_FEMALE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A value used in individual metadata (&quot;sex&quot;) to indicate the individual is a male.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">INDIVIDUAL_TYPE_MALE</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A value used in individual metadata (&quot;sex&quot;) to indicate the individual is a female.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">INDIVIDUAL_FLAG_MIGRATED</span> <span class="o">=</span> <span class="mh">0x01</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">An individual flag indicating the individual is a migrant.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># These are copied from slim_globals.h and modified to be python not json (eg false-&gt;False)</span>
+<span class="n">_raw_slim_metadata_schemas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;tree_sequence&quot;</span> <span class="p">:</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/schema#&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;codec&quot;</span><span class="p">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;examples&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;SLiM&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;file_version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.8&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fox&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;foxes on Catalina island&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;cycle&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                    <span class="s2">&quot;tick&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                    <span class="s2">&quot;model_type&quot;</span><span class="p">:</span> <span class="s2">&quot;WF&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;nucleotide_based&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                    <span class="s2">&quot;separate_sexes&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="s2">&quot;spatial_dimensionality&quot;</span><span class="p">:</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;spatial_periodicity&quot;</span><span class="p">:</span> <span class="s2">&quot;x&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;SLiM&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Top-level metadata for a SLiM tree sequence, file format version 0.8&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;file_version&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The SLiM &#39;file format version&#39; of this tree sequence.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The SLiM species name represented by this tree sequence.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A user-configurable description of the species represented by this tree sequence.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;cycle&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The &#39;SLiM cycle&#39; counter when this tree sequence was recorded.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;tick&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The &#39;SLiM tick&#39; counter when this tree sequence was recorded.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;model_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The model type used for the last part of this simulation (WF or nonWF).&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;WF&quot;</span><span class="p">,</span> <span class="s2">&quot;nonWF&quot;</span> <span class="p">],</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;nucleotide_based&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Whether the simulation was nucleotide-based.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;separate_sexes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Whether the simulation had separate sexes.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;spatial_dimensionality&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The spatial dimensionality of the simulation.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="s2">&quot;xyz&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;spatial_periodicity&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The spatial periodicity of the simulation.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="s2">&quot;xz&quot;</span><span class="p">,</span> <span class="s2">&quot;yz&quot;</span><span class="p">,</span> <span class="s2">&quot;xyz&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;stage&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The stage of the SLiM life cycle when this tree sequence was recorded.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;model_type&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;tick&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;file_version&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;spatial_dimensionality&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;spatial_periodicity&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;separate_sexes&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;nucleotide_based&quot;</span>
+                <span class="p">],</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;SLiM&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;edge&quot;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s2">&quot;site&quot;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s2">&quot;mutation&quot;</span> <span class="p">:</span> 
+    <span class="p">{</span>
+        <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/schema#&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;codec&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;SLiM schema for mutation metadata.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;examples&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;mutation_list&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;mutation_type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="s2">&quot;nucleotide&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                        <span class="s2">&quot;selection_coeff&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span>
+                        <span class="s2">&quot;slim_time&quot;</span><span class="p">:</span> <span class="mi">243</span><span class="p">,</span>
+                        <span class="s2">&quot;subpopulation&quot;</span><span class="p">:</span> <span class="mi">0</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;mutation_list&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                    <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;mutation_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The index of this mutation&#39;s mutationType.&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;nucleotide&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The nucleotide for this mutation (0=A , 1=C , 2=G, 3=T, or -1 for none)&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;selection_coeff&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This mutation&#39;s selection coefficient.&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;slim_time&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The SLiM tick counter when this mutation occurred.&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;subpopulation&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ID of the subpopulation this mutation occurred in.&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;mutation_type&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;selection_coeff&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;subpopulation&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;slim_time&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;nucleotide&quot;</span>
+                    <span class="p">],</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;noLengthEncodingExhaustBuffer&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;mutation_list&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;node&quot;</span> <span class="p">:</span> 
+   <span class="p">{</span>
+       <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/schema#&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+       <span class="s2">&quot;codec&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;SLiM schema for node metadata.&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;examples&quot;</span><span class="p">:</span> <span class="p">[</span>
+           <span class="p">{</span>
+               <span class="s2">&quot;genome_type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+               <span class="s2">&quot;is_null&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+               <span class="s2">&quot;slim_id&quot;</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+       <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+           <span class="s2">&quot;genome_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The &#39;type&#39; of this genome (0 for autosome, 1 for X, 2 for Y).&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+               <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+            <span class="p">},</span>
+           <span class="s2">&quot;is_null&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Whether this node describes a &#39;null&#39; (non-existant) chromosome.&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+               <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span>
+            <span class="p">},</span>
+           <span class="s2">&quot;slim_id&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;q&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The &#39;pedigree ID&#39; of this chromosome in SLiM.&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+               <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+       <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
+           <span class="s2">&quot;slim_id&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;is_null&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;genome_type&quot;</span>
+        <span class="p">],</span>
+       <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span>
+           <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;null&quot;</span>
+        <span class="p">]</span>
+    <span class="p">},</span> 
+    <span class="s2">&quot;individual&quot;</span> <span class="p">:</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/schema#&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;codec&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;SLiM schema for individual metadata.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;examples&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;flags&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s2">&quot;pedigree_id&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s2">&quot;pedigree_p1&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                <span class="s2">&quot;pedigree_p2&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+                <span class="s2">&quot;sex&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s2">&quot;subpopulation&quot;</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;flags&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;SLIM_INDIVIDUAL_METADATA_MIGRATED&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Whether this individual was a migrant, either in the tick when the tree sequence &quot;</span>
+                               <span class="s2">&quot;was written out (if the individual was alive then), or in the tick of the last time &quot;</span>
+                               <span class="s2">&quot;they were Remembered (if not).&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The age of this individual, either when the tree sequence was written out &quot;</span>
+                               <span class="s2">&quot;(if the individual was alive then), or the last time they were Remembered (if not).&quot;</span><span class="p">,</span>
+                               <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                               <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;flags&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Other information about the individual: see &#39;flags&#39;.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;pedigree_id&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;q&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The &#39;pedigree ID&#39; of this individual in SLiM.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;pedigree_p1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;q&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The &#39;pedigree ID&#39; of this individual&#39;s first parent in SLiM.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;pedigree_p2&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;q&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The &#39;pedigree ID&#39; of this individual&#39;s second parent in SLiM.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;sex&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The sex of the individual (0 for female, 1 for male, -1 for hermaphrodite).&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;subpopulation&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ID of the subpopulation the individual was part of, either when the tree sequence &quot;</span>
+                               <span class="s2">&quot;was written out (if the individual was alive then), or the last time they were Remembered (if not).&quot;</span><span class="p">,</span>
+                               <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                               <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;pedigree_id&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;pedigree_p1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;pedigree_p2&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;age&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;subpopulation&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sex&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;flags&quot;</span>
+            <span class="p">],</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;population&quot;</span><span class="p">:</span> 
+    <span class="p">{</span>
+            <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/schema#&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;codec&quot;</span><span class="p">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;SLiM schema for population metadata.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;examples&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;bounds_x0&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                    <span class="s2">&quot;bounds_x1&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
+                    <span class="s2">&quot;bounds_y0&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                    <span class="s2">&quot;bounds_y1&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
+                    <span class="s2">&quot;female_cloning_fraction&quot;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+                    <span class="s2">&quot;male_cloning_fraction&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                    <span class="s2">&quot;migration_records&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;migration_rate&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+                            <span class="s2">&quot;source_subpop&quot;</span><span class="p">:</span> <span class="mi">1</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;migration_rate&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+                            <span class="s2">&quot;source_subpop&quot;</span><span class="p">:</span> <span class="mi">2</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="s2">&quot;selfing_fraction&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+                    <span class="s2">&quot;sex_ratio&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+                    <span class="s2">&quot;slim_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;p2&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;bounds_x0&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The minimum x-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;bounds_x1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The maximum x-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;bounds_y0&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The minimum y-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;bounds_y1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The maximum y-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;bounds_z0&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The minimum z-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;bounds_z1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The maximum z-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A description of this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;female_cloning_fraction&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The frequency with which females in this subpopulation reproduce clonally (for WF models).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;male_cloning_fraction&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The frequency with which males in this subpopulation reproduce clonally (for WF models).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;migration_records&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;migration_rate&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The fraction of children in this subpopulation that are composed of &#39;migrants&#39; from the source subpopulation (in WF models).&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;source_subpop&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ID of the subpopulation migrants come from (in WF models).&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+                            <span class="p">}</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="s2">&quot;source_subpop&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;migration_rate&quot;</span>
+                        <span class="p">],</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A human-readable name for this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;selfing_fraction&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The frequency with which individuals in this subpopulation self (for WF models).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;sex_ratio&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This subpopulation&#39;s sex ratio (for WF models).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;slim_id&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ID of this population in SLiM. Note that this is called a &#39;subpopulation&#39; in SLiM.&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+                    <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;null&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">slim_metadata_schemas</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">tskit</span><span class="o">.</span><span class="n">MetadataSchema</span><span class="p">(</span><span class="n">_raw_slim_metadata_schemas</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">_raw_slim_metadata_schemas</span><span class="p">}</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A dictionary containing the metadata schemas used by SLiM for each of the tables,</span>
+<span class="sd">and for top-level metadata.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="default_slim_metadata"><a class="viewcode-back" href="../../metadata.html#pyslim.default_slim_metadata">[docs]</a><span class="k">def</span> <span class="nf">default_slim_metadata</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns default metadata of type ``name``, where ``name`` is one of</span>
+<span class="sd">    &quot;tree_sequence&quot;, &quot;edge&quot;, &quot;site&quot;, &quot;mutation&quot;, &quot;mutation_list_entry&quot;,</span>
+<span class="sd">    &quot;node&quot;, &quot;individual&quot;, or &quot;population&quot;.</span>
+
+<span class="sd">    :param str name: The type of metadata requested.</span>
+<span class="sd">    :rtype dict:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;tree_sequence&quot;</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{</span>
+             <span class="s2">&quot;SLiM&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                 <span class="s2">&quot;model_type&quot;</span> <span class="p">:</span> <span class="s2">&quot;nonWF&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;cycle&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="s2">&quot;tick&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="s2">&quot;file_version&quot;</span> <span class="p">:</span> <span class="n">slim_file_version</span><span class="p">,</span>
+                 <span class="s2">&quot;spatial_dimensionality&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;spatial_periodicity&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;separate_sexes&quot;</span> <span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="s2">&quot;nucleotide_based&quot;</span> <span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="s2">&quot;stage&quot;</span> <span class="p">:</span> <span class="s2">&quot;late&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;description&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+             <span class="p">}</span>
+         <span class="p">}</span>
+    <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;edge&quot;</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;site&quot;</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;mutation&quot;</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;mutation_list&quot;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+    <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;mutation_list_entry&quot;</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;mutation_type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;selection_coeff&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s2">&quot;subpopulation&quot;</span><span class="p">:</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">,</span>
+            <span class="s2">&quot;slim_time&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;nucleotide&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;node&quot;</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;slim_id&quot;</span><span class="p">:</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">,</span>
+            <span class="s2">&quot;is_null&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">&quot;genome_type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;individual&quot;</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;pedigree_id&quot;</span><span class="p">:</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;subpopulation&quot;</span><span class="p">:</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">,</span>
+            <span class="s2">&quot;sex&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;flags&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;pedigree_p1&quot;</span><span class="p">:</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">,</span>
+            <span class="s2">&quot;pedigree_p2&quot;</span><span class="p">:</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;population&quot;</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;slim_id&quot;</span><span class="p">:</span> <span class="n">tskit</span><span class="o">.</span><span class="n">NULL</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;selfing_fraction&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s2">&quot;female_cloning_fraction&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s2">&quot;male_cloning_fraction&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s2">&quot;sex_ratio&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s2">&quot;bounds_x0&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s2">&quot;bounds_x1&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s2">&quot;bounds_y0&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s2">&quot;bounds_y1&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s2">&quot;bounds_z0&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s2">&quot;bounds_z1&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s2">&quot;migration_records&quot;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Unknown metadata request: name should be one of &#39;tree_sequence&#39;, &quot;</span>
+            <span class="s2">&quot;&#39;edge&#39;, &#39;site&#39;, &#39;mutation&#39;, &#39;mutation_list_entry&#39;, &#39;node&#39;, &quot;</span>
+            <span class="s2">&quot;&#39;individual&#39;, or &#39;population&#39;.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span></div>
+
+
+<span class="c1">###########</span>
+<span class="c1"># Top-level, a.k.a., tree sequence metadata</span>
+<span class="c1">###########</span>
+
+<span class="k">def</span> <span class="nf">set_tree_sequence_metadata</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span>
+        <span class="n">model_type</span><span class="p">,</span>
+        <span class="n">tick</span><span class="p">,</span>
+        <span class="n">cycle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">spatial_dimensionality</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">spatial_periodicity</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">separate_sexes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">nucleotide_based</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">stage</span><span class="o">=</span><span class="s1">&#39;late&#39;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">file_version</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">set_table_schemas</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">file_version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">file_version</span> <span class="o">=</span> <span class="n">slim_file_version</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Tree sequence has top-level metadata but no schema: this is a problem &quot;</span>
+                             <span class="s2">&quot;since pyslim is trying to add to the metadata.&quot;</span><span class="p">)</span>
+        <span class="n">schema_dict</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s1">&#39;tree_sequence&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">schema</span>
+        <span class="n">metadata_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># we need to keep other keys in the metadata (and schema) if there are any</span>
+        <span class="n">schema_dict</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">metadata_schema</span><span class="o">.</span><span class="n">schema</span>
+        <span class="n">metadata_dict</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">metadata</span>
+    <span class="k">if</span> <span class="n">cycle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cycle</span> <span class="o">=</span> <span class="n">tick</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;codec&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;properties&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">schema_dict</span><span class="p">:</span>
+        <span class="n">schema_dict</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">schema_dict</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;SLiM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s1">&#39;tree_sequence&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;SLiM&#39;</span><span class="p">]</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">MetadataSchema</span><span class="p">(</span><span class="n">schema_dict</span><span class="p">)</span>
+    <span class="n">metadata_dict</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;model_type&quot;</span><span class="p">:</span> <span class="n">model_type</span><span class="p">,</span>
+            <span class="s2">&quot;tick&quot;</span><span class="p">:</span> <span class="n">tick</span><span class="p">,</span>
+            <span class="s2">&quot;cycle&quot;</span><span class="p">:</span> <span class="n">cycle</span><span class="p">,</span>
+            <span class="s2">&quot;file_version&quot;</span><span class="p">:</span> <span class="n">file_version</span><span class="p">,</span>
+            <span class="s2">&quot;spatial_dimensionality&quot;</span><span class="p">:</span> <span class="n">spatial_dimensionality</span><span class="p">,</span>
+            <span class="s2">&quot;spatial_periodicity&quot;</span><span class="p">:</span> <span class="n">spatial_periodicity</span><span class="p">,</span>
+            <span class="s2">&quot;separate_sexes&quot;</span><span class="p">:</span> <span class="n">separate_sexes</span><span class="p">,</span>
+            <span class="s2">&quot;nucleotide_based&quot;</span><span class="p">:</span> <span class="n">nucleotide_based</span><span class="p">,</span>
+            <span class="s2">&quot;stage&quot;</span><span class="p">:</span> <span class="n">stage</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">description</span><span class="p">,</span>
+            <span class="p">}</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata_dict</span>
+
+
+<span class="k">def</span> <span class="nf">set_metadata_schemas</span><span class="p">(</span><span class="n">tables</span><span class="p">):</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">edges</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s1">&#39;edge&#39;</span><span class="p">]</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s1">&#39;site&#39;</span><span class="p">]</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s1">&#39;mutation&#39;</span><span class="p">]</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">]</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s1">&#39;individual&#39;</span><span class="p">]</span>
+    <span class="n">tables</span><span class="o">.</span><span class="n">populations</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span>
+
+
+<span class="c1">################################</span>
+<span class="c1"># Previous versions of metadata schema:</span>
+
+<span class="k">def</span> <span class="nf">_old_metadata_schema</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">file_version</span><span class="p">):</span>
+    <span class="c1"># Returns a metadata schema *if the format has changed*,</span>
+    <span class="c1"># and None otherwise.</span>
+    <span class="n">ms</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;tree_sequence&quot;</span>
+        <span class="ow">and</span> <span class="n">file_version</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;0.2&quot;</span><span class="p">,</span> <span class="s2">&quot;0.3&quot;</span><span class="p">,</span> <span class="s2">&quot;0.4&quot;</span><span class="p">,</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span> <span class="s2">&quot;0.6&quot;</span><span class="p">,</span> <span class="s2">&quot;0.7&quot;</span><span class="p">]):</span>
+        <span class="n">pre_0_8_tree_sequence</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/schema#&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;codec&quot;</span><span class="p">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;SLiM&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Top-level metadata for a SLiM tree sequence, file format version 0.7&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;model_type&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;WF&quot;</span><span class="p">,</span> <span class="s2">&quot;nonWF&quot;</span><span class="p">],</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The model type used for the last part of this simulation (WF or nonWF).&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;generation&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The &#39;SLiM generation&#39; counter when this tree sequence was recorded.&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;stage&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The stage of the SLiM life cycle when this tree sequence was recorded.&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;file_version&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The SLiM &#39;file format version&#39; of this tree sequence.&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;spatial_dimensionality&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="s2">&quot;xyz&quot;</span><span class="p">],</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The spatial dimensionality of the simulation.&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;spatial_periodicity&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="s2">&quot;xz&quot;</span><span class="p">,</span> <span class="s2">&quot;yz&quot;</span><span class="p">,</span> <span class="s2">&quot;xyz&quot;</span><span class="p">],</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The spatial periodicity of the simulation.&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;separate_sexes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Whether the simulation had separate sexes.&quot;</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;nucleotide_based&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Whether the simulation was nucleotide-based.&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;model_type&quot;</span><span class="p">,</span> <span class="s2">&quot;generation&quot;</span><span class="p">,</span> <span class="s2">&quot;file_version&quot;</span><span class="p">,</span> <span class="s2">&quot;spatial_dimensionality&quot;</span><span class="p">,</span> <span class="s2">&quot;spatial_periodicity&quot;</span><span class="p">,</span> <span class="s2">&quot;separate_sexes&quot;</span><span class="p">,</span> <span class="s2">&quot;nucleotide_based&quot;</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;SLiM&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;examples&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                 <span class="s2">&quot;SLiM&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                     <span class="s2">&quot;model_type&quot;</span> <span class="p">:</span> <span class="s2">&quot;WF&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;generation&quot;</span> <span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                     <span class="s2">&quot;file_version&quot;</span> <span class="p">:</span> <span class="s2">&quot;0.7&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;spatial_dimensionality&quot;</span> <span class="p">:</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;spatial_periodicity&quot;</span> <span class="p">:</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;separate_sexes&quot;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s2">&quot;nucleotide_based&quot;</span> <span class="p">:</span> <span class="kc">False</span>
+                     <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+        <span class="n">ms</span> <span class="o">=</span> <span class="n">pre_0_8_tree_sequence</span> 
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;population&quot;</span>
+        <span class="ow">and</span> <span class="n">file_version</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;0.2&quot;</span><span class="p">,</span> <span class="s2">&quot;0.3&quot;</span><span class="p">,</span> <span class="s2">&quot;0.4&quot;</span><span class="p">,</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span> <span class="s2">&quot;0.6&quot;</span><span class="p">]):</span>
+        <span class="n">pre_0_7_population</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/schema#&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;SLiM schema for population metadata.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;codec&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;slim_id&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ID of this population in SLiM. Note that this is called a &#39;subpopulation&#39; in SLiM.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+                <span class="s2">&quot;selfing_fraction&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The frequency with which individuals in this subpopulation self (for WF models).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+                <span class="s2">&quot;female_cloning_fraction&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The frequency with which females in this subpopulation reproduce clonally (for WF models).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+                <span class="s2">&quot;male_cloning_fraction&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The frequency with which males in this subpopulation reproduce clonally (for WF models).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+                <span class="s2">&quot;sex_ratio&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This subpopulation&#39;s sex ratio (for WF models).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
+                <span class="s2">&quot;bounds_x0&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The minimum x-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">},</span>
+                <span class="s2">&quot;bounds_x1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The maximum x-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">},</span>
+                <span class="s2">&quot;bounds_y0&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The minimum y-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
+                <span class="s2">&quot;bounds_y1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The maximum y-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">},</span>
+                <span class="s2">&quot;bounds_z0&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The minimum z-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+                <span class="s2">&quot;bounds_z1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The maximum z-coordinate in this subpopulation.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">},</span>
+                <span class="s2">&quot;migration_records&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+                    <span class="s2">&quot;arrayLengthFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;source_subpop&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ID of the subpopulation migrants come from (in WF models).&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+                            <span class="s2">&quot;migration_rate&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The fraction of children in this subpopulation that are composed of &#39;migrants&#39; from the source subpopulation (in WF models).&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;source_subpop&quot;</span><span class="p">,</span> <span class="s2">&quot;migration_rate&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">ms</span> <span class="o">=</span> <span class="n">pre_0_7_population</span> 
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;individual&quot;</span>
+        <span class="ow">and</span> <span class="n">file_version</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;0.2&quot;</span><span class="p">,</span> <span class="s2">&quot;0.3&quot;</span><span class="p">,</span> <span class="s2">&quot;0.4&quot;</span><span class="p">,</span> <span class="s2">&quot;0.5&quot;</span><span class="p">,</span> <span class="s2">&quot;0.6&quot;</span><span class="p">]):</span>
+        <span class="n">pre_0_7_individual</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/schema#&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;SLiM schema for individual metadata.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;codec&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;pedigree_id&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The &#39;pedigree ID&#39; of this individual in SLiM.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;q&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">1</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The age of this individual, either when the tree sequence was written out (if the individual was alive then), or the last time they were Remembered (if not).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">2</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;subpopulation&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ID of the subpopulation the individual was part of, either when the tree sequence was written out (if the individual was alive then), or the last time they were Remembered (if not).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">3</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;sex&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The sex of the individual (0 for female, 1 for male, -1 for hermaphrodite).&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">4</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;flags&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Other information about the individual: see &#39;flags&#39;.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">5</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pedigree_id&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;subpopulation&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="s2">&quot;flags&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">&quot;flags&quot;</span><span class="p">:</span> <span class="p">{</span>
+                 <span class="s2">&quot;SLIM_INDIVIDUAL_METADATA_MIGRATED&quot;</span><span class="p">:</span> <span class="p">{</span>
+                     <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Whether this individual was a migrant, either in the generation when the tree sequence was written out (if the individual was alive then), or in the generation of the last time they were Remembered (if not).&quot;</span>
+                 <span class="p">}</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+        <span class="n">ms</span> <span class="o">=</span> <span class="n">pre_0_7_individual</span> 
+
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;mutation&quot;</span> <span class="ow">and</span> <span class="n">file_version</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;0.2&quot;</span><span class="p">]:</span>
+        <span class="n">mutation_pre_0_3</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/schema#&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;SLiM schema for mutation metadata.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;codec&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;mutation_list&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;noLengthEncodingExhaustBuffer&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;mutation_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The index of this mutation&#39;s mutationType.&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">1</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;selection_coeff&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This mutation&#39;s selection coefficient.&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">2</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;subpopulation&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ID of the subpopulation this mutation occurred in.&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">3</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;slim_time&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The SLiM generation counter when this mutation occurred.&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;binaryFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">4</span>
+                            <span class="p">},</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;mutation_type&quot;</span><span class="p">,</span> <span class="s2">&quot;selection_coeff&quot;</span><span class="p">,</span> <span class="s2">&quot;subpopulation&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;slim_time&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;mutation_list&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">ms</span> <span class="o">=</span> <span class="n">mutation_pre_0_3</span>
+
+    <span class="c1"># everything else&#39;s format has remained unchanged</span>
+    <span class="k">if</span> <span class="n">ms</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ms</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">MetadataSchema</span><span class="p">(</span><span class="n">ms</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ms</span>
+
+
+<span class="k">def</span> <span class="nf">is_current_version</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">_warn</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests whether the tree sequence or table collection provided is the current</span>
+<span class="sd">    SLiM file format or not. If not, use `pyslim.update( )` to bring it up to</span>
+<span class="sd">    date.</span>
+
+<span class="sd">    :param TreeSequence ts: The tree sequence or table collection.</span>
+<span class="sd">    :return bool: Whether the tree sequence is the current version.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+        <span class="ow">and</span>
+        <span class="p">(</span><span class="s1">&#39;SLiM&#39;</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="ow">and</span>
+        <span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;file_version&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">slim_file_version</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">_warn</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">out</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;This tree sequence is not the current SLiM format, &quot;</span>
+                <span class="s2">&quot;so some operations may not work. &quot;</span>
+                <span class="s2">&quot;Use `pyslim.update( )` to update the tree sequence.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+
+<div class="viewcode-block" id="update"><a class="viewcode-back" href="../../python_api.html#pyslim.update">[docs]</a><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Update a tree sequence produced by a previous verion of SLiM</span>
+<span class="sd">    to the current file version.</span>
+
+<span class="sd">    :return TreeSequence: The updated tree sequence.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">dump_tables</span><span class="p">()</span>
+    <span class="n">update_tables</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tables</span><span class="o">.</span><span class="n">tree_sequence</span><span class="p">()</span></div>
+
+
+<span class="k">def</span> <span class="nf">update_tables</span><span class="p">(</span><span class="n">tables</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Update tables produced by a previous verion of SLiM to the current file version.</span>
+<span class="sd">    Modifies the tables in place.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># First we ensure we can find the file format version number</span>
+    <span class="c1"># in top-level metadata. Then we proceed to fix up the tables as necessary.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">tables</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;SLiM&#39;</span> <span class="ow">in</span> <span class="n">tables</span><span class="o">.</span><span class="n">metadata</span><span class="p">):</span>
+        <span class="c1"># Old versions kept information in provenance, not top-level metadata.</span>
+        <span class="c1"># Note this uses defaults on keys not present in provenance,</span>
+        <span class="c1"># which prior to 0.5 was everything but generation and model_type.</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">default_slim_metadata</span><span class="p">(</span><span class="s1">&#39;tree_sequence&#39;</span><span class="p">)[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">]</span>
+        <span class="n">prov</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">file_version</span> <span class="o">=</span> <span class="s1">&#39;unknown&#39;</span>
+        <span class="c1"># use only the last SLiM provenance</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">tables</span><span class="o">.</span><span class="n">provenances</span><span class="p">:</span>
+            <span class="n">is_slim</span><span class="p">,</span> <span class="n">this_file_version</span> <span class="o">=</span> <span class="n">slim_provenance_version</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> 
+            <span class="k">if</span> <span class="n">is_slim</span><span class="p">:</span>
+                <span class="n">prov</span> <span class="o">=</span> <span class="n">p</span>
+                <span class="n">file_version</span> <span class="o">=</span> <span class="n">this_file_version</span>
+        <span class="n">values</span><span class="p">[</span><span class="s1">&#39;file_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_version</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">record</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">prov</span><span class="o">.</span><span class="n">record</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">file_version</span> <span class="o">==</span> <span class="s2">&quot;0.1&quot;</span><span class="p">:</span>
+                <span class="n">values</span><span class="p">[</span><span class="s1">&#39;model_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;model_type&#39;</span><span class="p">]</span>
+                <span class="n">values</span><span class="p">[</span><span class="s1">&#39;tick&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;generation&#39;</span><span class="p">]</span>
+                <span class="n">values</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;generation&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;generation&#39;</span> <span class="ow">in</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;slim&#39;</span><span class="p">]:</span>
+                    <span class="n">values</span><span class="p">[</span><span class="s1">&#39;tick&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;slim&#39;</span><span class="p">][</span><span class="s1">&#39;generation&#39;</span><span class="p">]</span>
+                    <span class="n">values</span><span class="p">[</span><span class="s1">&#39;cycle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;slim&#39;</span><span class="p">][</span><span class="s1">&#39;generation&#39;</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">]:</span>
+                        <span class="n">values</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;slim&#39;</span><span class="p">]:</span>
+                        <span class="n">values</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;slim&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Failed to obtain metadata from provenance.&quot;</span><span class="p">)</span>
+        <span class="n">set_tree_sequence_metadata</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span> <span class="o">**</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="n">file_version</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;file_version&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">file_version</span> <span class="o">!=</span> <span class="n">slim_file_version</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;This is a version </span><span class="si">{}</span><span class="s2"> SLiM tree sequence.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file_version</span><span class="p">)</span> <span class="o">+</span>
+                      <span class="s2">&quot; When you write this out, &quot;</span> <span class="o">+</span>
+                      <span class="s2">&quot;it will be converted to version </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">slim_file_version</span><span class="p">))</span>
+
+        <span class="c1"># the only tables to have metadata schema changed thus far</span>
+        <span class="c1"># are populations, individuals, mutations, and top-level:</span>
+        <span class="n">old_schema</span> <span class="o">=</span> <span class="n">_old_metadata_schema</span><span class="p">(</span><span class="s2">&quot;tree_sequence&quot;</span><span class="p">,</span> <span class="n">file_version</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">old_schema</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">md</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">metadata</span>
+            <span class="n">new_schema</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s2">&quot;tree_sequence&quot;</span><span class="p">]</span>
+            <span class="n">new_properties</span> <span class="o">=</span> <span class="n">new_schema</span><span class="o">.</span><span class="n">asdict</span><span class="p">()[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;required&#39;</span><span class="p">]</span>
+            <span class="n">tables</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">new_schema</span>
+            <span class="n">defaults</span> <span class="o">=</span> <span class="n">default_slim_metadata</span><span class="p">(</span><span class="s2">&quot;tree_sequence&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">new_properties</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">md</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">&quot;tick&quot;</span><span class="p">:</span>
+                        <span class="n">md</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;tick&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">md</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;generation&#39;</span><span class="p">]</span>
+                        <span class="n">md</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;cycle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">md</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;generation&#39;</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">md</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaults</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+            <span class="n">tables</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">md</span>
+
+        <span class="n">old_schema</span> <span class="o">=</span> <span class="n">_old_metadata_schema</span><span class="p">(</span><span class="s2">&quot;population&quot;</span><span class="p">,</span> <span class="n">file_version</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">old_schema</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pops</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">populations</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">tables</span><span class="o">.</span><span class="n">populations</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">pops</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">==</span> <span class="n">tskit</span><span class="o">.</span><span class="n">MetadataSchema</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+                <span class="n">pops</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">old_schema</span>
+            <span class="n">new_schema</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span>
+            <span class="n">tables</span><span class="o">.</span><span class="n">populations</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">new_schema</span>
+            <span class="n">defaults</span> <span class="o">=</span> <span class="n">default_slim_metadata</span><span class="p">(</span><span class="s2">&quot;population&quot;</span><span class="p">)</span>
+            <span class="c1"># just needs recoding</span>
+            <span class="k">for</span> <span class="n">pop</span> <span class="ow">in</span> <span class="n">pops</span><span class="p">:</span>
+                <span class="n">tables</span><span class="o">.</span><span class="n">populations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+
+        <span class="n">old_schema</span> <span class="o">=</span> <span class="n">_old_metadata_schema</span><span class="p">(</span><span class="s2">&quot;individual&quot;</span><span class="p">,</span> <span class="n">file_version</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">old_schema</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">inds</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">inds</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">==</span> <span class="n">tskit</span><span class="o">.</span><span class="n">MetadataSchema</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+                <span class="n">inds</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">old_schema</span>
+            <span class="n">new_schema</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s2">&quot;individual&quot;</span><span class="p">]</span>
+            <span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">new_schema</span>
+            <span class="n">defaults</span> <span class="o">=</span> <span class="n">default_slim_metadata</span><span class="p">(</span><span class="s2">&quot;individual&quot;</span><span class="p">)</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;pedigree_p1&quot;</span><span class="p">,</span> <span class="s2">&quot;pedigree_p2&quot;</span><span class="p">]:</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaults</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">inds</span><span class="p">:</span>
+                <span class="n">md</span> <span class="o">=</span> <span class="n">ind</span><span class="o">.</span><span class="n">metadata</span>
+                <span class="n">md</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+                <span class="n">tables</span><span class="o">.</span><span class="n">individuals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="n">md</span><span class="p">))</span>
+
+        <span class="n">old_schema</span> <span class="o">=</span> <span class="n">_old_metadata_schema</span><span class="p">(</span><span class="s2">&quot;mutation&quot;</span><span class="p">,</span> <span class="n">file_version</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">old_schema</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">muts</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">muts</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">==</span> <span class="n">tskit</span><span class="o">.</span><span class="n">MetadataSchema</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+                <span class="n">muts</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">old_schema</span>
+            <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">slim_metadata_schemas</span><span class="p">[</span><span class="s2">&quot;mutation&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">mut</span> <span class="ow">in</span> <span class="n">muts</span><span class="p">:</span>
+                <span class="n">md</span> <span class="o">=</span> <span class="n">mut</span><span class="o">.</span><span class="n">metadata</span>
+                <span class="k">for</span> <span class="n">ml</span> <span class="ow">in</span> <span class="n">md</span><span class="p">[</span><span class="s1">&#39;mutation_list&#39;</span><span class="p">]:</span>
+                    <span class="n">ml</span><span class="p">[</span><span class="s1">&#39;nucleotide&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="n">tables</span><span class="o">.</span><span class="n">mutations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mut</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="n">md</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">file_version</span> <span class="o">==</span> <span class="s2">&quot;0.1&quot;</span><span class="p">:</span>
+            <span class="c1"># shift times</span>
+            <span class="n">slim_generation</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;tick&#39;</span><span class="p">]</span>
+            <span class="n">node_times</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="n">slim_generation</span>
+            <span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">set_columns</span><span class="p">(</span>
+                    <span class="n">flags</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">flags</span><span class="p">,</span>
+                    <span class="n">time</span><span class="o">=</span><span class="n">node_times</span><span class="p">,</span>
+                    <span class="n">population</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">population</span><span class="p">,</span>
+                    <span class="n">individual</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">individual</span><span class="p">,</span>
+                    <span class="n">metadata</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
+                    <span class="n">metadata_offset</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">metadata_offset</span><span class="p">)</span>
+            <span class="n">migration_times</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">migrations</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="n">slim_generation</span>
+            <span class="n">tables</span><span class="o">.</span><span class="n">migrations</span><span class="o">.</span><span class="n">set_columns</span><span class="p">(</span>
+                    <span class="n">left</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">migrations</span><span class="o">.</span><span class="n">left</span><span class="p">,</span>
+                    <span class="n">right</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">migrations</span><span class="o">.</span><span class="n">right</span><span class="p">,</span>
+                    <span class="n">node</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">migrations</span><span class="o">.</span><span class="n">node</span><span class="p">,</span>
+                    <span class="n">source</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">migrations</span><span class="o">.</span><span class="n">source</span><span class="p">,</span>
+                    <span class="n">dest</span><span class="o">=</span><span class="n">tables</span><span class="o">.</span><span class="n">migrations</span><span class="o">.</span><span class="n">dest</span><span class="p">,</span>
+                    <span class="n">time</span><span class="o">=</span><span class="n">migration_times</span><span class="p">)</span>
+
+        <span class="n">new_record</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;schema_version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;software&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pyslim&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="n">pyslim_version</span><span class="p">,</span>
+                        <span class="p">},</span>
+                    <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;updrade_tables&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;old_file_version&quot;</span><span class="p">:</span> <span class="n">file_version</span><span class="p">,</span>
+                        <span class="s2">&quot;new_file_version&quot;</span><span class="p">:</span> <span class="n">slim_file_version</span><span class="p">,</span>
+                        <span class="p">},</span>
+                    <span class="s2">&quot;environment&quot;</span><span class="p">:</span> <span class="n">get_environment</span><span class="p">(),</span>
+                <span class="p">}</span>
+        <span class="n">tskit</span><span class="o">.</span><span class="n">validate_provenance</span><span class="p">(</span><span class="n">new_record</span><span class="p">)</span>
+        <span class="n">tables</span><span class="o">.</span><span class="n">provenances</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">new_record</span><span class="p">))</span>
+
+        <span class="n">set_metadata_schemas</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span>
+        <span class="n">md</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">metadata</span>
+        <span class="n">md</span><span class="p">[</span><span class="s1">&#39;SLiM&#39;</span><span class="p">][</span><span class="s1">&#39;file_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">slim_file_version</span>
+        <span class="n">tables</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">md</span>
+</pre></div>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tskit Developers<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        pyslim 1.0.1
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

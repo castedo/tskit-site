@@ -1,0 +1,1251 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tskit.metadata &#8212; Tskit manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bespoke.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tskit manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../quickstart.html">
+   Quickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-model.html">
+   Data model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../provenance.html">
+   Provenance
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../stats.html">
+   Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../topological-analysis.html">
+   Topological analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ibd.html">
+   Identity by descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../export.html">
+   Data export
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../python-api.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../c-api.html">
+   C API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../cli.html">
+   Command line interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../file-formats.html">
+   File formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  For developers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../changelogs.html">
+   Changelogs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            0.5.3
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/tskit"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tskit/issues/new?title=Issue%20on%20page%20%2F_modules/tskit/metadata.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for tskit.metadata</h1><div class="highlight"><pre>
+<span></span><span class="c1"># MIT License</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2020-2022 Tskit Developers</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
+<span class="c1"># copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="c1"># SOFTWARE.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Classes for metadata decoding, encoding and validation</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">import</span> <span class="nn">builtins</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">islice</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Mapping</span>
+
+<span class="kn">import</span> <span class="nn">jsonschema</span>
+
+<span class="kn">import</span> <span class="nn">tskit</span>
+<span class="kn">import</span> <span class="nn">tskit.exceptions</span> <span class="k">as</span> <span class="nn">exceptions</span>
+
+<span class="n">__builtins__object__setattr__</span> <span class="o">=</span> <span class="n">builtins</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="fm">__setattr__</span>
+
+
+<span class="k">def</span> <span class="nf">replace_root_refs</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">replace_root_refs</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">replace_root_refs</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;$ref&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;#&quot;</span><span class="p">:</span>
+            <span class="n">ret</span><span class="p">[</span><span class="s2">&quot;$ref&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;#/definitions/root&quot;</span>
+        <span class="k">return</span> <span class="n">ret</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">obj</span>
+
+
+<span class="c1"># Our schema is the Draft7Validator schema with added codec information.</span>
+<span class="n">TSKITMetadataSchemaValidator</span> <span class="o">=</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">validators</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+    <span class="n">jsonschema</span><span class="o">.</span><span class="n">validators</span><span class="o">.</span><span class="n">Draft7Validator</span>
+<span class="p">)</span>
+<span class="n">deref_meta_schema</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span>
+    <span class="n">TSKITMetadataSchemaValidator</span><span class="o">.</span><span class="n">META_SCHEMA</span>
+<span class="p">)</span>
+<span class="c1"># We need a top-level only required property so we need to rewrite any reference</span>
+<span class="c1"># to the top-level schema to a copy in a definition.</span>
+<span class="n">deref_meta_schema</span> <span class="o">=</span> <span class="n">replace_root_refs</span><span class="p">(</span><span class="n">deref_meta_schema</span><span class="p">)</span>
+<span class="n">deref_meta_schema</span><span class="p">[</span><span class="s2">&quot;definitions&quot;</span><span class="p">][</span><span class="s2">&quot;root&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">deref_meta_schema</span><span class="p">)</span>
+<span class="n">deref_meta_schema</span><span class="p">[</span><span class="s2">&quot;codec&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">}</span>
+<span class="n">deref_meta_schema</span><span class="p">[</span><span class="s2">&quot;required&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;codec&quot;</span><span class="p">]</span>
+<span class="c1"># For interoperability reasons, force the top-level to be an object or union</span>
+<span class="c1"># of object and null</span>
+<span class="n">deref_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">]]}</span>
+<span class="c1"># Change the schema URL to avoid jsonschema&#39;s cache</span>
+<span class="n">deref_meta_schema</span><span class="p">[</span><span class="s2">&quot;$schema&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;http://json-schema.org/draft-o=07/schema#tskit&quot;</span>
+<span class="n">TSKITMetadataSchemaValidator</span><span class="o">.</span><span class="n">META_SCHEMA</span> <span class="o">=</span> <span class="n">deref_meta_schema</span>
+
+
+<span class="k">class</span> <span class="nc">AbstractMetadataCodec</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Superclass of all MetadataCodecs.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>  <span class="c1"># pragma: no cover</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">modify_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">schema</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">is_schema_trivial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>  <span class="c1"># pragma: no cover</span>
+
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">encoded</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>  <span class="c1"># pragma: no cover</span>
+
+
+<span class="n">codec_registry</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<div class="viewcode-block" id="register_metadata_codec"><a class="viewcode-back" href="../../python-api.html#tskit.register_metadata_codec">[docs]</a><span class="k">def</span> <span class="nf">register_metadata_codec</span><span class="p">(</span>
+    <span class="n">codec_cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">AbstractMetadataCodec</span><span class="p">],</span> <span class="n">codec_id</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Register a metadata codec class.</span>
+<span class="sd">    This function maintains a mapping from metadata codec identifiers used in schemas</span>
+<span class="sd">    to codec classes. When a codec class is registered, it will replace any class</span>
+<span class="sd">    previously registered under the same codec identifier, if present.</span>
+
+<span class="sd">    :param str codec_id: String to use to refer to the codec in the schema.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">codec_registry</span><span class="p">[</span><span class="n">codec_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">codec_cls</span></div>
+
+
+<span class="k">class</span> <span class="nc">JSONCodec</span><span class="p">(</span><span class="n">AbstractMetadataCodec</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">default_validator</span><span class="p">(</span><span class="n">validator</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+        <span class="c1"># For json codec defaults must be at the top level</span>
+        <span class="k">if</span> <span class="n">validator</span><span class="o">.</span><span class="n">is_type</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;object&quot;</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;properties&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">v2</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;properties&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="s2">&quot;default&quot;</span> <span class="ow">in</span> <span class="n">v2</span><span class="p">:</span>
+                        <span class="k">yield</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
+                            <span class="s2">&quot;Defaults can only be specified at the top level&quot;</span>
+                            <span class="s2">&quot; for JSON codec&quot;</span>
+                        <span class="p">)</span>
+
+    <span class="n">schema_validator</span> <span class="o">=</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">validators</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+        <span class="n">TSKITMetadataSchemaValidator</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">default_validator</span><span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">is_schema_trivial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;properties&quot;</span><span class="p">,</span> <span class="p">{}))</span> <span class="o">==</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">schema_validator</span><span class="o">.</span><span class="n">check_schema</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">SchemaError</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">MetadataSchemaValidationError</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ve</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">ve</span>
+
+        <span class="c1"># Find default values to fill in on decode, top level only</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">prop</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;properties&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="s2">&quot;default&quot;</span> <span class="ow">in</span> <span class="n">prop</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">tskit</span><span class="o">.</span><span class="n">canonical_json</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">MetadataEncodingError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Could not encode metadata of type </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">encoded</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">encoded</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+
+        <span class="c1"># Assign default values</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">,</span> <span class="o">**</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="n">register_metadata_codec</span><span class="p">(</span><span class="n">JSONCodec</span><span class="p">,</span> <span class="s2">&quot;json&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">NOOPCodec</span><span class="p">(</span><span class="n">AbstractMetadataCodec</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">def</span> <span class="nf">binary_format_validator</span><span class="p">(</span><span class="n">validator</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+    <span class="c1"># We&#39;re hooking into jsonschemas validation code here, which works by creating</span>
+    <span class="c1"># generators of exceptions, hence the yielding</span>
+
+    <span class="c1"># Make sure the normal type validation gets done</span>
+    <span class="k">yield from</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">_validators</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">validator</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+
+    <span class="c1"># Non-composite types must have a binaryFormat</span>
+    <span class="k">if</span> <span class="n">validator</span><span class="o">.</span><span class="n">is_type</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;object&quot;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+                <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span>
+                <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">])</span>
+                <span class="ow">and</span> <span class="s2">&quot;binaryFormat&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span>
+            <span class="p">):</span>
+                <span class="k">yield</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> type must have binaryFormat set&quot;</span>
+                <span class="p">)</span>
+    <span class="c1"># null type must be padding</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">validator</span><span class="o">.</span><span class="n">is_type</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;object&quot;</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="s2">&quot;null&quot;</span> <span class="ow">in</span> <span class="n">instance</span>
+        <span class="ow">and</span> <span class="n">instance</span><span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;null&quot;</span>
+        <span class="ow">and</span> <span class="s2">&quot;binaryFormat&quot;</span> <span class="ow">in</span> <span class="n">instance</span><span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">]</span>
+        <span class="ow">and</span> <span class="n">instance</span><span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">][</span><span class="s2">&quot;binaryFormat&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;x&quot;</span>
+    <span class="p">):</span>
+        <span class="k">yield</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
+            <span class="s1">&#39;null type binaryFormat must be padding (&quot;x&quot;) if set&#39;</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">required_validator</span><span class="p">(</span><span class="n">validator</span><span class="p">,</span> <span class="n">required</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+    <span class="c1"># Do the normal validation</span>
+    <span class="k">yield from</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">_validators</span><span class="o">.</span><span class="n">required</span><span class="p">(</span><span class="n">validator</span><span class="p">,</span> <span class="n">required</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+
+    <span class="c1"># For struct codec if a property is not required, then it must have a default</span>
+    <span class="k">for</span> <span class="n">prop</span><span class="p">,</span> <span class="n">sub_schema</span> <span class="ow">in</span> <span class="n">instance</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">prop</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">instance</span><span class="p">[</span><span class="s2">&quot;required&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="s2">&quot;default&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sub_schema</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Optional property &#39;</span><span class="si">{</span><span class="n">prop</span><span class="si">}</span><span class="s2">&#39; must have&quot;</span> <span class="sa">f</span><span class="s2">&quot; a default value&quot;</span>
+            <span class="p">)</span>
+
+
+<span class="n">StructCodecSchemaValidator</span> <span class="o">=</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">validators</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+    <span class="n">TSKITMetadataSchemaValidator</span><span class="p">,</span>
+    <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">binary_format_validator</span><span class="p">,</span> <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">required_validator</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">struct_meta_schema</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span>
+    <span class="n">StructCodecSchemaValidator</span><span class="o">.</span><span class="n">META_SCHEMA</span>
+<span class="p">)</span>
+<span class="c1"># No union types</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;definitions&quot;</span><span class="p">][</span><span class="s2">&quot;root&quot;</span><span class="p">][</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/simpleTypes&quot;</span>
+<span class="p">}</span>
+<span class="c1"># No hetrogeneous arrays</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;items&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/root&quot;</span><span class="p">}</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;definitions&quot;</span><span class="p">][</span><span class="s2">&quot;root&quot;</span><span class="p">][</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;items&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">struct_meta_schema</span><span class="p">[</span>
+    <span class="s2">&quot;properties&quot;</span>
+<span class="p">][</span><span class="s2">&quot;items&quot;</span><span class="p">]</span>
+<span class="c1"># binaryFormat matches regex</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;binaryFormat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;^([cbB\?hHiIlLqQfd]|\d*[spx])$&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;definitions&quot;</span><span class="p">][</span><span class="s2">&quot;root&quot;</span><span class="p">][</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;binaryFormat&quot;</span>
+<span class="p">]</span> <span class="o">=</span> <span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;binaryFormat&quot;</span><span class="p">]</span>
+<span class="c1"># arrayLengthFormat matches regex and has default</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;arrayLengthFormat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;^[BHILQ]$&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;definitions&quot;</span><span class="p">][</span><span class="s2">&quot;root&quot;</span><span class="p">][</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;arrayLengthFormat&quot;</span>
+<span class="p">]</span> <span class="o">=</span> <span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;arrayLengthFormat&quot;</span><span class="p">]</span>
+<span class="c1"># index is numeric</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;index&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">}</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;definitions&quot;</span><span class="p">][</span><span class="s2">&quot;root&quot;</span><span class="p">][</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;index&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">struct_meta_schema</span><span class="p">[</span>
+    <span class="s2">&quot;properties&quot;</span>
+<span class="p">][</span><span class="s2">&quot;index&quot;</span><span class="p">]</span>
+<span class="c1"># stringEncoding is string and has default</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;stringEncoding&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;definitions&quot;</span><span class="p">][</span><span class="s2">&quot;root&quot;</span><span class="p">][</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;stringEncoding&quot;</span>
+<span class="p">]</span> <span class="o">=</span> <span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;stringEncoding&quot;</span><span class="p">]</span>
+<span class="c1"># nullTerminated is a boolean</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;nullTerminated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">}</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;definitions&quot;</span><span class="p">][</span><span class="s2">&quot;root&quot;</span><span class="p">][</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;nullTerminated&quot;</span>
+<span class="p">]</span> <span class="o">=</span> <span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;nullTerminated&quot;</span><span class="p">]</span>
+<span class="c1"># noLengthEncodingExhaustBuffer is a boolean</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;noLengthEncodingExhaustBuffer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">}</span>
+<span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;definitions&quot;</span><span class="p">][</span><span class="s2">&quot;root&quot;</span><span class="p">][</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;noLengthEncodingExhaustBuffer&quot;</span>
+<span class="p">]</span> <span class="o">=</span> <span class="n">struct_meta_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;noLengthEncodingExhaustBuffer&quot;</span><span class="p">]</span>
+<span class="n">StructCodecSchemaValidator</span><span class="o">.</span><span class="n">META_SCHEMA</span> <span class="o">=</span> <span class="n">struct_meta_schema</span>
+
+
+<span class="k">class</span> <span class="nc">StructCodec</span><span class="p">(</span><span class="n">AbstractMetadataCodec</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Codec that encodes data using struct. Note that this codec has extra restrictions</span>
+<span class="sd">    Namely that object keys must be fixed (all present and no extra); each entry should</span>
+<span class="sd">    have a binaryFormat; that arrays are homogeneous and that types are not unions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">order_by_index</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">do_sort</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Take a schema and recursively convert any dict that is under the key</span>
+<span class="sd">        name ``properties`` to an OrderedDict.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Mapping</span><span class="p">):</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">do_sort</span><span class="p">:</span>
+                <span class="c1"># Python sort is stable so we can do the sorts in reverse priority</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k_v</span><span class="p">:</span> <span class="n">k_v</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k_v</span><span class="p">:</span> <span class="n">k_v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">order_by_index</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">&quot;properties&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">items</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">do_sort</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">collections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="n">order_by_index</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">obj</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_decode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a function that can decode objects of this schema</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">}:</span>
+            <span class="k">return</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_object_or_null_decode</span><span class="p">(</span><span class="n">sub_schema</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s2">&quot;array&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_array_decode</span><span class="p">,</span>
+                <span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_object_decode</span><span class="p">,</span>
+                <span class="s2">&quot;string&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_string_decode</span><span class="p">,</span>
+                <span class="s2">&quot;null&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_null_decode</span><span class="p">,</span>
+                <span class="s2">&quot;number&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_numeric_decode</span><span class="p">,</span>
+                <span class="s2">&quot;integer&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_numeric_decode</span><span class="p">,</span>
+                <span class="s2">&quot;boolean&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_numeric_decode</span><span class="p">,</span>
+            <span class="p">}[</span><span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]](</span><span class="n">sub_schema</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_array_decode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="n">element_decoder</span> <span class="o">=</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_decode</span><span class="p">(</span><span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+        <span class="n">array_length_f</span> <span class="o">=</span> <span class="s2">&quot;&lt;&quot;</span> <span class="o">+</span> <span class="n">sub_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;arrayLengthFormat&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">)</span>
+        <span class="n">array_length_size</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="n">array_length_f</span><span class="p">)</span>
+        <span class="n">exhaust_buffer</span> <span class="o">=</span> <span class="n">sub_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;noLengthEncodingExhaustBuffer&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">array_decode</span><span class="p">(</span><span class="n">buffer</span><span class="p">):</span>
+            <span class="n">array_length</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span>
+                <span class="n">array_length_f</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">array_length_size</span><span class="p">))</span>
+            <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">element_decoder</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">array_length</span><span class="p">)]</span>
+
+        <span class="k">def</span> <span class="nf">array_decode_exhaust</span><span class="p">(</span><span class="n">buffer</span><span class="p">):</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element_decoder</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span>
+                <span class="k">except</span> <span class="n">struct</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="s2">&quot;unpack requires a buffer&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+                        <span class="k">break</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">e</span>
+            <span class="k">return</span> <span class="n">ret</span>
+
+        <span class="k">if</span> <span class="n">exhaust_buffer</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">array_decode_exhaust</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">array_decode</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_object_decode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="n">sub_decoders</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_decode</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">buffer</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">sub_decoder</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">sub_decoder</span> <span class="ow">in</span> <span class="n">sub_decoders</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_object_or_null_decode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="n">sub_decoders</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_decode</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="k">def</span> <span class="nf">decode_object_or_null</span><span class="p">(</span><span class="n">buffer</span><span class="p">):</span>
+            <span class="c1"># We have to check the buffer length for null, as the islices in</span>
+            <span class="c1"># sub-decoders won&#39;t raise StopIteration</span>
+            <span class="n">buffer</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">buffer</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">{</span>
+                    <span class="n">key</span><span class="p">:</span> <span class="n">sub_decoder</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">sub_decoder</span> <span class="ow">in</span> <span class="n">sub_decoders</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">decode_object_or_null</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_string_decode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="s2">&quot;&lt;&quot;</span> <span class="o">+</span> <span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;binaryFormat&quot;</span><span class="p">]</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">encoding</span> <span class="o">=</span> <span class="n">sub_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;stringEncoding&quot;</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+        <span class="n">null_terminated</span> <span class="o">=</span> <span class="n">sub_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;nullTerminated&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">null_terminated</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">lambda</span> <span class="n">buffer</span><span class="p">:</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size</span><span class="p">)))[</span>
+                <span class="mi">0</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="k">def</span> <span class="nf">decode_string</span><span class="p">(</span><span class="n">buffer</span><span class="p">):</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size</span><span class="p">)))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\x00</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">s</span>
+                <span class="k">return</span> <span class="n">s</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+
+            <span class="k">return</span> <span class="n">decode_string</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_null_decode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sub_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;binaryFormat&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;binaryFormat&quot;</span><span class="p">]</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+            <span class="k">def</span> <span class="nf">padding_decode</span><span class="p">(</span><span class="n">buffer</span><span class="p">):</span>
+                <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size</span><span class="p">)))</span>
+
+            <span class="k">return</span> <span class="n">padding_decode</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="kc">None</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_numeric_decode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="s2">&quot;&lt;&quot;</span> <span class="o">+</span> <span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;binaryFormat&quot;</span><span class="p">]</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">buffer</span><span class="p">:</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size</span><span class="p">)))[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_encode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a function that can encode objects of this schema</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">}:</span>
+            <span class="k">return</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_object_or_null_encode</span><span class="p">(</span><span class="n">sub_schema</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s2">&quot;array&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_array_encode</span><span class="p">,</span>
+                <span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_object_encode</span><span class="p">,</span>
+                <span class="s2">&quot;string&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_string_encode</span><span class="p">,</span>
+                <span class="s2">&quot;null&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_null_encode</span><span class="p">,</span>
+                <span class="s2">&quot;number&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_numeric_encode</span><span class="p">,</span>
+                <span class="s2">&quot;integer&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_numeric_encode</span><span class="p">,</span>
+                <span class="s2">&quot;boolean&quot;</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_numeric_encode</span><span class="p">,</span>
+            <span class="p">}[</span><span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]](</span><span class="n">sub_schema</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_array_encode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="n">array_length_f</span> <span class="o">=</span> <span class="s2">&quot;&lt;&quot;</span> <span class="o">+</span> <span class="n">sub_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;arrayLengthFormat&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">)</span>
+        <span class="n">element_encoder</span> <span class="o">=</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_encode</span><span class="p">(</span><span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+        <span class="n">exhaust_buffer</span> <span class="o">=</span> <span class="n">sub_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;noLengthEncodingExhaustBuffer&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">exhaust_buffer</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">lambda</span> <span class="n">array</span><span class="p">:</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">element_encoder</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span> <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">array</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="k">def</span> <span class="nf">array_encode_with_length</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">packed_length</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">array_length_f</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
+                <span class="k">except</span> <span class="n">struct</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="s2">&quot;Couldn&#39;t pack array size - it is likely too long&quot;</span>
+                        <span class="s2">&quot; for the specified arrayLengthFormat&quot;</span>
+                    <span class="p">)</span>
+                <span class="k">return</span> <span class="n">packed_length</span> <span class="o">+</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">element_encoder</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span> <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">array</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">array_encode_with_length</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_object_encode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="n">sub_encoders</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_encode</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">prop</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="s2">&quot;default&quot;</span> <span class="ow">in</span> <span class="n">prop</span>
+        <span class="p">}</span>
+
+        <span class="k">def</span> <span class="nf">object_encode</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">sub_encoder</span> <span class="ow">in</span> <span class="n">sub_encoders</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_encoder</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_encoder</span><span class="p">(</span><span class="n">defaults</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+            <span class="k">return</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">object_encode</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_object_or_null_encode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="n">sub_encoders</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_encode</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">prop</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="s2">&quot;default&quot;</span> <span class="ow">in</span> <span class="n">prop</span>
+        <span class="p">}</span>
+
+        <span class="k">def</span> <span class="nf">object_encode</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">sub_encoder</span> <span class="ow">in</span> <span class="n">sub_encoders</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_encoder</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+                    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                        <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_encoder</span><span class="p">(</span><span class="n">defaults</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+            <span class="k">return</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">object_encode</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_string_encode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="n">encoding</span> <span class="o">=</span> <span class="n">sub_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;stringEncoding&quot;</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">string</span><span class="p">:</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span>
+            <span class="s2">&quot;&lt;&quot;</span> <span class="o">+</span> <span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;binaryFormat&quot;</span><span class="p">],</span> <span class="n">string</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_null_encode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">sub_schema</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;binaryFormat&quot;</span><span class="p">,</span> <span class="s2">&quot;0x&quot;</span><span class="p">))</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">make_numeric_encode</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sub_schema</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">struct</span><span class="o">.</span><span class="n">Struct</span><span class="p">(</span><span class="s2">&quot;&lt;&quot;</span> <span class="o">+</span> <span class="n">sub_schema</span><span class="p">[</span><span class="s2">&quot;binaryFormat&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">pack</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">modify_schema</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">:</span>
+        <span class="c1"># This codec requires that additional properties are</span>
+        <span class="c1"># not allowed. Rather than get schema authors to repeat that everywhere</span>
+        <span class="c1"># we add it here, sadly we can&#39;t do this in the metaschema as &quot;default&quot; isn&#39;t</span>
+        <span class="c1"># used by the validator.</span>
+        <span class="k">def</span> <span class="nf">enforce_fixed_properties</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="n">enforce_fixed_properties</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">enforce_fixed_properties</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+                <span class="k">if</span> <span class="s2">&quot;object&quot;</span> <span class="ow">in</span> <span class="n">ret</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+                    <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;additional_properties&quot;</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                            <span class="s2">&quot;Struct codec does not support additional_properties&quot;</span>
+                        <span class="p">)</span>
+                    <span class="c1"># To prevent authors having to list required properties the default</span>
+                    <span class="c1"># is that all without a default are required.</span>
+                    <span class="k">if</span> <span class="s2">&quot;required&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ret</span><span class="p">:</span>
+                        <span class="n">ret</span><span class="p">[</span><span class="s2">&quot;required&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                            <span class="n">prop</span>
+                            <span class="k">for</span> <span class="n">prop</span><span class="p">,</span> <span class="n">sub_schema</span> <span class="ow">in</span> <span class="n">ret</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;properties&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                            <span class="k">if</span> <span class="s2">&quot;default&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sub_schema</span>
+                        <span class="p">]</span>
+                    <span class="n">ret</span><span class="p">[</span><span class="s2">&quot;additionalProperties&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">return</span> <span class="n">ret</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">obj</span>
+
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">enforce_fixed_properties</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+
+        <span class="c1"># We also give the schema an explicit ordering</span>
+        <span class="k">return</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">order_by_index</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">StructCodecSchemaValidator</span><span class="o">.</span><span class="n">check_schema</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">SchemaError</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">MetadataSchemaValidationError</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ve</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">ve</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">encode</span> <span class="o">=</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_encode</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+        <span class="n">decoder</span> <span class="o">=</span> <span class="n">StructCodec</span><span class="o">.</span><span class="n">make_decode</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decode</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">buffer</span><span class="p">:</span> <span class="n">decoder</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="c1"># Set by __init__</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: nocover</span>
+
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">encoded</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="c1"># Set by __init__</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: nocover</span>
+
+
+<span class="n">register_metadata_codec</span><span class="p">(</span><span class="n">StructCodec</span><span class="p">,</span> <span class="s2">&quot;struct&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">validate_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;If no encoding is set metadata should be bytes, found </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+
+<div class="viewcode-block" id="MetadataSchema"><a class="viewcode-back" href="../../python-api.html#tskit.MetadataSchema">[docs]</a><span class="k">class</span> <span class="nc">MetadataSchema</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for validating, encoding and decoding metadata.</span>
+
+<span class="sd">    :param dict schema: A dict containing a valid JSONSchema object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_schema</span> <span class="o">=</span> <span class="n">schema</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bypass_validation</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">schema</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_validate_row</span> <span class="o">=</span> <span class="n">validate_bytes</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">encode_row</span> <span class="o">=</span> <span class="n">NOOPCodec</span><span class="p">({})</span><span class="o">.</span><span class="n">encode</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">decode_row</span> <span class="o">=</span> <span class="n">NOOPCodec</span><span class="p">({})</span><span class="o">.</span><span class="n">decode</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">empty_value</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">TSKITMetadataSchemaValidator</span><span class="o">.</span><span class="n">check_schema</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">SchemaError</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">MetadataSchemaValidationError</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ve</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">ve</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">codec_cls</span> <span class="o">=</span> <span class="n">codec_registry</span><span class="p">[</span><span class="n">schema</span><span class="p">[</span><span class="s2">&quot;codec&quot;</span><span class="p">]]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">MetadataSchemaValidationError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Unrecognised metadata codec &#39;</span><span class="si">{</span><span class="n">schema</span><span class="p">[</span><span class="s1">&#39;codec&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;. &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Valid options are </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">codec_registry</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="p">)</span>
+            <span class="c1"># Codecs can modify the schema, for example to set defaults as the validator</span>
+            <span class="c1"># does not.</span>
+            <span class="n">schema</span> <span class="o">=</span> <span class="n">codec_cls</span><span class="o">.</span><span class="n">modify_schema</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+            <span class="n">codec_instance</span> <span class="o">=</span> <span class="n">codec_cls</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_string</span> <span class="o">=</span> <span class="n">tskit</span><span class="o">.</span><span class="n">canonical_json</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_validate_row</span> <span class="o">=</span> <span class="n">TSKITMetadataSchemaValidator</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">validate</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_bypass_validation</span> <span class="o">=</span> <span class="n">codec_cls</span><span class="o">.</span><span class="n">is_schema_trivial</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">encode_row</span> <span class="o">=</span> <span class="n">codec_instance</span><span class="o">.</span><span class="n">encode</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">decode_row</span> <span class="o">=</span> <span class="n">codec_instance</span><span class="o">.</span><span class="n">decode</span>
+
+            <span class="c1"># If None is allowed by the schema as the top-level type, it gets used even</span>
+            <span class="c1"># in the presence of default and required values.</span>
+            <span class="k">if</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">schema</span> <span class="ow">and</span> <span class="s2">&quot;null&quot;</span> <span class="ow">in</span> <span class="n">schema</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">empty_value</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">empty_value</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_string</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_schema</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_string</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_string</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">schema</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Return a copy to avoid unintentional mutation</span>
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_schema</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MetadataSchema.asdict"><a class="viewcode-back" href="../../python-api.html#tskit.MetadataSchema.asdict">[docs]</a>    <span class="k">def</span> <span class="nf">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a dict representation of this schema. One possible use of this is to</span>
+<span class="sd">        modify this dict and then pass it to the ``MetadataSchema`` constructor to create</span>
+<span class="sd">        a similar schema.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">schema</span></div>
+
+<div class="viewcode-block" id="MetadataSchema.validate_and_encode_row"><a class="viewcode-back" href="../../python-api.html#tskit.MetadataSchema.validate_and_encode_row">[docs]</a>    <span class="k">def</span> <span class="nf">validate_and_encode_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validate a row (dict) of metadata against this schema and return the encoded</span>
+<span class="sd">        representation (bytes) using the codec specified in the schema.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># If the schema is permissive then validation can&#39;t fail</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bypass_validation</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_validate_row</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ValidationError</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">MetadataValidationError</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ve</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">ve</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode_row</span><span class="p">(</span><span class="n">row</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MetadataSchema.decode_row"><a class="viewcode-back" href="../../python-api.html#tskit.MetadataSchema.decode_row">[docs]</a>    <span class="k">def</span> <span class="nf">decode_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Decode an encoded row (bytes) of metadata, using the codec specifed in the schema</span>
+<span class="sd">        and return a python dict. Note that no validation of the metadata against the</span>
+<span class="sd">        schema is performed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Set by __init__</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+<div class="viewcode-block" id="MetadataSchema.encode_row"><a class="viewcode-back" href="../../python-api.html#tskit.MetadataSchema.encode_row">[docs]</a>    <span class="k">def</span> <span class="nf">encode_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Encode a row (dict) of metadata to its binary representation (bytes)</span>
+<span class="sd">        using the codec specified in the schema. Note that unlike</span>
+<span class="sd">        :meth:`validate_and_encode_row` no validation against the schema is performed.</span>
+<span class="sd">        This should only be used for performance if a validation check is not needed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Set by __init__</span>
+        <span class="k">pass</span>  <span class="c1"># pragma: no cover</span></div>
+
+<div class="viewcode-block" id="MetadataSchema.permissive_json"><a class="viewcode-back" href="../../python-api.html#tskit.MetadataSchema.permissive_json">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">permissive_json</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The simplest, permissive JSON schema. Only specifies the JSON codec and has</span>
+<span class="sd">        no constraints on the properties.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">MetadataSchema</span><span class="p">({</span><span class="s2">&quot;codec&quot;</span><span class="p">:</span> <span class="s2">&quot;json&quot;</span><span class="p">})</span></div></div>
+
+
+<span class="c1"># Often many replicate tree sequences are processed with identical schemas, so cache them</span>
+<span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">parse_metadata_schema</span><span class="p">(</span><span class="n">encoded_schema</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MetadataSchema</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a schema object from its string encoding. The exact class returned is</span>
+<span class="sd">    determined by the ``encoding`` specification in the string.</span>
+
+<span class="sd">    :param str encoded_schema: The string encoded schema.</span>
+<span class="sd">    :return: A subclass of AbstractMetadataSchema.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">encoded_schema</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">MetadataSchema</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">decoded</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span>
+                <span class="n">encoded_schema</span><span class="p">,</span> <span class="n">object_pairs_hook</span><span class="o">=</span><span class="n">collections</span><span class="o">.</span><span class="n">OrderedDict</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Metadata schema is not JSON, found </span><span class="si">{</span><span class="n">encoded_schema</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">MetadataSchema</span><span class="p">(</span><span class="n">decoded</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_CachedMetadata</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Descriptor for lazy decoding of metadata on attribute access.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">_metadata_decoder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Some classes that use this are frozen so we need to directly setattr.</span>
+            <span class="n">__builtins__object__setattr__</span><span class="p">(</span>
+                <span class="n">row</span><span class="p">,</span> <span class="s2">&quot;_metadata&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">_metadata_decoder</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">_metadata</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="c1"># Decoder being None indicates that metadata is decoded</span>
+            <span class="n">__builtins__object__setattr__</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s2">&quot;_metadata_decoder&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">row</span><span class="o">.</span><span class="n">_metadata</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">__builtins__object__setattr__</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s2">&quot;_metadata&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">lazy_decode</span><span class="p">(</span><span class="n">own_init</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_lazy_decode</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Modifies a dataclass such that it lazily decodes metadata, if it is encoded.</span>
+<span class="sd">        If the metadata passed to the constructor is encoded a `metadata_decoder`</span>
+<span class="sd">        parameter must be also be passed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">own_init</span><span class="p">:</span>
+            <span class="n">wrapped_init</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="fm">__init__</span>
+
+            <span class="c1"># Intercept the init to record the decoder</span>
+            <span class="k">def</span> <span class="nf">new_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">metadata_decoder</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="n">__builtins__object__setattr__</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_metadata_decoder&quot;</span><span class="p">,</span> <span class="n">metadata_decoder</span>
+                <span class="p">)</span>
+                <span class="n">wrapped_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="bp">cls</span><span class="o">.</span><span class="fm">__init__</span> <span class="o">=</span> <span class="n">new_init</span>
+
+        <span class="c1"># Add a descriptor to the class to decode and cache metadata</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">_CachedMetadata</span><span class="p">()</span>
+
+        <span class="c1"># Add slots needed to the class</span>
+        <span class="n">slots</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__slots__</span>
+        <span class="n">slots</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s2">&quot;_metadata&quot;</span><span class="p">,</span> <span class="s2">&quot;_metadata_decoder&quot;</span><span class="p">])</span>
+        <span class="n">dict_</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">sloted_members</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">slots</span><span class="p">:</span>
+                <span class="n">dict_</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">MemberDescriptorType</span><span class="p">):</span>
+                <span class="n">sloted_members</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="n">new_cls</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">,</span> <span class="n">dict_</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sloted_members</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">new_cls</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_cls</span>
+
+    <span class="k">return</span> <span class="n">_lazy_decode</span>
+
+
+<span class="k">class</span> <span class="nc">MetadataProvider</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstract superclass of container objects that provide metadata.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ll_object</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ll_object</span> <span class="o">=</span> <span class="n">ll_object</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">metadata_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MetadataSchema</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The :class:`tskit.MetadataSchema` for this object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">parse_metadata_schema</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ll_object</span><span class="o">.</span><span class="n">metadata_schema</span><span class="p">)</span>
+
+    <span class="nd">@metadata_schema</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">metadata_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">MetadataSchema</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Check the schema is a valid schema instance by roundtripping it.</span>
+        <span class="n">text_version</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+        <span class="n">parse_metadata_schema</span><span class="p">(</span><span class="n">text_version</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ll_object</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">=</span> <span class="n">text_version</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The decoded metadata for this object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_schema</span><span class="o">.</span><span class="n">decode_row</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_bytes</span><span class="p">)</span>
+
+    <span class="nd">@metadata</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">encoded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_schema</span><span class="o">.</span><span class="n">validate_and_encode_row</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ll_object</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">encoded</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">metadata_bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The raw bytes of metadata for this TableCollection</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ll_object</span><span class="o">.</span><span class="n">metadata</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nbytes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ll_object</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ll_object</span><span class="o">.</span><span class="n">metadata_schema</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">assert_equals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">MetadataProvider</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_schema</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">metadata_schema</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Metadata schemas differ: self=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_schema</span><span class="si">}</span><span class="s2"> &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;other=</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="n">metadata_schema</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Metadata differs: self=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="sa">f</span><span class="s2">&quot;other=</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="n">metadata</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      0.5.3
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

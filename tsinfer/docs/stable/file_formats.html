@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File formats &mdash; tsinfer 0.2.3 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developer documentation" href="development.html" />
+    <link rel="prev" title="Command line interface" href="cli.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> tsinfer
+          </a>
+              <div class="version">
+                0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inference.html">Inference overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">File formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#samples-file">Samples File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ancestors-file">Ancestors File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tree-sequences">Tree sequences</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Developer documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tsinfer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>File formats</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/file_formats.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="file-formats">
+<span id="sec-file-formats"></span><h1>File formats<a class="headerlink" href="#file-formats" title="Permalink to this headline"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> uses the excellent <a class="reference external" href="http://zarr.readthedocs.io/">zarr library</a>
+to encode data in a form that is both compact and efficient to process.
+See the <a class="reference internal" href="api.html#sec-api-file-formats"><span class="std std-ref">API documentation</span></a> for details on
+how to construct and manipulate these files using Python. The
+<a class="reference internal" href="cli.html#sec-cli"><span class="std std-ref">tsinfer list</span></a> command provides a way to print out a
+summary of these files.</p>
+<section id="samples-file">
+<span id="sec-file-formats-samples"></span><h2>Samples File<a class="headerlink" href="#samples-file" title="Permalink to this headline"></a></h2>
+<p>The samples file is <code class="docutils literal notranslate"><span class="pre">tsinfer's</span></code> input format. Data must be converted into
+this format before it can be processed using the <a class="reference internal" href="api.html#tsinfer.SampleData" title="tsinfer.SampleData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleData</span></code></a> class.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Document the structure of the samples file.</p>
+</div>
+</section>
+<section id="ancestors-file">
+<span id="sec-file-formats-ancestors"></span><h2>Ancestors File<a class="headerlink" href="#ancestors-file" title="Permalink to this headline"></a></h2>
+<p>The ancestors file contains the ancestral haplotype data inferred from the
+sample data in the <a class="reference internal" href="inference.html#sec-inference-generate-ancestors"><span class="std std-ref">Generate ancestors</span></a> step.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Document the structure of the ancestors file.</p>
+</div>
+</section>
+<section id="tree-sequences">
+<span id="sec-file-formats-tree-sequences"></span><h2>Tree sequences<a class="headerlink" href="#tree-sequences" title="Permalink to this headline"></a></h2>
+<p>The goal of <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> is to infer correlated genealogies from variation
+data, and it uses the very efficient <a class="reference external" href="https://tskit.readthedocs.io/en/latest/data-model.html">succinct tree sequence</a> data structure
+to encode this output. Please see the <a class="reference external" href="https://tskit.readthedocs.io/">tskit documentation</a> for details on how to
+process and manipulate such tree sequences.</p>
+<p>The intermediate <code class="docutils literal notranslate"><span class="pre">.ancestors.trees</span></code> file produced by the
+<a class="reference internal" href="inference.html#sec-inference-match-ancestors"><span class="std std-ref">Match ancestors</span></a> step is also a
+tree sequence and can be loaded and analysed using the
+<a class="reference external" href="https://tskit.readthedocs.io/en/latest/python-api.html">tskit API</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cli.html" class="btn btn-neutral float-left" title="Command line interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="development.html" class="btn btn-neutral float-right" title="Developer documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2018, Jerome Kelleher.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

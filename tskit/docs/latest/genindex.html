@@ -1,0 +1,3093 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; Tskit manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bespoke.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tskit manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="quickstart.html">
+   Quickstart
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="glossary.html">
+   Glossary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-model.html">
+   Data model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metadata.html">
+   Metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="provenance.html">
+   Provenance
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="stats.html">
+   Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="topological-analysis.html">
+   Topological analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ibd.html">
+   Identity by descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="export.html">
+   Data export
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python-api.html">
+   Python API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="c-api.html">
+   C API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Command line interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="file-formats.html">
+   File formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  For developers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelogs.html">
+   Changelogs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            0.5.3
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/tskit"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tskit/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.EdgeTable.__getitem__">__getitem__() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.__getitem__">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.__getitem__">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.__getitem__">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.__getitem__">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.__getitem__">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.__getitem__">(tskit.SiteTable method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.__str__">__str__() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.__str__">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Tree._repr_html_">_repr_html_() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence._repr_html_">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.SVGString._repr_svg_">_repr_svg_() (tskit.SVGString method)</a>
+</li>
+      <li><a href="c-api.html#c._tsk_table_sorter_t">_tsk_table_sorter_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c._tsk_table_sorter_t.site_id_map">_tsk_table_sorter_t.site_id_map (C var)</a>
+</li>
+      <li><a href="c-api.html#c._tsk_table_sorter_t.sort_edges">_tsk_table_sorter_t.sort_edges (C var)</a>
+</li>
+      <li><a href="c-api.html#c._tsk_table_sorter_t.sort_individuals">_tsk_table_sorter_t.sort_individuals (C var)</a>
+</li>
+      <li><a href="c-api.html#c._tsk_table_sorter_t.sort_mutations">_tsk_table_sorter_t.sort_mutations (C var)</a>
+</li>
+      <li><a href="c-api.html#c._tsk_table_sorter_t.tables">_tsk_table_sorter_t.tables (C var)</a>
+</li>
+      <li><a href="c-api.html#c._tsk_table_sorter_t.user_data">_tsk_table_sorter_t.user_data (C var)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.EdgeTable.add_row">add_row() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.add_row">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.add_row">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.add_row">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.add_row">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.add_row">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTable.add_row">(tskit.ProvenanceTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.add_row">(tskit.SiteTable method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.alignments">alignments() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.all_tree_labellings">all_tree_labellings() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.all_tree_shapes">all_tree_shapes() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.all_trees">all_trees() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.allele_frequency_spectrum">allele_frequency_spectrum() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Site.alleles">alleles (tskit.Site property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.Variant.alleles">(tskit.Variant property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.ALLELES_01">ALLELES_01 (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.ALLELES_ACGT">ALLELES_ACGT (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Site.ancestral_state">ancestral_state (tskit.Site attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.SiteTableRow.ancestral_state">(tskit.SiteTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.EdgeTable.append">append() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.append">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.append">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.append">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.append">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.append">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTable.append">(tskit.ProvenanceTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.append">(tskit.SiteTable method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.EdgeTable.append_columns">append_columns() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.append_columns">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.append_columns">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.append_columns">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.append_columns">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.append_columns">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTable.append_columns">(tskit.ProvenanceTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.append_columns">(tskit.SiteTable method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Tree.as_dict_of_dicts">as_dict_of_dicts() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.as_fasta">as_fasta() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.as_newick">as_newick() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.as_nexus">as_nexus() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.as_vcf">as_vcf() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.EdgeTable.asdict">asdict() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.asdict">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MetadataSchema.asdict">(tskit.MetadataSchema method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.asdict">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.asdict">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.asdict">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.asdict">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTable.asdict">(tskit.ProvenanceTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.asdict">(tskit.SiteTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableCollection.asdict">(tskit.TableCollection method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.aslist">aslist() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.EdgeTable.assert_equals">assert_equals() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.assert_equals">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.assert_equals">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.assert_equals">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.assert_equals">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.assert_equals">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTable.assert_equals">(tskit.ProvenanceTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.assert_equals">(tskit.SiteTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableCollection.assert_equals">(tskit.TableCollection method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.at">at() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.at_index">at_index() (tskit.TreeSequence method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Tree.b1_index">b1_index() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.b2_index">b2_index() (tskit.Tree method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Tree.branch_length">branch_length() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.breakpoints">breakpoints() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.build_index">build_index() (tskit.TableCollection method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TableCollection.canonicalise">canonicalise() (tskit.TableCollection method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Edge.child">child (tskit.Edge attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.EdgeTableRow.child">(tskit.EdgeTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.children">children() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.EdgeTable.clear">clear() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.clear">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.clear">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.clear">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.clear">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.clear">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTable.clear">(tskit.ProvenanceTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.clear">(tskit.SiteTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableCollection.clear">(tskit.TableCollection method)</a>
+</li>
+        <li><a href="python-api.html#tskit.Tree.clear">(tskit.Tree method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.coiterate">coiterate() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.colless_index">colless_index() (tskit.Tree method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TableCollection.compute_mutation_parents">compute_mutation_parents() (tskit.TableCollection method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.compute_mutation_times">compute_mutation_times() (tskit.TableCollection method)</a>
+</li>
+      <li><a href="python-api.html#tskit.EdgeTable.copy">copy() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.copy">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.copy">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.copy">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.copy">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.copy">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTable.copy">(tskit.ProvenanceTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.copy">(tskit.SiteTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableCollection.copy">(tskit.TableCollection method)</a>
+</li>
+        <li><a href="python-api.html#tskit.Tree.copy">(tskit.Tree method)</a>
+</li>
+        <li><a href="python-api.html#tskit.Variant.copy">(tskit.Variant method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.count_topologies">count_topologies() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.count_topologies">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Variant.counts">counts() (tskit.Variant method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.ReferenceSequence.data">data (tskit.ReferenceSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.decapitate">decapitate() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Variant.decode">decode() (tskit.Variant method)</a>
+</li>
+      <li><a href="python-api.html#tskit.MetadataSchema.decode_row">decode_row() (tskit.MetadataSchema method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.deduplicate_sites">deduplicate_sites() (tskit.TableCollection method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.delete_intervals">delete_intervals() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.delete_intervals">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TableCollection.delete_older">delete_older() (tskit.TableCollection method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.delete_sites">delete_sites() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.delete_sites">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.depth">depth() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Mutation.derived_state">derived_state (tskit.Mutation attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.MutationTableRow.derived_state">(tskit.MutationTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Migration.dest">dest (tskit.Migration attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.MigrationTableRow.dest">(tskit.MigrationTableRow attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.discrete_genome">discrete_genome (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.discrete_time">discrete_time (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.divergence">divergence() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.diversity">diversity() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.draw">draw() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.draw_svg">draw_svg() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.draw_svg">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.draw_text">draw_text() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.draw_text">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TableCollection.drop_index">drop_index() (tskit.TableCollection method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.dump">dump() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.dump">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.dump_tables">dump_tables() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.dump_text">dump_text() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.DuplicatePositionsError">DuplicatePositionsError</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Edge">Edge (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Mutation.edge">edge (tskit.Mutation attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TableMetadataSchemas.edge">(tskit.TableMetadataSchemas attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.edge">edge() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.edge">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.edge_array">edge_array (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.edge_diffs">edge_diffs() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.edges">edges (tskit.TableCollection property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.edges">edges() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.edges_child">edges_child (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.edges_left">edges_left (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.edges_parent">edges_parent (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.edges_right">edges_right (tskit.TreeSequence property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.EdgeTable">EdgeTable (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.EdgeTableRow">EdgeTableRow (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.MetadataSchema.encode_row">encode_row() (tskit.MetadataSchema method)</a>
+</li>
+      <li><a href="python-api.html#tskit.EdgeTable.equals">equals() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.equals">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.equals">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.equals">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.equals">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.equals">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTable.equals">(tskit.ProvenanceTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.equals">(tskit.SiteTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableCollection.equals">(tskit.TableCollection method)</a>
+</li>
+        <li><a href="python-api.html#tskit.TreeSequence.equals">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.f2">f2() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.f3">f3() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.f4">f4() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.file_uuid">file_uuid (tskit.TableCollection property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.first">first() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.first">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Individual.flags">flags (tskit.Individual attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTableRow.flags">(tskit.IndividualTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Node.flags">(tskit.Node attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTableRow.flags">(tskit.NodeTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.FORWARD">FORWARD (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Variant.frequencies">frequencies() (tskit.Variant method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.Fst">Fst() (tskit.TreeSequence method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.genealogical_nearest_neighbours">genealogical_nearest_neighbours() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.general_stat">general_stat() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.generate_balanced">generate_balanced() (tskit.Tree static method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.generate_comb">generate_comb() (tskit.Tree static method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Tree.generate_random_binary">generate_random_binary() (tskit.Tree static method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.generate_star">generate_star() (tskit.Tree static method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.genetic_relatedness">genetic_relatedness() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.genotype_matrix">genotype_matrix() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Variant.genotypes">genotypes (tskit.Variant property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.haplotypes">haplotypes() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.has_index">has_index() (tskit.TableCollection method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Variant.has_missing_data">has_missing_data (tskit.Variant property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Tree.has_multiple_roots">has_multiple_roots (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.has_reference_sequence">has_reference_sequence() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.has_reference_sequence">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.has_single_root">has_single_root (tskit.Tree property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TableCollection.ibd_segments">ibd_segments() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.ibd_segments">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Edge.id">id (tskit.Edge attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.Individual.id">(tskit.Individual attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Migration.id">(tskit.Migration attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Mutation.id">(tskit.Mutation attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Node.id">(tskit.Node attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Population.id">(tskit.Population attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Site.id">(tskit.Site attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.IdentitySegment">IdentitySegment (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.IdentitySegmentList">IdentitySegmentList (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.IdentitySegments">IdentitySegments (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.index">index (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.indexes">indexes (tskit.TableCollection property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.indexes_edge_insertion_order">indexes_edge_insertion_order (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.indexes_edge_removal_order">indexes_edge_removal_order (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Individual">Individual (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Node.individual">individual (tskit.Node attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.NodeTableRow.individual">(tskit.NodeTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableMetadataSchemas.individual">(tskit.TableMetadataSchemas attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.individual">individual() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.individuals">individuals (tskit.TableCollection property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.individuals">individuals() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.individuals_flags">individuals_flags (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.individuals_location">individuals_location (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.individuals_population">individuals_population (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.individuals_time">individuals_time (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.IndividualTable">IndividualTable (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.IndividualTableRow">IndividualTableRow (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Interval">Interval (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.interval">interval (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.is_descendant">is_descendant() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.is_internal">is_internal() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.is_isolated">is_isolated() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.is_leaf">is_leaf() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.ReferenceSequence.is_null">is_null() (tskit.ReferenceSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Node.is_sample">is_sample() (tskit.Node method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.Tree.is_sample">(tskit.Tree method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.is_unknown_time">is_unknown_time() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Variant.isolated_as_missing">isolated_as_missing (tskit.Variant property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Tree.kc_distance">kc_distance() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.kc_distance">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TableCollection.keep_intervals">keep_intervals() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.keep_intervals">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Rank.label">label (tskit.Rank attribute)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.last">last() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.last">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.LdCalculator">LdCalculator (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.leaves">leaves() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Edge.left">left (tskit.Edge attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.EdgeTableRow.left">(tskit.EdgeTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.IdentitySegment.left">(tskit.IdentitySegment attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.IdentitySegmentList.left">(tskit.IdentitySegmentList property)</a>
+</li>
+        <li><a href="python-api.html#tskit.Interval.left">(tskit.Interval attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Migration.left">(tskit.Migration attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTableRow.left">(tskit.MigrationTableRow attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Tree.left_child">left_child() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.left_child_array">left_child_array (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.left_root">left_root (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.left_sib">left_sib() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.left_sib_array">left_sib_array (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.link_ancestors">link_ancestors() (tskit.TableCollection method)</a>
+</li>
+      <li><a href="python-api.html#tskit.load">load() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.load_text">load_text() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Individual.location">location (tskit.Individual attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTableRow.location">(tskit.IndividualTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TableCollection.ltrim">ltrim() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.ltrim">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Tree.map_mutations">map_mutations() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.max_root_time">max_root_time (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.mean_descendants">mean_descendants() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Edge.metadata">metadata (tskit.Edge attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.EdgeTableRow.metadata">(tskit.EdgeTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Individual.metadata">(tskit.Individual attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.IndividualTableRow.metadata">(tskit.IndividualTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Migration.metadata">(tskit.Migration attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTableRow.metadata">(tskit.MigrationTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Mutation.metadata">(tskit.Mutation attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTableRow.metadata">(tskit.MutationTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Node.metadata">(tskit.Node attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTableRow.metadata">(tskit.NodeTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Population.metadata">(tskit.Population attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTableRow.metadata">(tskit.PopulationTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.ReferenceSequence.metadata">(tskit.ReferenceSequence property)</a>
+</li>
+        <li><a href="python-api.html#tskit.Site.metadata">(tskit.Site attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTableRow.metadata">(tskit.SiteTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableCollection.metadata">(tskit.TableCollection property)</a>
+</li>
+        <li><a href="python-api.html#tskit.TreeSequence.metadata">(tskit.TreeSequence property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.ReferenceSequence.metadata_bytes">metadata_bytes (tskit.ReferenceSequence property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TableCollection.metadata_bytes">(tskit.TableCollection property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.EdgeTable.metadata_schema">metadata_schema (tskit.EdgeTable property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.metadata_schema">(tskit.IndividualTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.metadata_schema">(tskit.MigrationTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.metadata_schema">(tskit.MutationTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.metadata_schema">(tskit.NodeTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.metadata_schema">(tskit.PopulationTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.ReferenceSequence.metadata_schema">(tskit.ReferenceSequence property)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.metadata_schema">(tskit.SiteTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableCollection.metadata_schema">(tskit.TableCollection property)</a>
+</li>
+        <li><a href="python-api.html#tskit.TreeSequence.metadata_schema">(tskit.TreeSequence property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.EdgeTable.metadata_vector">metadata_vector() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.metadata_vector">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.metadata_vector">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.metadata_vector">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.metadata_vector">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.metadata_vector">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.metadata_vector">(tskit.SiteTable method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.MetadataEncodingError">MetadataEncodingError</a>
+</li>
+      <li><a href="python-api.html#tskit.MetadataSchema">MetadataSchema (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.MetadataSchemaValidationError">MetadataSchemaValidationError</a>
+</li>
+      <li><a href="python-api.html#tskit.MetadataValidationError">MetadataValidationError</a>
+</li>
+      <li><a href="python-api.html#tskit.Migration">Migration (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableMetadataSchemas.migration">migration (tskit.TableMetadataSchemas attribute)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.migration">migration() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.migrations">migrations (tskit.TableCollection property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.migrations">migrations() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.migrations_dest">migrations_dest (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.migrations_left">migrations_left (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.migrations_node">migrations_node (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.migrations_right">migrations_right (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.migrations_source">migrations_source (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.migrations_time">migrations_time (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.MigrationTable">MigrationTable (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.MigrationTableRow">MigrationTableRow (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.MISSING_DATA">MISSING_DATA (in module tskit)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="python-api.html#module-tskit">tskit</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.mrca">mrca() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Mutation">Mutation (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableMetadataSchemas.mutation">mutation (tskit.TableMetadataSchemas attribute)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.mutation">mutation() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Site.mutations">mutations (tskit.Site attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TableCollection.mutations">(tskit.TableCollection property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.mutations">mutations() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.mutations">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.mutations_node">mutations_node (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.mutations_parent">mutations_parent (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.mutations_site">mutations_site (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.mutations_time">mutations_time (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.MutationTable">MutationTable (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.MutationTableRow">MutationTableRow (class in tskit)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.EdgeTable.nbytes">nbytes (tskit.EdgeTable property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.nbytes">(tskit.IndividualTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.nbytes">(tskit.MigrationTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.nbytes">(tskit.MutationTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.nbytes">(tskit.NodeTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.nbytes">(tskit.PopulationTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTable.nbytes">(tskit.ProvenanceTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.nbytes">(tskit.SiteTable property)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableCollection.nbytes">(tskit.TableCollection property)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableCollectionIndexes.nbytes">(tskit.TableCollectionIndexes property)</a>
+</li>
+        <li><a href="python-api.html#tskit.TreeSequence.nbytes">(tskit.TreeSequence property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.newick">newick() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.next">next() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Node">Node (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.IdentitySegment.node">node (tskit.IdentitySegment attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IdentitySegmentList.node">(tskit.IdentitySegmentList property)</a>
+</li>
+        <li><a href="python-api.html#tskit.Migration.node">(tskit.Migration attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTableRow.node">(tskit.MigrationTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Mutation.node">(tskit.Mutation attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTableRow.node">(tskit.MutationTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableMetadataSchemas.node">(tskit.TableMetadataSchemas attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.node">node() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.NODE_IS_SAMPLE">NODE_IS_SAMPLE (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Individual.nodes">nodes (tskit.Individual attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TableCollection.nodes">(tskit.TableCollection property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.nodes">nodes() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.nodes">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.nodes_flags">nodes_flags (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.nodes_individual">nodes_individual (tskit.TreeSequence property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.nodes_population">nodes_population (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.nodes_time">nodes_time (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.NodeTable">NodeTable (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.NodeTableRow">NodeTableRow (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.NULL">NULL (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Variant.num_alleles">num_alleles (tskit.Variant property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.num_children">num_children() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.num_children_array">num_children_array (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.num_edges">num_edges (tskit.Tree property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.num_edges">(tskit.TreeSequence property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.num_individuals">num_individuals (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.num_lineages">num_lineages() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.num_migrations">num_migrations (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Variant.num_missing">num_missing (tskit.Variant property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.num_mutations">num_mutations (tskit.Tree property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.num_mutations">(tskit.TreeSequence property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.num_nodes">num_nodes (tskit.Tree property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.num_nodes">(tskit.TreeSequence property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.IdentitySegments.num_pairs">num_pairs (tskit.IdentitySegments property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.num_populations">num_populations (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.num_provenances">num_provenances (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.num_roots">num_roots (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.num_samples">num_samples (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.num_samples">num_samples() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.IdentitySegments.num_segments">num_segments (tskit.IdentitySegments property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.num_sites">num_sites (tskit.Tree property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.num_sites">(tskit.TreeSequence property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.num_tracked_samples">num_tracked_samples() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.num_trees">num_trees (tskit.TreeSequence property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.pack_bytes">pack_bytes() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.pack_strings">pack_strings() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.SiteTable.packset_ancestral_state">packset_ancestral_state() (tskit.SiteTable method)</a>
+</li>
+      <li><a href="python-api.html#tskit.MutationTable.packset_derived_state">packset_derived_state() (tskit.MutationTable method)</a>
+</li>
+      <li><a href="python-api.html#tskit.IndividualTable.packset_location">packset_location() (tskit.IndividualTable method)</a>
+</li>
+      <li><a href="python-api.html#tskit.EdgeTable.packset_metadata">packset_metadata() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.packset_metadata">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.packset_metadata">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.packset_metadata">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.packset_metadata">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.packset_metadata">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.packset_metadata">(tskit.SiteTable method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.IndividualTable.packset_parents">packset_parents() (tskit.IndividualTable method)</a>
+</li>
+      <li><a href="python-api.html#tskit.ProvenanceTable.packset_record">packset_record() (tskit.ProvenanceTable method)</a>
+</li>
+      <li><a href="python-api.html#tskit.ProvenanceTable.packset_timestamp">packset_timestamp() (tskit.ProvenanceTable method)</a>
+</li>
+      <li><a href="python-api.html#tskit.IdentitySegments.pairs">pairs (tskit.IdentitySegments property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.pairwise_diversity">pairwise_diversity() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Edge.parent">parent (tskit.Edge attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.EdgeTableRow.parent">(tskit.EdgeTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Mutation.parent">(tskit.Mutation attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTableRow.parent">(tskit.MutationTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.parent">parent() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.parent_array">parent_array (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Individual.parents">parents (tskit.Individual attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTableRow.parents">(tskit.IndividualTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.parse_edges">parse_edges() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.parse_individuals">parse_individuals() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.parse_migrations">parse_migrations() (in module tskit)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.parse_mutations">parse_mutations() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.parse_nodes">parse_nodes() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.parse_populations">parse_populations() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.parse_sites">parse_sites() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.path_length">path_length() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.MetadataSchema.permissive_json">permissive_json() (tskit.MetadataSchema static method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Population">Population (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Node.population">population (tskit.Node attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.NodeTableRow.population">(tskit.NodeTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableMetadataSchemas.population">(tskit.TableMetadataSchemas attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.population">population() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.population">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TableCollection.populations">populations (tskit.TableCollection property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.populations">populations() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.PopulationTable">PopulationTable (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.PopulationTableRow">PopulationTableRow (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Site.position">position (tskit.Site attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.SiteTableRow.position">(tskit.SiteTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.postorder">postorder() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.preorder">preorder() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.prev">prev() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Provenance">Provenance (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.provenance">provenance() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.provenances">provenances (tskit.TableCollection property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.provenances">provenances() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.ProvenanceTable">ProvenanceTable (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.ProvenanceTableRow">ProvenanceTableRow (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.ProvenanceValidationError">ProvenanceValidationError</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.LdCalculator.r2">r2() (tskit.LdCalculator method)</a>
+</li>
+      <li><a href="python-api.html#tskit.LdCalculator.r2_array">r2_array() (tskit.LdCalculator method)</a>
+</li>
+      <li><a href="python-api.html#tskit.LdCalculator.r2_matrix">r2_matrix() (tskit.LdCalculator method)</a>
+</li>
+      <li><a href="python-api.html#tskit.random_nucleotides">random_nucleotides() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Rank">Rank (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.rank">rank() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Provenance.record">record (tskit.Provenance attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.ProvenanceTableRow.record">(tskit.ProvenanceTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TableCollection.reference_sequence">reference_sequence (tskit.TableCollection property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.reference_sequence">(tskit.TreeSequence property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.ReferenceSequence">ReferenceSequence (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.register_metadata_codec">register_metadata_codec() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.EdgeTableRow.replace">replace() (tskit.EdgeTableRow method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTableRow.replace">(tskit.IndividualTableRow method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTableRow.replace">(tskit.MigrationTableRow method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTableRow.replace">(tskit.MutationTableRow method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTableRow.replace">(tskit.NodeTableRow method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTableRow.replace">(tskit.PopulationTableRow method)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTableRow.replace">(tskit.ProvenanceTableRow method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTableRow.replace">(tskit.SiteTableRow method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.REVERSE">REVERSE (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Edge.right">right (tskit.Edge attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.EdgeTableRow.right">(tskit.EdgeTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.IdentitySegment.right">(tskit.IdentitySegment attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.IdentitySegmentList.right">(tskit.IdentitySegmentList property)</a>
+</li>
+        <li><a href="python-api.html#tskit.Interval.right">(tskit.Interval attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Migration.right">(tskit.Migration attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTableRow.right">(tskit.MigrationTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.right_child">right_child() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.right_child_array">right_child_array (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.right_sib">right_sib() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.right_sib_array">right_sib_array (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.root">root (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.root_threshold">root_threshold (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.roots">roots (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.rtrim">rtrim() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.rtrim">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Tree.sackin_index">sackin_index() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.sample_count_stat">sample_count_stat() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Variant.samples">samples (tskit.Variant property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.samples">samples() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.samples">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.seek">seek() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.seek_index">seek_index() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.segregating_sites">segregating_sites() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.sequence_length">sequence_length (tskit.TableCollection property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.sequence_length">(tskit.TreeSequence property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.EdgeTable.set_columns">set_columns() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.set_columns">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.set_columns">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.set_columns">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.set_columns">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.set_columns">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTable.set_columns">(tskit.ProvenanceTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.set_columns">(tskit.SiteTable method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Rank.shape">shape (tskit.Rank attribute)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.simplify">simplify() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.simplify">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Site">Site (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Mutation.site">site (tskit.Mutation attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.MutationTableRow.site">(tskit.MutationTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.TableMetadataSchemas.site">(tskit.TableMetadataSchemas attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Variant.site">(tskit.Variant property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.site">site() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.sites">sites (tskit.TableCollection property)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.sites">sites() (tskit.Tree method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.sites">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.sites_position">sites_position (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.SiteTable">SiteTable (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.SiteTableRow">SiteTableRow (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.sort">sort() (tskit.TableCollection method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.sort_individuals">sort_individuals() (tskit.TableCollection method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Migration.source">source (tskit.Migration attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.MigrationTableRow.source">(tskit.MigrationTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Edge.span">span (tskit.Edge property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IdentitySegment.span">(tskit.IdentitySegment property)</a>
+</li>
+        <li><a href="python-api.html#tskit.Interval.span">(tskit.Interval property)</a>
+</li>
+        <li><a href="python-api.html#tskit.Tree.span">(tskit.Tree property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.split_edges">split_edges() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.split_polytomies">split_polytomies() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.EdgeTable.squash">squash() (tskit.EdgeTable method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.subset">subset() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.subset">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.SVGString">SVGString (class in tskit)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.table_metadata_schemas">table_metadata_schemas (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.table_name_map">table_name_map (tskit.TableCollection property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection">TableCollection (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollectionIndexes">TableCollectionIndexes (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableMetadataSchemas">TableMetadataSchemas (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.tables">tables (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.tables_dict">tables_dict (tskit.TreeSequence property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.Tajimas_D">Tajimas_D() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Migration.time">time (tskit.Migration attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.MigrationTableRow.time">(tskit.MigrationTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Mutation.time">(tskit.Mutation attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTableRow.time">(tskit.MutationTableRow attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.Node.time">(tskit.Node attribute)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTableRow.time">(tskit.NodeTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.time">time() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.time_units">time_units (tskit.TableCollection property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.time_units">(tskit.TreeSequence property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TIME_UNITS_UNCALIBRATED">TIME_UNITS_UNCALIBRATED (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.TIME_UNITS_UNKNOWN">TIME_UNITS_UNKNOWN (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.timeasc">timeasc() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.timedesc">timedesc() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Provenance.timestamp">timestamp (tskit.Provenance attribute)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.ProvenanceTableRow.timestamp">(tskit.ProvenanceTableRow attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.Tree.tmrca">tmrca() (tskit.Tree method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.to_macs">to_macs() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TopologyCounter">TopologyCounter (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.total_branch_length">total_branch_length (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.IdentitySegmentList.total_span">total_span (tskit.IdentitySegmentList property)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IdentitySegments.total_span">(tskit.IdentitySegments property)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.TreeSequence.trait_correlation">trait_correlation() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.trait_covariance">trait_covariance() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.trait_linear_model">trait_linear_model() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.trait_regression">trait_regression() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree">Tree (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.tree_sequence">tree_sequence (tskit.Tree property)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.tree_sequence">tree_sequence() (tskit.TableCollection method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.trees">trees() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence">TreeSequence (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.TableCollection.trim">trim() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.trim">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.EdgeTable.truncate">truncate() (tskit.EdgeTable method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.IndividualTable.truncate">(tskit.IndividualTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MigrationTable.truncate">(tskit.MigrationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.MutationTable.truncate">(tskit.MutationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.NodeTable.truncate">(tskit.NodeTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.PopulationTable.truncate">(tskit.PopulationTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.ProvenanceTable.truncate">(tskit.ProvenanceTable method)</a>
+</li>
+        <li><a href="python-api.html#tskit.SiteTable.truncate">(tskit.SiteTable method)</a>
+</li>
+      </ul></li>
+      <li><a href="c-api.html#c.tsk_bookmark_t">tsk_bookmark_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_bookmark_t.edges">tsk_bookmark_t.edges (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_bookmark_t.individuals">tsk_bookmark_t.individuals (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_bookmark_t.migrations">tsk_bookmark_t.migrations (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_bookmark_t.mutations">tsk_bookmark_t.mutations (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_bookmark_t.nodes">tsk_bookmark_t.nodes (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_bookmark_t.populations">tsk_bookmark_t.populations (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_bookmark_t.provenances">tsk_bookmark_t.provenances (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_bookmark_t.sites">tsk_bookmark_t.sites (C var)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CHECK_EDGE_ORDERING">TSK_CHECK_EDGE_ORDERING (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CHECK_INDEXES">TSK_CHECK_INDEXES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CHECK_INDIVIDUAL_ORDERING">TSK_CHECK_INDIVIDUAL_ORDERING (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CHECK_MIGRATION_ORDERING">TSK_CHECK_MIGRATION_ORDERING (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CHECK_MUTATION_ORDERING">TSK_CHECK_MUTATION_ORDERING (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CHECK_SITE_DUPLICATES">TSK_CHECK_SITE_DUPLICATES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CHECK_SITE_ORDERING">TSK_CHECK_SITE_ORDERING (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CHECK_TREES">TSK_CHECK_TREES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CLEAR_METADATA_SCHEMAS">TSK_CLEAR_METADATA_SCHEMAS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CLEAR_PROVENANCE">TSK_CLEAR_PROVENANCE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CLEAR_TS_METADATA_AND_SCHEMA">TSK_CLEAR_TS_METADATA_AND_SCHEMA (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CMP_IGNORE_METADATA">TSK_CMP_IGNORE_METADATA (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CMP_IGNORE_PROVENANCE">TSK_CMP_IGNORE_PROVENANCE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CMP_IGNORE_REFERENCE_SEQUENCE">TSK_CMP_IGNORE_REFERENCE_SEQUENCE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CMP_IGNORE_TABLES">TSK_CMP_IGNORE_TABLES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CMP_IGNORE_TIMESTAMPS">TSK_CMP_IGNORE_TIMESTAMPS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_CMP_IGNORE_TS_METADATA">TSK_CMP_IGNORE_TS_METADATA (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_COPY_FILE_UUID">TSK_COPY_FILE_UUID (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_DEBUG">TSK_DEBUG (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_t">tsk_edge_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_t.child">tsk_edge_t.child (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_t.id">tsk_edge_t.id (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_t.left">tsk_edge_t.left (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_t.metadata">tsk_edge_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_t.metadata_length">tsk_edge_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_t.parent">tsk_edge_t.parent (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_t.right">tsk_edge_t.right (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_add_row">tsk_edge_table_add_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_append_columns">tsk_edge_table_append_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_clear">tsk_edge_table_clear (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_copy">tsk_edge_table_copy (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_equals">tsk_edge_table_equals (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_extend">tsk_edge_table_extend (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_free">tsk_edge_table_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_get_row">tsk_edge_table_get_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_init">tsk_edge_table_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_print_state">tsk_edge_table_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_set_columns">tsk_edge_table_set_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_set_max_metadata_length_increment">tsk_edge_table_set_max_metadata_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_set_max_rows_increment">tsk_edge_table_set_max_rows_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_set_metadata_schema">tsk_edge_table_set_metadata_schema (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_squash">tsk_edge_table_squash (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_t">tsk_edge_table_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_t.child">tsk_edge_table_t.child (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_t.left">tsk_edge_table_t.left (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_t.metadata">tsk_edge_table_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_t.metadata_length">tsk_edge_table_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_t.metadata_offset">tsk_edge_table_t.metadata_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_t.metadata_schema">tsk_edge_table_t.metadata_schema (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_t.num_rows">tsk_edge_table_t.num_rows (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_t.options">tsk_edge_table_t.options (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_t.parent">tsk_edge_table_t.parent (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_t.right">tsk_edge_table_t.right (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_truncate">tsk_edge_table_truncate (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_edge_table_update_row">tsk_edge_table_update_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_ALLELE_NOT_FOUND">TSK_ERR_ALLELE_NOT_FOUND (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BAD_COLUMN_TYPE">TSK_ERR_BAD_COLUMN_TYPE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BAD_EDGE_INTERVAL">TSK_ERR_BAD_EDGE_INTERVAL (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BAD_EDGES_CONTRADICTORY_CHILDREN">TSK_ERR_BAD_EDGES_CONTRADICTORY_CHILDREN (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BAD_NODE_TIME_ORDERING">TSK_ERR_BAD_NODE_TIME_ORDERING (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BAD_OFFSET">TSK_ERR_BAD_OFFSET (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BAD_PARAM_VALUE">TSK_ERR_BAD_PARAM_VALUE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BAD_SAMPLES">TSK_ERR_BAD_SAMPLES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BAD_SEQUENCE_LENGTH">TSK_ERR_BAD_SEQUENCE_LENGTH (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BAD_SITE_POSITION">TSK_ERR_BAD_SITE_POSITION (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BAD_TABLE_POSITION">TSK_ERR_BAD_TABLE_POSITION (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BOTH_COLUMNS_REQUIRED">TSK_ERR_BOTH_COLUMNS_REQUIRED (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_BUFFER_OVERFLOW">TSK_ERR_BUFFER_OVERFLOW (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_CANT_PROCESS_EDGES_WITH_METADATA">TSK_ERR_CANT_PROCESS_EDGES_WITH_METADATA (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_COLUMN_OVERFLOW">TSK_ERR_COLUMN_OVERFLOW (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_DUPLICATE_EDGES">TSK_ERR_DUPLICATE_EDGES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_DUPLICATE_SAMPLE">TSK_ERR_DUPLICATE_SAMPLE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_DUPLICATE_SITE_POSITION">TSK_ERR_DUPLICATE_SITE_POSITION (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_EDGE_OUT_OF_BOUNDS">TSK_ERR_EDGE_OUT_OF_BOUNDS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_EDGES_NONCONTIGUOUS_PARENTS">TSK_ERR_EDGES_NONCONTIGUOUS_PARENTS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_EDGES_NOT_SORTED_CHILD">TSK_ERR_EDGES_NOT_SORTED_CHILD (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_EDGES_NOT_SORTED_LEFT">TSK_ERR_EDGES_NOT_SORTED_LEFT (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_EDGES_NOT_SORTED_PARENT_TIME">TSK_ERR_EDGES_NOT_SORTED_PARENT_TIME (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_EOF">TSK_ERR_EOF (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_FILE_FORMAT">TSK_ERR_FILE_FORMAT (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_FILE_VERSION_TOO_NEW">TSK_ERR_FILE_VERSION_TOO_NEW (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_FILE_VERSION_TOO_OLD">TSK_ERR_FILE_VERSION_TOO_OLD (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_GENERATE_UUID">TSK_ERR_GENERATE_UUID (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_GENERIC">TSK_ERR_GENERIC (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_GENOME_COORDS_NONFINITE">TSK_ERR_GENOME_COORDS_NONFINITE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_INDIVIDUAL_OUT_OF_BOUNDS">TSK_ERR_INDIVIDUAL_OUT_OF_BOUNDS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_INDIVIDUAL_PARENT_CYCLE">TSK_ERR_INDIVIDUAL_PARENT_CYCLE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_INDIVIDUAL_POPULATION_MISMATCH">TSK_ERR_INDIVIDUAL_POPULATION_MISMATCH (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_INDIVIDUAL_SELF_PARENT">TSK_ERR_INDIVIDUAL_SELF_PARENT (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_INDIVIDUAL_TIME_MISMATCH">TSK_ERR_INDIVIDUAL_TIME_MISMATCH (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_IO">TSK_ERR_IO (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_KEEP_UNARY_MUTUALLY_EXCLUSIVE">TSK_ERR_KEEP_UNARY_MUTUALLY_EXCLUSIVE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_LEFT_LESS_ZERO">TSK_ERR_LEFT_LESS_ZERO (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_METADATA_DISABLED">TSK_ERR_METADATA_DISABLED (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_MIGRATION_OUT_OF_BOUNDS">TSK_ERR_MIGRATION_OUT_OF_BOUNDS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_MUST_IMPUTE_NON_SAMPLES">TSK_ERR_MUST_IMPUTE_NON_SAMPLES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_MUTATION_OUT_OF_BOUNDS">TSK_ERR_MUTATION_OUT_OF_BOUNDS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_MUTATION_PARENT_AFTER_CHILD">TSK_ERR_MUTATION_PARENT_AFTER_CHILD (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_MUTATION_PARENT_DIFFERENT_SITE">TSK_ERR_MUTATION_PARENT_DIFFERENT_SITE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_MUTATION_PARENT_EQUAL">TSK_ERR_MUTATION_PARENT_EQUAL (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_MUTATION_PARENT_INCONSISTENT">TSK_ERR_MUTATION_PARENT_INCONSISTENT (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_MUTATION_TIME_HAS_BOTH_KNOWN_AND_UNKNOWN">TSK_ERR_MUTATION_TIME_HAS_BOTH_KNOWN_AND_UNKNOWN (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_MUTATION_TIME_OLDER_THAN_PARENT_MUTATION">TSK_ERR_MUTATION_TIME_OLDER_THAN_PARENT_MUTATION (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_MUTATION_TIME_OLDER_THAN_PARENT_NODE">TSK_ERR_MUTATION_TIME_OLDER_THAN_PARENT_NODE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_MUTATION_TIME_YOUNGER_THAN_NODE">TSK_ERR_MUTATION_TIME_YOUNGER_THAN_NODE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_NO_MEMORY">TSK_ERR_NO_MEMORY (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_NODE_OUT_OF_BOUNDS">TSK_ERR_NODE_OUT_OF_BOUNDS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_NULL_CHILD">TSK_ERR_NULL_CHILD (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_NULL_PARENT">TSK_ERR_NULL_PARENT (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_POPULATION_OUT_OF_BOUNDS">TSK_ERR_POPULATION_OUT_OF_BOUNDS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_PROVENANCE_OUT_OF_BOUNDS">TSK_ERR_PROVENANCE_OUT_OF_BOUNDS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_REQUIRED_COL_NOT_FOUND">TSK_ERR_REQUIRED_COL_NOT_FOUND (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_RIGHT_GREATER_SEQ_LENGTH">TSK_ERR_RIGHT_GREATER_SEQ_LENGTH (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_SEEK_OUT_OF_BOUNDS">TSK_ERR_SEEK_OUT_OF_BOUNDS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_SITE_OUT_OF_BOUNDS">TSK_ERR_SITE_OUT_OF_BOUNDS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_TABLE_OVERFLOW">TSK_ERR_TABLE_OVERFLOW (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_TABLES_BAD_INDEXES">TSK_ERR_TABLES_BAD_INDEXES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_TABLES_NOT_INDEXED">TSK_ERR_TABLES_NOT_INDEXED (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_TIME_NONFINITE">TSK_ERR_TIME_NONFINITE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_TOO_MANY_ALLELES">TSK_ERR_TOO_MANY_ALLELES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_TREE_OVERFLOW">TSK_ERR_TREE_OVERFLOW (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_UNION_BAD_MAP">TSK_ERR_UNION_BAD_MAP (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_UNION_DIFF_HISTORIES">TSK_ERR_UNION_DIFF_HISTORIES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_UNSORTED_INDIVIDUALS">TSK_ERR_UNSORTED_INDIVIDUALS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_UNSORTED_MIGRATIONS">TSK_ERR_UNSORTED_MIGRATIONS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_UNSORTED_MUTATIONS">TSK_ERR_UNSORTED_MUTATIONS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_UNSORTED_SITES">TSK_ERR_UNSORTED_SITES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_UNSUPPORTED_OPERATION">TSK_ERR_UNSUPPORTED_OPERATION (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_ERR_ZERO_ALLELES">TSK_ERR_ZERO_ALLELES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_flags_t">tsk_flags_t (C type)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_id_t">tsk_id_t (C type)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_t">tsk_individual_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_t.flags">tsk_individual_t.flags (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_t.id">tsk_individual_t.id (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_t.location">tsk_individual_t.location (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_t.location_length">tsk_individual_t.location_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_t.metadata">tsk_individual_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_t.metadata_length">tsk_individual_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_t.nodes">tsk_individual_t.nodes (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_t.nodes_length">tsk_individual_t.nodes_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_t.parents">tsk_individual_t.parents (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_t.parents_length">tsk_individual_t.parents_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_add_row">tsk_individual_table_add_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_append_columns">tsk_individual_table_append_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_clear">tsk_individual_table_clear (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_copy">tsk_individual_table_copy (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_equals">tsk_individual_table_equals (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_extend">tsk_individual_table_extend (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_free">tsk_individual_table_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_get_row">tsk_individual_table_get_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_init">tsk_individual_table_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_print_state">tsk_individual_table_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_set_columns">tsk_individual_table_set_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_set_max_location_length_increment">tsk_individual_table_set_max_location_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_set_max_metadata_length_increment">tsk_individual_table_set_max_metadata_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_set_max_parents_length_increment">tsk_individual_table_set_max_parents_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_set_max_rows_increment">tsk_individual_table_set_max_rows_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_set_metadata_schema">tsk_individual_table_set_metadata_schema (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t">tsk_individual_table_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.flags">tsk_individual_table_t.flags (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.location">tsk_individual_table_t.location (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.location_length">tsk_individual_table_t.location_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.location_offset">tsk_individual_table_t.location_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.metadata">tsk_individual_table_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.metadata_length">tsk_individual_table_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.metadata_offset">tsk_individual_table_t.metadata_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.metadata_schema">tsk_individual_table_t.metadata_schema (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.num_rows">tsk_individual_table_t.num_rows (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.parents">tsk_individual_table_t.parents (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.parents_length">tsk_individual_table_t.parents_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_t.parents_offset">tsk_individual_table_t.parents_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_truncate">tsk_individual_table_truncate (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_individual_table_update_row">tsk_individual_table_update_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_is_unknown_time">tsk_is_unknown_time (C function)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_LOAD_SKIP_REFERENCE_SEQUENCE">TSK_LOAD_SKIP_REFERENCE_SEQUENCE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_LOAD_SKIP_TABLES">TSK_LOAD_SKIP_TABLES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_t">tsk_migration_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_t.dest">tsk_migration_t.dest (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_t.id">tsk_migration_t.id (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_t.left">tsk_migration_t.left (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_t.metadata">tsk_migration_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_t.metadata_length">tsk_migration_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_t.node">tsk_migration_t.node (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_t.right">tsk_migration_t.right (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_t.source">tsk_migration_t.source (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_t.time">tsk_migration_t.time (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_add_row">tsk_migration_table_add_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_append_columns">tsk_migration_table_append_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_clear">tsk_migration_table_clear (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_copy">tsk_migration_table_copy (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_equals">tsk_migration_table_equals (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_extend">tsk_migration_table_extend (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_free">tsk_migration_table_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_get_row">tsk_migration_table_get_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_init">tsk_migration_table_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_print_state">tsk_migration_table_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_set_columns">tsk_migration_table_set_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_set_max_metadata_length_increment">tsk_migration_table_set_max_metadata_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_set_max_rows_increment">tsk_migration_table_set_max_rows_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_set_metadata_schema">tsk_migration_table_set_metadata_schema (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t">tsk_migration_table_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t.dest">tsk_migration_table_t.dest (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t.left">tsk_migration_table_t.left (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t.metadata">tsk_migration_table_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t.metadata_length">tsk_migration_table_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t.metadata_offset">tsk_migration_table_t.metadata_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t.metadata_schema">tsk_migration_table_t.metadata_schema (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t.node">tsk_migration_table_t.node (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t.num_rows">tsk_migration_table_t.num_rows (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t.right">tsk_migration_table_t.right (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t.source">tsk_migration_table_t.source (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_t.time">tsk_migration_table_t.time (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_truncate">tsk_migration_table_truncate (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_migration_table_update_row">tsk_migration_table_update_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_MISSING_DATA">TSK_MISSING_DATA (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_t">tsk_mutation_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_t.derived_state">tsk_mutation_t.derived_state (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_t.derived_state_length">tsk_mutation_t.derived_state_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_t.edge">tsk_mutation_t.edge (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_t.id">tsk_mutation_t.id (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_t.metadata">tsk_mutation_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_t.metadata_length">tsk_mutation_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_t.node">tsk_mutation_t.node (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_t.parent">tsk_mutation_t.parent (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_t.site">tsk_mutation_t.site (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_t.time">tsk_mutation_t.time (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_add_row">tsk_mutation_table_add_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_append_columns">tsk_mutation_table_append_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_clear">tsk_mutation_table_clear (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_copy">tsk_mutation_table_copy (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_equals">tsk_mutation_table_equals (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_extend">tsk_mutation_table_extend (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_free">tsk_mutation_table_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_get_row">tsk_mutation_table_get_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_init">tsk_mutation_table_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_print_state">tsk_mutation_table_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_set_columns">tsk_mutation_table_set_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_set_max_derived_state_length_increment">tsk_mutation_table_set_max_derived_state_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_set_max_metadata_length_increment">tsk_mutation_table_set_max_metadata_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_set_max_rows_increment">tsk_mutation_table_set_max_rows_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_set_metadata_schema">tsk_mutation_table_set_metadata_schema (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_t">tsk_mutation_table_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_t.derived_state">tsk_mutation_table_t.derived_state (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_t.derived_state_offset">tsk_mutation_table_t.derived_state_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_t.metadata">tsk_mutation_table_t.metadata (C var)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="c-api.html#c.tsk_mutation_table_t.metadata_length">tsk_mutation_table_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_t.metadata_offset">tsk_mutation_table_t.metadata_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_t.metadata_schema">tsk_mutation_table_t.metadata_schema (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_t.node">tsk_mutation_table_t.node (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_t.num_rows">tsk_mutation_table_t.num_rows (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_t.parent">tsk_mutation_table_t.parent (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_t.site">tsk_mutation_table_t.site (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_t.time">tsk_mutation_table_t.time (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_truncate">tsk_mutation_table_truncate (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_mutation_table_update_row">tsk_mutation_table_update_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_NO_CHECK_INTEGRITY">TSK_NO_CHECK_INTEGRITY (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_NO_CHECK_POPULATION_REFS">TSK_NO_CHECK_POPULATION_REFS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_NO_INIT">TSK_NO_INIT (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_NODE_IS_SAMPLE">TSK_NODE_IS_SAMPLE (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_t">tsk_node_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_t.flags">tsk_node_t.flags (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_t.id">tsk_node_t.id (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_t.individual">tsk_node_t.individual (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_t.metadata">tsk_node_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_t.metadata_length">tsk_node_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_t.population">tsk_node_t.population (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_t.time">tsk_node_t.time (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_add_row">tsk_node_table_add_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_append_columns">tsk_node_table_append_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_clear">tsk_node_table_clear (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_copy">tsk_node_table_copy (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_equals">tsk_node_table_equals (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_extend">tsk_node_table_extend (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_free">tsk_node_table_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_get_row">tsk_node_table_get_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_init">tsk_node_table_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_print_state">tsk_node_table_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_set_columns">tsk_node_table_set_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_set_max_metadata_length_increment">tsk_node_table_set_max_metadata_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_set_max_rows_increment">tsk_node_table_set_max_rows_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_set_metadata_schema">tsk_node_table_set_metadata_schema (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_t">tsk_node_table_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_t.flags">tsk_node_table_t.flags (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_t.individual">tsk_node_table_t.individual (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_t.metadata">tsk_node_table_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_t.metadata_length">tsk_node_table_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_t.metadata_offset">tsk_node_table_t.metadata_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_t.metadata_schema">tsk_node_table_t.metadata_schema (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_t.num_rows">tsk_node_table_t.num_rows (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_t.population">tsk_node_table_t.population (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_t.time">tsk_node_table_t.time (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_truncate">tsk_node_table_truncate (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_node_table_update_row">tsk_node_table_update_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_NULL">TSK_NULL (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_t">tsk_population_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_t.id">tsk_population_t.id (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_t.metadata">tsk_population_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_t.metadata_length">tsk_population_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_add_row">tsk_population_table_add_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_append_columns">tsk_population_table_append_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_clear">tsk_population_table_clear (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_copy">tsk_population_table_copy (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_equals">tsk_population_table_equals (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_extend">tsk_population_table_extend (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_free">tsk_population_table_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_get_row">tsk_population_table_get_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_init">tsk_population_table_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_print_state">tsk_population_table_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_set_columns">tsk_population_table_set_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_set_max_metadata_length_increment">tsk_population_table_set_max_metadata_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_set_max_rows_increment">tsk_population_table_set_max_rows_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_set_metadata_schema">tsk_population_table_set_metadata_schema (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_t">tsk_population_table_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_t.metadata">tsk_population_table_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_t.metadata_length">tsk_population_table_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_t.metadata_offset">tsk_population_table_t.metadata_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_t.metadata_schema">tsk_population_table_t.metadata_schema (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_t.num_rows">tsk_population_table_t.num_rows (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_truncate">tsk_population_table_truncate (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_population_table_update_row">tsk_population_table_update_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_t">tsk_provenance_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_t.id">tsk_provenance_t.id (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_t.record">tsk_provenance_t.record (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_t.record_length">tsk_provenance_t.record_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_t.timestamp">tsk_provenance_t.timestamp (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_t.timestamp_length">tsk_provenance_t.timestamp_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_add_row">tsk_provenance_table_add_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_append_columns">tsk_provenance_table_append_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_clear">tsk_provenance_table_clear (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_copy">tsk_provenance_table_copy (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_equals">tsk_provenance_table_equals (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_extend">tsk_provenance_table_extend (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_free">tsk_provenance_table_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_get_row">tsk_provenance_table_get_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_init">tsk_provenance_table_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_print_state">tsk_provenance_table_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_set_columns">tsk_provenance_table_set_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_set_max_record_length_increment">tsk_provenance_table_set_max_record_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_set_max_rows_increment">tsk_provenance_table_set_max_rows_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_set_max_timestamp_length_increment">tsk_provenance_table_set_max_timestamp_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_t">tsk_provenance_table_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_t.num_rows">tsk_provenance_table_t.num_rows (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_t.record">tsk_provenance_table_t.record (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_t.record_length">tsk_provenance_table_t.record_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_t.record_offset">tsk_provenance_table_t.record_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_t.timestamp">tsk_provenance_table_t.timestamp (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_t.timestamp_length">tsk_provenance_table_t.timestamp_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_t.timestamp_offset">tsk_provenance_table_t.timestamp_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_truncate">tsk_provenance_table_truncate (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_provenance_table_update_row">tsk_provenance_table_update_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_SIMPLIFY_FILTER_INDIVIDUALS">TSK_SIMPLIFY_FILTER_INDIVIDUALS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_SIMPLIFY_FILTER_POPULATIONS">TSK_SIMPLIFY_FILTER_POPULATIONS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_SIMPLIFY_FILTER_SITES">TSK_SIMPLIFY_FILTER_SITES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_SIMPLIFY_KEEP_INPUT_ROOTS">TSK_SIMPLIFY_KEEP_INPUT_ROOTS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_SIMPLIFY_KEEP_UNARY">TSK_SIMPLIFY_KEEP_UNARY (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_SIMPLIFY_KEEP_UNARY_IN_INDIVIDUALS">TSK_SIMPLIFY_KEEP_UNARY_IN_INDIVIDUALS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_SIMPLIFY_REDUCE_TO_SITE_TOPOLOGY">TSK_SIMPLIFY_REDUCE_TO_SITE_TOPOLOGY (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_t">tsk_site_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_t.ancestral_state">tsk_site_t.ancestral_state (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_t.ancestral_state_length">tsk_site_t.ancestral_state_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_t.id">tsk_site_t.id (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_t.metadata">tsk_site_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_t.metadata_length">tsk_site_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_t.mutations">tsk_site_t.mutations (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_t.mutations_length">tsk_site_t.mutations_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_t.position">tsk_site_t.position (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_add_row">tsk_site_table_add_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_append_columns">tsk_site_table_append_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_clear">tsk_site_table_clear (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_copy">tsk_site_table_copy (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_equals">tsk_site_table_equals (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_extend">tsk_site_table_extend (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_free">tsk_site_table_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_get_row">tsk_site_table_get_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_init">tsk_site_table_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_print_state">tsk_site_table_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_set_columns">tsk_site_table_set_columns (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_set_max_ancestral_state_length_increment">tsk_site_table_set_max_ancestral_state_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_set_max_metadata_length_increment">tsk_site_table_set_max_metadata_length_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_set_max_rows_increment">tsk_site_table_set_max_rows_increment (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_set_metadata_schema">tsk_site_table_set_metadata_schema (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_t">tsk_site_table_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_t.ancestral_state">tsk_site_table_t.ancestral_state (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_t.ancestral_state_offset">tsk_site_table_t.ancestral_state_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_t.metadata">tsk_site_table_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_t.metadata_length">tsk_site_table_t.metadata_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_t.metadata_offset">tsk_site_table_t.metadata_offset (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_t.metadata_schema">tsk_site_table_t.metadata_schema (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_t.num_rows">tsk_site_table_t.num_rows (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_t.position">tsk_site_table_t.position (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_truncate">tsk_site_table_truncate (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_site_table_update_row">tsk_site_table_update_row (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_size_t">tsk_size_t (C type)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_strerror">tsk_strerror (C function)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_SUBSET_KEEP_UNREFERENCED">TSK_SUBSET_KEEP_UNREFERENCED (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_SUBSET_NO_CHANGE_POPULATIONS">TSK_SUBSET_NO_CHANGE_POPULATIONS (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_build_index">tsk_table_collection_build_index (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_canonicalise">tsk_table_collection_canonicalise (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_check_integrity">tsk_table_collection_check_integrity (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_clear">tsk_table_collection_clear (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_copy">tsk_table_collection_copy (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_drop_index">tsk_table_collection_drop_index (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_dump">tsk_table_collection_dump (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_dumpf">tsk_table_collection_dumpf (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_equals">tsk_table_collection_equals (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_free">tsk_table_collection_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_has_index">tsk_table_collection_has_index (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_individual_topological_sort">tsk_table_collection_individual_topological_sort (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_init">tsk_table_collection_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_load">tsk_table_collection_load (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_loadf">tsk_table_collection_loadf (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_print_state">tsk_table_collection_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_record_num_rows">tsk_table_collection_record_num_rows (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_set_metadata">tsk_table_collection_set_metadata (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_set_metadata_schema">tsk_table_collection_set_metadata_schema (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_set_time_units">tsk_table_collection_set_time_units (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_simplify">tsk_table_collection_simplify (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_sort">tsk_table_collection_sort (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_subset">tsk_table_collection_subset (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t">tsk_table_collection_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.edges">tsk_table_collection_t.edges (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.individuals">tsk_table_collection_t.individuals (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.metadata">tsk_table_collection_t.metadata (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.metadata_schema">tsk_table_collection_t.metadata_schema (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.migrations">tsk_table_collection_t.migrations (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.mutations">tsk_table_collection_t.mutations (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.nodes">tsk_table_collection_t.nodes (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.populations">tsk_table_collection_t.populations (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.provenances">tsk_table_collection_t.provenances (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.sequence_length">tsk_table_collection_t.sequence_length (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.sites">tsk_table_collection_t.sites (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_t.time_units">tsk_table_collection_t.time_units (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_truncate">tsk_table_collection_truncate (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_collection_union">tsk_table_collection_union (C function)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_TABLE_NO_METADATA">TSK_TABLE_NO_METADATA (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_sorter_free">tsk_table_sorter_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_sorter_init">tsk_table_sorter_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_table_sorter_run">tsk_table_sorter_run (C function)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_TAKE_OWNERSHIP">TSK_TAKE_OWNERSHIP (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_TC_NO_EDGE_METADATA">TSK_TC_NO_EDGE_METADATA (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_clear">tsk_tree_clear (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_copy">tsk_tree_copy (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_first">tsk_tree_first (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_free">tsk_tree_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_branch_length">tsk_tree_get_branch_length (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_depth">tsk_tree_get_depth (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_left_root">tsk_tree_get_left_root (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_mrca">tsk_tree_get_mrca (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_num_roots">tsk_tree_get_num_roots (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_num_samples">tsk_tree_get_num_samples (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_parent">tsk_tree_get_parent (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_right_root">tsk_tree_get_right_root (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_sites">tsk_tree_get_sites (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_size_bound">tsk_tree_get_size_bound (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_time">tsk_tree_get_time (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_get_total_branch_length">tsk_tree_get_total_branch_length (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_init">tsk_tree_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_is_descendant">tsk_tree_is_descendant (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_last">tsk_tree_last (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_next">tsk_tree_next (C function)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_TREE_OK">TSK_TREE_OK (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_postorder">tsk_tree_postorder (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_postorder_from">tsk_tree_postorder_from (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_preorder">tsk_tree_preorder (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_preorder_from">tsk_tree_preorder_from (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_prev">tsk_tree_prev (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_print_state">tsk_tree_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_seek">tsk_tree_seek (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t">tsk_tree_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.edge">tsk_tree_t.edge (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.index">tsk_tree_t.index (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.interval">tsk_tree_t.interval (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.left_child">tsk_tree_t.left_child (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.left_sib">tsk_tree_t.left_sib (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.num_children">tsk_tree_t.num_children (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.num_edges">tsk_tree_t.num_edges (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.parent">tsk_tree_t.parent (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.right_child">tsk_tree_t.right_child (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.right_sib">tsk_tree_t.right_sib (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.tree_sequence">tsk_tree_t.tree_sequence (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_tree_t.virtual_root">tsk_tree_t.virtual_root (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_copy_tables">tsk_treeseq_copy_tables (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_dump">tsk_treeseq_dump (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_dumpf">tsk_treeseq_dumpf (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_free">tsk_treeseq_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_breakpoints">tsk_treeseq_get_breakpoints (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_discrete_genome">tsk_treeseq_get_discrete_genome (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_discrete_time">tsk_treeseq_get_discrete_time (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_edge">tsk_treeseq_get_edge (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_file_uuid">tsk_treeseq_get_file_uuid (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_individual">tsk_treeseq_get_individual (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_metadata">tsk_treeseq_get_metadata (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_metadata_length">tsk_treeseq_get_metadata_length (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_metadata_schema">tsk_treeseq_get_metadata_schema (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_metadata_schema_length">tsk_treeseq_get_metadata_schema_length (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_migration">tsk_treeseq_get_migration (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_mutation">tsk_treeseq_get_mutation (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_node">tsk_treeseq_get_node (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_num_edges">tsk_treeseq_get_num_edges (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_num_individuals">tsk_treeseq_get_num_individuals (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_num_migrations">tsk_treeseq_get_num_migrations (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_num_mutations">tsk_treeseq_get_num_mutations (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_num_nodes">tsk_treeseq_get_num_nodes (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_num_populations">tsk_treeseq_get_num_populations (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_num_provenances">tsk_treeseq_get_num_provenances (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_num_samples">tsk_treeseq_get_num_samples (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_num_sites">tsk_treeseq_get_num_sites (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_num_trees">tsk_treeseq_get_num_trees (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_population">tsk_treeseq_get_population (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_provenance">tsk_treeseq_get_provenance (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_sample_index_map">tsk_treeseq_get_sample_index_map (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_samples">tsk_treeseq_get_samples (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_sequence_length">tsk_treeseq_get_sequence_length (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_site">tsk_treeseq_get_site (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_time_units">tsk_treeseq_get_time_units (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_get_time_units_length">tsk_treeseq_get_time_units_length (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_init">tsk_treeseq_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_is_sample">tsk_treeseq_is_sample (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_load">tsk_treeseq_load (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_loadf">tsk_treeseq_loadf (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_print_state">tsk_treeseq_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_simplify">tsk_treeseq_simplify (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_t">tsk_treeseq_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_treeseq_t.tables">tsk_treeseq_t.tables (C var)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_TS_INIT_BUILD_INDEXES">TSK_TS_INIT_BUILD_INDEXES (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_UNION_NO_ADD_POP">TSK_UNION_NO_ADD_POP (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_UNION_NO_CHECK_SHARED">TSK_UNION_NO_CHECK_SHARED (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_UNKNOWN_TIME">TSK_UNKNOWN_TIME (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_decode">tsk_variant_decode (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_free">tsk_variant_free (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_init">tsk_variant_init (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_print_state">tsk_variant_print_state (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_restricted_copy">tsk_variant_restricted_copy (C function)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_t">tsk_variant_t (C struct)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_t.allele_lengths">tsk_variant_t.allele_lengths (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_t.alleles">tsk_variant_t.alleles (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_t.genotypes">tsk_variant_t.genotypes (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_t.has_missing_data">tsk_variant_t.has_missing_data (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_t.num_alleles">tsk_variant_t.num_alleles (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_t.num_samples">tsk_variant_t.num_samples (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_t.samples">tsk_variant_t.samples (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_t.site">tsk_variant_t.site (C var)</a>
+</li>
+      <li><a href="c-api.html#c.tsk_variant_t.tree_sequence">tsk_variant_t.tree_sequence (C var)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_VERSION_MAJOR">TSK_VERSION_MAJOR (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_VERSION_MINOR">TSK_VERSION_MINOR (C macro)</a>
+</li>
+      <li><a href="c-api.html#c.TSK_VERSION_PATCH">TSK_VERSION_PATCH (C macro)</a>
+</li>
+      <li>
+    tskit
+
+      <ul>
+        <li><a href="python-api.html#module-tskit">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TableCollection.union">union() (tskit.TableCollection method)</a>
+
+      <ul>
+        <li><a href="python-api.html#tskit.TreeSequence.union">(tskit.TreeSequence method)</a>
+</li>
+      </ul></li>
+      <li><a href="python-api.html#tskit.UNKNOWN_TIME">UNKNOWN_TIME (in module tskit)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.unpack_bytes">unpack_bytes() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.unpack_strings">unpack_strings() (in module tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.unrank">unrank() (tskit.Tree static method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.MetadataSchema.validate_and_encode_row">validate_and_encode_row() (tskit.MetadataSchema method)</a>
+</li>
+      <li><a href="python-api.html#tskit.validate_provenance">validate_provenance() (in module tskit)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.Variant">Variant (class in tskit)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.variants">variants() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.Tree.virtual_root">virtual_root (tskit.Tree property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.write_fasta">write_fasta() (tskit.TreeSequence method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.write_nexus">write_nexus() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.write_vcf">write_vcf() (tskit.TreeSequence method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.Y1">Y1() (tskit.TreeSequence method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python-api.html#tskit.TreeSequence.Y2">Y2() (tskit.TreeSequence method)</a>
+</li>
+      <li><a href="python-api.html#tskit.TreeSequence.Y3">Y3() (tskit.TreeSequence method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2022.<br/>
+    <div class="extra_footer">
+      0.5.3
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

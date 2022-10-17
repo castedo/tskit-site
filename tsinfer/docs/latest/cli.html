@@ -1,0 +1,1189 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Command line interface &#8212; Tsinfer manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/tskit-book-theme.css?digest=4e121f05f62280197eeb3e8760a1903920f0778f" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/tskit-book-theme.js?digest=9a6366feaade5ec470560844be9ff19788eb9b85"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="File formats" href="file_formats.html" />
+    <link rel="prev" title="API Documentation" href="api.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/tsinfer_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Tsinfer manual</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome to tsinfer’s documentation!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorial
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorial.html">
+   Tutorial
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="inference.html">
+   Inference overview
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interfaces
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Documentation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Command line interface
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  File Formats
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="file_formats.html">
+   File formats
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Developer documentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CITATION.html">
+   Citing tsinfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CHANGELOG.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            tsinfer undefined
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tskit-dev/tsinfer"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tsinfer/issues/new?title=Issue%20on%20page%20%2Fcli.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tskit-dev/tsinfer/edit/main/docs/cli.rst"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/cli.rst"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argument-details">
+   Argument details
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Positional Arguments">
+     Positional Arguments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Named Arguments">
+     Named Arguments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Sub-commands:">
+     Sub-commands:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generate-ancestors (ga)">
+       generate-ancestors (ga)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat1">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat1">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#match-ancestors (ma)">
+       match-ancestors (ma)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat2">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat2">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#augment-ancestors (aa)">
+       augment-ancestors (aa)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat3">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat3">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#match-samples (ms)">
+       match-samples (ms)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat4">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat4">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#infer">
+       infer
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat5">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat5">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#list (ls)">
+       list (ls)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat6">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat6">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#verify">
+       verify
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat7">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat7">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Command line interface</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argument-details">
+   Argument details
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Positional Arguments">
+     Positional Arguments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Named Arguments">
+     Named Arguments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Sub-commands:">
+     Sub-commands:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generate-ancestors (ga)">
+       generate-ancestors (ga)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat1">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat1">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#match-ancestors (ma)">
+       match-ancestors (ma)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat2">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat2">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#augment-ancestors (aa)">
+       augment-ancestors (aa)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat3">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat3">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#match-samples (ms)">
+       match-samples (ms)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat4">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat4">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#infer">
+       infer
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat5">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat5">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#list (ls)">
+       list (ls)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat6">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat6">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#verify">
+       verify
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Positional Arguments_repeat7">
+         Positional Arguments
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#Named Arguments_repeat7">
+         Named Arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="command-line-interface">
+<span id="sec-cli"></span><h1>Command line interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">#</a></h1>
+<p>The command line interface in <code class="docutils literal notranslate"><span class="pre">tsinfer</span></code> is intended to provide a convenient
+interface to the high-level <a class="reference internal" href="api.html#sec-api"><span class="std std-ref">API functionality</span></a>. There are two
+equivalent ways to invoke this program:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tsinfer
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m tsinfer
+</pre></div>
+</div>
+<p>The first form is more intuitive and works well most of the time. The second
+form is useful when multiple versions of Python are installed or if the
+<strong class="command">tsinfer</strong> executable is not installed on your path.</p>
+<p>The <strong class="command">tsinfer</strong> program has five subcommands: <strong class="command">list</strong> prints a
+summary of the data held in one of tsinfer’s <a class="reference internal" href="file_formats.html#sec-file-formats"><span class="std std-ref">file formats</span></a>;
+<strong class="command">infer</strong> runs the complete <a class="reference internal" href="inference.html#sec-inference"><span class="std std-ref">inference process</span></a> for a given
+input <a class="reference internal" href="file_formats.html#sec-file-formats-samples"><span class="std std-ref">samples file</span></a>; and
+<strong class="command">generate-ancestors</strong>, <strong class="command">match-ancestors</strong> and
+<strong class="command">match-samples</strong> run the three parts of this inference
+process as separate steps. Running the inference as separate steps like this
+is recommended for large inferences as it allows for greater control over
+the inference process.</p>
+<section id="argument-details">
+<h2>Argument details<a class="headerlink" href="#argument-details" title="Permalink to this headline">#</a></h2>
+<p><p>Command line interface for tsinfer.</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">tsinfer</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">V</span><span class="p">]</span>
+               <span class="p">{</span><span class="n">generate</span><span class="o">-</span><span class="n">ancestors</span><span class="p">,</span><span class="n">ga</span><span class="p">,</span><span class="n">match</span><span class="o">-</span><span class="n">ancestors</span><span class="p">,</span><span class="n">ma</span><span class="p">,</span><span class="n">augment</span><span class="o">-</span><span class="n">ancestors</span><span class="p">,</span><span class="n">aa</span><span class="p">,</span><span class="n">match</span><span class="o">-</span><span class="n">samples</span><span class="p">,</span><span class="n">ms</span><span class="p">,</span><span class="n">infer</span><span class="p">,</span><span class="nb">list</span><span class="p">,</span><span class="n">ls</span><span class="p">,</span><span class="n">verify</span><span class="p">}</span>
+               <span class="o">...</span>
+</pre></div>
+</div>
+<section id="Positional Arguments">
+<h3>Positional Arguments<a class="headerlink" href="#Positional Arguments" title="Permalink to this headline">#</a></h3>
+<dl class="option-list">
+<dt><kbd>subcommand</kbd></dt>
+<dd><p>Possible choices: generate-ancestors, ga, match-ancestors, ma, augment-ancestors, aa, match-samples, ms, infer, list, ls, verify</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments">
+<h3>Named Arguments<a class="headerlink" href="#Named Arguments" title="Permalink to this headline">#</a></h3>
+<dl class="option-list">
+<dt><kbd>-V, --version</kbd></dt>
+<dd><p>show program’s version number and exit</p>
+</dd>
+</dl>
+</section>
+<section id="Sub-commands:">
+<h3>Sub-commands:<a class="headerlink" href="#Sub-commands:" title="Permalink to this headline">#</a></h3>
+<section id="generate-ancestors (ga)">
+<h4>generate-ancestors (ga)<a class="headerlink" href="#generate-ancestors (ga)" title="Permalink to this headline">#</a></h4>
+<p>Generates a set of ancestors from the input sample data and stores the results in a tsinfer ancestors file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">generate</span><span class="o">-</span><span class="n">ancestors</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">a</span> <span class="n">ANCESTORS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_THREADS</span><span class="p">]</span>
+                           <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">flush</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_FLUSH_THREADS</span><span class="p">]</span>
+                           <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+                           <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+                           <span class="n">samples</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat1">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat1" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat1">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat1" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>-a, --ancestors</kbd></dt>
+<dd><p>The path to the ancestor data file in tsinfer ‘ancestors’ format. If not specified, this defaults to the input samples file stem with the extension ‘.ancestors’. For example, if ‘1kg-chr1.samples’ is the input file then the default ancestors file would be ‘1kg-chr1.ancestors’</p>
+</dd>
+<dt><kbd>--num-threads, -t</kbd></dt>
+<dd><p>The number of worker threads to use. If &lt; 1, use a simpler unthreaded algorithm (default).</p>
+</dd>
+<dt><kbd>--num-flush-threads, -F</kbd></dt>
+<dd><p>The number of data flush threads to use. If &lt; 1, all data is flushed synchronously in the main thread (default=2)</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="match-ancestors (ma)">
+<h4>match-ancestors (ma)<a class="headerlink" href="#match-ancestors (ma)" title="Permalink to this headline">#</a></h4>
+<p>Matches the ancestors built by the ‘generate-ancestors’ command against each other using the model information specified in the input file and writes the output to a tskit .trees file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">match</span><span class="o">-</span><span class="n">ancestors</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+                        <span class="p">[</span><span class="o">-</span><span class="n">a</span> <span class="n">ANCESTORS</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">A</span> <span class="n">ANCESTORS_TREES</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_THREADS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">path</span><span class="o">-</span><span class="n">compression</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">recombination_rate</span> <span class="n">RECOMBINATION_RATE</span> <span class="o">|</span> <span class="o">--</span><span class="n">recombination_map</span> <span class="n">RECOMBINATION_MAP</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">mismatch_ratio</span> <span class="n">MISMATCH_RATIO</span><span class="p">]</span>
+                        <span class="n">samples</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat2">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat2" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat2">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat2" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>-a, --ancestors</kbd></dt>
+<dd><p>The path to the ancestor data file in tsinfer ‘ancestors’ format. If not specified, this defaults to the input samples file stem with the extension ‘.ancestors’. For example, if ‘1kg-chr1.samples’ is the input file then the default ancestors file would be ‘1kg-chr1.ancestors’</p>
+</dd>
+<dt><kbd>-A, --ancestors-trees</kbd></dt>
+<dd><p>The path to the ancestor trees file in tskit ‘.trees’ format. If not specified, this defaults to the input samples file stem with the extension ‘.ancestors.trees’. For example, if ‘1kg-chr1.samples’ is the input file then the default ancestors file would be ‘1kg-chr1.ancestors.trees’</p>
+</dd>
+<dt><kbd>--num-threads, -t</kbd></dt>
+<dd><p>The number of worker threads to use. If &lt; 1, use a simpler unthreaded algorithm (default).</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+<dt><kbd>--no-path-compression</kbd></dt>
+<dd><p>Disable path compression</p>
+</dd>
+<dt><kbd>--recombination_rate</kbd></dt>
+<dd><p>The recombination rate per unit genome</p>
+</dd>
+<dt><kbd>--recombination_map</kbd></dt>
+<dd><p>The path to a file containing recombination rates along the chromosome in HapMap format (see <a class="reference external" href="https://tskit.dev/msprime/docs/latest/api.html#msprime.RateMap.read_hapmap">https://tskit.dev/msprime/docs/latest/api.html#msprime.RateMap.read_hapmap</a> for details of the format)</p>
+</dd>
+<dt><kbd>--mismatch_ratio</kbd></dt>
+<dd><p>The mismatch ratio: measures the relative importance of multiple mutation/error versus recombination during inference. This defaults to unity if a recombination rate or map are specified.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="augment-ancestors (aa)">
+<h4>augment-ancestors (aa)<a class="headerlink" href="#augment-ancestors (aa)" title="Permalink to this headline">#</a></h4>
+<p>Augments the ancestors tree sequence by adding a subset of the samples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">augment</span><span class="o">-</span><span class="n">ancestors</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">n</span> <span class="n">NUM_SAMPLES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">A</span> <span class="n">ANCESTORS_TREES</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+                          <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+                          <span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">path</span><span class="o">-</span><span class="n">compression</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_THREADS</span><span class="p">]</span>
+                          <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span>
+                          <span class="p">[</span><span class="o">--</span><span class="n">recombination_rate</span> <span class="n">RECOMBINATION_RATE</span> <span class="o">|</span> <span class="o">--</span><span class="n">recombination_map</span> <span class="n">RECOMBINATION_MAP</span><span class="p">]</span>
+                          <span class="p">[</span><span class="o">--</span><span class="n">mismatch_ratio</span> <span class="n">MISMATCH_RATIO</span><span class="p">]</span>
+                          <span class="n">samples</span> <span class="n">augmented_ancestors</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat3">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat3" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+<dt><kbd>augmented_ancestors</kbd></dt>
+<dd><p>The path to write the augmented ancestors tree sequence to</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat3">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat3" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>-n, --num-samples</kbd></dt>
+<dd><p>The number of samples to use. Defaults to 10% of the total.</p>
+</dd>
+<dt><kbd>-A, --ancestors-trees</kbd></dt>
+<dd><p>The path to the ancestor trees file in tskit ‘.trees’ format. If not specified, this defaults to the input samples file stem with the extension ‘.ancestors.trees’. For example, if ‘1kg-chr1.samples’ is the input file then the default ancestors file would be ‘1kg-chr1.ancestors.trees’</p>
+</dd>
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>--no-path-compression</kbd></dt>
+<dd><p>Disable path compression</p>
+</dd>
+<dt><kbd>--num-threads, -t</kbd></dt>
+<dd><p>The number of worker threads to use. If &lt; 1, use a simpler unthreaded algorithm (default).</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+<dt><kbd>--recombination_rate</kbd></dt>
+<dd><p>The recombination rate per unit genome</p>
+</dd>
+<dt><kbd>--recombination_map</kbd></dt>
+<dd><p>The path to a file containing recombination rates along the chromosome in HapMap format (see <a class="reference external" href="https://tskit.dev/msprime/docs/latest/api.html#msprime.RateMap.read_hapmap">https://tskit.dev/msprime/docs/latest/api.html#msprime.RateMap.read_hapmap</a> for details of the format)</p>
+</dd>
+<dt><kbd>--mismatch_ratio</kbd></dt>
+<dd><p>The mismatch ratio: measures the relative importance of multiple mutation/error versus recombination during inference. This defaults to unity if a recombination rate or map are specified.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="match-samples (ms)">
+<h4>match-samples (ms)<a class="headerlink" href="#match-samples (ms)" title="Permalink to this headline">#</a></h4>
+<p>Matches the samples against the tree sequence structure built by the match-ancestors command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">match</span><span class="o">-</span><span class="n">samples</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+                      <span class="p">[</span><span class="o">-</span><span class="n">A</span> <span class="n">ANCESTORS_TREES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">path</span><span class="o">-</span><span class="n">compression</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">post</span><span class="o">-</span><span class="n">process</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">O</span> <span class="n">OUTPUT_TREES</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_THREADS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">recombination_rate</span> <span class="n">RECOMBINATION_RATE</span> <span class="o">|</span> <span class="o">--</span><span class="n">recombination_map</span> <span class="n">RECOMBINATION_MAP</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">mismatch_ratio</span> <span class="n">MISMATCH_RATIO</span><span class="p">]</span>
+                      <span class="n">samples</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat4">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat4" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat4">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat4" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>-A, --ancestors-trees</kbd></dt>
+<dd><p>The path to the ancestor trees file in tskit ‘.trees’ format. If not specified, this defaults to the input samples file stem with the extension ‘.ancestors.trees’. For example, if ‘1kg-chr1.samples’ is the input file then the default ancestors file would be ‘1kg-chr1.ancestors.trees’</p>
+</dd>
+<dt><kbd>--no-path-compression</kbd></dt>
+<dd><p>Disable path compression</p>
+</dd>
+<dt><kbd>--no-post-process, --no-simplify</kbd></dt>
+<dd><p>Do not post process the output tree sequence</p>
+</dd>
+<dt><kbd>-O, --output-trees</kbd></dt>
+<dd><p>The path to the output trees file in tskit ‘.trees’ format. If not specified, this defaults to the input samples file stem with the extension ‘.trees’. For example, if ‘1kg-chr1.samples’ is the input file then the default output file would be ‘1kg-chr1.trees’</p>
+</dd>
+<dt><kbd>--num-threads, -t</kbd></dt>
+<dd><p>The number of worker threads to use. If &lt; 1, use a simpler unthreaded algorithm (default).</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+<dt><kbd>--recombination_rate</kbd></dt>
+<dd><p>The recombination rate per unit genome</p>
+</dd>
+<dt><kbd>--recombination_map</kbd></dt>
+<dd><p>The path to a file containing recombination rates along the chromosome in HapMap format (see <a class="reference external" href="https://tskit.dev/msprime/docs/latest/api.html#msprime.RateMap.read_hapmap">https://tskit.dev/msprime/docs/latest/api.html#msprime.RateMap.read_hapmap</a> for details of the format)</p>
+</dd>
+<dt><kbd>--mismatch_ratio</kbd></dt>
+<dd><p>The mismatch ratio: measures the relative importance of multiple mutation/error versus recombination during inference. This defaults to unity if a recombination rate or map are specified.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="infer">
+<h4>infer<a class="headerlink" href="#infer" title="Permalink to this headline">#</a></h4>
+<p>Runs the generate-ancestors, match-ancestors and match-samples commands without writing the intermediate files to disk. Not recommended for large inferences.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">infer</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+              <span class="p">[</span><span class="o">-</span><span class="n">O</span> <span class="n">OUTPUT_TREES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">threads</span> <span class="n">NUM_THREADS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">recombination_rate</span> <span class="n">RECOMBINATION_RATE</span> <span class="o">|</span> <span class="o">--</span><span class="n">recombination_map</span> <span class="n">RECOMBINATION_MAP</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">mismatch_ratio</span> <span class="n">MISMATCH_RATIO</span><span class="p">]</span>
+              <span class="n">samples</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat5">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat5" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat5">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat5" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>-O, --output-trees</kbd></dt>
+<dd><p>The path to the output trees file in tskit ‘.trees’ format. If not specified, this defaults to the input samples file stem with the extension ‘.trees’. For example, if ‘1kg-chr1.samples’ is the input file then the default output file would be ‘1kg-chr1.trees’</p>
+</dd>
+<dt><kbd>--num-threads, -t</kbd></dt>
+<dd><p>The number of worker threads to use. If &lt; 1, use a simpler unthreaded algorithm (default).</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+<dt><kbd>--recombination_rate</kbd></dt>
+<dd><p>The recombination rate per unit genome</p>
+</dd>
+<dt><kbd>--recombination_map</kbd></dt>
+<dd><p>The path to a file containing recombination rates along the chromosome in HapMap format (see <a class="reference external" href="https://tskit.dev/msprime/docs/latest/api.html#msprime.RateMap.read_hapmap">https://tskit.dev/msprime/docs/latest/api.html#msprime.RateMap.read_hapmap</a> for details of the format)</p>
+</dd>
+<dt><kbd>--mismatch_ratio</kbd></dt>
+<dd><p>The mismatch ratio: measures the relative importance of multiple mutation/error versus recombination during inference. This defaults to unity if a recombination rate or map are specified.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="list (ls)">
+<h4>list (ls)<a class="headerlink" href="#list (ls)" title="Permalink to this headline">#</a></h4>
+<p>Show a summary of the specified tsinfer related file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="nb">list</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="p">]</span>
+             <span class="n">path</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat6">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat6" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>path</kbd></dt>
+<dd><p>The tsinfer file to show information about.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat6">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat6" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>--storage, -s</kbd></dt>
+<dd><p>Show detailed information about data storage.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="verify">
+<h4>verify<a class="headerlink" href="#verify" title="Permalink to this headline">#</a></h4>
+<p>Verify that the specified tree sequence and samples files represent the same data</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsinfer</span> <span class="n">verify</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">section</span> <span class="p">{</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">inference</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">formats</span><span class="p">,</span><span class="n">tsinfer</span><span class="o">.</span><span class="n">threads</span><span class="p">}]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">progress</span><span class="p">]</span>
+               <span class="n">samples</span> <span class="n">tree_sequence</span>
+</pre></div>
+</div>
+<section id="Positional Arguments_repeat7">
+<h5>Positional Arguments<a class="headerlink" href="#Positional Arguments_repeat7" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>samples</kbd></dt>
+<dd><p>The input sample data in tsinfer ‘samples’ format. Please see the documentation at <a class="reference external" href="http://tsinfer.readthedocs.io/">http://tsinfer.readthedocs.io/</a> for information on how to import data into this format.</p>
+</dd>
+<dt><kbd>tree_sequence</kbd></dt>
+<dd><p>The tree sequence to compare with in .trees format.</p>
+</dd>
+</dl>
+</section>
+<section id="Named Arguments_repeat7">
+<h5>Named Arguments<a class="headerlink" href="#Named Arguments_repeat7" title="Permalink to this headline">#</a></h5>
+<dl class="option-list">
+<dt><kbd>-v, --verbosity</kbd></dt>
+<dd><p>Increase the verbosity</p>
+</dd>
+<dt><kbd>--log-section, -L</kbd></dt>
+<dd><p>Possible choices: tsinfer.inference, tsinfer.formats, tsinfer.threads</p>
+<p>Log messages only for the specified module</p>
+</dd>
+<dt><kbd>--progress, -p</kbd></dt>
+<dd><p>Show a progress monitor.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="api.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">API Documentation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="file_formats.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">File formats</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tskit Developers<br/>
+  
+      &copy; Copyright 2018.<br/>
+    <div class="extra_footer">
+      tsinfer undefined
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

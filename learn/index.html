@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<!-- START: html-header -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta name=”robots” content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        tskit-dev - Learn
+    </title>
+    <meta property="og:type" content="website">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="" name="description">
+    <meta content="Videos, tutorials and articles about tree sequences." property="og:description">
+    <meta content="Videos, tutorials and articles about tree sequences." property="twitter:description">
+    
+        <meta content="https://i.imgur.com/I9PBjvU.png" property="og:image">
+        <meta content="https://i.imgur.com/I9PBjvU.png" property="twitter:image">
+    
+
+    <meta content="tskit-dev - Learn" property="og:title">
+    <meta content="tskit-dev - Learn" property="twitter:title">
+    <script>
+      document.documentElement.className = 'js'
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicons/site.webmanifest" crossorigin="use-credentials">
+    <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.png" color="#085167">
+    <meta name="msapplication-TileColor" content="#085167">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://use.typekit.net/uhf4ono.css">
+    <link rel="stylesheet" href="/assets/dist/css/style.min.css">
+</head>
+<!-- END: html-header -->
+
+<body>
+<div class="page-wrapper">
+    <!-- START: header -->
+    <header class="header">
+        <!-- START: navbar -->
+        <nav class="nav navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <!-- START: icon-logo -->
+            <svg class="icon icon--logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 84.8 68">
+                <style>
+                    .logo-st0 {
+                        fill: #085167
+                    }
+
+                    .logo-st1 {
+                        fill: #14e2a8
+                    }
+                </style>
+                <path class="logo-st0"
+                      d="M2 61.4v-8.2H0v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                <path class="logo-st0"
+                      d="M62.7 67.5v-3.4h1.9V53.2h-1.9v-3.4h6.8v14.3h1.9v3.4h-8.7zm1.1-23.3c-.1-1.6 1.2-2.9 2.7-3 1.6-.1 2.9 1.2 3 2.7.1 1.6-1.2 2.9-2.7 3h-.1c-1.5.1-2.8-1-2.9-2.5v-.2"></path>
+                <path class="logo-st0"
+                      d="M39.6 67.5v-3.4h1.9V45.4h-1.9V42h6.8v14.4h4l1.7-3.2h-2.5v-3.4h9.6v3.4h-2.6L53.7 58l4.2 6h2.8v3.4h-9.9V64h1.7l-2.8-4.6h-3.4V64h1.9v3.4l-8.6.1z"></path>
+                <path class="logo-st0"
+                      d="M23.4 57c4.5 1.3 6.4 2.7 6.4 5.9 0 3.3-2.5 5.1-6.4 5.1-2.6 0-4.3-.7-5.4-1.9l-.1 1.3h-3.4v-6.1h3.7c.7 1.9 2.5 3.2 4.5 3.1 1.3 0 2.3-.5 2.3-1.6s-1-1.5-1.7-1.7l-2.6-.7c-2.8-.7-6.2-1.7-6.2-6 0-3.4 2.4-5.2 6-5.2 1.8 0 3.6.6 5 1.8l.1-1.3H29v5.9h-3.7c-.4-1.7-1.9-2.9-3.6-2.9-1.3 0-2.3.5-2.3 1.7 0 1 .6 1.4 1.8 1.7l2.2.9z"></path>
+                <path class="logo-st0"
+                      d="M75 61.4v-8.2h-2v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                <path class="logo-st1" d="M75 28.8h4.8v12.5H75z"></path>
+                <path class="logo-st1" d="M41.5 28.8h4.8v9.6h-4.8z"></path>
+                <path class="logo-st1" d="M41.5 24h38.3v4.8H41.5z"></path>
+                <path class="logo-st1" d="M58.3 14.4h4.8V24h-4.8z"></path>
+                <path class="logo-st1" d="M2 14.4h4.8v26.9H2z"></path>
+                <path class="logo-st1" d="M2 9.6h61.1v4.8H2z"></path>
+                <path class="logo-st1" d="M34.6 0h4.8v9.6h-4.8z"></path>
+            </svg>
+            <!-- END: icon-logo -->
+            <span class="visually-hidden">
+                        tskit
+                    </span>
+        </a>
+        <button class="navbar-toggler collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarContent"
+                aria-controls="navbarContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <!-- START: menu -->
+            <ul class="navbar-nav">
+                <li class="nav__item">
+                    <a href="/genetics-research" class=" nav__item__link">Genetics research</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/learn" class=" nav__item__link">Learn</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/software" class=" nav__item__link">Software</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/news" class=" nav__item__link">News</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/community" class=" nav__item__link">Community</a>
+                </li>
+            </ul>
+            <!-- END: menu -->
+        </div>
+    </div>
+</nav>
+        <!-- END: navbar -->
+
+        <!-- START: heading -->
+        
+        <div class="page-heading page-heading--type-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h1 class="page-heading__text">
+                            Learn
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- END: heading -->
+    </header>
+    <!-- END: header -->
+
+    <!-- START: content -->
+    <main class="page-content" id="content">
+        <!-- START: hero-type-2 -->
+<div class="hero hero--type-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-6">
+                <h2 class="hero__heading">
+                    What is a tree sequence?
+                </h2>
+                <div class="hero__content wysiwyg">
+                    <p>
+                        A <em>succinct tree sequence</em>, or tree sequence for short, represents the relationships
+                        between a set of DNA sequences. Tree sequences can be used to store genetic data
+                        efficiently, and enable powerful analysis of millions of whole genomes at a time. They
+                        can be created by simulation or by inferring relationships from genetic variation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: hero-type-2 -->
+
+<!-- START: cards-type-2 -->
+<section class="section section--cards section--cards--type-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="section__heading">
+                    Tree sequences provide:
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <a href="/tutorials/what_is.html#sec-what-is-ancestry" class="card card--type-2">
+                    <h4 class="card__heading">
+                        A record full of genetic ancestry
+                    </h4>
+                    <p class="card__text">
+                        A tree sequence concisely captures the full history of a set of genomes by sharing
+                        common branches between adjacent genetic trees
+                    </p>
+                    <span class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Read more
+                                </span>
+                            </span>
+                </a>
+                <!-- END: card -->
+            </div>
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <a href="/tutorials/what_is.html#sec-what-is-dna-data" class="card card--type-2">
+                    <h4 class="card__heading">
+                        An encoding of DNA data
+                    </h4>
+                    <p class="card__text">
+                        Placing mutations on a tree sequence allows lossless representation and compression of
+                        DNA datasets
+                    </p>
+                    <span class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Read more
+                                </span>
+                            </span>
+                </a>
+                <!-- END: card -->
+            </div>
+            <div class="col-lg-4">
+                <!-- START: card -->
+                <a href="/tutorials/what_is.html#sec-what-is-analysis" class="card card--type-2">
+                    <h4 class="card__heading">
+                        An efficient analysis framework
+                    </h4>
+                    <p class="card__text">
+                        Many of the analyses we perform on DNA data can be expressed naturally as operations on
+                        the ancestral trees, leading to highly efficient algorithms
+                    </p>
+                    <span class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Read more
+                                </span>
+                            </span>
+                </a>
+                <!-- END: card -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: cards-type-2 -->
+
+<!-- START: filters -->
+<section class="section section--filters">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="section__heading">
+                    Browse tutorials, publications and videos:
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="btn-group" role="group" aria-label="Filters">
+                    <a data-r-selector="all" onclick="switch_filter('all')" class="btn btn-outline-primary active" aria-current="page">All</a>
+                    <a data-r-selector="paper" onclick="switch_filter('paper')" class="btn btn-outline-primary">Publications</a>
+                    <a data-r-selector="tutorial" onclick="switch_filter('tutorial')" class="btn btn-outline-primary">Tutorials</a>
+                    <a data-r-selector="video" onclick="switch_filter('video')" class="btn btn-outline-primary">Videos</a>
+<!--                    <a onclick="switch_filter" class="btn btn-outline-primary">Applications</a>-->
+                </div>
+            </div>
+        </div>
+<!--        <div class="row">-->
+<!--            <div class="col-md-8 col-lg-5">-->
+<!--                <select class="form-select form-select-lg">-->
+<!--                    <option>Choose resource type</option>-->
+<!--                    <option value="publication">publication</option>-->
+<!--                    <option value="tutorial">tutorial</option>-->
+<!--                    <option value="video">video</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+    <div class="container">
+        <div class="row">
+            
+            
+            <div class="col-lg-4" data-r-type="paper">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Paper</span>
+                    </div>
+                    <h5 class="card__heading">
+                        A unified genealogy of modern and ancient genomes
+                    </h5>
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                Science (2022) Wohns et al
+                            </p>
+                            <p>
+                                doi: <a href="https://doi.org/10.1126/science.abi8264">10.1126/science.abi8264</a>
+                            </p>
+                            <p>
+                                25 February, 2022
+                            </p>
+                            <p>
+                                <p>This paper describes using <code class="highlighter-rouge">tskit</code>, <code class="highlighter-rouge">tsinfer</code> and <code class="highlighter-rouge">tsdate</code> to create 
+a unified tree sequence of 3601 modern and 8  ancient human genome
+sequences compiled from eight datasets. Then estimates
+of ancestor geographic location are introduced that
+recapitulate key features of human history.</p>
+
+                            </p>
+                        </div>
+                        <a href="https://doi.org/10.1126/science.abi8264" class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        Read the article
+                                    </span>
+                        </a>
+                    
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="paper">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Paper</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Efficient ancestry and mutation simulation with msprime 1.0
+                    </h5>
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                Genetics (2021) Baumdicker et al
+                            </p>
+                            <p>
+                                doi: <a href="https://doi.org/10.1093/genetics/iyab229">10.1093/genetics/iyab229</a>
+                            </p>
+                            <p>
+                                13 December, 2021
+                            </p>
+                            <p>
+                                <p>The accompanying paper to the <code class="highlighter-rouge">msprime</code> 1.0 release, summarising its features
+and performance and discussing its development model.</p>
+
+                            </p>
+                        </div>
+                        <a href="https://doi.org/10.1093/genetics/iyab229" class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        Read the article
+                                    </span>
+                        </a>
+                    
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="tutorial">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Tskit Terminology and Concepts
+                    </h5>
+                    
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                21 June, 2021
+                            </p>
+                            <p> <p>This tutorial serves as an introduction to the terminology and concepts in tskit, and its underlying data structures.</p>
+ </p>
+                        </div>
+                        <a href=/tutorials/terminology_and_concepts.html class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        See the tutorial
+                                    </span>
+                        </a>
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="tutorial">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Getting started with tskit
+                    </h5>
+                    
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                21 June, 2021
+                            </p>
+                            <p> <p>You’ve run some simulations or inference methods, and you now have a TreeSequence object; what now? This tutorial is
+aimed users who are new to tskit and would like to get some basic tasks completed.</p>
+ </p>
+                        </div>
+                        <a href=/tutorials/getting_started.html class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        See the tutorial
+                                    </span>
+                        </a>
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="tutorial">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Analysing Tree Sequences
+                    </h5>
+                    
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                21 June, 2021
+                            </p>
+                            <p> <p>This tutorial aims to give a quick overview of how the tskit statistics APIs work and how to use them effectively.</p>
+ </p>
+                        </div>
+                        <a href=/tutorials/analysing_tree_sequences.html class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        See the tutorial
+                                    </span>
+                        </a>
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="tutorial">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Tables and Editing
+                    </h5>
+                    
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                19 June, 2021
+                            </p>
+                            <p> <p>The underlying representation of a tree sequence in <code class="highlighter-rouge">tskit</code> is a set of tables. This tutorial shows how to access and
+manipulate these tables.</p>
+ </p>
+                        </div>
+                        <a href=/tutorials/tables_and_editing.html class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        See the tutorial
+                                    </span>
+                        </a>
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="tutorial">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Analysing Trees
+                    </h5>
+                    
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                19 June, 2021
+                            </p>
+                            <p> <p>tskit provides single tree traversals, algorithms and phylogenetic statistics, of which this tutorial
+gives an overview.</p>
+ </p>
+                        </div>
+                        <a href=/tutorials/analysing_trees.html class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        See the tutorial
+                                    </span>
+                        </a>
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="tutorial">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Working with Metadata
+                    </h5>
+                    
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                16 June, 2021
+                            </p>
+                            <p> <p>This tutorial gives an overview of <code class="highlighter-rouge">tskit</code>’s metadata system. This allows arbitrary, documented metadata to be attached to 
+entities in tree sequences.</p>
+ </p>
+                        </div>
+                        <a href=/tutorials/metadata.html class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        See the tutorial
+                                    </span>
+                        </a>
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="tutorial">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Do you really need mutations?
+                    </h5>
+                    
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                06 June, 2021
+                            </p>
+                            <p> <p>In tree sequences, the genetic genealogy exists independently of the mutations that generate genetic variation, and often we are primarily interested in genetic variation because of what it can tell us about those genealogies. This tutorial aims to illustrate when we can leave mutations and genetic variation aside and study the genealogies directly.</p>
+ </p>
+                        </div>
+                        <a href=/tutorials/no_mutations.html class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        See the tutorial
+                                    </span>
+                        </a>
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="tutorial">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Visualization
+                    </h5>
+                    
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                29 May, 2021
+                            </p>
+                            <p> <p>It is often helpful to visualize a single tree — or multiple trees along a tree sequence — together with
+sites and mutations. <code class="highlighter-rouge">tskit</code> provides functions to do this, outputting either plain ascii or unicode text,
+or the more flexible Scalable Vector Graphics (SVG) format. This tutorial illustrates various examples.</p>
+ </p>
+                        </div>
+                        <a href=/tutorials/viz.html class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        See the tutorial
+                                    </span>
+                        </a>
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="tutorial">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Tskit and R
+                    </h5>
+                    
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                11 May, 2021
+                            </p>
+                            <p> <p>To interface with <code class="highlighter-rouge">tskit</code> in R, we can use the <code class="highlighter-rouge">reticulate</code> R package, which lets you call
+Python functions within an R session. In this short tutorial, we’ll go through a couple of
+examples to show you how to get started.</p>
+ </p>
+                        </div>
+                        <a href=/tutorials/tskitr.html class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        See the tutorial
+                                    </span>
+                        </a>
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="tutorial">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Completing forwards simulations
+                    </h5>
+                    
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                20 January, 2021
+                            </p>
+                            <p> <p>In this tutorial we show how to combine the best of both forwards and backwards simulation approaches by simulating
+the recent past using a forwards-time simulator and then complete the simulation of the ancient past using <code class="highlighter-rouge">msprime</code>.</p>
+ </p>
+                        </div>
+                        <a href=/tutorials/completing_forward_sims.html class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        See the tutorial
+                                    </span>
+                        </a>
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="tutorial">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Tutorial</span>
+                    </div>
+                    <h5 class="card__heading">
+                        msprime tutorials
+                    </h5>
+                    
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                19 January, 2021
+                            </p>
+                            <p> <p>A set of tutorials for <code class="highlighter-rouge">msprime</code>. Covering demography, bottlenecks and introgression.</p>
+ </p>
+                        </div>
+                        <a href=/tutorials/advanced_msprime.html class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        See the tutorial
+                                    </span>
+                        </a>
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="video">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Video</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Inferring the ancestry of everyone
+                    </h5>
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                02 December, 2020
+                            </p>
+                            <p>
+                                Jerome Kelleher at PopGen Vienna
+                            </p>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=yrDSLlssoek" class="video-trigger"
+                           data-bs-toggle="modal" data-bs-target="#globalModal" data-video-id="yrDSLlssoek"
+                           data-video-aspect-ratio="16x9">
+                                    <span class="visually-hidden">
+                                        Play video
+                                    </span>
+                            <div class="video-trigger__image-wrapper">
+                                <img alt="video thumbnail" class="img-fluid"
+                                     src="https://img.youtube.com/vi/yrDSLlssoek/maxresdefault.jpg">
+                            </div>
+                        </a>
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="paper">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Paper</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Efficiently Summarizing Relationships in Large Samples: A General Duality Between Statistics of Genealogies and Genomes
+                    </h5>
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                Genetics (2020) Ralph et al
+                            </p>
+                            <p>
+                                doi: <a href="https://doi.org/10.1534/genetics.120.303253">10.1534/genetics.120.303253</a>
+                            </p>
+                            <p>
+                                01 July, 2020
+                            </p>
+                            <p>
+                                <p>This paper shows that we can think about any statistic that works on
+sequence data in an equivalent (and more powerful) way in terms of the
+underlying trees, and that we can compute these statistics very efficiently.
+Read this paper if you would like more technical details on how the
+underlying data structures work and an introduction to incremental
+tree sequence algorithms.
+—</p>
+
+                            </p>
+                        </div>
+                        <a href="https://doi.org/10.1534/genetics.120.303253" class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        Read the article
+                                    </span>
+                        </a>
+                    
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="video">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Video</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Tree sequences and inference
+                    </h5>
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                22 May, 2020
+                            </p>
+                            <p>
+                                Yan Wong at Phyloseminar
+                            </p>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=yB4uSle66Pw" class="video-trigger"
+                           data-bs-toggle="modal" data-bs-target="#globalModal" data-video-id="yB4uSle66Pw"
+                           data-video-aspect-ratio="16x9">
+                                    <span class="visually-hidden">
+                                        Play video
+                                    </span>
+                            <div class="video-trigger__image-wrapper">
+                                <img alt="video thumbnail" class="img-fluid"
+                                     src="https://img.youtube.com/vi/yB4uSle66Pw/maxresdefault.jpg">
+                            </div>
+                        </a>
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="video">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Video</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Tree sequence fundamentals
+                    </h5>
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                08 April, 2020
+                            </p>
+                            <p>
+                                Wilder Wohns at Phyloseminar
+                            </p>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=YrZTKjLzZY0" class="video-trigger"
+                           data-bs-toggle="modal" data-bs-target="#globalModal" data-video-id="YrZTKjLzZY0"
+                           data-video-aspect-ratio="16x9">
+                                    <span class="visually-hidden">
+                                        Play video
+                                    </span>
+                            <div class="video-trigger__image-wrapper">
+                                <img alt="video thumbnail" class="img-fluid"
+                                     src="https://img.youtube.com/vi/YrZTKjLzZY0/maxresdefault.jpg">
+                            </div>
+                        </a>
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="paper">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Paper</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Inferring whole-genome histories in large population datasets
+                    </h5>
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                Nature Genetics (2019) Kelleher et al
+                            </p>
+                            <p>
+                                doi: <a href="https://doi.org/10.1038/s41588-019-0483-y">10.1038/s41588-019-0483-y</a>
+                            </p>
+                            <p>
+                                02 September, 2019
+                            </p>
+                            <p>
+                                <p>Start here if you’re new to tree sequences. This paper introduces
+<a href="/tsinfer.html">tsinfer</a>, the method to infer tree sequence
+topologies from genetic variation data.
+Please see the <a href="https://www.biorxiv.org/content/10.1101/458067v1">preprint</a>
+if you cannot access the Nature Genetics paper.</p>
+
+                            </p>
+                        </div>
+                        <a href="https://doi.org/10.1038/s41588-019-0483-y" class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        Read the article
+                                    </span>
+                        </a>
+                    
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="video">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Video</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Succinct tree sequences for megasample genomics (47:03)
+                    </h5>
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                26 April, 2019
+                            </p>
+                            <p>
+                                Jerome Kelleher at MIA
+                            </p>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=X1GEuQrF1jQ" class="video-trigger"
+                           data-bs-toggle="modal" data-bs-target="#globalModal" data-video-id="X1GEuQrF1jQ"
+                           data-video-aspect-ratio="16x9">
+                                    <span class="visually-hidden">
+                                        Play video
+                                    </span>
+                            <div class="video-trigger__image-wrapper">
+                                <img alt="video thumbnail" class="img-fluid"
+                                     src="https://img.youtube.com/vi/X1GEuQrF1jQ/maxresdefault.jpg">
+                            </div>
+                        </a>
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="video">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Video</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Introduction to the tree sequence toolchain
+                    </h5>
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                25 April, 2019
+                            </p>
+                            <p>
+                                Wilder Wohns at MIA Primer
+                            </p>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=X1GEuQrF1jQ" class="video-trigger"
+                           data-bs-toggle="modal" data-bs-target="#globalModal" data-video-id="X1GEuQrF1jQ"
+                           data-video-aspect-ratio="16x9">
+                                    <span class="visually-hidden">
+                                        Play video
+                                    </span>
+                            <div class="video-trigger__image-wrapper">
+                                <img alt="video thumbnail" class="img-fluid"
+                                     src="https://img.youtube.com/vi/X1GEuQrF1jQ/maxresdefault.jpg">
+                            </div>
+                        </a>
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="paper">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Paper</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Tree‐sequence recording in SLiM opens new horizons for forward‐time simulation of whole genomes
+                    </h5>
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                Molecular Ecology Resources (2019) Haller et al
+                            </p>
+                            <p>
+                                doi: <a href="https://doi.org/10.1111/1755-0998.12968">10.1111/1755-0998.12968</a>
+                            </p>
+                            <p>
+                                22 November, 2018
+                            </p>
+                            <p>
+                                <p>Continuing on from the 2018 PLOS Computational Biology paper,
+we discuss here how the tree
+sequence recording method was implemented in the powerful
+<a href="https://messerlab.org/slim/">SLiM</a> simulator. We
+show how some simulations are orders of magnitude more efficient
+and examples of the new possibilities that keeping a full
+record of the genetic ancestry makes available.</p>
+
+                            </p>
+                        </div>
+                        <a href="https://doi.org/10.1111/1755-0998.12968" class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        Read the article
+                                    </span>
+                        </a>
+                    
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="paper">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Paper</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Efficient pedigree recording for fast population genetics simulation
+                    </h5>
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                PLOS Computational Biology (2018) Kelleher et al
+                            </p>
+                            <p>
+                                doi: <a href="https://doi.org/10.1371/journal.pcbi.1006581">10.1371/journal.pcbi.1006581</a>
+                            </p>
+                            <p>
+                                01 November, 2018
+                            </p>
+                            <p>
+                                <p>Forwards-in-time simulations are very flexible but also usually very CPU
+intensive. This paper shows how we used tree sequences to make
+forwards-in-time simulations both more efficient and even more flexible.</p>
+
+                            </p>
+                        </div>
+                        <a href="https://doi.org/10.1371/journal.pcbi.1006581" class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        Read the article
+                                    </span>
+                        </a>
+                    
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="video">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Video</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Simulating, storing & processing genetic variation data for millions of samples
+                    </h5>
+                    
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                26 April, 2017
+                            </p>
+                            <p>
+                                Jerome Kelleher at MIA
+                            </p>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=MH2b9iU4oUA" class="video-trigger"
+                           data-bs-toggle="modal" data-bs-target="#globalModal" data-video-id="MH2b9iU4oUA"
+                           data-video-aspect-ratio="16x9">
+                                    <span class="visually-hidden">
+                                        Play video
+                                    </span>
+                            <div class="video-trigger__image-wrapper">
+                                <img alt="video thumbnail" class="img-fluid"
+                                     src="https://img.youtube.com/vi/MH2b9iU4oUA/maxresdefault.jpg">
+                            </div>
+                        </a>
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+            <div class="col-lg-4" data-r-type="paper">
+                <!-- START: card -->
+                <div class="card card--type-3">
+                    <div class="card__metadata">
+                        <span class="card__category">Paper</span>
+                    </div>
+                    <h5 class="card__heading">
+                        Efficient Coalescent Simulation and Genealogical Analysis for Large Sample Sizes
+                    </h5>
+                    
+                        <div class="wysiwyg">
+                            <p>
+                                PLOS Computational Biology (2016) Kelleher et al
+                            </p>
+                            <p>
+                                doi: <a href="https://doi.org/10.1371/journal.pcbi.1004842">10.1371/journal.pcbi.1004842</a>
+                            </p>
+                            <p>
+                                04 April, 2016
+                            </p>
+                            <p>
+                                <p>This is where it all started. Here we introduce the
+<a href="/software/msprime.html">msprime</a> coalescent simulator and
+the core algorithms and data structures that would later
+be separated out into <a href="software/tskit.html">tskit</a>.
+Read this paper if you would like to find out more about
+coalescent simulation, or to understand the core tree sequence
+algorithms and theoretical results. <em>Note:</em> much
+of the terminology has been updated since this original publication
+as the models were generalised.</p>
+
+                            </p>
+                        </div>
+                        <a href="https://doi.org/10.1371/journal.pcbi.1004842" class="list__item__link link link--type-1 link--type-1--external"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                                    <span class="link__text">
+                                        Read the article
+                                    </span>
+                        </a>
+                    
+                    
+                    
+
+<!--                    <div class="card__metadata">-->
+<!--                        <span class="card__tag">Population genetics</span>-->
+<!--                    </div>-->
+                </div>
+                <!-- END: card -->
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- START: pagination -->
+    <div class="container" style="display: none">
+        <div class="row">
+            <div class="col">
+                <nav class="pagination-wrapper">
+                    <ul class="pagination list list--unstyled list--horizontal">
+                        <li class="list__item">
+                                    <span class="pagination__number pagination__number--prev disabled">
+                                        Prev
+                                    </span>
+                        </li>
+                        <li class="list__item">
+                                    <span class="pagination__number pagination__number--current">
+                                        1
+                                    </span>
+                        </li>
+                        <li class="list__item">
+                            <a class="pagination__number" href="#">
+                                2
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a class="pagination__number" href="#">
+                                3
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a class="pagination__number" href="#">
+                                4
+                            </a>
+                        </li>
+                        <li class="list__item">
+                                    <span class="pagination__dots">
+                                        &hellip;
+                                    </span>
+                        </li>
+                        <li class="list__item">
+                            <a class="pagination__number" href="#">
+                                12
+                            </a>
+                        </li>
+                        <li class="list__item">
+                            <a class="pagination__number pagination__number--next" href="#">
+                                Next
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- END: pagination -->
+
+</section>
+<!-- END: cards-type-3 -->
+
+    </main>
+    <!-- END: content -->
+
+    <!-- START: footer -->
+        <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 offset-md-1">
+                <a class="footer__logo" href="./">
+                    <!-- START: icon-logo -->
+                    <svg class="icon icon--logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+                         viewBox="0 0 84.8 68">
+                        <style>
+                            .logo-st0 {
+                                fill: #085167
+                            }
+
+                            .logo-st1 {
+                                fill: #14e2a8
+                            }
+                        </style>
+                        <path class="logo-st0"
+                              d="M2 61.4v-8.2H0v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                        <path class="logo-st0"
+                              d="M62.7 67.5v-3.4h1.9V53.2h-1.9v-3.4h6.8v14.3h1.9v3.4h-8.7zm1.1-23.3c-.1-1.6 1.2-2.9 2.7-3 1.6-.1 2.9 1.2 3 2.7.1 1.6-1.2 2.9-2.7 3h-.1c-1.5.1-2.8-1-2.9-2.5v-.2"></path>
+                        <path class="logo-st0"
+                              d="M39.6 67.5v-3.4h1.9V45.4h-1.9V42h6.8v14.4h4l1.7-3.2h-2.5v-3.4h9.6v3.4h-2.6L53.7 58l4.2 6h2.8v3.4h-9.9V64h1.7l-2.8-4.6h-3.4V64h1.9v3.4l-8.6.1z"></path>
+                        <path class="logo-st0"
+                              d="M23.4 57c4.5 1.3 6.4 2.7 6.4 5.9 0 3.3-2.5 5.1-6.4 5.1-2.6 0-4.3-.7-5.4-1.9l-.1 1.3h-3.4v-6.1h3.7c.7 1.9 2.5 3.2 4.5 3.1 1.3 0 2.3-.5 2.3-1.6s-1-1.5-1.7-1.7l-2.6-.7c-2.8-.7-6.2-1.7-6.2-6 0-3.4 2.4-5.2 6-5.2 1.8 0 3.6.6 5 1.8l.1-1.3H29v5.9h-3.7c-.4-1.7-1.9-2.9-3.6-2.9-1.3 0-2.3.5-2.3 1.7 0 1 .6 1.4 1.8 1.7l2.2.9z"></path>
+                        <path class="logo-st0"
+                              d="M75 61.4v-8.2h-2v-3.4h2v-5h4.8v5h5v3.4h-5v8.2c0 1.9.8 2.9 2.5 2.9.9 0 1.7-.2 2.4-.6v3.5c-1.1.5-2.4.8-3.7.8-4.2 0-6-2.8-6-6.6"></path>
+                        <path class="logo-st1" d="M75 28.8h4.8v12.5H75z"></path>
+                        <path class="logo-st1" d="M41.5 28.8h4.8v9.6h-4.8z"></path>
+                        <path class="logo-st1" d="M41.5 24h38.3v4.8H41.5z"></path>
+                        <path class="logo-st1" d="M58.3 14.4h4.8V24h-4.8z"></path>
+                        <path class="logo-st1" d="M2 14.4h4.8v26.9H2z"></path>
+                        <path class="logo-st1" d="M2 9.6h61.1v4.8H2z"></path>
+                        <path class="logo-st1" d="M34.6 0h4.8v9.6h-4.8z"></path>
+                    </svg>
+                    <!-- END: icon-logo -->
+                    <span class="visually-hidden">
+                        tskit
+                    </span>
+                </a>
+            </div>
+            <div class="col">
+                <ul class="list list--unstyled">
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev/tskit-site/issues/new/choose" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Report a website issue
+                                </span>
+                        </a>
+                    </li>
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Github
+                                </span>
+                        </a>
+                    </li>
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev/.github/blob/main/CODE_OF_CONDUCT.md" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Code of conduct
+                                </span>
+                        </a>
+                    </li>
+                    <li class="list__item">
+                        <a href="https://github.com/tskit-dev/tskit-site/blob/main/LICENSE" class="list__item__link link link--type-1">
+                                <span class="link__text">
+                                    Licence
+                                </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- END: footer -->
+    <!-- START: global modal -->
+    <div class="modal fade"
+         id="globalModal"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="globalModalLabel"
+         aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <button class="navbar-toggler modal-close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="modal-header visually-hidden">
+                    <h5 class="modal-title" id="globalModalLabel">
+                        Modal content
+                    </h5>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END: global modal -->
+
+</div>
+
+<script src="/assets/dist/js/main.min.js"></script>
+
+</body>
+</html>
+
